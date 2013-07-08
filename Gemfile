@@ -1,38 +1,42 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'rails'
 gem 'pg'
-
+gem 'haml'
+gem 'jquery-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+  gem 'foundation-icons-sass-rails'
+  gem 'zurb-foundation'
 end
 
-gem 'jquery-rails'
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'pry-stack_explorer'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+  gem 'quiet_assets'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+  gem 'annotate'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+  gem 'rspec-rails'
+  gem 'faker'
+  gem 'factory_girl_rails'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'guard-rspec'
+  gem 'rb-fsevent'
+end
 
-# To use debugger
-# gem 'debugger'
+group :development do
+  gem 'better_errors'
+end

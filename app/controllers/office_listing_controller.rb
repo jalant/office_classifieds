@@ -1,0 +1,2 @@
+class OfficeListingController < ApplicationController
+end
