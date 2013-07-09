@@ -9,7 +9,6 @@ describe 'Home' do
 
   describe 'GET /' do
     it 'displays the HOME page with the navbar' do
-      save_and_open_page
       visit root_path
       page.should have_selector('nav')
       find('nav').should have_content('Browse Offices')
