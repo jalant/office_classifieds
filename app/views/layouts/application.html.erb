@@ -11,7 +11,7 @@
 	<nav class="top-bar">
 		<ul class="title-area">
 			<li class="name">
-				<h1><a href="#"> YourOffice </a></h1>
+				<h1><a href="/"> YourOffice </a></h1>
 			</li>
 		</ul>
 
@@ -20,15 +20,37 @@
 				<li class="divider hide-for-small"></li>
 				<li class="has-dropdown"><a href="#">Browse Offices</a>
 					<ul class="dropdown">
-						<li><a href="/cities/1">New York</a></li>
-						<li><a href="/cities/2">Singapore</a></li>
+						<li><a href="/cities/1">Singapore</a></li>
+						<li><a href="/cities/2">New York</a></li>
 						<li><a href="/cities/3">San Francisco</a></li>
 						<li><a href="/cities/4">Hong Kong</a></li>
 						<li><a href="/cities/5">London</a></li>
 					</ul>
 				</li>
-				<a class="success button" href="#">Sign Up</a>
-				<a class="alert button" href="#">Login</a> 
+
+				<% unless current_renter || current_broker %>
+					<a class="main success button" href="#">Sign Up</a>
+					<a class="main alert button" href="#">Login</a>
+				<% end %>
+
+				<% if current_renter %>
+				<li class="display_user"> <%= current_renter.email %> </li>
+				<%= link_to "Sign Out", destroy_renter_session_path(current_renter), method: :delete, class: "button"%>
+				<% end %>
+
+				<% if current_broker %>
+				<li class="display_user"> <%= current_broker.email %> </li>
+				<%= link_to "Sign Out", destroy_broker_session_path(current_broker), method: :delete, class: "button"%>
+				<% end %>
+
+
+				<a class="signup success button" href=<%= new_renter_registration_path%>>Renter Signup</a>
+				<a class="signup success button" href=<%= new_broker_registration_path%>>Broker Signup</a>
+
+				<a class="login alert button" href=<%= new_renter_session_path%>>Renter Login</a>
+				<a class="login alert button" href=<%= new_broker_session_path%>>Broker Login</a>
+				
+
 			</ul>
 		</section>
 	</nav>

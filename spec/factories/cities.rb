@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :city do
+    id 1 
     name "Singapore"
     img "http://www.sunscreen.com.sg/backgrounds/Aerial_View_of_Singapore.jpg"
   end

@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %title OfficeClassifieds
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    %nav.top-bar
+      %ul.title-area
+        %li.name
+          %h1
+            %a{:href => "/"} YourOffice
+      %section.top-bar-section
+        %ul.right
+          %li.divider.hide-for-small
+          %li.has-dropdown
+            %a{:href => "#"} Browse Offices
+            %ul.dropdown
+              %li
+                %a{:href => "/cities/1"} Singapore
+              %li
+                %a{:href => "/cities/2"} New York
+              %li
+                %a{:href => "/cities/3"} San Francisco
+              %li
+                %a{:href => "/cities/4"} Hong Kong
+              %li
+                %a{:href => "/cities/5"} London
+        if(current_user)
+          %a.success.button{:href => "#"} 
+            Sign Up
+          %a.alert.button{:href => "#"} 
+            Login
+          %a.signup.success.button{:href => "\#{new_renter_registration_path}"}
+            Renter Signup
+          %a.signup.success.button{:href => "\#{new_broker_registration_path}"}
+            Broker Signup
+          %a.login.alert.button{:href => "\#{new_renter_session_path}"}
+            Renter Login
+          %a.login.alert.button{:href => "\#{new_broker_session_path}"} 
+            Broker Login
+
+    = yield
+    :javascript
+      $(document).foundation(); 
