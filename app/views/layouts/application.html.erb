@@ -35,12 +35,12 @@
 
 				<% if current_renter %>
 				<li class="display_user"> <%= current_renter.email %> </li>
-				<%= link_to "Sign Out", destroy_renter_session_path(current_renter), method: :delete, class: "button"%>
+				<%= link_to "Sign Out", destroy_renter_session_path, method: :delete, class: "button"%>
 				<% end %>
 
 				<% if current_broker %>
 				<li class="display_user"> <%= current_broker.email %> </li>
-				<%= link_to "Sign Out", destroy_broker_session_path(current_broker), method: :delete, class: "button"%>
+				<%= link_to "Sign Out", destroy_broker_session_path, method: :delete, class: "button"%>
 				<% end %>
 
 
