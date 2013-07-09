@@ -20,5 +20,7 @@ class Renter < ActiveRecord::Base
 
   validates :address, length: {maximum: 80} 
   has_many :notifications
+  has_many :favorites
+  has_many :office_listings, through: :favorites
 
 end
