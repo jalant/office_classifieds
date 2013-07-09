@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130709020828) do
     t.integer  "city_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "img_url"
   end
 
   create_table "notifications", :force => true do |t|

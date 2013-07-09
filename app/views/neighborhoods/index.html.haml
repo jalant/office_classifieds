@@ -1,0 +1,6 @@
+%h1 Neighborhoods
+
+-@neighborhoods.each do |neighborhood|
+  =link_to neighborhood_path(neighborhood), id: neighborhood.name do
+    .neighborhood-box
+      =neighborhood.name
