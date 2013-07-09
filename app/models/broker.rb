@@ -8,7 +8,6 @@ class Broker < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :phone_number, :address, :img_url, :firm
   # attr_accessible :title, :body
-
   validates_presence_of :first_name
   validates_presence_of :last_name
   validates_presence_of :phone_number
@@ -18,9 +17,8 @@ class Broker < ActiveRecord::Base
   validates_presence_of :img_url
   validates_presence_of :password
   validates_presence_of :password_confirmation
-
   validates :address, length: {maximum: 80}
-
   has_many :office_listings
+  has_many :notifications 
 
 end

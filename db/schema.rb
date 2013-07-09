@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20130709001737) do
 
   create_table "brokers", :force => true do |t|
@@ -48,6 +49,17 @@ ActiveRecord::Schema.define(:version => 20130709001737) do
     t.integer  "city_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.string   "subject"
+    t.text     "body"
+    t.integer  "office_listing_id"
+    t.boolean  "read"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "broker_id"
+    t.integer  "renter_id"
   end
 
   create_table "office_listings", :force => true do |t|

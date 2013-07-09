@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :neighborhood do
-    name "MyString"
+    name "West Harlem"
     city_id 1
   end
 end

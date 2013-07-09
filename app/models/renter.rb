@@ -18,6 +18,7 @@ class Renter < ActiveRecord::Base
   validates_presence_of :password
   validates_presence_of :password_confirmation
 
-  validates :address, length: {maximum: 80}
+  validates :address, length: {maximum: 80} 
+  has_many :notifications
 
 end
