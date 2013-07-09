@@ -43,13 +43,10 @@
 				<%= link_to "Sign Out", destroy_broker_session_path(current_broker), method: :delete, class: "button"%>
 				<% end %>
 
-
 				<a class="signup success button" href=<%= new_renter_registration_path%>>Renter Signup</a>
 				<a class="signup success button" href=<%= new_broker_registration_path%>>Broker Signup</a>
-
 				<a class="login alert button" href=<%= new_renter_session_path%>>Renter Login</a>
-				<a class="login alert button" href=<%= new_broker_session_path%>>Broker Login</a>
-				
+				<a class="login alert button" href=<%= new_broker_session_path%>>Broker Login</a>		
 
 			</ul>
 		</section>

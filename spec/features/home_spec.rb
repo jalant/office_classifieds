@@ -63,5 +63,9 @@ describe 'Home' do
       current_path.should eq new_broker_registration_path
     end
 
+    it 'signout button signs the current user out and redirects to home page' do
+      pending
+    end
+
   end
 end
