@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Renter do
   subject(:renter) {create(:renter)}
+
   describe 'validation' do
     it 'requires a first name' do
       expect(subject).to be_valid
@@ -51,5 +52,14 @@ describe Renter do
       expect(subject).to be_invalid
     end
   end
-end
 
+  describe 'associations' do
+    it 'has many favorites' do
+    	expect(subject).to respond_to(:favorites)
+    end
+    it 'has office listings' do
+      subject.office_listings.should eq []
+      expect(subject).to respond_to(:office_listings)
+    end
+  end
+end
