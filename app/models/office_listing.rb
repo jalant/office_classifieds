@@ -4,4 +4,13 @@ class OfficeListing < ActiveRecord::Base
   belongs_to :broker
 
   has_many :renters, through: :favorites
+
+  validates :address, presence: true
+  validates :office_type, presence: true
+  validates :size, presence: true, numericality: true
+  validates :rent, presence: true, numericality: true
+  validates :term_length, presence: true
+  validates :availability, presence: true
+  validates :neighborhood_id, presence: true
+  validates :broker_id, presence: true
 end
