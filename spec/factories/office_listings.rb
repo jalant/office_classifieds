@@ -7,13 +7,13 @@ FactoryGirl.define do
     size 1342
     rent 1975
     details "MyText"
-    kitchen false
+    kitchen true
     reception false
-    light false
+    light true
     shower false
     move_in false
-    high_ceiling false
-    patio false
+    high_ceiling true
+    patio true
     furniture false
     term_length "5-7 yrs"
     availability "Immediate"

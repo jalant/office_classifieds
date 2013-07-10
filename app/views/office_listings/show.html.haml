@@ -1,0 +1,25 @@
+%h1 Office Listing
+#map-canvas
+
+.listing-stats
+  #rent
+    =@office_listing.rent
+  #size
+    =@office_listing.size
+  #lease-type
+    =@office_listing.office_type
+
+.amenities
+  .kitchen{class: "#{@office_listing.kitchen ? 'true' : ''}" }
+  .light{class: "#{@office_listing.light ? 'true' : ''}" }
+  .patio{class: "#{@office_listing.patio ? 'true' : ''}" }
+  .reception{class: "#{@office_listing.reception ? 'true' : ''}" }
+  .shower{class: "#{@office_listing.shower ? 'true' : ''}" }
+  .high_ceiling{class: "#{@office_listing.high_ceiling ? 'true' : ''}" }
+
+.broker-info
+  #broker-name
+    "#{@office_listing.broker.first_name} #{@office_listing.broker.last_name}"
+  #broker-email
+    =@office_listing.broker.email
+
