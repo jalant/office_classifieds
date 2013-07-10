@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :broker do
+    id 1
   	email 'lh@lh.com'
   	password 'password'
   	password_confirmation 'password'
