@@ -1,9 +1,12 @@
 require 'spec_helper'
 
 describe OfficeListing do
-   let(:office) { create(:office_listing) }
+  let(:office) { create(:office_listing) }
+  let(:renter) {create(:renter)} 
+  let(:renter2) {create(:renter2)} 
+  
 
-  it 'requires an address' do 
+  it 'requires an address' do
     office.should be_valid
     office.address = nil
     office.should be_invalid
@@ -15,7 +18,7 @@ describe OfficeListing do
     office.should be_invalid
   end
 
-  it 'requires a size' do 
+  it 'requires a size' do
     office.should be_valid
     office.size = nil
     office.should be_invalid
@@ -61,4 +64,23 @@ describe OfficeListing do
     office.broker_id = nil
     office.should be_invalid
   end
+
+  it "can add itself to a current user's favorites" do
+    office.renters.size.should eq 0
+    office.add_favorite(renter)
+    office.renters.should include(renter)
+    office.renters.size.should eq 1
+    office.add_favorite(renter2)
+    office.renters.size.should eq 2 
+    renter.favorites.first.should eq Favorite.first   
+  end
+
+  it "can remove itself from a current user's favorites" do
+    office.add_favorite(renter)
+    office.renters.size.should eq 1
+    office.remove_favorite(renter)
+    office.renters.should_not include(renter)
+    office.renters.size.should eq 0
+  end
+
 end
