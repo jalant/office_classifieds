@@ -5,6 +5,8 @@ OfficeClassifieds::Application.routes.draw do
   # resources :neighborhoods, only: [:index, :show]
   # resources :cities, only: [:show]
   resources :cities do
-    resources :neighborhoods, only: [:index, :show]
+    resources :neighborhoods, only: [:index, :show] do
+      resources :office_listings
+    end
   end
 end
