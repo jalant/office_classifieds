@@ -3,6 +3,7 @@ class OfficeListing < ActiveRecord::Base
 
   belongs_to :broker
 
+  has_many :favorites
   has_many :renters, through: :favorites
 
   validates :address, presence: true
@@ -13,4 +14,13 @@ class OfficeListing < ActiveRecord::Base
   validates :availability, presence: true
   validates :neighborhood_id, presence: true
   validates :broker_id, presence: true
+
+  def add_favorite(renter)
+    renters << renter
+  end
+
+  def remove_favorite(renter)
+    renters.delete(renter)
+  end
+
 end

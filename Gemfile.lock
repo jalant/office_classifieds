@@ -237,7 +237,7 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   quiet_assets
-  rails
+  rails (= 3.2.13)
   rb-fsevent
   rspec-rails
   sass-rails
