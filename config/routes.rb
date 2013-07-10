@@ -1,6 +1,6 @@
 OfficeClassifieds::Application.routes.draw do
   devise_for :brokers
-  devise_for :renters
+  devise_for :renters, :controllers => { :registrations => "authentication/registrations" }
   root :to => "home#index"
   # resources :neighborhoods, only: [:index, :show]
   # resources :cities, only: [:show]
