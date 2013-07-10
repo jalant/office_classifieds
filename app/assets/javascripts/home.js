@@ -21,5 +21,4 @@ $(function(){
   $('.right').on('click', '.alert', renter_broker_login);
   $('.right').on('click', '.signup', signup_action);
   
-  
 });
