@@ -11,7 +11,20 @@ describe 'OfficeListings' do
     office_listing.reload
   end
 
-  describe 'GET cities/:city_id/neighborhoods' do
+  describe 'GET cities/:city_id/neighborhoods/:neighborhood_id/office_listings/' do
+    it 'displays a list of all of the listings in a neighborhood' do
+      office_listing_2 = create(:office_listing_2)
+      office_listing_3 = create(:office_listing_3)
+      office_listing_4 = create(:office_listing_4)
+      visit city_neighborhood_office_listings_path(neighborhood, neighborhood_id: neighborhood.id, city_id: city.id)
+      page.should have_content(office_listing.address)
+      page.should have_content(office_listing_2.address)
+      page.should have_content(office_listing_3.address)
+      page.should have_content(office_listing_4.address)
+    end
+  end
+
+  describe 'GET cities/:city_id/neighborhoods/:neighborhood_id/office_listings/:id' do
     it 'displays a mini google map' do 
       office_listing.reload
       visit city_neighborhood_office_listing_path(neighborhood, neighborhood_id: neighborhood.id, city_id: city.id)
@@ -37,6 +50,7 @@ describe 'OfficeListings' do
       page.should_not have_css('.reception.true')
       page.should_not have_css('.shower.true')
     end
+
     it 'displays the name and contact information of the broker' do
       visit city_neighborhood_office_listing_path(neighborhood, neighborhood_id: neighborhood.id, city_id: city.id)
       find('div#broker-name').should have_content(office_listing.broker.first_name)
