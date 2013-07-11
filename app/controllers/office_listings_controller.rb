@@ -2,6 +2,12 @@ class OfficeListingsController < ApplicationController
   def index
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
     @office_listings = OfficeListing.where("neighborhood_id = #{@neighborhood.id}")
+    address_list = []
+    @office_listings.select do |office_listing|
+      address_list.include? office_listing.address
+      address_list << office_listing.address
+    end
+
   end
   
   def new
