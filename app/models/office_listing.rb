@@ -33,6 +33,7 @@ class OfficeListing < ActiveRecord::Base
 
   has_many :favorites
   has_many :renters, through: :favorites
+  has_many :images
 
   validates :address, presence: true
   validates :office_type, presence: true

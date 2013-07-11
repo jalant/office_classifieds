@@ -1,0 +1,198 @@
+address*unit*neighborhood*space_type*rent_type*size*price\n902 Broadway,  Flatiron, New York, NY 10003 *8th Floor*Flatiron*Office*Lease*17,185*
+41 Union Square W,  Union Square, New York, NY 10003 *Unit 301*Union*Office*Lease*2,300*
+100 5th Ave,  Flatiron, New York, NY 10003 *Unit Partial 9*Flatiron*Office*Lease*5,361*
+30 W 22nd St,  Flatiron District, New York, NY 10010 *4th Floor*Flatiron*Office*Lease*3,150*
+33 W 19th St,  Midtown, New York, NY 10011 *6th Floor*Midtown*Office*Lease*11,666*
+22 W 19th St,  Flatiron, New York, NY 10011 *10th Floor*Flatiron*Office*Lease*6,900*
+150 W 22nd St,  Chelsea, New York, NY 10011 *10th Floor*Chelsea*Office*Lease*6,900*
+22 W 19th St,  Flatiron, New York, NY 10011 *11th Floor*Flatiron*Office*Lease*18,300*
+150 W 22nd St,  Chelsea, New York, NY 10011 *1st Floor*Chelsea*Office*Lease*6,500*
+150 W 22nd St,  Chelsea, New York, NY 10011 *2nd Floor*Chelsea*Office*Lease*6,500*
+30 E 20th St,  Midtown, New York, NY 10003 *Unit 3Fw2*Midtown*Office*Lease*800*
+,  902 Broadway, Flatiron, New York, NY 10003 **902*Coworking Space***
+,  16 W 23rd St, Flatiron District, New York, NY 10010 **16*Coworking Space***
+38 W 21st St,  Flatiron District, New York, NY 10010 *Unit Lease*Flatiron*Office*Lease*7,000*
+304 Park Ave S,  Flatiron District, New York, NY 10010 *7th Floor*Flatiron*Office*Lease*18,032*
+304 Park Ave S,  Flatiron District, New York, NY 10010 *10th Floor*Flatiron*Office*Lease*18,045*
+5 E 16th St,  Union Square, New York, NY 10003 *6th Floor*Union*Office*Lease*4,500*
+304 Park Ave S,  Flatiron District, New York, NY 10010 *11th Floor*Flatiron*Office*Lease*18,045*
+304 Park Ave S,  Flatiron District, New York, NY 10010 *Unit 207*Flatiron*Office*Lease*5,162*
+304 Park Ave S,  Flatiron District, New York, NY 10010 *Unit 214*Flatiron*Office*Lease*2,757*
+902 Broadway,  Flatiron, New York, NY 10003 *Unit 1611*Flatiron*Office*Lease*2,166*
+635 Avenue of the Americas,  Chelsea, New York, NY 10011 *5th Floor*Chelsea*Office*Lease*12,274*
+635 Avenue of the Americas,  Chelsea, New York, NY 10011 *4th Floor*Chelsea*Office*Lease*12,278*
+635 Avenue of the Americas,  Chelsea, New York, NY 10011 *6th Floor*Chelsea*Office*Lease*12,300*
+635 Avenue of the Americas,  Chelsea, New York, NY 10011 *3rd Floor*Chelsea*Office*Lease*12,329*
+635 Avenue of the Americas,  Chelsea, New York, NY 10011 *2nd Floor*Chelsea*Office*Lease*12,185*
+137 5th Ave,  Flatiron District, New York, NY 10010 *5th Floor*Flatiron*Office*Lease*3,300*
+100 5th Ave,  Flatiron, New York, NY 10003 *15th Floor*Flatiron*Office*Lease*5,405*
+581 Avenue of the Americas,  Midtown, New York, NY 10011 *4th Floor*Midtown*Office*Lease*5,300*
+184 5th Ave,  Flatiron District, New York, NY 10010 *4th Floor*Flatiron*Office*Lease*3,700*
+156 5th Ave,  Midtown, New York, NY 10011 *Unit 1219*Midtown*Office*Lease*1,400*
+184 5th Ave,  Flatiron District, New York, NY 10010 *5th Floor*Flatiron*Office*Lease*3,700*
+5 W 20th St,  Flatiron District, New York, NY 10011 *Unit Entire 1st2nd3rd*Flatiron*Office*Lease*14,500*
+,  36 W 20th St, Flatiron, New York, NY 10011 **36*Coworking Space***
+114 5th Ave,  Midtown, New York, NY 10037 *6th Floor*Midtown*Office*Lease*19,326*
+915 Broadway,  Flatiron District, New York, NY 10010 *18th Floor*Flatiron*Office*Sublease*10,071*
+114 5th Ave,  Midtown, New York, NY 10037 *4th Floor*Midtown*Office*Lease*19,326*
+114 5th Ave,  Midtown, New York, NY 10037 *10th Floor*Midtown*Office*Lease*19,326*
+114 5th Ave,  Midtown, New York, NY 10037 *5th Floor*Midtown*Office*Lease*19,326*
+114 5th Ave,  Midtown, New York, NY 10037 *2nd Floor*Midtown*Office*Lease*19,326*
+114 5th Ave,  Midtown, New York, NY 10037 *15th Floor*Midtown*Office*Lease*19,254*
+114 5th Ave,  Midtown, New York, NY 10037 *7th Floor*Midtown*Office*Lease*19,326*
+114 5th Ave,  Midtown, New York, NY 10037 *14th Floor*Midtown*Office*Lease*19,326*
+114 5th Ave,  Midtown, New York, NY 10037 *18th Floor*Midtown*Office*Lease*19,402*
+114 5th Ave,  Midtown, New York, NY 10037 *16th Floor*Midtown*Office*Lease*19,402*
+114 5th Ave,  Midtown, New York, NY 10037 *11th Floor*Midtown*Office*Lease*19,326*
+114 5th Ave,  Midtown, New York, NY 10037 *3rd Floor*Midtown*Office*Lease*19,326*
+570 Lexington Ave,  Midtown East, New York, NY 10022 *26th Floor*Midtown*Office*Lease*4,185*
+600 Lexington Ave,  Midtown, New York, NY 10022 *26th Floor*Midtown*Office*Lease*6,780*
+745 5th Avenue,  Midtown, New York, NY 10022 *14th Floor*Midtown*Office*Sublease*9,570*
+575 Madison Ave,  Midtown East, New York, NY 10022 *Unit  7*Midtown*Office*Lease*3,128*
+570 Lexington Ave,  Midtown East, New York, NY 10022 *47th Floor*Midtown*Office*Lease*3,882*
+551 5th Ave,  Midtown Center, New York, NY 10017 *Unit 1613*Midtown*Office*Lease*2,923*
+570 Lexington Ave,  Midtown East, New York, NY 10022 *46th Floor*Midtown*Office*Lease*3,880*
+600 Lexington Ave,  Midtown, New York, NY 10022 *4th Floor*Midtown*Office*Lease*6,856*
+570 Lexington Ave,  Midtown East, New York, NY 10022 *45th Floor*Midtown*Office*Lease*3,883*
+420 Madison Ave,  Midtown Center, New York, NY 10017 *14th Floor*Midtown*Office*Lease*3,300*
+597 5th Ave,  Midtown East, New York, NY 10017 *4th Floor*Midtown*Office*Lease*6,250*
+Grand Central Square,  Turtle Bay, New York, NY 10017 *24th Floor*Turtle*Office*Lease*5,480*
+12 E 46th St,  Midtown, New York, NY 10017 *4th Floor*Midtown*Office*Lease*5,000*
+600 Lexington Ave,  Midtown, New York, NY 10022 *30th Floor*Midtown*Office*Lease*6,780*
+570 Lexington Ave,  Midtown East, New York, NY 10022 *32nd Floor*Midtown*Office*Lease*4,249*
+570 Lexington Ave,  Midtown East, New York, NY 10022 *39th Floor*Midtown*Office*Lease*4,023*
+12 E 44th St,  Midtown, New York, NY 10017 *4th Floor*Midtown*Office*Lease*2,500*
+600 Lexington Ave,  Midtown, New York, NY 10022 *33rd Floor*Midtown*Office*Lease*6,767*
+600 Lexington Ave,  Midtown, New York, NY 10022 *10th Floor*Midtown*Office*Lease*8,607*
+600 Lexington Ave,  Midtown, New York, NY 10022 *29th Floor*Midtown*Office*Lease*6,780*
+597 5th Ave,  Midtown East, New York, NY 10017 *11th Floor*Midtown*Office*Lease*6,250*
+597 5th Ave,  Midtown East, New York, NY 10017 *9th Floor*Midtown*Office*Lease*6,250*
+Grand Central Square,  Turtle Bay, New York, NY 10017 *23rd Floor*Turtle*Office*Lease*6,001*
+609 5th Ave,  Midtown, New York, NY 10017 *Unit 1102*Midtown*Office*Lease*2,980*
+609 5th Ave,  Midtown, New York, NY 10017 *Unit 1010*Midtown*Office*Lease*3,826*
+609 5th Ave,  Midtown, New York, NY 10017 *Unit 908*Midtown*Office*Lease*3,163*
+Grand Central Square,  Turtle Bay, New York, NY 10017 *29th Floor*Turtle*Office*Lease*5,748*
+609 5th Ave,  Midtown, New York, NY 10017 *Unit 902*Midtown*Office*Lease*1,958*
+609 5th Ave,  Midtown, New York, NY 10017 *Unit 1104*Midtown*Office*Lease*2,151*
+500 Park Ave,  Midtown East, New York, NY 10022 *6th Floor*Midtown*Office*Lease*8,107*
+757 3rd Ave,  Turtle Bay, New York, NY 10017 *19th Floor*Turtle*Office*Lease*5,284*
+747 3rd Ave,  Midtown East, New York, NY 10017 *26th Floor*Midtown*Office*Lease*4,557*
+757 3rd Ave,  Turtle Bay, New York, NY 10017 *4th Floor*Turtle*Office*Lease*30,746*
+747 3rd Ave,  Midtown East, New York, NY 10017 *Unit 35C*Midtown*Office*Lease*3,795*
+757 3rd Ave,  Turtle Bay, New York, NY 10017 *Unit 2403*Turtle*Office*Lease*2,617*
+757 3rd Ave,  Turtle Bay, New York, NY 10017 *Unit 2401*Turtle*Office*Lease*4,344*
+805 3rd Ave,  Midtown East, New York, NY 10022 *20th Floor*Midtown*Office*Sublease*6,193*
+757 3rd Ave,  Turtle Bay, New York, NY 10017 *Unit  1701-02*Turtle*Office*Lease*6,481*
+757 3rd Ave,  Turtle Bay, New York, NY 10017 *Unit 1502*Turtle*Office*Lease*5,479*
+757 3rd Ave,  Turtle Bay, New York, NY 10017 *25th Floor*Turtle*Office*Lease*6,961*
+305 E 47th St,  Turtle Bay, New York, NY 10017 *10th Floor*Turtle*Office*Lease*4,176*
+280 Park Ave,  Midtown, New York, NY 10017 *30th Floor*Midtown*Office*Sublease*3,129*
+590 Madison Ave,  Midtown East, New York, NY 10022 *31st Floor*Midtown*Office*Sublease*16,625*
+850 3rd Ave,  Midtown East, New York, NY 10022 *18th Floor*Midtown*Office*Lease*13,700*
+545 5th Ave,  Midtown East, New York, NY 10036 *9th Floor*Midtown*Office*Sublease*3,946*
+645 5th Ave,  Midtown East, New York, NY 10022 *4th Floor*Midtown*Office*Lease*2,201*
+52 Vanderbilt Ave,  Midtown East, New York, NY 10017 *11th Floor*Midtown*Office*Lease*9,275*
+52 Vanderbilt Ave,  Midtown East, New York, NY 10017 *19th Floor*Midtown*Office*Lease*9,275*
+65 Broadway,  Financial District, New York, NY 10005 *18th Floor*Financial*Office*Lease*3,000*
+The Trump Building,  Financial District, New York, NY 10005 *60th Floor*Financial*Office*Lease*6,191*
+90 Broad St,  Lower Manhattan, New York, NY 10004 *Unit  710*Lower*Office*Lease*4,197*
+44 Wall St,  Lower Manhattan, New York, NY 10005 *Floor Lease*Lower*Office*Sublease*16,000*
+The Trump Building,  Financial District, New York, NY 10005 *7th Floor*Financial*Office*Lease*38,744*
+90 Broad St,  Lower Manhattan, New York, NY 10004 *Unit 1701*Lower*Office*Lease*2,186*
+90 Broad St,  Lower Manhattan, New York, NY 10004 *Unit 402*Lower*Office*Lease*2,960*
+The Trump Building,  Financial District, New York, NY 10005 *8th Floor*Financial*Office*Lease*36,614*
+The Trump Building,  Financial District, New York, NY 10005 *61st Floor*Financial*Office*Lease*6,243*
+90 Broad St,  Lower Manhattan, New York, NY 10004 *Unit 2003*Lower*Office*Lease*2,777*
+88 Pine St,  Financial District, New York, NY 10005 *Unit  10*Financial*Office*Lease*8,992*
+The Trump Building,  Financial District, New York, NY 10005 *9th Floor*Financial*Office*Lease*36,490*
+90 Broad St,  Lower Manhattan, New York, NY 10004 *Unit  2002*Lower*Office*Lease*3,324*
+44 Wall St,  Lower Manhattan, New York, NY 10005 *5th Floor*Lower*Office*Lease*13,382*
+90 Broad St,  Lower Manhattan, New York, NY 10004 *9th Floor*Lower*Office*Lease*2,362*
+88 Pine St,  Financial District, New York, NY 10005 *31st Floor*Financial*Office*Sublease*4,261*
+65 Broadway,  Financial District, New York, NY 10005 *9th Floor*Financial*Office*Sublease*2,700*
+90 Broad St,  Lower Manhattan, New York, NY 10004 *9th Floor*Lower*Office*Lease*2,362*
+90 Broad St,  Lower Manhattan, New York, NY 10004 *Unit  1504*Lower*Office*Lease*2,613*
+44 Wall St,  Lower Manhattan, New York, NY 10005 *3rd Floor*Lower*Office*Lease*15,570*
+88 Pine St,  Financial District, New York, NY 10005 *Unit  20*Financial*Office*Lease*7,551*
+88 Pine St,  Financial District, New York, NY 10005 *Unit  5*Financial*Office*Lease*4,134*
+5 Hanover Square,  Financial District, New York, NY 10005 *Unit 501*Financial*Office*Lease*6,230*
+120 Broadway,  Lower Manhattan, New York, NY 10006 *6th Floor*Lower*Office*Lease*21,286*
+65 Broadway,  Financial District, New York, NY 10005 *17th Floor*Financial*Office*Lease*3,770*
+65 Broadway,  Financial District, New York, NY 10005 *17th Floor*Financial*Office*Lease*2,828*
+120 Broadway,  Lower Manhattan, New York, NY 10006 *6th Floor*Lower*Office*Sublease*24,271*
+100 Church St,  Lower Manhattan, New York, NY 10007 *7th Floor*Lower*Office*Sublease*46,492*
+88 Pine St,  Financial District, New York, NY 10005 *31st Floor*Financial*Office*Sublease*4,261*
+250 Greenwich St,  Financial District, New York, NY 10007 *51st Floor*Financial*Office*Sublease*43,008*
+140 Broadway,  Financial District, New York, NY 10005 *Unit  Partial*Financial*Office*Lease*6,388*
+250 Greenwich St,  Financial District, New York, NY 10007 *50th Floor*Financial*Office*Sublease*43,008*
+90 John St,  Lower Manhattan, New York, NY 10038 *Unit 703*Lower*Office*Lease*2,337*
+75 Broad St,  Financial District, New York, NY 10004 *15th Floor*Financial*Office*Sublease*10,840*
+90 John St,  Lower Manhattan, New York, NY 10038 *Unit 309*Lower*Office*Lease*2,702*
+5 Hanover Square,  Financial District, New York, NY 10005 *Unit  Partial*Financial*Office*Sublease*6,260*
+100 Church St,  Lower Manhattan, New York, NY 10007 *7th Floor*Lower*Office*Sublease*21,100*
+100 Church St,  Lower Manhattan, New York, NY 10007 *7th Floor*Lower*Office*Sublease*25,392*
+140 Broadway,  Financial District, New York, NY 10005 *Unit 3020*Financial*Office*Lease*5,046*
+140 Broadway,  Financial District, New York, NY 10005 *24th Floor*Financial*Office*Lease*7,349*
+90 John St,  Lower Manhattan, New York, NY 10038 *6th Floor*Lower*Office*Lease*18,737*
+90 John St,  Lower Manhattan, New York, NY 10038 *Unit 704*Lower*Office*Lease*5,032*
+111 Broadway,  Lower Manhattan, New York, NY 10006 *19th Floor*Lower*Office*Sublease*22,000*
+75 Broad St,  Financial District, New York, NY 10004 *31st Floor*Financial*Office*Lease*10,047*
+40 Broad St,  Lower Manhattan, New York, NY 10004 *Unit 602*Lower*Office*Lease*2,734*
+The Trump Building,  Financial District, New York, NY 10005 *51st Floor*Financial*Office*Lease*9,248*
+The Trump Building,  Financial District, New York, NY 10005 *53rd Floor*Financial*Office*Lease*9,248*
+The Trump Building,  Financial District, New York, NY 10005 *54th Floor*Financial*Office*Lease*9,248*
+257 Park Ave S,  Gramercy Park, New York, NY 10010 *Unit 302*Gramercy*Office*Lease*7,554*
+Clarendon Building,  Union Square, New York, NY 10003 *Unit 1805*Union*Office*Lease*1,919*
+Clarendon Building,  Union Square, New York, NY 10003 *Unit 1304*Union*Office*Lease*1,337*
+Clarendon Building,  Union Square, New York, NY 10003 *15th Floor*Union*Office*Lease*17,255*
+Clarendon Building,  Union Square, New York, NY 10003 *Unit 2008*Union*Office*Lease*1,837*
+220 E 23rd St,  Gramercy, New York, NY 10010 *Unit 300*Gramercy*Office*Lease*10,200*
+220 E 23rd St,  Gramercy, New York, NY 10010 *Unit 509*Gramercy*Office*Lease*3,250*
+233 Park Ave S,  Gramercy Park, New York, NY 10003 *10th Floor*Gramercy*Office*Sublease*12,217*
+120 East 23rd Street,  Gramercy Park, New York, NY 10010 *4th Floor*Gramercy*Office*Lease*20,590*
+120 E 23rd St,  Gramercy Park, New York, NY 10010 *5th Floor*Gramercy*Office*Lease*20,590*
+80 West End Ave,  Upper West Side, New York, NY 10023 *4th Floor*Upper*Office*Lease*30,000*
+80 West End Ave,  Upper West Side, New York, NY 10023 *5th Floor*Upper*Office*Lease*30,000*
+80 West End Ave,  Upper West Side, New York, NY 10023 *6th Floor*Upper*Office*Lease*30,000*
+3 Columbus Cir,  Midtown, New York, NY 10023 *17th Floor*Midtown*Office*Lease*34,290*
+3 Columbus Cir,  Midtown, New York, NY 10023 *2nd Floor*Midtown*Office*Lease*22,052*
+80 West End Ave,  Upper West Side, New York, NY 10023 *Unit 302*Upper*Office*Lease*11,442*
+5 Columbus Cir,  Midtown, New York, NY 10023 *7th Floor*Midtown*Office*Lease*3,036*
+157 Columbus Ave,  Upper West Side, New York, NY 10023 *2nd Floor*Upper*Office*Lease*14,319*
+157 Columbus Ave,  Upper West Side, New York, NY 10023 *5th Floor*Upper*Office*Lease*14,319*
+157 Columbus Ave,  Upper West Side, New York, NY 10023 *3rd Floor*Upper*Office*Lease*14,319*
+157 Columbus Ave,  Upper West Side, New York, NY 10023 *1st Floor*Upper*Office*Lease*11,116*
+157 Columbus Ave,  Upper West Side, New York, NY 10023 *4th Floor*Upper*Office*Lease*14,319*
+3 Columbus Cir,  Midtown, New York, NY 10023 *Unit 2215*Midtown*Office*Lease*3,216*
+3 Columbus Cir,  Midtown, New York, NY 10023 *Unit 1620*Midtown*Office*Lease*9,708*
+3 Columbus Cir,  Midtown, New York, NY 10023 *Unit 1422*Midtown*Office*Lease*1,920*
+3 Columbus Cir,  Midtown, New York, NY 10023 *Unit 2200*Midtown*Office*Lease*3,886*
+3 Columbus Cir,  Midtown, New York, NY 10023 *Unit 2205*Midtown*Office*Lease*3,616*
+3 Columbus Cir,  Midtown, New York, NY 10023 *Unit 1401*Midtown*Office*Lease*4,334*
+3 Columbus Cir,  Midtown, New York, NY 10023 *Unit 2210*Midtown*Office*Lease*4,742*
+3 Columbus Cir,  Midtown, New York, NY 10023 *Unit 2220*Midtown*Office*Lease*5,766*
+180 Amsterdam Avenue,  Upper West Side, New York, NY 10023 *3rd Floor*Upper*Office*Lease*9,000*
+3 Columbus Cir,  Midtown, New York, NY 10023 *20th Floor*Midtown*Office*Lease*21,342*
+3 Columbus Cir,  Midtown, New York, NY 10023 *21st Floor*Midtown*Office*Lease*21,342*
+165 W 86th St,  Upper West Side, New York, NY 10024 *Entire Building*Upper*Office*Lease*10,000*
+80 West End Ave,  Upper West Side, New York, NY 10023 *Unit PH*Upper*Office*Lease*10,000*
+165 W 86th St,  Upper West Side, New York, NY 10024 *Unit Lease*Upper*Office*Lease*12,000*
+498 7th Ave,  Midtown, New York, NY 10018 *Unit 16*Midtown*Office*Sublease*14,508*
+501 7th Ave,  Garment District, New York, NY 10018 *Unit 514*Garment*Office*Lease*1,854*
+512 7th Ave,  Midtown, New York, NY 10018 *43rd Floor*Midtown*Office*Lease*18,993*
+512 7th Ave,  Midtown, New York, NY 10018 *42nd Floor*Midtown*Office*Lease*9,904*
+512 7th Ave,  Midtown, New York, NY 10018 *32nd Floor*Midtown*Office*Lease*1,549*
+512 7th Ave,  Midtown, New York, NY 10018 *11th Floor*Midtown*Office*Lease*6,424*
+512 7th Ave,  Midtown, New York, NY 10018 *8th Floor*Midtown*Office*Lease*6,310*
+512 7th Ave,  Midtown, New York, NY 10018 *7th Floor*Midtown*Office*Lease*14,630*
+512 7th Ave,  Midtown, New York, NY 10018 *6th Floor*Midtown*Office*Lease*14,630*
+512 7th Ave,  Midtown, New York, NY 10018 *32nd Floor*Midtown*Office*Lease*2,246*
+500 7th Ave,  Midtown, New York, NY 10018 *16th Floor*Midtown*Office*Lease*25,559*
+500 7th Ave,  Midtown, New York, NY 10018 *Unit A*Midtown*Office*Lease*8,000*
+500 7th Ave,  Midtown, New York, NY 10018 *7th Floor*Midtown*Office*Lease*13,082*
+500 7th Ave,  Midtown, New York, NY 10018 *Unit A*Midtown*Office*Lease*9,102*
+512 7th Ave,  Midtown, New York, NY 10018 *31st Floor*Midtown*Office*Lease*12,117*
+101 W 116th St,  Upper Manhattan, New York, NY 10026 *2nd Floor*Upper*Office*Lease*525*
+101 W 116th St,  Upper Manhattan, New York, NY 10026 *2nd Floor*Upper*Office*Lease*138*
+101 W 116th St,  Upper Manhattan, New York, NY 10026 *2nd Floor*Upper*Office*Lease*1,394*
+2791 8th Ave,  Upper Manhattan, New York, NY 10039 *Unit  Ground*Upper*Office*Lease*3,195*
