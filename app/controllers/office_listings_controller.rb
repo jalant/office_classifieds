@@ -4,8 +4,8 @@ class OfficeListingsController < ApplicationController
     @office_listings = OfficeListing.where("neighborhood_id = #{@neighborhood.id}")
     address_list = []
     @office_listings.select do |office_listing|
-      select_boolean = address_list.include? office_listing.address
-      address_list << office_listing.address
+      select_boolean = address_list.include? office_listing.images[0]
+      images_list << office_listing.images[0]
       select_boolean
     end
   end
