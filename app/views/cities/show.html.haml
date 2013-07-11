@@ -1,3 +1,4 @@
-Name: 
-= @city.name
-= image_tag @city.img
+=link_to city_neighborhoods_path(@city) do
+	#city-container{:style => "background-image: url(#{image_path "#{@city.img}"})"}
+		=@city.name	
+		

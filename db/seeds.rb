@@ -3,6 +3,3 @@
 #
 # Examples:
 #
-
-City.create(name: 'New York', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
-
