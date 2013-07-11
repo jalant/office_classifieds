@@ -3,6 +3,7 @@
 #
 # Examples:
 #
+
 City.delete_all
 Neighborhood.delete_all
 Image.delete_all
@@ -75,3 +76,4 @@ office_listing_images.each_line do |line|
   end
   i += 1
 end
+
