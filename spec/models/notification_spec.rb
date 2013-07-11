@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: notifications
+#
+#  id                :integer          not null, primary key
+#  subject           :string(255)
+#  body              :text
+#  office_listing_id :integer
+#  read              :boolean
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  broker_id         :integer
+#  renter_id         :integer
+#
+
 require 'spec_helper'
 
 describe Notification do
