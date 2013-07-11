@@ -1,3 +1,40 @@
 // Place all the styles related to the City controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#city-container{
+	width: 50%;
+	height: 600px;
+	margin: auto;
+	background-size: cover;
+	font-size: 20px;
+	padding-top:300px;
+	opacity: 0.9;
+	margin-top: 200px;
+
+	font-size: 30px;
+	font-family: sans-serif;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	opacity: 1;
+
+}
+
+#city-container:hover{
+	width: 50%;
+	height: 600px;
+	margin: auto;
+	background-size: cover;
+	font-size: 20px;
+	padding-top:300px;
+	opacity: 0.5;
+	margin-top: 200px;
+
+	font-size: 30px;
+	font-family: sans-serif;
+	text-align: center;
+	font-weight: bold;
+	color:red;
+	
+}

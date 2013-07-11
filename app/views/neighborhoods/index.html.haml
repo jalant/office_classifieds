@@ -1,6 +1,6 @@
 %h1 Neighborhoods
-
--@neighborhoods.each do |neighborhood|
-  =link_to city_neighborhood_path(@city, neighborhood), id: neighborhood.name do
-    .neighborhood-box
-      =neighborhood.name
+.row
+	-@neighborhoods.each do |neighborhood|
+		=link_to city_neighborhood_path(@city, neighborhood), id: neighborhood.name do
+			.large-4.small-6.columns{:style => "background-image: url(#{image_path "#{neighborhood.img_url}"})"}
+				=neighborhood.name	
