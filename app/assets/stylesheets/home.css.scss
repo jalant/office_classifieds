@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body{
+	background-color: black;
+}
 .signup{
 	display: none;
 }
@@ -17,3 +20,154 @@
 .display_user{
 	color: red;
 }
+
+nav.top-bar{
+	z-index: 100;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 100px;
+	padding-top: 30px;
+	
+}
+
+a{
+	font-size: 50px;
+}
+
+
+// body{
+// 	background-image: url("home_page_office.jpg");
+// 	background-size: 100% 
+// }
+
+
+		.city_names {
+			bottom: 0;
+			color: white;
+			display: block;
+			left: 40%;
+			margin-left: -640px;
+			font-size: 30px;
+			padding: 10px;
+			position: absolute;
+			text-shadow: 0 2px 0 black, 0 0 10px black;
+			width: 1280px;
+		}
+
+		.photo {
+			background-attachment: fixed;
+			background-position: 50% 0;
+			background-repeat: no-repeat;
+			height: 450px;
+			position: relative;
+		}
+		// .photo span {
+		// 	bottom: 0;
+		// 	color: white;
+		// 	display: block;
+		// 	left: 50%;
+		// 	margin-left: -640px;
+		// 	font-size: 38px;
+		// 	padding: 10px;
+		// 	position: absolute;
+		// 	text-shadow: 0 2px 0 black, 0 0 10px black;
+		// 	width: 1280px;
+		// }
+		.new_york {
+			background-image: url("new_york.jpg");
+			background-size: 100%;
+			height: 870px;
+			margin-top:-50px;
+		
+
+		}
+		.singapore {
+			background-image: url("singapore.jpg");
+			background-size: 100%;
+			height: 700px;
+		}
+		.sf {
+			background-image: url("sf.jpg");
+			background-size: 100%;
+			height: 700px;
+		}
+		.hk {
+			background-image: url("hk.jpg");
+			background-size: 100%;
+			height: 700px;
+		}
+	.diff-space{
+		background-color: #e2e2e2;
+		width:100%;
+		height:130px;
+		border: solid 10px #c9c8c7;
+			font-size: 30px;
+			margin: auto;
+			text-align: center;
+			padding-top: 40px;
+	}
+	.diff-space-change{
+		background-color: #e2e2e2;
+		width:100%;
+		height:200px;
+		border: solid 10px #c9c8c7;
+			font-size: 30px;
+			margin: auto;
+			text-align: center;
+			padding-top:30px;
+
+	}
+
+.diff-space-final{
+		background-color: #e2e2e2;
+		width:100%;
+		height:90px;
+		border: solid 10px #c9c8c7;
+			font-size: 20px;
+			margin: auto;
+			text-align: center;
+			padding-top: 30px;
+
+	}
+
+	.special {
+		color: #A0183C;
+	}
+.special2 {
+		color: #3818A0;
+	}
+.special3 {
+		color: #642e4a;
+	}
+
+	.signup-div{
+		
+		// margin-top: 20px;
+		background-color:  #642e4a;
+		font: 20px;
+	}
+
+	.login-div{
+		
+		// margin-top: 20px;
+		background-color:  #642e4a;
+		font: 20px;
+	}
+
+	.signup{
+		margin-top: 20px;
+		background-color:  #642e4a;
+		font: 20px;
+	}
+
+	.bottom_signup{
+		display: inline-block;
+		margin-top: 50px;
+		background-color:  #642e4a;
+		font: 20px;
+	}
+
+
+
+
