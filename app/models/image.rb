@@ -3,5 +3,5 @@ class Image < ActiveRecord::Base
 
   belongs_to :office_listing
 
-  mount_uploader :image, OfficeImages
+  # mount_uploader :image, OfficeImages
 end
