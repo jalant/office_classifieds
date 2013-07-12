@@ -5,10 +5,13 @@ gem 'pg'
 gem 'haml'
 gem 'jquery-rails'
 gem 'devise'
+gem 'nokogiri', '1.5.0'
 gem 'carrierwave'
-gem 'fog'
+gem 'fog', '1.12'
 gem 'rmagick'
 gem 'remotipart'
+
+gem 'geocoder'
 
 # Gems used only for assets and not required
 # in production environments by default.

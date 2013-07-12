@@ -2,11 +2,15 @@ class OfficeListingsController < ApplicationController
   def index
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
     @office_listings = OfficeListing.where("neighborhood_id = #{@neighborhood.id}")
-    address_list = []
-    @office_listings.select do |office_listing|
-      select_boolean = address_list.include? office_listing.images[0]
-      images_list << office_listing.images[0]
-      select_boolean
+    # images_list = []
+    # @office_listings.select do |office_listing|
+    #   select_boolean = images_list.include? office_listing.images[0].image
+    #   images_list << office_listing.images[0].image
+    #   select_boolean
+    # end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
   

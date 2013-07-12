@@ -1,71 +1,51 @@
-Listings for #{@neighborhood.name}
 
-/ -@office_listings.each do |office_listing|
-/ .listing
-/ Address:
-/ =office_listing.address
-/ Office Type:
-/ =office_listing.office_type
-/ Term Length: 
-/ =office_listing.term_length
-/ Size:
-/ =office_listing.size
-/ Availability:
-/ =office_listing.availability
-/ Details:
-/ =office_listing.details
-/ Number of Conference Rooms:
-/ =office_listing.no_of_conference_rooms
-/ Number of Offices:
-/ =office_listing.no_of_offices
+#list-offices.row
+	.large-4.small-12.columns#map-neighborhood
+		#map-canvas
+		.hide-for-small.panel
+			%h3 #{@neighborhood.name}
+			%h5.subheader
+			Office Listings in #{@neighborhood.name}
+			%a{:href => "#"}
+		.panel.callout.radius
+			%h6 99 listings in the area
 
-.row#list-offices
-	.large-12.columns
+	.large-8.columns
 		.row
-			.large-4.small-12.columns
-				%img{:src => "http://placehold.it/500x500&text=Map"}/
-				.hide-for-small.panel
-					%h3 Header
-					%h5.subheader
-					Office Listings in #{@neighborhood.name}
-					%a{:href => "#"}
-				.panel.callout.radius
-					%h6 99 listings in the area
-
-			.large-8.columns
-				.row
-					-@office_listings.each do |office_listing|
-						.large-4.small-6.columns
-							-if office_listing.images[1].nil?
-								%img.ind-office{:style => "background-image: url(#{image_path "http://placehold.it/219x250&text=Office"})"}
-							-else 
-								%img.ind-office{:style => "background-image: url(#{image_path "#{office_listing.images[1].image}"})"}
-							.panel.office-box
-								%h6.subheader#address
-									%span.special2
-										Address: 
-								%h6.subheader.address=office_listing.address
-								%h6.subheader 
-									%span.special
-										Office Type: 
-									#{office_listing.office_type}
-								%h6.subheader 
-									%span.special
-										Term Length: 
-									#{office_listing.term_length}
-								%h6.subheader	
-									%span.special
-										Size: 
-									#{office_listing.size}
-								%h6.subheader 
-									%span.special
-										Availability: 
-									#{office_listing.availability}
-								%h6.subheader 
-									%span.special
-										Conference Rooms: 
-									#{office_listing.no_of_conference_rooms}
-								%h6.subheader 
-									%span.special
-										Offices: 
-									#{office_listing.no_of_offices}
+			-@office_listings.each do |office_listing|
+				.large-4.small-6.columns.ind-offices
+					-if office_listing.images[1].nil?
+						.office-img{:style => "background-image: url(#{image_path "http://placehold.it/219x250&text=Office"})"}
+					-else 
+						.office-img{:style => "background-image: url(#{image_path "#{office_listing.images[1].image}"})"}
+					.panel.office-box
+						%h6.subheader#address
+							%span.special2
+								Address: 
+						%h6.subheader.address=office_listing.address
+						%h6.subheader 
+							%span.special
+								Office Type: 
+							#{office_listing.office_type}
+						%h6.subheader 
+							%span.special
+								Term Length: 
+							#{office_listing.term_length}
+						%h6.subheader	
+							%span.special
+								Size: 
+							#{office_listing.size}
+						%h6.subheader 
+							%span.special
+								Availability: 
+							#{office_listing.availability}
+						%h6.subheader 
+							%span.special
+								Conference Rooms: 
+							#{office_listing.no_of_conference_rooms}
+						%h6.subheader 
+							%span.special
+								Offices: 
+							#{office_listing.no_of_offices}
+	
+= render partial: '/office_listings/partials/helper', locals: {neighborhood: @neighborhood, office_listings: @office_listings}

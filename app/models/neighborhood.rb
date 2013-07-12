@@ -11,9 +11,12 @@
 #
 
 class Neighborhood < ActiveRecord::Base
-  attr_accessible :city_id, :img_url, :name
+  attr_accessible :city_id, :img_url, :name, :address, :latitude, :longitude
   validates :name, presence: true, length: { in: 3..50 }
 
   belongs_to :city
   has_many :office_listings
+
+  geocoded_by :address 
+  before_save :geocode
 end
