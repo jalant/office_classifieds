@@ -20,5 +20,7 @@ OfficeClassifieds::Application.routes.draw do
     end
   end
 
+  resources :images, only: [:create]
+
 
 end

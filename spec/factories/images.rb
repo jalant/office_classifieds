@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :image do
-    url "MyString"
+    image "MyString"
     office_listing_id 1
   end
 end
