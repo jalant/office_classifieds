@@ -8,8 +8,14 @@ gem 'devise'
 gem 'nokogiri', '1.5.0'
 gem 'carrierwave'
 gem 'fog', '1.12'
+<<<<<<< HEAD
+=======
+gem 'rmagick'
+>>>>>>> c3cdc4f08fc4f5124a972d137283bf661cd7ed2b
 gem 'remotipart'
 gem 'rmagick'
+
+gem 'geocoder'
 
 # Gems used only for assets and not required
 # in production environments by default.

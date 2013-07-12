@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130712045315) do
+ActiveRecord::Schema.define(:version => 20130712114846) do
 
   create_table "brokers", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20130712045315) do
   end
 
   create_table "images", :force => true do |t|
+    t.text     "image"
     t.integer  "office_listing_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
@@ -64,6 +65,9 @@ ActiveRecord::Schema.define(:version => 20130712045315) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "img_url"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "address"
   end
 
   create_table "notifications", :force => true do |t|
@@ -99,6 +103,8 @@ ActiveRecord::Schema.define(:version => 20130712045315) do
     t.integer  "broker_id"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "renters", :force => true do |t|

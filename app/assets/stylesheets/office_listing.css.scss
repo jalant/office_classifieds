@@ -17,16 +17,61 @@
 .office-box{
 	height: 322px;
 }
-.ind-office{
-	width: 219px;
-	height: 250px;
+.office-img{
+	width: 100%;
+	height:270px;
 	background-size: cover;
 }
 
+
 #list-offices{
+	margin-bottom: 150px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0px;
+	width: 100%;
+	max-width: 85em;
 	margin-top: 150px;
 }
 
 #form-container {
-margin-top: 150px;}
+margin-top: 150px;
+}
 
+#map-canvas{
+	width: 423px;
+	height: 423px;
+	border: 1px dashed gray;
+	margin: 0;
+} 
+
+#map-canvas a{
+	display: none;
+}
+
+#map-canvas span{
+	display: none;
+}
+
+img[src="https://maps.gstatic.com/mapfiles/google_white.png"] {
+	display: none;
+}
+#map-canvas label { width: auto; display:inline; }
+#map-canvas img { max-width: none; } 
+#map-report a img { display:none; } 
+
+
+#map-neighborhood{
+//	margin-right: 10px;
+}
+
+.ind-offices:hover{
+	opacity: 0.7;
+	
+	.panel span {
+		font-weight: bold;
+	}
+
+
+}
+>>>>>>> c3cdc4f08fc4f5124a972d137283bf661cd7ed2b

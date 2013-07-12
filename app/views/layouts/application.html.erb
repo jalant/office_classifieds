@@ -4,6 +4,7 @@
 	<title>OfficeClassifieds</title>
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE']}&amp&sensor=false" %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
@@ -21,7 +22,7 @@
 				<li class="has-dropdown"><a href="#">Browse Offices</a>
 					<ul class="dropdown">
 						<li><a href="/cities/1">Singapore</a></li>
-						<li><a href="/cities/4">New York</a></li>
+						<li><a href="/cities/10">New York</a></li>
 						<li><a href="/cities/3">San Francisco</a></li>
 						<li><a href="/cities/2">Hong Kong</a></li>
 						<li><a href="/cities/5">London</a></li>
