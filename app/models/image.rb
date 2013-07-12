@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-  attr_accessible :office_listing_id, :image, :remote_image_url
+  attr_accessible :office_listing_id, :image, :link_image
 
   belongs_to :office_listing
 
