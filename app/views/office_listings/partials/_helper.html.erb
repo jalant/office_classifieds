@@ -6,7 +6,7 @@ $(function(){
 	office_map.display_map(<%= neighborhood.latitude %>, <%= neighborhood.longitude %>);
 
 	<% office_listings.each do |office_listing| %>
-	office_map.add_marker(<%= office_listing.latitude %>, <%= office_listing.longitude %>, "<%= office_listing.address %>")
+	office_map.add_marker(<%= office_listing.latitude || 0 %>, <%= office_listing.longitude || 0 %>, "<%= office_listing.address %>")
 	<% end %>
 
 });
