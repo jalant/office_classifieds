@@ -10,6 +10,7 @@ Image.delete_all
 OfficeListing.delete_all
 Broker.delete_all
 Renter.delete_all
+Favorite.delete_all
 
 office_listing_data = File.open('public/office_data.txt', 'r')
 office_listing_images = File.open('public/office_image_data.txt', 'r')
@@ -74,8 +75,9 @@ end
 i = OfficeListing.first.id
 office_listing_images.each_line do |line|
   images = line.split('*')
-  images.each do |image_url|
-    Image.create(image: image_url, office_listing_id: i)
+  images[0,2].shuffle!.each do |image_url|
+    p image_url
+    Image.create(remote_image_url: image_url, office_listing_id: i)
   end
   i += 1
 end

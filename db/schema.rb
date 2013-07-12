@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20130712114846) do
     t.integer  "office_listing_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.text     "remote_image_url"
+    t.text     "image"
   end
 
   create_table "neighborhoods", :force => true do |t|
