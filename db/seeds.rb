@@ -77,7 +77,7 @@ office_listing_images.each_line do |line|
   images = line.split('*')
   images[0,2].shuffle!.each do |image_url|
     p image_url
-    Image.create(remote_image_url: image_url, office_listing_id: i)
+    Image.create(link_image: image_url, office_listing_id: i)
   end
   i += 1
 end
