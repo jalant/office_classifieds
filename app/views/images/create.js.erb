@@ -1,1 +1,4 @@
 console.log('image updated')
+var imageBox = $('<div class="image-box large-3 columns"></div>').css('background-image', 'url(<%= @image.image %>)')
+console.log(imageBox);
+imageBox.appendTo('#images').hide().fadeIn(1500);

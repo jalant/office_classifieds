@@ -1,3 +1,5 @@
 console.log('listing created!!!')
-officeId = $('<input type="hidden" name="office_listing_id"></input>')
+officeId = $("<input type='hidden' name='office_listing_id' value='<%= @office_listing.id %>'></input>")
 $('#listing-images').append(officeId)
+$('#listing-attributes').addClass('hidden');
+$('#listing-images').removeClass('hidden').hide().fadeIn(1500);

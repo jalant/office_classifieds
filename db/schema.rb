@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130712185559) do
+ActiveRecord::Schema.define(:version => 20130713032402) do
 
   create_table "brokers", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -87,22 +87,22 @@ ActiveRecord::Schema.define(:version => 20130712185559) do
     t.integer  "size"
     t.integer  "rent"
     t.text     "details"
-    t.boolean  "kitchen"
-    t.boolean  "reception"
-    t.boolean  "light"
-    t.boolean  "shower"
-    t.boolean  "move_in"
-    t.boolean  "high_ceiling"
-    t.boolean  "patio"
-    t.boolean  "furniture"
+    t.boolean  "kitchen",                :default => false
+    t.boolean  "reception",              :default => false
+    t.boolean  "light",                  :default => false
+    t.boolean  "shower",                 :default => false
+    t.boolean  "move_in",                :default => false
+    t.boolean  "high_ceiling",           :default => false
+    t.boolean  "patio",                  :default => false
+    t.boolean  "furniture",              :default => false
     t.string   "term_length"
     t.string   "availability"
     t.integer  "no_of_offices"
     t.integer  "no_of_conference_rooms"
     t.integer  "neighborhood_id"
     t.integer  "broker_id"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.float    "latitude"
     t.float    "longitude"
   end

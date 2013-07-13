@@ -1,10 +1,10 @@
 class ImagesController < ApplicationController
   def create
-    image = image.new(params[:image])
-    image.office_listing = OfficeListing.find(params[:office_listing_id])
-    if image && image.save!
+    @image = Image.new(params[:image])
+    @image.office_listing = OfficeListing.find(params[:office_listing_id])
+    if @image && @image.save!
       respond_to do |format|
-        format.js
+        format.js { render :create }
       end
     else
       @failure = "Unable to upload image. :-("

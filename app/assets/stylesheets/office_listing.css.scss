@@ -67,11 +67,135 @@ img[src="https://maps.gstatic.com/mapfiles/google_white.png"] {
 
 .ind-offices:hover{
 	opacity: 0.7;
-	
-	.panel span {
-		font-weight: bold;
-	}
-
-
 }
->>>>>>> c3cdc4f08fc4f5124a972d137283bf661cd7ed2b
+	
+.panel span {
+  font-weight: bold;
+}
+
+// Create Office Listing Form CSS
+
+#listing-attributes {
+  font-size: 1.2em;
+  background-color: rgba(30, 125, 188, 0.5);
+  padding: 10px;
+  color: white;
+}
+
+#listing-images {
+  font-size: 1.2em;
+  background-color: rgba(30, 125, 188, 0.5);
+  padding: 10px;
+  color: white;
+}
+
+#listing-attributes input {
+  background-color: black;
+  color: white;
+}
+
+#listing-attributes select {
+  background-color: black;
+  border-width: .75px;
+  border-color: black;
+  border-radius: 5px;
+  color: white;
+  width: 250px;
+  text-align: center;
+  padding: 3px;
+  display: block;
+}
+
+#listing-attributes label {
+  color: white;
+  display: inline-block;
+  padding: 5px;
+}
+
+#address { 
+  width: 630px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+#rent {
+  width: 50px;
+  display: inline-block;
+}
+
+#size { 
+  width: 50px;
+  display: inline-block;
+}
+
+#no_of_offices {
+  width: 50px;
+  display: inline-block;
+}
+
+#no_of_conference_rooms { 
+  width: 50px;
+  display: inline-block;
+}
+
+#details { 
+  width: 300px;
+  background-color: black;
+  color: white;
+  display: block;
+}
+
+input[name='Create Office listing'] { 
+  color: blue;
+}
+
+#listing-attributes input#submit-listing {
+  display: block;
+  background-color: #642e4a;
+  font-size: 1.25em;
+  color: white;
+}
+
+#listing-attributes input#submit-listing:hover {
+  background-color: #6f2f4f;
+}
+
+#listing-images input#upload-image {
+  display: inline-block;
+  background-color: #642e4a;
+  font-size: 1.25em;
+  color: white;
+  
+}
+
+#listing-images input#submit-image {
+  display: inline-block;
+  background-color: #642e4a;
+  font-size: 1.25em;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.image-box {
+  display: inline-block;
+  height: 322px;
+  background-size: cover;
+  border: solid black 1px;
+  margin-right: 10px;
+  float: left;
+}
+
+#images {
+  padding: 0;
+  margin: 0;
+}
+
+// Eliminate Spinner
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
