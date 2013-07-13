@@ -26,12 +26,15 @@ renter_2 = Renter.create(email: 'tanayjaln@gmail.com', password: 'password123', 
 new_york_city = City.create(name: 'New York', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
 p new_york_city
 
-harlem = Neighborhood.create(name: "Harlem", img_url: 'placeholder.jpg', city_id: new_york_city.id)
-flatiron = Neighborhood.create(name: "Flatiron", img_url: 'placeholder.jpg', city_id: new_york_city.id)
-midtown_east = Neighborhood.create(name: "Midtown East", img_url: 'placeholder.jpg', city_id: new_york_city.id)
-financial_district = Neighborhood.create(name: "Financial District", img_url: 'placeholder.jpg', city_id: new_york_city.id)
-gramercy = Neighborhood.create(name: "Gramercy", img_url: 'placeholder.jpg', city_id: new_york_city.id)
-upper_west_side = Neighborhood.create(name: "Upper West Side", img_url: 'placeholder.jpg', city_id: new_york_city.id)
+harlem = Neighborhood.create(name: "Harlem", address: "Harlem, NY", img_url: 'http://www.officeoftourism.org/img/usa/NY-NYC-Harlem2.jpg', city_id: new_york_city.id)
+flatiron = Neighborhood.create(name: "Flatiron", address: "Flatiron, NY", img_url: 'http://www.hotelchatter.com/files/6193/Flatiron_NYC.jpg', city_id: new_york_city.id)
+midtown_east = Neighborhood.create(name: "Midtown East", address: "Midtown East, NY", img_url: 'http://www.sothebyshomes.com/neighborhood/2.jpg', city_id: new_york_city.id)
+financial_district = Neighborhood.create(name: "Financial District", address: "financial District, NY", img_url: 'http://2.bp.blogspot.com/-C5HfR6RfCQY/UINZSmC8ZYI/AAAAAAAAAPA/hPBNHwc961o/s640/7696301e98573825aca69c261fa7b3ee.jpg', city_id: new_york_city.id)
+gramercy = Neighborhood.create(name: "Gramercy", address: "Gramercy, NY", img_url: 'http://www.sothebyshomes.com/neighborhood/15.jpg', city_id: new_york_city.id)
+upper_west_side = Neighborhood.create(name: "Upper West Side", address: "Upper West Side, NY", img_url: 'http://www.manhattanministorage.com/landing/images/uws-storage-mini.jpg', city_id: new_york_city.id)
+west_village = Neighborhood.create(name: 'West Village', address: "West Village, NY", img_url: 'http://images.nymag.com/images/2/realestate/neighborhoods/2010/westvillage100412_lede.jpg', city_id: new_york_city.id)
+east_village = Neighborhood.create(name: "East Village NYC", address: "East Village, NY", img_url: "http://nyugradhalls.files.wordpress.com/2012/09/east-village-manhattan-nyc-54.jpg", city_id: new_york_city.id)
+hells_kitchen = Neighborhood.create(name: "Hell's Kitchen", address: "Hell's Kitchen, NY", img_url: "http://wvs.topleftpixel.com/photos/hells_kitchen_black_white_garbage.jpg", city_id: new_york_city.id)
 
 hood_hash = { "Harlem" => harlem, "Flatiron" => flatiron, "Midtown East" => midtown_east, 
   "Financial District" => financial_district, "Gramercy" => gramercy, "Upper West Side" => upper_west_side,
@@ -73,7 +76,6 @@ i = OfficeListing.first.id
 office_listing_images.each_line do |line|
   images = line.split('*')
   images.each do |image_url|
-    p image_url
     Image.create(link_image: image_url, office_listing_id: i)
   end
   i += 1

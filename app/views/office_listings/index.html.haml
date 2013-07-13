@@ -2,21 +2,17 @@
 	.large-4.small-12.columns#map-neighborhood
 		#map-canvas
 		.hide-for-small.panel
-			%h3 #{@neighborhood.name}
-			%h5.subheader
-			Office Listings in #{@neighborhood.name}
-			%a{:href => "#"}
-		.panel.callout.radius
-			%h6 99 listings in the area
+			%h3.neighborhood-title #{@neighborhood.name}
+			
 
 	.large-8.columns
 		.row
 			-@office_listings.each do |office_listing|
-				.large-4.small-6.columns.ind-offices
+				.large-4.small-6.columns.ind-offices{"data-id" => office_listing.id}
 					-if office_listing.images[1].nil?
 						.office-img{:style => "background-image: url(#{image_path "http://placehold.it/219x250&text=Office"})"}
 					-else 
-						.office-img{:style => "background-image: url(#{image_path "#{office_listing.images[1].image}"})"}
+						.office-img{:style => "background-image: url(#{image_path "#{office_listing.images[1].link_image}"})"}
 					.panel.office-box
 						%h6.subheader#address
 							%span.special2
@@ -46,5 +42,6 @@
 							%span.special
 								Offices: 
 							#{office_listing.no_of_offices}
-	
+
 = render partial: '/office_listings/partials/helper', locals: {neighborhood: @neighborhood, office_listings: @office_listings}
+
