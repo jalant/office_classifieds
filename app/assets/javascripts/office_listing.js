@@ -1,5 +1,4 @@
-
-
+var infowindow;
 var office_map = {
 	map: null,
 
@@ -19,16 +18,16 @@ var office_map = {
 		var marker = new google.maps.Marker({
 			position: latlng,
 			map: office_map.map,
+			 icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
 			title: location
 		});
 		office_map.attach_message(location, marker);
 	}, 
 
 	attach_message: function(location, marker){
-		var infowindow = new google.maps.InfoWindow(
-			{content: "Address: " + location,
-			size: new google.maps.Size(50,50)
-		});
+		infowindow = new google.maps.InfoWindow();
+		infowindow.setContent("<div class='special2'> <a class='map-label' href ='office_listings/" + $('.ind-offices:contains(' + location.split(',')[0] + ')').first().data('id') + "'> Address: </a> <br> </div>"  + 
+			"<a class='map-label2' href ='office_listings/" + $('.ind-offices:contains(' + location.split(',')[0] + ')').first().data('id') + "'>" + location + "</a>");
 		google.maps.event.addListener(marker, 'click', function() {
 			infowindow.open(office_map.map, marker);
 		});
