@@ -3,34 +3,37 @@
 %link{:href => "fotorama.css", :rel => "stylesheet"}
 
 %h1 Office Listing
-#map-canvas
+#office-holder
+  .listing-stats  
+    #address-office-show-page
+      =@office_listing.address
+    .listing-stats-2
+      #rent-office-show-page
+        $#{@office_listing.rent}
+      #size-office-show-page
+        #{@office_listing.size} sq. feet
+      #lease-type-office-show-page
+        =@office_listing.office_type
 
-#office-images
-  .fotorama
-    -@office_listing.images.each do |image|
-      %img{:src => "#{image.link_image || image.image || ""}"}
+  #map-image-holder
+    #map-canvas2
+    #office-images
+      .fotorama{"data-width" => "100%", "data-transition" => "dissolve", "data-nav" =>"thumbs", "data-fit" => "cover"}
+        -@office_listing.images.each do |image|
+          %img{:src => "#{image.link_image || image.image || ""}"}
 
+  .listing-stats-2  
+    .amenities
+      .kitchen{class: "#{@office_listing.kitchen ? 'true' : ''}" }
+      .light{class: "#{@office_listing.light ? 'true' : ''}" }
+      .patio{class: "#{@office_listing.patio ? 'true' : ''}" }
+      .reception{class: "#{@office_listing.reception ? 'true' : ''}" }
+      .shower{class: "#{@office_listing.shower ? 'true' : ''}" }
+      .high_ceiling{class: "#{@office_listing.high_ceiling ? 'true' : ''}" }
 
-#office-details  
-  .listing-stats
-    #rent
-      =@office_listing.rent
-    #size
-      =@office_listing.size
-    #lease-type
-      =@office_listing.office_type
-
-  .amenities
-    .kitchen{class: "#{@office_listing.kitchen ? 'true' : ''}" }
-    .light{class: "#{@office_listing.light ? 'true' : ''}" }
-    .patio{class: "#{@office_listing.patio ? 'true' : ''}" }
-    .reception{class: "#{@office_listing.reception ? 'true' : ''}" }
-    .shower{class: "#{@office_listing.shower ? 'true' : ''}" }
-    .high_ceiling{class: "#{@office_listing.high_ceiling ? 'true' : ''}" }
-
-  .broker-info
-    #broker-name
-      "#{@office_listing.broker.first_name} #{@office_listing.broker.last_name}"
-    #broker-email
-      =@office_listing.broker.email
+    .broker-info
+      #broker-name
+        "#{@office_listing.broker.first_name} #{@office_listing.broker.last_name}"
+      #broker-email
+        =@office_listing.broker.email
 
