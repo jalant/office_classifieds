@@ -153,7 +153,9 @@ input[name='Create Office listing'] {
   display: block;
   background-color: #642e4a;
   font-size: 1.25em;
-  color: white;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 #listing-attributes input#submit-listing:hover {
@@ -164,29 +166,45 @@ input[name='Create Office listing'] {
   display: inline-block;
   background-color: #642e4a;
   font-size: 1.25em;
-  color: white;
-  
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 #listing-images input#submit-image {
   display: inline-block;
   background-color: #642e4a;
   font-size: 1.25em;
-  color: white;
-  padding: 0;
-  margin: 0;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+#listing-images input#submit-image:hover {
+  background-color: #6f2f4f;
+}
+
+#listing-images #return-to-listing {
+  display: inline-block;
+  background-color:#A0183C; 
+  font-size: 1.25em;
+  border-radius: 5px;
+  border: 1px solid black;
+  color: black;
+  padding: 5px;
+}
+
+#listing-images #return-to-listing:hover {
+  background-color: #A61D3F;
 }
 
 .image-box {
-  display: inline-block;
   height: 322px;
   background-size: cover;
   border: solid black 1px;
-  margin-right: 10px;
-  float: left;
 }
 
-#images {
+#image-container {
   padding: 0;
   margin: 0;
 }

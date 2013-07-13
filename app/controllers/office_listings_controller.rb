@@ -26,6 +26,7 @@ class OfficeListingsController < ApplicationController
     @office_listing.broker = current_broker
     @office_listing.neighborhood = Neighborhood.find(params[:neighborhood_id])
     if @office_listing && @office_listing.save!
+      @path = city_neighborhood_office_listing_path(@office_listing, :city_id => @office_listing.neighborhood.city.id, :neighborhood_id => @office_listing.neighborhood.id)
       create_amenities(@office_listing, selected_amenities)
       respond_to do |format|
         format.js
