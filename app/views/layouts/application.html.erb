@@ -44,10 +44,10 @@
 				<%= link_to "Sign Out", destroy_broker_session_path, method: :delete, class: "button"%>
 				<% end %>
 
-				<a class="signup success button" href=<%= new_renter_registration_path%>>Renter Signup</a>
-				<a class="signup success button" href=<%= new_broker_registration_path%>>Broker Signup</a>
-				<a class="login alert button" href=<%= new_renter_session_path%>>Renter Login</a>
-				<a class="login alert button" href=<%= new_broker_session_path%>>Broker Login</a>		
+				<a class="signup success button" data-reveal-id="renter_sign_up" href=<%= new_renter_registration_path%>>Renter Signup</a>
+				<a class="signup success button" data-reveal-id = "broker_sign_up" href=<%= new_broker_registration_path%>>Broker Signup</a>
+				<a class="login alert button" data-reveal-id="renter_sign_in" href=<%= new_renter_session_path%>>Renter Login</a>
+				<a class="login alert button" data-reveal-id="broker_sign_in" href=<%= new_broker_session_path%>>Broker Login</a>		
 
 			</ul>
 		</section>
@@ -56,6 +56,73 @@
 	<%= yield %>
 	<script> $(document).foundation(); </script>
 
+	<div id="broker_login_box">
+	  <%= form_for("broker", :url => new_broker_session_path, :html => {:id => "broker_sign_in", :class => "reveal-modal"}) do |f| %>
+		  <a class="close-reveal-modal">&#215;</a>
+			<h3>Broker Sign In</h3>
+	    <%= f.label :email %>
+	    <%= f.text_field :email %>
+	    <%= f.label :password %>
+	    <%= f.password_field :password %>
+	    <%= f.check_box :remember_me -%>
+	    <%= f.label :remember_me -%>
+	    <%= f.submit 'Sign in' %>
+	    <%= link_to "Forgot your password?", new_broker_password_path('broker') %>
+	  <% end %>
+	</div>
+
+	<div id="renter_login_box">
+	  <%= form_for("renter", :url => new_renter_session_path, :html => {:id => "renter_sign_in", :class => "reveal-modal"}) do |f| %>
+	  	<a class="close-reveal-modal">&#215;</a>
+			<h3>Renter Sign In</h3>
+	    <%= f.label :email %>
+	    <%= f.text_field :email %>
+	    <%= f.label :password %>
+	    <%= f.password_field :password %>
+	    <%= f.check_box :remember_me -%>
+	    <%= f.label :remember_me -%>
+	    <%= f.submit 'Sign in' %>
+	    <%= link_to "Forgot your password?", new_renter_password_path('renter') %>
+	  <% end %>
+	</div>
+
+	<div id="renter_signup_box">
+		<%= form_for("renter", :url => renter_registration_path, :html => { :id => "renter_sign_up", :class => "reveal-modal"} ) do |f| %>
+
+		  <a class="close-reveal-modal">&#215;</a>
+		<h3>Renter Sign Up</h3>
+
+		  <div><%= f.label :email %><br />
+		  <%= f.email_field :email, :autofocus => true %></div>
+
+		  <div><%= f.label :password %><br />
+		  <%= f.password_field :password %></div>
+
+		  <div><%= f.label :password_confirmation %><br />
+		  <%= f.password_field :password_confirmation %></div>
+
+		  <div><%= f.submit "Sign up" %></div>
+		 <% end %>
+	</div>
+
+	<div id="broker_signup_box">
+		<%= form_for("broker", :url => broker_registration_path, :html => { :id => "broker_sign_up", :class => "reveal-modal"} ) do |f| %>
+
+		  <a class="close-reveal-modal">&#215;</a>
+		<h3>Broker Sign Up</h3>
+
+		  <div><%= f.label :email %><br />
+		  <%= f.email_field :email, :autofocus => true %></div>
+
+		  <div><%= f.label :password %><br />
+		  <%= f.password_field :password %></div>
+
+		  <div><%= f.label :password_confirmation %><br />
+		  <%= f.password_field :password_confirmation %></div>
+
+		  <div><%= f.submit "Sign up" %></div>
+		 <% end %>
+	</div>
 </body>
 </html>
 

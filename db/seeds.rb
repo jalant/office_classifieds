@@ -60,12 +60,7 @@ lines.each do |line|
     size = size.to_i
   end
 
-  if price == ''
-    price = 0
-  else
-    price = price.to_i
-  end
-
+  price = 1000 + rand(0..10000)
   new_listing = OfficeListing.new(address: address, office_type: space_type, size: size, 
                        rent: price, details: "This is an office", term_length: '5 years', 
                        neighborhood_id: hood_hash[neighborhood].id, broker_id: broker_1.id, availability: "Immediately")
