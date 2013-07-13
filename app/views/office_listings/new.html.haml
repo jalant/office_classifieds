@@ -1,32 +1,41 @@
-#form-container
+.row
   .large-12.columns
-    =form_for([@city, @neighborhood, @office_listing], html: {id: 'listing-attributes'}, data: 'helo' ) do |f|
-      =f.label :address
-      =f.text_field :address
-      =f.label :office_type 
-      =f.select :office_type, @office_types
-      =f.label :term_length
-      =f.select :term_length, @term_lengths
-      =f.label :availability
-      =f.select :availability, @availabilities
-      
-      =f.label :rent
-      =f.number_field :rent
-      =f.label :size
-      =f.number_field :size
-      =f.label :no_of_offices
-      =f.number_field :no_of_offices
-      =f.label :no_of_conference_rooms
-      =f.number_field :no_of_conference_rooms
+    #form-container
+      =form_for([@city, @neighborhood, @office_listing], remote: true, html: {id: 'listing-attributes'}, data: 'helo' ) do |f|
+        %h1 Submit an Office Listing
+        =f.label :address
+        =f.text_field :address, id: 'address'
+        =f.label :rent
+        =f.number_field :rent, id: 'rent'
+        =f.label :size
+        =f.number_field :size, id: 'size'
+        =f.label :no_of_offices
+        =f.number_field :no_of_offices, id: 'no_of_offices'
+        =f.label :no_of_conference_rooms
+        =f.number_field :no_of_conference_rooms, id: 'no_of_conference_rooms'
+        %br
 
-      =f.label :details
-      =f.text_area :details
+        =f.label :office_type 
+        =f.select :office_type, @office_types, id: 'office-type'
+        =f.label :term_length, id: 'term-length'
+        =f.select :term_length, @term_lengths, id: 'term-length'
+        =f.label :availability
+        =f.select :availability, @availabilities, id: 'availability'
+        
 
-      -@amenities.each do |amenity|
-        =check_box_tag('amenities[]', amenity)
-        =amenity
-      =f.submit
-    .large-12.columns
-      =form_for @image, html: { id: 'listing-images', class: 'hidden', multipart: true } do |f|
-        =f.label "Upload Image"
-        =f.file_field :image
+        =f.label :details
+        =f.text_area :details, id: 'details'
+
+        -@amenities.each do |amenity|
+          =check_box_tag('amenities[]', amenity)
+          =amenity
+        =f.submit "Create Office Listing", id: 'submit-listing'
+
+      =form_for @image, remote: true, html: { id: 'listing-images', class: 'hidden', multipart: true } do |f|
+        %h1 Upload Office Images
+        =f.file_field :image, class: 'button-large'
+        #image-buttons
+          =f.submit "Upload Image", id: 'submit-image', class: ''
+        %h3 Preview Images
+        .row#image-container
+          .large-10#images

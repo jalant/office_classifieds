@@ -2,14 +2,8 @@ class OfficeListingsController < ApplicationController
   def index
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
     @office_listings = OfficeListing.where("neighborhood_id = #{@neighborhood.id}")
-    # images_list = []
-    # @office_listings.select do |office_listing|
-    #   select_boolean = images_list.include? office_listing.images[0].image
-    #   images_list << office_listing.images[0].image
-    #   select_boolean
-    # end
   end
-
+  
   def new
     @office_listing = OfficeListing.new
     @image = Image.new
@@ -27,12 +21,13 @@ class OfficeListingsController < ApplicationController
 
   def create
     selected_amenities = params[:amenities] || [] # empty list if no amenities checked
-    office_listing = OfficeListing.new(params[:office_listing])
+    @office_listing = OfficeListing.new(params[:office_listing])
     puts "CURRENT BROKER: #{current_broker}"
-    office_listing.broker = current_broker
-    office_listing.neighborhood = Neighborhood.find(params[:neighborhood_id])
-    if office_listing && office_listing.save!
-      create_amenities(office_listing, selected_amenities)
+    @office_listing.broker = current_broker
+    @office_listing.neighborhood = Neighborhood.find(params[:neighborhood_id])
+    if @office_listing && @office_listing.save!
+      @path = city_neighborhood_office_listing_path(@office_listing, :city_id => @office_listing.neighborhood.city.id, :neighborhood_id => @office_listing.neighborhood.id)
+      create_amenities(@office_listing, selected_amenities)
       respond_to do |format|
         format.js
       end
