@@ -121,13 +121,15 @@ filters =  {
 
   fadeElement: function(Element, dataSelector, filterData) {
     if ($(Element).data(dataSelector) !== filterData && filterData != '') {
-      console.log($(Element).data(dataSelector));
       $(Element).fadeOut(1000);
     }
   },
 
   fadeElementInRange: function(Element, dataSelector, lowerBound, upperBound) {
-    if ($(Element).data(dataSelector) >= lowerBound && $(Element).data(dataSelector) <= upperBound) {
+    if (!($(Element).data(dataSelector) >= lowerBound && $(Element).data(dataSelector) <= upperBound)) {
+      console.log($(Element).data(dataSelector))
+      console.log(lowerBound);
+      console.log(upperBound);
       $(Element).fadeOut(1000)
     }
   }

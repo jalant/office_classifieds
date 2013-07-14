@@ -1,7 +1,7 @@
 class OfficeListingsController < ApplicationController
   def index
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
-    @office_listings = OfficeListing.where("neighborhood_id = #{@neighborhood.id}")
+    @office_listings = OfficeListing.where("neighborhood_id = #{@neighborhood.id}").reverse
   end
   
   def new
