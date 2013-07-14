@@ -1,4 +1,4 @@
-var infowindow;
+var infowindow = null;
 
 var office_map = {
 	map: null,
@@ -25,11 +25,14 @@ var office_map = {
 	},
 
 	attach_message: function(location, marker){
-		infowindow = new google.maps.InfoWindow();
-		infowindow.setContent("<div class='special2'> <a class='map-label' href ='office_listings/" + $('.ind-offices:contains(' + location.split(',')[0] + ')').first().data('id') + "'> Address: </a> <br> </div>"  + 
-			"<a class='map-label2' href ='office_listings/" + $('.ind-offices:contains(' + location.split(',')[0] + ')').first().data('id') + "'>" + location + "</a>");
-		google.maps.event.addListener(marker, 'click', function() {
-			infowindow.open(office_map.map, marker);
+    google.maps.event.addListener(marker, 'click', function() {
+      if (infowindow) {
+        infowindow.close();
+      };     
+    infowindow = new google.maps.InfoWindow();
+    infowindow.setContent("<div class='special2'> <a class='map-label' href ='office_listings/" + $('.ind-offices:contains(' + location.split(',')[0] + ')').first().data('id') + "'> Address: </a> <br> </div>"  + 
+      "<a class='map-label2' href ='office_listings/" + $('.ind-offices:contains(' + location.split(',')[0] + ')').first().data('id') + "'>" + location + "</a>");
+    infowindow.open(office_map.map, marker);
 		});
 	}
 };

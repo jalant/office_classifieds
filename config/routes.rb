@@ -16,6 +16,9 @@ OfficeClassifieds::Application.routes.draw do
   # resources :cities, only: [:show]
   resources :cities do
     resources :neighborhoods, only: [:index, :show] do
+      collection do
+        get 'add_listing', to: 'neighborhoods#add_listing', :as => 'neighborhood_add_listing'
+      end 
       resources :office_listings
     end
   end
