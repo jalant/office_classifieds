@@ -18,39 +18,42 @@
 
 		<section class="top-bar-section">
 			<ul class="right">
-				<li class='submit_listing_tag'> <a href=" <%= neighborhood_add_listing_city_neighborhoods_path(City.find_by_name('New York')) %>"> Submit Listing </li>
+				<% if current_broker %>
+				<li class='submit_listing_tag'> <a href=" <%= neighborhood_add_listing_city_neighborhoods_path(City.find_by_name('New York')) %>"> Submit Listing</a> </li>
+				<% end %>
 				<li class="divider hide-for-small"></li>
 				<li class="has-dropdown"><a href="#">Browse Offices</a>
 					<ul class="dropdown">
-            <% City.all.each do |city| %>
-              <li><a href='<%= city_neighborhoods_path(city) %>'><%= city.name %></a></li>
-            <% end %>
+			            <% City.all.each do |city| %>
+			              <li><a href='<%= city_neighborhoods_path(city) %>'><%= city.name %></a></li>
+			            <% end %>
 					</ul>
 				</li>
-
+				<li class="divider hide-for-small"></li>
 				<% unless current_renter || current_broker %>
-					<a class="signup-div button" href="#">Sign Up</a>
-					<a class="login-div button" href="#">Login</a>
+					<li class="signup-div button" href="#">Sign Up</a>
+					<li class="login-div button" href="#">Login</a>
 				<% end %>
 
 				<% if current_renter %>
-				<li class="display_user"> <%= current_renter.email %> </li>
-				<%= link_to "Sign Out", destroy_renter_session_path, method: :delete, class: "button"%>
+					<li class="display_user"> <%= current_renter.email %> </li>
+					<%= link_to "Sign Out", destroy_renter_session_path, method: :delete, class: "button"%>
 				<% end %>
 
 				<% if current_broker %>
-				<li class="display_user"> <%= current_broker.email %> </li>
-				<%= link_to "Sign Out", destroy_broker_session_path, method: :delete, class: "button"%>
+					<li class="display_user"> <%= current_broker.email %> </li>
+					<%= link_to "Sign Out", destroy_broker_session_path, method: :delete, class: "button"%>
 				<% end %>
 
-				<a class="signup success button" data-reveal-id="renter_sign_up" href=<%= new_renter_registration_path%>>Renter Signup</a>
-				<a class="signup success button" data-reveal-id = "broker_sign_up" href=<%= new_broker_registration_path%>>Broker Signup</a>
-				<a class="login alert button" data-reveal-id="renter_sign_in" href=<%= new_renter_session_path%>>Renter Login</a>
-				<a class="login alert button" data-reveal-id="broker_sign_in" href=<%= new_broker_session_path%>>Broker Login</a>		
-
+				<li class=" success button signup" data-reveal-id="renter_sign_up" href=<%= new_renter_registration_path%>>Renter Signup</li>
+				<li class="signup success button" data-reveal-id = "broker_sign_up" href=<%= new_broker_registration_path%>>Broker Signup</li>
+				<li class="login alert button" data-reveal-id="renter_sign_in" href=<%= new_renter_session_path%>>Renter Login</li>
+				<li class="login alert button" data-reveal-id="broker_sign_in" href=<%= new_broker_session_path%>>Broker Login</li>		
 			</ul>
 		</section>
 	</nav>
+
+
 
 	<%= yield %>
 	<script> $(document).foundation(); </script>
