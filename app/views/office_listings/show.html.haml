@@ -16,7 +16,9 @@
         =@office_listing.office_type
 
   #map-image-holder
-    #map-canvas2
+    #map-holder
+      #map-canvas2
+      #pano
     #office-images
       .fotorama{"data-width" => "100%", "data-transition" => "dissolve", "data-nav" =>"thumbs", "data-fit" => "cover"}
         -@office_listing.images.each do |image|
