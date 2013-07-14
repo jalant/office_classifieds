@@ -1,4 +1,5 @@
 var infowindow;
+
 var office_map = {
 	map: null,
 
@@ -33,3 +34,28 @@ var office_map = {
 		});
 	}
 };
+
+var office_map2= {
+
+	display_map2: function(lat, lng){
+		var mapOptions = {
+			center:	new google.maps.LatLng(lat, lng),
+			zoom: 16,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+
+		var canvas=$('#map-canvas2')[0];
+		office_map.map =	new google.maps.Map(canvas, mapOptions);
+	},
+
+	add_marker2: function(lat, lng, location){
+		var latlng = new google.maps.LatLng(lat, lng);
+		var marker = new google.maps.Marker({
+			position: latlng,
+			map: office_map.map,
+			icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+			title: location
+		});
+	}
+};
+
