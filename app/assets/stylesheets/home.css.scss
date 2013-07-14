@@ -9,10 +9,56 @@ body{
 	display: none;
 }
 
-.login{
+.browse-offices, .final-signup{
+	margin-right: 5px;
+	margin-left:5px;
+	background-color: #3818A0;
+	font: 20px;
+	border: 1px solid #3818A0;
+	margin-top: 20px;
+}
+
+.browse-offices:hover, .final-signup:hover{
+	margin-right: 5px;
+	margin-left:5px;
+	background-color: #A0183C;
+	font: 20px;
+	border: 1px solid #A0183C;
+	margin-top: 20px;
+}
+
+.login{	
 	margin-right: 5px;
 	margin-left:5px;
 	display: none;
+	background-color: #3818A0;
+	font: 20px;
+	border: 1px solid #3818A0;
+}
+
+.signout{
+	margin-right: 5px;
+	margin-left:5px;
+	background-color: #3818A0;
+	font: 20px;
+	border: 1px solid #3818A0;
+}
+
+.login:hover{	
+	margin-right: 5px;
+	margin-left:5px;
+	display: none;
+	background-color: #A0183C;
+	font: 20px;
+	border: 1px solid #A0183C;
+}
+
+.signout:hover{
+	margin-right: 5px;
+	margin-left:5px;
+	background-color: #A0183C;
+	font: 20px;
+	border: 1px solid #A0183C;
 }
 
 .hidden{
@@ -21,6 +67,9 @@ body{
 
 .display_user{
 	color: red;
+	margin-top: 10px;
+	margin-right: 5px;
+	margin-left:5px;
 }
 
 nav.top-bar{
@@ -149,20 +198,31 @@ border: 1px solid #A0183C;
 margin: 1px;
 }
 
-
-
 .signup{
 margin-top: 0px;
-background-color:  #642e4a;
+background-color: #3818A0;
 font: 20px;
 margin-right: 5px;
 margin-left: 5px;
+border: 1px solid #3818A0;
 }
 
-.bottom_signup{
-display: inline-block;
-background-color:  #642e4a;
+.signup:hover{
+margin-top: 0px;
+background-color: #A0183C;
 font: 20px;
+margin-right: 5px;
+margin-left: 5px;
+border: 1px solid #A0183C;
 }
+
+
+
+
+// .bottom_signup{
+// display: inline-block;
+// background-color:  #642e4a;
+// font: 20px;
+// }
 
 

@@ -37,18 +37,18 @@
 
 				<% if current_renter %>
 					<li class="display_user"> <%= current_renter.email %> </li>
-					<%= link_to "Sign Out", destroy_renter_session_path, method: :delete, class: "button"%>
+					<%= link_to "Sign Out", destroy_renter_session_path, method: :delete, class: "button signout"%>
 				<% end %>
 
 				<% if current_broker %>
 					<li class="display_user"> <%= current_broker.email %> </li>
-					<%= link_to "Sign Out", destroy_broker_session_path, method: :delete, class: "button"%>
+					<%= link_to "Sign Out", destroy_broker_session_path, method: :delete, class: "button signout"%>
 				<% end %>
 
-				<li class=" success button signup" data-reveal-id="renter_sign_up" href=<%= new_renter_registration_path%>>Renter Signup</li>
-				<li class="signup success button" data-reveal-id = "broker_sign_up" href=<%= new_broker_registration_path%>>Broker Signup</li>
-				<li class="login alert button" data-reveal-id="renter_sign_in" href=<%= new_renter_session_path%>>Renter Login</li>
-				<li class="login alert button" data-reveal-id="broker_sign_in" href=<%= new_broker_session_path%>>Broker Login</li>		
+				<li class=" button signup" data-reveal-id="renter_sign_up" href=<%= new_renter_registration_path%>>Renter Signup</li>
+				<li class=" button signup" data-reveal-id = "broker_sign_up" href=<%= new_broker_registration_path%>>Broker Signup</li>
+				<li class="button login" data-reveal-id="renter_sign_in" href=<%= new_renter_session_path%>>Renter Login</li>
+				<li class="button login" data-reveal-id="broker_sign_in" href=<%= new_broker_session_path%>>Broker Login</li>		
 			</ul>
 		</section>
 	</nav>

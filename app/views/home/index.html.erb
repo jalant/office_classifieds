@@ -21,8 +21,13 @@ $(function(){
 </div>
 <div class="photo diff-space-change" data-stellar-background-ratio="2">
 	<span>Let us help you find your <span class = 'special3'>new working home.</span></span>
-	<br>	
-	<a class="signup-div button small" href="#">Sign Up Today</a>
+	<br>
+	<% if current_renter || current_broker %>
+		<a class="button small radius browse-offices" href="<%= city_neighborhoods_path(City.find_by_name('New York')) %>"> Browse our selection</a>
+	<% end %>
+	<% unless current_renter || current_broker %>	
+		<a class="signup-div button small final-signup" href="#">Sign Up Today</a>
+	<% end %>
 	<br>
 	<a class="small button signup" data-reveal-id="renter_sign_up" href=<%= new_renter_registration_path%>>Renter Sign Up</a>
 	<a class="small button signup" data-reveal-id="broker_sign_up" href=<%= new_broker_registration_path%>>Broker Sign Up</a>
