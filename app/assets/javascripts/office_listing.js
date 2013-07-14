@@ -1,4 +1,5 @@
 var infowindow;
+
 var office_map = {
 	map: null,
 
@@ -8,7 +9,6 @@ var office_map = {
 			zoom: 15,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
-
 		var canvas=$('#map-canvas')[0];
 		office_map.map =	new google.maps.Map(canvas, mapOptions);
 	},
@@ -18,11 +18,11 @@ var office_map = {
 		var marker = new google.maps.Marker({
 			position: latlng,
 			map: office_map.map,
-			 icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+			icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
 			title: location
 		});
 		office_map.attach_message(location, marker);
-	}, 
+	},
 
 	attach_message: function(location, marker){
 		infowindow = new google.maps.InfoWindow();
@@ -32,6 +32,42 @@ var office_map = {
 			infowindow.open(office_map.map, marker);
 		});
 	}
+};
+
+var office_map2= {
+  map:null,
+
+  display_map2: function(lat, lng){
+    var map_center =  new google.maps.LatLng(lat, lng)
+    var mapOptions = {
+      center: map_center,
+      zoom: 16,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var canvas=$('#map-canvas2')[0];
+    office_map2.map = new google.maps.Map(canvas, mapOptions);
+
+    var panoramaOptions = {
+    position: map_center,
+    pov: {
+      heading: 34,
+      pitch: 10
+    }
+  };
+    var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'),panoramaOptions);
+    office_map2.map.setStreetView(panorama);
+  },
+
+  add_marker2: function(lat, lng, location){
+    var latlng = new google.maps.LatLng(lat, lng);
+    var marker = new google.maps.Marker({
+      position: latlng,
+      map: office_map.map,
+      icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+      title: location
+    });
+  }
 };
 
 filters =  {
@@ -53,7 +89,7 @@ filters =  {
   },
 
   applyFilters: function() {
-    $('.ind-offices').show();
+    $('.ind-offices').fadeIn(1000);
     $('.ind-offices').each(function (index, Element) {
       filters.fadeElement(Element, 'lease-type', filters.filterData.leaseType);
       filters.fadeElement(Element, 'price', filters.filterData.price);

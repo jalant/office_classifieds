@@ -4,9 +4,6 @@ function renter_broker_signup(e){
   $('.login-div').addClass('hidden');
   $('.signup').fadeIn(1000);
   $('.signup').addClass('bottom_signup');
-
-
-
 }
 
 function renter_broker_login(e){

@@ -42,8 +42,30 @@ margin-top: 150px;
 	width: 423px;
 	height: 423px;
 	border: 1px dashed gray;
-	margin: 0;
+	margin-right: 10px;
 } 
+
+#map-holder{
+	width: 30%;
+	display: inline-block;
+}
+#map-canvas2{
+	width: 100%;
+	height: 300px;
+	border: 1px dashed gray;
+	margin: 0;
+	margin-top: 20px;
+} 
+
+#pano{
+	width: 100%;
+	height: 300px;
+	border: 1px dashed gray;
+	margin: 0;
+	margin-top: 20px;
+} 
+
+
 
 #map-canvas a{
 	display: none;
@@ -82,6 +104,11 @@ img[src="https://maps.gstatic.com/mapfiles/google_white.png"] {
 #map-canvas img { max-width: none; } 
 #map-report a img { display:none; } 
 
+
+#map-canvas2 label { width: auto; display:inline; }
+#map-canvas2 img { max-width: none; } 
+#map-report2 a img { display:none; } 
+
 .ind-offices:hover{
 	opacity: 0.7;
 	.panel span {
@@ -98,12 +125,11 @@ img[src="https://maps.gstatic.com/mapfiles/google_white.png"] {
 	color: #3818A0;
 }
 
-#office-details{
-	background-color: white;
-}
 
-.office-images{
+
+#office-images{
 	margin: auto;
+	height: 600px;
 }
 	
 .panel span {
@@ -289,4 +315,168 @@ input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+// on the office-show page-break-inside: 
+
+#office-images{
+	width: 60%;
+	display: inline-block;
+	margin: auto;
+	margin-left: 10px;	
+}
+
+#office-holder{
+	width: 80%;
+	margin: auto;
+	background-color:  #e2e2e2;
+	border: solid black 2px;
+}
+.fotorama__wrap{
+	width: 100%;
+	height: 467px;
+} 
+
+#map-image-holder{
+	margin: auto;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.fotorama__video-close{
+	display: none;
+}
+
+#office-details{
+
+}
+
+.listing-stats{
+	width: 100%;
+}
+
+#address-office-show-page{
+	width: 100%;
+	background-color: #A0183C;
+	height: 100px;
+	text-align: center;
+	// border-radius: 10px;
+	margin: auto;
+	font-size: 30px;
+	padding-top: 35px;
+	color: white;
+
+}
+
+.listing-stats-2{
+	width: 85%;
+	margin: auto;	
+
+}
+
+.amenities-label{
+	width: 90%;
+	height: 100px;
+	text-align: center;
+	background-color: #3818A0;
+	border-radius: 10px;
+	font-size: 30px;
+	padding-top: 35px;
+	color: white;
+}
+
+#rent-office-show-page, #size-office-show-page, #lease-type-office-show-page{
+	width: 31%;
+	background-color: #3818A0;
+	height: 70px;
+	text-align: center;
+	border-radius: 10px;
+	font-size: 20px;
+	padding-top: 25px;
+	color: white;
+	margin: auto;
+	margin-top: 10px;
+	margin: 10px;
+	display: inline-block;
+	// border: 2px solid black;
+	// background-color: #e2e2e2;
+	// height: 70px;
+	// border: solid 10px #c9c8c7;
+	// font-size: 20px;
+	// color: black;
+}
+
+.amenities{
+	width: 70%;
+	display: inline-block;
+	margin-top: 100px;
+}
+
+.amenities-1{
+	width: 45%;
+	display: inline-block;
+	text-align: center;
+	margin: auto;
+}
+
+.amenities-2{
+	width: 45%;
+
+	display: inline-block;
+}
+
+#true{
+	background-color: green;
+}
+
+.kitchen, .light, .patio, .reception, .shower, .high_ceiling{
+	width: 45%;
+	height: 160px;
+	background-color: #A0183C;
+	margin: auto;
+	margin-top: 10px;
+	border-radius: 10px;
+	border: 2px solid black;
+	text-align: center;
+	font-size: 20px;
+	color: white;	
+	padding-top: 70px;
+	text-align: center;
+	margin-bottom: 20px;	
+
+}
+
+.broker-info{
+	width: 25%;
+	margin-top: 100px;
+	float: right;
+	margin-right: 50px;
+}
+
+#broker-label{
+	width: 90%;
+	height: 100px;
+	text-align: center;
+	background-color: #3818A0;
+	border-radius: 10px;
+	font-size: 30px;
+	padding-top: 35px;
+	color: white;
+	margin: auto;
+
+}
+
+#broker-details{
+	width: 90%;
+	height: 100px;
+	text-align: center;
+	background-color: #A0183C;
+	border-radius: 10px;
+	font-size: 15px;
+	padding-top: 35px;
+	color: white;
+	margin: auto;
+	margin-top: 20px;
+	border: 2px solid black;
+
 }
