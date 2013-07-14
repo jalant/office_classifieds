@@ -19,7 +19,8 @@
 	.large-8.columns
 		.row
 			-@office_listings.each do |office_listing|
-				.large-4.small-6.columns.ind-offices{"data-id" => office_listing.id, "data-lease-type" => office_listing.office_type}
+				.large-4.small-6.columns.ind-offices{"data-id" => office_listing.id, "data-lease-type" => office_listing.office_type,
+				"data-price" => office_listing.rent, "data-square-feet" => office_listing.size}
 					-if office_listing.images[1].nil?
 						.office-img{:style => "background-image: url(#{image_path "http://placehold.it/219x250&text=Office"})"}
 					-else 
@@ -29,6 +30,10 @@
 							%span.special2
 								Address: 
 						%h6.subheader.address=office_listing.address
+						%h6.subheader	
+							%span.special
+								Rent: 
+							$#{number_with_delimiter(office_listing.size)} / month
 						%h6.subheader 
 							%span.special
 								Office Type: 
@@ -40,18 +45,10 @@
 						%h6.subheader	
 							%span.special
 								Size: 
-							#{office_listing.size}
+							#{number_with_delimiter(office_listing.size)} sq. feet
 						%h6.subheader 
 							%span.special
 								Availability: 
 							#{office_listing.availability}
-						%h6.subheader 
-							%span.special
-								Conference Rooms: 
-							#{office_listing.no_of_conference_rooms}
-						%h6.subheader 
-							%span.special
-								Offices: 
-							#{office_listing.no_of_offices}
 
 = render partial: '/office_listings/partials/helper', locals: {neighborhood: @neighborhood, office_listings: @office_listings}

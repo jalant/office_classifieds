@@ -4,6 +4,10 @@
 # Examples:
 #
 
+def random_t_f
+  ['true', 'false'].sample
+end
+
 City.delete_all
 Neighborhood.delete_all
 Image.delete_all
@@ -24,6 +28,11 @@ renter_1 = Renter.create(email: 'tanayjaln@gmail.com', password: 'password123', 
 renter_2 = Renter.create(email: 'tanayjaln@gmail.com', password: 'password123', password_confirmation: 'password123', first_name: 'Tany', last_name: 'Jalan')
 
 new_york_city = City.create(name: 'New York', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
+singapore = City.create(name: 'Singapore', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
+hong_kong = City.create(name: 'Hong Kong', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
+jakarta = City.create(name: 'Jakarta', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
+reno = City.create(name: 'Reno', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
+
 p new_york_city
 
 harlem = Neighborhood.create(name: "Harlem", address: "Harlem, NY", img_url: 'http://www.officeoftourism.org/img/usa/NY-NYC-Harlem2.jpg', city_id: new_york_city.id)
@@ -54,16 +63,13 @@ lines.each do |line|
   size = attributes[5]
   price = attributes[6]
 
-  if size == ''
-    size = 0
-  else
-    size = size.to_i
-  end
-
+  size = 500 + rand(0..8000)
   price = 1000 + rand(0..10000)
   new_listing = OfficeListing.new(address: address, office_type: space_type, size: size, 
                        rent: price, details: "This is an office", term_length: '5 years', 
-                       neighborhood_id: hood_hash[neighborhood].id, broker_id: broker_1.id, availability: "Immediately")
+                       neighborhood_id: hood_hash[neighborhood].id, broker_id: broker_1.id, availability: "Immediately",
+                        kitchen: random_t_f, reception: random_t_f, light: random_t_f, shower: random_t_f, move_in: random_t_f,
+                        high_ceiling: random_t_f, patio: random_t_f, furniture: random_t_f)
   new_listing.save!
 end
 

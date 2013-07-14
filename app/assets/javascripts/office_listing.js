@@ -92,14 +92,43 @@ filters =  {
     $('.ind-offices').fadeIn(1000);
     $('.ind-offices').each(function (index, Element) {
       filters.fadeElement(Element, 'lease-type', filters.filterData.leaseType);
-      filters.fadeElement(Element, 'price', filters.filterData.price);
-      filters.fadeElement(Element, 'square-feet', filters.filterData.squareFeet);
-    });
+      
+      switch (filters.filterData.price) {
+        case "$1000-3000":
+          filters.fadeElementInRange(Element, 'price', 1000, 3000);
+          break;
+        case "$3000-5000":
+          filters.fadeElementInRange(Element, 'price', 3000, 5000);
+          break;
+        case "$5000+":
+          filters.fadeElementInRange(Element, 'price', 5000, 50000);
+          break;
+        }
+
+      switch (filters.filterData.squareFeet) {
+        case "0-1000":
+          filters.fadeElementInRange(Element, 'square-feet', 0, 1000);
+          break;
+        case "1000-3000":
+          filters.fadeElementInRange(Element, 'square-feet', 1000, 3000);
+          break;
+        case "3000+":
+          filters.fadeElementInRange(Element, 'square-feet', 3000, 50000);
+          break;
+        }
+      });
   },
 
   fadeElement: function(Element, dataSelector, filterData) {
     if ($(Element).data(dataSelector) !== filterData && filterData != '') {
+      console.log($(Element).data(dataSelector));
       $(Element).fadeOut(1000);
+    }
+  },
+
+  fadeElementInRange: function(Element, dataSelector, lowerBound, upperBound) {
+    if ($(Element).data(dataSelector) >= lowerBound && $(Element).data(dataSelector) <= upperBound) {
+      $(Element).fadeOut(1000)
     }
   }
 };
