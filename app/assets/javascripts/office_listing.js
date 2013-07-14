@@ -97,8 +97,8 @@ filters =  {
       filters.fadeElement(Element, 'lease-type', filters.filterData.leaseType);
       
       switch (filters.filterData.price) {
-        case "$1000-3000":
-          filters.fadeElementInRange(Element, 'price', 1000, 3000);
+        case "$0-3000":
+          filters.fadeElementInRange(Element, 'price', 0, 3000);
           break;
         case "$3000-5000":
           filters.fadeElementInRange(Element, 'price', 3000, 5000);
@@ -129,10 +129,11 @@ filters =  {
   },
 
   fadeElementInRange: function(Element, dataSelector, lowerBound, upperBound) {
-    if (!($(Element).data(dataSelector) >= lowerBound && $(Element).data(dataSelector) <= upperBound)) {
+    console.log("Candidate: ");
+    console.log($(Element).data(dataSelector));
+    if ($(Element).data(dataSelector) <= lowerBound || $(Element).data(dataSelector) >= upperBound) {
+      console.log("Selected Data: ")
       console.log($(Element).data(dataSelector))
-      console.log(lowerBound);
-      console.log(upperBound);
       $(Element).fadeOut(1000)
     }
   }

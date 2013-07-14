@@ -8,7 +8,7 @@
 			= select_tag "Lease Type", "<option></option><option>Office</option><option>Coworking Space</option>".html_safe, id: "lease-type"
 			#price-title
 				Rent
-			= select_tag "Rent", "<option></option><option>$1000-3000</option><option>$3000-5000</option><option>$5000+</option>".html_safe, id: "price"
+			= select_tag "Rent", "<option></option><option>$0-3000</option><option>$3000-5000</option><option>$5000+</option>".html_safe, id: "price"
 			#square-feet-title
 				Square Feet
 			= select_tag "Square Feet", "<option></option><option>0-1000</option><option>1000-3000</option><option>3000+</option>".html_safe, id: "square-feet"
@@ -36,7 +36,7 @@
 						%h6.subheader	
 							%span.special
 								Rent: 
-							$#{number_with_delimiter(office_listing.size)} / month
+							$#{number_with_delimiter(office_listing.rent)} / month
 						%h6.subheader 
 							%span.special
 								Office Type: 
