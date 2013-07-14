@@ -33,3 +33,44 @@ var office_map = {
 		});
 	}
 };
+
+filters =  {
+  filterData: { leaseType: '', price: '', squareFeet: ''},
+
+  filterLeaseType: function(e) {
+    filters.filterData.leaseType = $(event.target).val();
+    console.log(filters.filterData.leaseType);
+  },
+
+  filterPrice: function(e) {
+    filters.filterData.price = $(event.target).val();
+    console.log(filters.filterData.price);
+  },
+
+  filterSquareFeet: function(e) {
+    filters.filterData.squareFeet = $(event.target).val();
+    console.log(filters.filterData.squareFeet);
+  },
+
+  applyFilters: function() {
+    $('.ind-offices').show();
+    $('.ind-offices').each(function (index, Element) {
+      filters.fadeElement(Element, 'lease-type', filters.filterData.leaseType);
+      filters.fadeElement(Element, 'price', filters.filterData.price);
+      filters.fadeElement(Element, 'square-feet', filters.filterData.squareFeet);
+    });
+  },
+
+  fadeElement: function(Element, dataSelector, filterData) {
+    if ($(Element).data(dataSelector) !== filterData && filterData != '') {
+      $(Element).fadeOut(1000);
+    }
+  }
+};
+
+$(function() {
+  $('#lease-type').change(filters.filterLeaseType);
+  $('#price').change(filters.filterPrice);
+  $('#square-feet').change(filters.filterSquareFeet);
+  $('#apply-filters').click(filters.applyFilters);
+});

@@ -3,12 +3,23 @@
 		#map-canvas
 		.hide-for-small.panel.filters
 			%h3.neighborhood-title #{@neighborhood.name}
+			#lease-type-title 
+				Lease Type
+			= select_tag "Lease Type", "<option></option><option>Office</option><option>Coworking Space</option>".html_safe, id: "lease-type"
+			#price-title
+				Rent
+			= select_tag "Rent", "<option></option><option>$1000-3000</option><option>$3000-5000</option><option>$5000+</option>".html_safe, id: "price"
+			#square-feet-title
+				Square Feet
+			= select_tag "Square Feet", "<option></option><option>0-1000</option><option>1000-3000</option><option>3000+</option>".html_safe, id: "square-feet"
+			#apply-filters-container
+				.button#apply-filters
+					Apply Filters
 			
-
 	.large-8.columns
 		.row
 			-@office_listings.each do |office_listing|
-				.large-4.small-6.columns.ind-offices{"data-id" => office_listing.id}
+				.large-4.small-6.columns.ind-offices{"data-id" => office_listing.id, "data-lease-type" => office_listing.office_type}
 					-if office_listing.images[1].nil?
 						.office-img{:style => "background-image: url(#{image_path "http://placehold.it/219x250&text=Office"})"}
 					-else 
@@ -44,4 +55,3 @@
 							#{office_listing.no_of_offices}
 
 = render partial: '/office_listings/partials/helper', locals: {neighborhood: @neighborhood, office_listings: @office_listings}
-

@@ -246,6 +246,42 @@ input[name='Create Office listing'] {
   margin: 0;
 }
 
+#lease-type-title {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 3px;
+  font-size: 1.10em;
+  margin-bottom: 5px;
+}
+
+#price-title {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 3px;
+  font-size: 1.10em;
+  margin-bottom: 5px;
+}
+
+#square-feet-title {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 3px;
+  font-size: 1.10em;
+  margin-bottom: 5px;
+}
+
+#apply-filters {
+  background-color: #6f2f4f;
+  color: black;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+#apply-filters-container {
+  text-align: center;
+}
+
 // Eliminate Spinner
 
 input::-webkit-outer-spin-button,
