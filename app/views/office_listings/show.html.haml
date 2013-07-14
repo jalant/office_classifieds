@@ -1,11 +1,10 @@
-
 %script{:src => "fotorama.js"}
 %link{:href => "fotorama.css", :rel => "stylesheet"}
 
 %h1 Office Listing
 #office-holder
   .listing-stats  
-    #address-office-show-page
+    #address-office-show-page 
       =@office_listing.address
     .listing-stats-2
       #rent-office-show-page
@@ -25,24 +24,39 @@
   
   .listing-stats-2  
     .amenities 
-      .amenities-label Amenities
-      .amenities-1
-        .kitchen{id: "#{@office_listing.kitchen ? 'true' : ''}" } Kitchen
-        .light{id: "#{@office_listing.light ? 'true' : ''}" } Light
-        .patio{id: "#{@office_listing.patio ? 'true' : ''}" } Patio
-      .amenities-2
-        .reception{id: "#{@office_listing.reception ? 'true' : ''}" } Reception
-        .shower{id: "#{@office_listing.shower ? 'true' : ''}" } Shower
-        .high_ceiling{id: "#{@office_listing.high_ceiling ? 'true' : ''}" } High Ceiling
-
-    .broker-info
-      #broker-label Contact Broker
-      #broker-details
-        #broker-name
-          #{@office_listing.broker.first_name} #{@office_listing.broker.last_name}
-        #broker-email
-          =@office_listing.broker.email
-
+      .amenities-label Amenities  
+      %table{:border => "3", :bordercolor => "black", :cellpadding => "3", :cellspacing => "3", :style => "background-color:rgba(30, 125, 188, 0.5)", :width => "100%"}
+        %thead
+          %tr
+            %th.table-heading Amenity
+            %th.table-heading Available
+        %tbody
+          %tr
+            %td Kitchen
+            %td.icon-holder
+              %i{class: "#{@office_listing.kitchen ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+          %tr
+            %td Light
+            %td.icon-holder
+              %i{class: "#{@office_listing.light ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+          %tr
+            %td Patio
+            %td.icon-holder
+              %i{class: "#{@office_listing.patio ? 'general foundicon-checkmark' : 'general foundicon-remove'}" } 
+          %tr
+            %td Reception
+            %td.icon-holder
+              %i{class: "#{@office_listing.reception ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+          %tr
+            %td Shower
+            %td.icon-holder
+              %i{class: "#{@office_listing.shower ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+          %tr
+            %td High Ceiling
+            %td.icon-holder
+              %i{class: "#{@office_listing.high_ceiling ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+    / .show-page-button
+    /   =button_to "Contact Broker Now", "#", class: "button large office-show-page-button"
 
 = render partial: '/office_listings/partials/helper2', locals: {office_listing: @office_listing}
 
