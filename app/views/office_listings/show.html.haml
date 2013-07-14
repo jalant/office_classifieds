@@ -9,21 +9,20 @@
       =@office_listing.address
     .listing-stats-2
       #rent-office-show-page
+        %span.special2 Rent: 
         $#{@office_listing.rent}/month
       #size-office-show-page
+        %span.special2 Space: 
         #{@office_listing.size} sq. feet
-      #lease-type-office-show-page
-        =@office_listing.office_type
+  #office-images
+    .fotorama{"data-width" => "100%","data-ratio" => "800/450", "data-transition" => "dissolve", "data-nav" =>"thumbs", "data-fit" => "cover", "data-allow-full-screen" => 'true', "data-thumb-width" => "100", "data-thumb-height" => "100"}
+      -@office_listing.images.each do |image|
+        %img{:src => "#{image.link_image || image.image || ""}"}
 
-  #map-image-holder
-    #map-holder
-      #map-canvas2
-      #pano
-    #office-images
-      .fotorama{"data-width" => "100%", "data-transition" => "dissolve", "data-nav" =>"thumbs", "data-fit" => "cover"}
-        -@office_listing.images.each do |image|
-          %img{:src => "#{image.link_image || image.image || ""}"}
-
+  #map-holder
+    #map-canvas2
+    #pano
+  
   .listing-stats-2  
     .amenities 
       .amenities-label Amenities
