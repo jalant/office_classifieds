@@ -1,6 +1,7 @@
-%h1 Neighborhoods
-.row.neighborhoods-page
+.add-listing-heading
+	%h1.add-listing-label Which neighborhood will this office be located in?
+.row.neighborhoods-page-add-listing
 	-@neighborhoods.each do |neighborhood|
-		=link_to city_neighborhood_office_listings_path(@city, neighborhood), id: neighborhood.name do
+		=link_to new_city_neighborhood_office_listing_path(@city, neighborhood), id: neighborhood.name do
 			.large-4.small-6.columns.neighborhood-box{:style => "background-image: url(#{image_path "#{neighborhood.img_url}"})"}
 				=neighborhood.name	

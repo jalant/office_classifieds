@@ -33,10 +33,9 @@
 	opacity: 0.7;
 	font-size: 30px;
 	font-family: sans-serif;
-	color: white;
+	color: #b1c4e5;
 	text-align: center;
 	font-weight: bold;
-	color:red;
 }
 
 .neighborhoods-page{
@@ -44,3 +43,22 @@
 	margin-bottom: 150px;
 }
 
+.neighborhoods-page-add-listing{
+	margin-top: 10px;
+	margin-bottom: 150px;
+}
+
+.add-listing-heading{
+	width: 100%;	
+	margin-top: 150px;
+	background-color: #A0183C;
+}
+
+.add-listing-label{
+	text-align: center;
+	color: white;
+	font-weight: normal;
+	font-size: 25px;
+	padding: 20px;
+
+}
