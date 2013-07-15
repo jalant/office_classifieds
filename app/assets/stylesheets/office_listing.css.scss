@@ -171,18 +171,18 @@ img[src="https://maps.gstatic.com/mapfiles/google_white.png"] {
 }
 
 #address { 
-  width: 630px;
+  width: 690px;
   display: block;
   margin-bottom: 15px;
 }
 
 #rent {
-  width: 50px;
+  width: 80px;
   display: inline-block;
 }
 
 #size { 
-  width: 50px;
+  width: 80px;
   display: inline-block;
 }
 
@@ -218,6 +218,7 @@ input[name='Create Office listing'] {
 
 #listing-attributes input#submit-listing:hover {
   background-color: #6f2f4f;
+  cursor: pointer;
 }
 
 #listing-images input#upload-image {
@@ -294,9 +295,13 @@ input[name='Create Office listing'] {
 #apply-filters {
   background-color: #6f2f4f;
   color: black;
-  padding: 3px;
+  padding: 5px;
   border-radius: 5px;
   border: 1px solid black;
+}
+
+#apply-filters:hover {
+  background-color: #753555;
 }
 
 #apply-filters-container {

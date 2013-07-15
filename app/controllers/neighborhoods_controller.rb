@@ -1,6 +1,6 @@
 class NeighborhoodsController < ApplicationController
   def index
-    @neighborhoods = Neighborhood.all
+    @neighborhoods = Neighborhood.find_all_by_city_id(params[:city_id])
     @city = City.find(params[:city_id])
   end
 
