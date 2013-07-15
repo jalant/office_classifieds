@@ -14,7 +14,7 @@
         %span.special2 Space: 
         #{@office_listing.size} sq. feet
   #office-images
-    .fotorama{"data-width" => "100%","data-ratio" => "800/450", "data-transition" => "dissolve", "data-nav" =>"thumbs", "data-fit" => "cover", "data-allow-full-screen" => 'true', "data-thumb-width" => "100", "data-thumb-height" => "100"}
+    .fotorama{"data-width" => "100%","data-height" => "600px", "data-transition" => "dissolve", "data-nav" =>"thumbs", "data-fit" => "cover", "data-allow-full-screen" => 'true', "data-thumb-width" => "100", "data-thumb-height" => "100"}
       -@office_listing.images.each do |image|
         %img{:src => "#{image.link_image || image.image || ""}"}
 
