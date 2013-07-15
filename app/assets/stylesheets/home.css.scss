@@ -2,6 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@font-face {
+  font-family: 'Raleway';
+  src: url('Raleway Thin.ttf'),
+  url('Raleway Thin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway';
+}
+
 body{
 	background-color: rgba(0,0,0, 0.85	) ;
 }
@@ -162,12 +174,15 @@ border: solid 10px #c9c8c7;
 
 .special {
 color: #A0183C;
+font-weight: bold;
 }
 .special2 {
 color: #3818A0;
+font-weight: bold;
 }
 .special3 {
 color: #642e4a;
+font-weight: bold;
 }
 
 .signup-div{

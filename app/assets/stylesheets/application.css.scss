@@ -15,26 +15,6 @@
  @import 'foundation';
  @import 'foundation-icons';
 
-@font-face {
-    font: {
-       family: 'Raleway';
-       weight: 'normal';
-       style: 'normal';
-    }
-    src: asset-url('assets/theleagueof-raleway-40afd9d/Thin Raleway.otf', font);
-    src: asset-url('assets/theleagueof-raleway-40afd9d/webfonts/raleway_thin-webfont.eot', font) format('embedded-opentype'),
-         asset-url('assets/theleagueof-raleway-40afd9d/webfonts/raleway_thin-webfont.woff', font) format('woff'),
-         asset-url('assets/theleagueof-raleway-40afd9d/webfonts/raleway_thin-webfont.ttf', font) format('truetype'),
-         asset-url('assets/theleagueof-raleway-40afd9d/webfonts/raleway_thin-webfont.svg', font) format('svg')
-}
-
-
-
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Raleway';
-}
-
-
  #broker_sign_in{
   margin-top: 150px;
  }
