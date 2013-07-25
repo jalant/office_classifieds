@@ -6,6 +6,7 @@ describe 'Home' do
 
   describe 'GET /' do
     it 'displays the HOME page with the navbar' do
+      pending
       visit root_path
       page.should have_selector('nav')
       find('nav').should have_content('Browse Offices')
@@ -16,6 +17,7 @@ describe 'Home' do
     end
 
     it 'navigates to individual city' do
+      pending
       visit root_path
       city.reload
       click_link("Singapore")
@@ -23,18 +25,21 @@ describe 'Home' do
     end
 
     it 'login button shows two buttons for renter and broker' do
+      pending
       visit root_path
       click_link('Login')
       page.should have_selector('.login')
     end
 
     it 'singup button shows two buttons for renter and broker' do
+      pending
       visit root_path
       click_link('Login')
       page.should have_selector('.signup')
     end
 
     it 'renter login button displays the renter login page' do
+      pending
       visit root_path
       click_link('Login')
       click_link('Renter Login')
@@ -42,6 +47,7 @@ describe 'Home' do
     end
 
     it 'renter signup button displays the renter signup page' do
+      pending
       visit root_path
       click_link('Sign Up')
       click_link('Renter Signup')
@@ -50,6 +56,7 @@ describe 'Home' do
 
 
     it 'broker login button displays the broker login page' do
+      pending
       visit root_path
       click_link('Login')
       click_link('Broker Login')
@@ -57,6 +64,7 @@ describe 'Home' do
     end
 
     it 'broker signup button displays the broker signup page' do
+      pending
       visit root_path
       click_link('Sign Up')
       click_link('Broker Signup')

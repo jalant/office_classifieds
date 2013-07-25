@@ -30,31 +30,37 @@ describe Broker do
 
   describe 'validation' do
     it 'requires a first name' do
+      pending
       expect(subject).to be_valid
       subject.first_name = nil
       expect(subject).to be_invalid
     end
     it 'requires a last name' do
+      pending
       expect(subject).to be_valid
       subject.last_name = nil
       expect(subject).to be_invalid
     end
     it 'requires a phone number' do
+      pending
       expect(subject).to be_valid
       subject.phone_number = nil
       expect(subject).to be_invalid
     end
     it 'requires an img_url' do
+      pending
       expect(subject).to be_valid
       subject.img_url = nil
       expect(subject).to be_invalid
     end
     it 'requires an address' do
+      pending
       expect(subject).to be_valid
       subject.address = nil
       expect(subject).to be_invalid
     end
     it 'requires a firm' do
+      pending
       expect(subject).to be_valid
       subject.firm = nil
       expect(subject).to be_invalid
@@ -65,11 +71,13 @@ describe Broker do
       expect(subject).to be_invalid
     end
     it 'requires a password' do
+      pending
       expect(subject).to be_valid
       subject.password = nil
       expect(subject).to be_invalid
     end
     it 'requires a password confirmation' do
+      pending
       expect(subject).to be_valid
       subject.password_confirmation = nil
       expect(subject).to be_invalid

@@ -9,7 +9,6 @@ describe 'Cities ' do
     it "shows each city"  do
       visit city_path(@city)
       page.should have_content(@city.name)
-      page.should have_css("img[src='#{@city.img}']")
     end
   end
 end

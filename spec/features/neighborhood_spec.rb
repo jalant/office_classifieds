@@ -25,13 +25,13 @@ describe 'Neighborhoods' do
       city.reload
       visit city_neighborhoods_path(city)
       click_link(neighborhood.name)
-      current_path.should eq(city_neighborhood_path(city, neighborhood))
+      current_path.should eq(city_neighborhood_office_listings_path(city, neighborhood))
       visit city_neighborhoods_path(city)
       click_link(neighborhood_2.name)
-      current_path.should eq(city_neighborhood_path(city, neighborhood_2))
+      current_path.should eq(city_neighborhood_office_listings_path(city, neighborhood_2))
       visit city_neighborhoods_path(city)
       click_link(neighborhood_3.name)
-      current_path.should eq(city_neighborhood_path(city, neighborhood_3))
+      current_path.should eq(city_neighborhood_office_listings_path(city, neighborhood_3))
     end
   end
 end
