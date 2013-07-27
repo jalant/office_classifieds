@@ -74,7 +74,7 @@ var office_map2= {
 };
 
 filters =  {
-  filterData: { leaseType: '', price: '', squareFeet: ''},
+  filterData: { leaseType: '', price: '', squareFeet: '', pets: ''},
 
   filterLeaseType: function(e) {
     filters.filterData.leaseType = $(event.target).val();
