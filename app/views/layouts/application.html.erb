@@ -55,7 +55,9 @@
 
 
 
-	<%= yield %>
+  <div id='<%= "#{params[:controller].parameterize} #{params[:action]}" %>'>
+    <%= yield %>
+  </div>
 	<script> $(document).foundation(); </script>
 
 	<div id="broker_login_box">

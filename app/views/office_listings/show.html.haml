@@ -4,13 +4,13 @@
 %h1 Office Listing
 #office-holder
   .listing-stats  
-    #address-office-show-page 
+    #address 
       =@office_listing.address
     .listing-stats-2
-      #rent-office-show-page
+      #rent
         %span.special2 Rent: 
         $#{@office_listing.rent}/month
-      #size-office-show-page
+      #size
         %span.special2 Space: 
         #{@office_listing.size} sq. feet
   #office-images
@@ -19,7 +19,7 @@
         %img{:src => "#{image.link_image || image.image || ""}"}
 
   #map-holder
-    #map-canvas2
+    #map-canvas
     #pano
   
   .listing-stats-2  
@@ -55,8 +55,6 @@
             %td High Ceiling
             %td.icon-holder
               %i{class: "#{@office_listing.high_ceiling ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
-    / .show-page-button
-    /   =button_to "Contact Broker Now", "#", class: "button large office-show-page-button"
 
 = render partial: '/office_listings/partials/helper2', locals: {office_listing: @office_listing}
 
