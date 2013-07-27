@@ -22,7 +22,6 @@ class OfficeListingsController < ApplicationController
   def create
     selected_amenities = params[:amenities] || [] # empty list if no amenities checked
     @office_listing = OfficeListing.new(params[:office_listing])
-    puts "CURRENT BROKER: #{current_broker}"
     @office_listing.broker = current_broker
     @office_listing.neighborhood = Neighborhood.find(params[:neighborhood_id])
     if @office_listing && @office_listing.save!
