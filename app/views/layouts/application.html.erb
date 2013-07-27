@@ -55,7 +55,7 @@
 
 
 
-  <div id='<%= "#{params[:controller].parameterize} #{params[:action]}" %>'>
+  <div id='<%= "#{params[:controller].parameterize}" %>' class='<%= "#{params[:action]}" %>'>
     <%= yield %>
   </div>
 	<script> $(document).foundation(); </script>

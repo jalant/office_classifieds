@@ -1,0 +1,178 @@
+#office_listings.new {
+
+  #form-container {
+    margin-top: 150px;
+  }
+
+  #listing-attributes {
+    font-size: 1.2em;
+    background-color: rgba(30, 125, 188, 0.5);
+    padding: 10px;
+    color: white;
+
+    input {
+      background-color: black;
+      color: white;
+    }
+
+    select {
+    background-color: black;
+    border-width: .75px;
+    border-color: black;
+    border-radius: 5px;
+    color: white;
+    width: 250px;
+    text-align: center;
+    padding: 3px;
+    display: block;
+  }
+
+    label {
+      color: white;
+      display: inline-block;
+      padding: 5px;
+    }
+
+    input#submit-listing {
+      display: block;
+      background-color: #642e4a;
+      font-size: 1.25em;
+      color: black;
+      border-radius: 5px;
+      border: 1px solid black;
+      &:hover {
+        background-color: #6f2f4f;
+        cursor: pointer;
+      }
+    }
+  }
+
+  #listing-images {
+    font-size: 1.2em;
+    background-color: rgba(30, 125, 188, 0.5);
+    padding: 10px;
+    color: white;
+
+    input#upload-image {
+      display: inline-block;
+      background-color: #642e4a;
+      font-size: 1.25em;
+      color: black;
+      border-radius: 5px;
+      border: 1px solid black;
+    }
+
+    input#submit-image {
+      display: inline-block;
+      background-color: #642e4a;
+      font-size: 1.25em;
+      color: black;
+      border-radius: 5px;
+      border: 1px solid black;
+      &:hover {
+        background-color: #6f2f4f;
+      }
+    }
+
+    #return-to-listing {
+      display: inline-block;
+      background-color:#A0183C; 
+      font-size: 1.25em;
+      border-radius: 5px;
+      border: 1px solid black;
+      color: black;
+      padding: 5px;
+      &:hover {
+        background-color: #A61D3F;
+      }
+    }
+  }
+
+  #address { 
+    width: 690px;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  #rent {
+    width: 80px;
+    display: inline-block;
+  }
+
+  #size { 
+    width: 80px;
+    display: inline-block;
+  }
+
+  #no_of_offices {
+    width: 50px;
+    display: inline-block;
+  }
+
+  #no_of_conference_rooms { 
+    width: 50px;
+    display: inline-block;
+  }
+
+  #details { 
+    width: 300px;
+    background-color: black;
+    color: white;
+    display: block;
+  }
+
+  input[name='Create Office listing'] { 
+    color: blue;
+  }
+
+  .image-box {
+    height: 322px;
+    background-size: cover;
+    border: solid black 1px;
+  }
+
+  #image-container {
+    padding: 0;
+    margin: 0;
+  }
+
+  #lease-type-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 3px;
+    font-size: 1.10em;
+    margin-bottom: 5px;
+  }
+
+  #price-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 3px;
+    font-size: 1.10em;
+    margin-bottom: 5px;
+  }
+
+  #square-feet-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 3px;
+    font-size: 1.10em;
+    margin-bottom: 5px;
+  }
+
+  #apply-filters {
+    background-color: #6f2f4f;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    &:hover {
+      background-color: #753555;
+    }
+  }
+
+  #apply-filters-container {
+    text-align: center;
+  }
+}
+

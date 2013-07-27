@@ -2,251 +2,96 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@font-face {
-  font-family: 'Raleway';
-  src: url('Raleway Thin.ttf'),
-  url('Raleway Thin.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+@import "colors";
+
+#home.index {
+  .photo {
+    background-attachment: fixed;
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    height: 450px;
+    position: relative;
+  }
+
+  .new_york {
+    background-image: url("new_york.jpg");
+    background-size: 100%;
+    height: 870px;
+    margin-top:-50px;
+
+
+  }
+  .singapore {
+    background-image: url("singapore.jpg");
+    background-size: 100%;
+    height: 700px;
+  }
+  .sf {
+    background-image: url("sf.jpg");
+    background-size: 100%;
+    height: 700px;
+  }
+  .hk {
+    background-image: url("hk.jpg");
+    background-size: 100%;
+    height: 700px;
+  }
+  .diff-space{
+    background-color: #e2e2e2;
+    width:100%;
+    height:130px;
+    border: solid 10px #c9c8c7;
+    font-size: 30px;
+    margin: auto;
+    text-align: center;
+    padding-top: 40px;
+  }
+
+  .diff-space-change{
+    background-color: #e2e2e2;
+    width:100%;
+    height:200px;
+    border: solid 10px #c9c8c7;
+    font-size: 30px;
+    margin: auto;
+    text-align: center;
+    padding-top:30px;
+  }
+
+  .diff-space-final{
+    background-color: #e2e2e2;
+    width:100%;
+    height:90px;
+    border: solid 10px #c9c8c7;
+    font-size: 20px;
+    margin: auto;
+    text-align: center;
+    padding-top: 30px;
+
+  }
+
+  #logo-color {
+    color: $pink;
+    font-family: Arial;
+    font-size: 1.10em;
+    margin-top:2px;
+    display: inline-block;
+    font-variant: small-caps;
+  }
+
+  .special {
+    color: $pink;
+    font-weight: bold;
+  }
+
+  .special2 {
+    color: $purple;
+    font-weight: bold;
+  }
+
+  .special3 {
+    color: #642e4a;
+    font-weight: bold;
+  }
 }
-
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Raleway';
-}
-
-body{
-	background-color: rgba(0,0,0, 0.85	) ;
-}
-.signup{
-	display: none;
-}
-
-.browse-offices, .final-signup{
-	margin-right: 5px;
-	margin-left:5px;
-	background-color: #3818A0;
-	font: 20px;
-	border: 1px solid #3818A0;
-	margin-top: 20px;
-}
-
-.browse-offices:hover, .final-signup:hover{
-	margin-right: 5px;
-	margin-left:5px;
-	background-color: #A0183C;
-	font: 20px;
-	border: 1px solid #A0183C;
-	margin-top: 20px;
-}
-
-.login{	
-	margin-right: 5px;
-	margin-left:5px;
-	display: none;
-	background-color: #3818A0;
-	font: 20px;
-	border: 1px solid #3818A0;
-}
-
-.signout{
-	margin-right: 5px;
-	margin-left:5px;
-	background-color: #3818A0;
-	font: 20px;
-	border: 1px solid #3818A0;
-}
-
-.login:hover{	
-	margin-right: 5px;
-	margin-left:5px;
-	display: none;
-	background-color: #A0183C;
-	font: 20px;
-	border: 1px solid #A0183C;
-}
-
-.signout:hover{
-	margin-right: 5px;
-	margin-left:5px;
-	background-color: #A0183C;
-	font: 20px;
-	border: 1px solid #A0183C;
-}
-
-.hidden{
-	display: none;
-}
-
-.display_user{
-	color: red;
-	margin-top: 10px;
-	margin-right: 5px;
-	margin-left:5px;
-}
-
-nav.top-bar{
-	z-index: 100;
-	position: fixed;
-	top: 0px;
-	width: 100%;
-	height: 100px;
-	padding-top: 30px;
-
-}
-
-.city_names {
-	bottom: 0;
-	color: white;
-	display: block;
-	left: 40%;
-	margin-left: -640px;
-	font-size: 30px;
-	padding: 10px;
-	position: absolute;
-	text-shadow: 0 2px 0 black, 0 0 10px black;
-	width: 1280px;
-}
-
-.photo {
-	background-attachment: fixed;
-	background-position: 50% 0;
-	background-repeat: no-repeat;
-	height: 450px;
-	position: relative;
-}
-
-.new_york {
-	background-image: url("new_york.jpg");
-	background-size: 100%;
-	height: 870px;
-	margin-top:-50px;
-
-
-}
-.singapore {
-	background-image: url("singapore.jpg");
-	background-size: 100%;
-	height: 700px;
-}
-.sf {
-	background-image: url("sf.jpg");
-	background-size: 100%;
-	height: 700px;
-}
-.hk {
-	background-image: url("hk.jpg");
-	background-size: 100%;
-	height: 700px;
-}
-.diff-space{
-background-color: #e2e2e2;
-width:100%;
-height:130px;
-border: solid 10px #c9c8c7;
-	font-size: 30px;
-	margin: auto;
-	text-align: center;
-	padding-top: 40px;
-}
-.diff-space-change{
-background-color: #e2e2e2;
-width:100%;
-height:200px;
-border: solid 10px #c9c8c7;
-	font-size: 30px;
-	margin: auto;
-	text-align: center;
-	padding-top:30px;
-
-}
-
-.diff-space-final{
-background-color: #e2e2e2;
-width:100%;
-height:90px;
-border: solid 10px #c9c8c7;
-	font-size: 20px;
-	margin: auto;
-	text-align: center;
-	padding-top: 30px;
-
-}
-
-#logo-color {
-	color: #A0183C;
-	font-family: Arial;
-	font-size: 1.10em;
-	margin-top:2px;
-	display: inline-block;
-	font-variant: small-caps;
-}
-
-.special {
-color: #A0183C;
-font-weight: bold;
-}
-.special2 {
-color: #3818A0;
-font-weight: bold;
-}
-.special3 {
-color: #642e4a;
-font-weight: bold;
-}
-
-.signup-div{
-background-color:  #3818A0;
-font: 20px;
-border: 1px solid #3818A0;
-margin: 1px;
-}
-
-.signup-div:hover{
-background-color:  #A0183C;
-font: 20px;
-border: 1px solid #A0183C;
-margin: 1px;
-}
-
-.login-div{
-background-color:  #3818A0;
-font: 20px;
-border: 1px solid #3818A0;
-margin: 1px;
-}
-
-.login-div:hover{
-background-color:  #A0183C;
-font: 20px;
-border: 1px solid #A0183C;
-margin: 1px;
-}
-
-.signup{
-margin-top: 0px;
-background-color: #3818A0;
-font: 20px;
-margin-right: 5px;
-margin-left: 5px;
-border: 1px solid #3818A0;
-}
-
-.signup:hover{
-margin-top: 0px;
-background-color: #A0183C;
-font: 20px;
-margin-right: 5px;
-margin-left: 5px;
-border: 1px solid #A0183C;
-}
-
-
-
-
-// .bottom_signup{
-// display: inline-block;
-// background-color:  #642e4a;
-// font: 20px;
-// }
-
 

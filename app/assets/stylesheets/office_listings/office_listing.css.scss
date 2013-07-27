@@ -1,0 +1,23 @@
+// Place all the styles related to the OfficeListing controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.listing{
+	color: white;
+}
+
+
+img[src="https://maps.gstatic.com/mapfiles/google_white.png"] {
+	display: none;
+}
+
+// Eliminate Spinner
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+

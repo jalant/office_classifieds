@@ -1,0 +1,96 @@
+#office_listings.index {
+
+  .neighborhood-title {
+    text-align: center;
+  }
+
+  .address{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .office-box{
+    height: 322px;
+  }
+
+  .office-img{
+    width: 100%;
+    height:270px;
+    background-size: cover;
+  }
+
+  #list-offices {
+    margin-bottom: 150px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0px;
+    width: 100%;
+    max-width: 85em;
+    margin-top: 150px;
+  }
+
+  #map-canvas{
+    width: 423px;
+    height: 423px;
+    border: 1px dashed gray;
+    margin-right: 10px;
+
+    a {
+      display: none;
+
+      .map-label {
+        display: block;
+        font-size: 20px;
+        color:  #3818A0;
+        font-weight: bold;
+      }
+      .map-label2 {
+        display: block;
+        font-size: 16px;
+        color:  #A0183C;
+
+        &:hover {
+          display: block;
+          font-size: 16px;
+          color:  #A0183C;
+          text-decoration: underline;
+        }
+      }
+      img {
+        display: none;
+      }
+    }
+
+    span {
+      display: none;
+    }
+
+    label {
+      width: auto;
+      display: inline;
+    }
+
+    img {
+      max-width: none;
+    }
+  } 
+
+  .ind-offices{
+    &:hover{
+      opacity: 0.7;
+
+      .panel span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .panel h3{
+    color: #3818A0;
+  }
+    
+  .panel span {
+    font-weight: bold;
+  }
+}
+
