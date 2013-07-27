@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 gem 'pg'
 gem 'haml'
 gem 'jquery-rails'
@@ -14,15 +14,15 @@ gem 'rmagick'
 
 gem 'geocoder'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-  gem 'foundation-icons-sass-rails'
-  gem 'zurb-foundation'
-end
+gem 'sass-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'foundation-icons-sass-rails'
+gem 'zurb-foundation'
+gem 'protected_attributes'
+gem 'rails-observers'
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
 
 group :development, :test do
   gem 'pry-rails'
