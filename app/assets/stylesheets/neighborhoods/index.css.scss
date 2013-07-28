@@ -1,3 +1,5 @@
+@import 'colors';
+
 #neighborhoods.index {
   .neighborhood-box{
     width: 32%;
@@ -23,7 +25,7 @@
     color: red;
     opacity: 0.7;
     font-size: 30px;
-    color: #b1c4e5;
+    color: $sky-blue;
     text-align: center;
     font-weight: bold;
     }
@@ -46,7 +48,7 @@
   .add-listing-heading{
     width: 100%;	
     margin-top: 150px;
-    background-color: #A0183C;
+    background-color: $pink;
   }
 
   .add-listing-label{

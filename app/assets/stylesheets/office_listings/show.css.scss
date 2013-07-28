@@ -1,3 +1,5 @@
+@import 'colors';
+
 #office_listings.show{
 
   #map-canvas{
@@ -12,18 +14,18 @@
       .map-label {
         display: block;
         font-size: 20px;
-        color:  #3818A0;
+        color:  $purple;
         font-weight: bold;
       }
       .map-label2 {
         display: block;
         font-size: 16px;
-        color:  #A0183C;
+        color:  $pink;
 
         &:hover {
           display: block;
           font-size: 16px;
-          color:  #A0183C;
+          color:  $pink;
           text-decoration: underline;
         }
       }
@@ -84,7 +86,7 @@
   #office-holder { 
     width: 70%;
     margin: auto;
-    background-color:  #e2e2e2;
+    background-color:  $off-white;
     border: solid black 2px;
   }
 
@@ -105,7 +107,7 @@
   #address {
     width: 100%;
     font-size: 50px;
-    background-color: #A0183C;
+    background-color: $pink;
     height: 100px;
     text-align: center;
     margin: auto;
@@ -118,7 +120,7 @@
     width: 100%;
     height: 70px;
     text-align: center;
-    background-color: #A0183C;
+    background-color: $pink;
     font-size: 20px;
     padding-top: 25px;
     color: white;
@@ -131,7 +133,7 @@
     text-align: center;
     font-size: 20px;
     padding-top: 25px;
-    color: #A0183C;
+    color: $pink;
     float: right;
     font-weight: bold;
   }
@@ -143,7 +145,7 @@
     text-align: center;
     font-size: 20px;
     padding-top: 25px;
-    color: #A0183C;
+    color: $pink;
     display: inline-block;
     font-weight: bold;
   }
@@ -173,7 +175,7 @@
   .kitchen, .light, .patio, .reception, .shower, .high_ceiling{
     width: 45%;
     height: 160px;
-    background-color: #A0183C;
+    background-color: $pink;
     margin: auto;
     margin-top: 10px;
     border-radius: 10px;
@@ -197,7 +199,7 @@
     width: 90%;
     height: 100px;
     text-align: center;
-    background-color: #3818A0;
+    background-color: $purple;
     border-radius: 10px;
     font-size: 30px;
     padding-top: 35px;
@@ -209,7 +211,7 @@
     width: 90%;
     height: 100px;
     text-align: center;
-    background-color: #A0183C;
+    background-color: $pink;
     border-radius: 10px;
     font-size: 15px;
     padding-top: 35px;

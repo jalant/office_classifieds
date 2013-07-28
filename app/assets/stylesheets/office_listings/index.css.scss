@@ -1,3 +1,5 @@
+@import 'colors';
+
 #office_listings.index {
 
   .neighborhood-title {
@@ -41,18 +43,18 @@
       .map-label {
         display: block;
         font-size: 20px;
-        color:  #3818A0;
+        color:  $purple;
         font-weight: bold;
       }
       .map-label2 {
         display: block;
         font-size: 16px;
-        color:  #A0183C;
+        color:  $pink;
 
         &:hover {
           display: block;
           font-size: 16px;
-          color:  #A0183C;
+          color:  $pink;
           text-decoration: underline;
         }
       }
@@ -86,7 +88,7 @@
   }
 
   .panel h3{
-    color: #3818A0;
+    color: $purple;
   }
     
   .panel span {
