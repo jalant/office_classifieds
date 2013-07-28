@@ -5,306 +5,285 @@
 .listing{
 	color: white;
 }
-.address{
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
-#address{
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
 
-.office-box{
-	height: 322px;
-}
-.office-img{
-	width: 100%;
-	height:270px;
-	background-size: cover;
-}
-
-#list-offices{
-	margin-bottom: 150px;
-	margin-right: auto;
-	margin-left: auto;
-	padding: 0px;
-	width: 100%;
-	max-width: 85em;
-	margin-top: 150px;
-}
-
-#form-container {
-margin-top: 150px;
-}
-
-#map-canvas{
-	width: 423px;
-	height: 423px;
-	border: 1px dashed gray;
-	margin-right: 10px;
-} 
-
-#map-holder{
-	width: 100%;
-}
-
-#map-canvas2{
-	width: 50%;
-	height: 500px;
-	display: inline-block;
-} 
-
-#pano{
-	width: 49.5%;
-	height: 500px;
-	display: inline-block;
-} 
-
-
-#map-canvas a{
-	display: none;
-}
-
-#map-canvas a.map-label{
-	display: block;
-	font-size: 20px;
-	color:  #3818A0;
-	font-weight: bold;
-}
-
-#map-canvas a.map-label2{
-	display: block;
-	font-size: 16px;
-	color:  #A0183C;
-}
-
-
-#map-canvas a.map-label2:hover{
-	display: block;
-	font-size: 16px;
-	color:  #A0183C;
-	text-decoration: underline;
-}
-
-#map-canvas span{
-	display: none;
-}
 
 img[src="https://maps.gstatic.com/mapfiles/google_white.png"] {
 	display: none;
 }
 
-#map-canvas label { width: auto; display:inline; }
-#map-canvas img { max-width: none; } 
-#map-report a img { display:none; } 
 
+#office_listings#index {
 
-#map-canvas2 label { width: auto; display:inline; }
-#map-canvas2 img { max-width: none; } 
-#map-report2 a img { display:none; } 
+  .neighborhood-title {
+    text-align: center;
+  }
 
-.ind-offices:hover{
-	opacity: 0.7;
-	.panel span {
-		font-weight: bold;
-	}
+  .address{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .office-box{
+    height: 322px;
+  }
+
+  .office-img{
+    width: 100%;
+    height:270px;
+    background-size: cover;
+  }
+
+  #list-offices {
+    margin-bottom: 150px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0px;
+    width: 100%;
+    max-width: 85em;
+    margin-top: 150px;
+  }
+
+  #map-canvas{
+    width: 423px;
+    height: 423px;
+    border: 1px dashed gray;
+    margin-right: 10px;
+
+    a {
+      display: none;
+
+      .map-label {
+        display: block;
+        font-size: 20px;
+        color:  #3818A0;
+        font-weight: bold;
+      }
+      .map-label2 {
+        display: block;
+        font-size: 16px;
+        color:  #A0183C;
+
+        &:hover {
+          display: block;
+          font-size: 16px;
+          color:  #A0183C;
+          text-decoration: underline;
+        }
+      }
+      img {
+        display: none;
+      }
+    }
+
+    span {
+      display: none;
+    }
+
+    label {
+      width: auto;
+      display: inline;
+    }
+
+    img {
+      max-width: none;
+    }
+  } 
+
+  .ind-offices{
+    &:hover{
+      opacity: 0.7;
+
+      .panel span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .panel h3{
+    color: #3818A0;
+  }
+    
+  .panel span {
+    font-weight: bold;
+  }
 }
 
-.neighborhood-title {
-	text-align: center;
-}
+#office_listings#new {
 
+  #form-container {
+    margin-top: 150px;
+  }
 
-.panel h3{
-	color: #3818A0;
-}
+  #listing-attributes {
+    font-size: 1.2em;
+    background-color: rgba(30, 125, 188, 0.5);
+    padding: 10px;
+    color: white;
 
+    input {
+      background-color: black;
+      color: white;
+    }
 
+    select {
+    background-color: black;
+    border-width: .75px;
+    border-color: black;
+    border-radius: 5px;
+    color: white;
+    width: 250px;
+    text-align: center;
+    padding: 3px;
+    display: block;
+  }
 
-#office-images{
-	width: 100%;
-	height: 700px;
-}
-	
-.panel span {
-  font-weight: bold;
-}
+    label {
+      color: white;
+      display: inline-block;
+      padding: 5px;
+    }
 
-// Create Office Listing Form CSS
+    input#submit-listing {
+      display: block;
+      background-color: #642e4a;
+      font-size: 1.25em;
+      color: black;
+      border-radius: 5px;
+      border: 1px solid black;
+      &:hover {
+        background-color: #6f2f4f;
+        cursor: pointer;
+      }
+    }
+  }
 
-#listing-attributes {
-  font-size: 1.2em;
-  background-color: rgba(30, 125, 188, 0.5);
-  padding: 10px;
-  color: white;
-}
+  #listing-images {
+    font-size: 1.2em;
+    background-color: rgba(30, 125, 188, 0.5);
+    padding: 10px;
+    color: white;
 
-#listing-images {
-  font-size: 1.2em;
-  background-color: rgba(30, 125, 188, 0.5);
-  padding: 10px;
-  color: white;
-}
+    input#upload-image {
+      display: inline-block;
+      background-color: #642e4a;
+      font-size: 1.25em;
+      color: black;
+      border-radius: 5px;
+      border: 1px solid black;
+    }
 
-#listing-attributes input {
-  background-color: black;
-  color: white;
-}
+    input#submit-image {
+      display: inline-block;
+      background-color: #642e4a;
+      font-size: 1.25em;
+      color: black;
+      border-radius: 5px;
+      border: 1px solid black;
+      &:hover {
+        background-color: #6f2f4f;
+      }
+    }
 
-#listing-attributes select {
-  background-color: black;
-  border-width: .75px;
-  border-color: black;
-  border-radius: 5px;
-  color: white;
-  width: 250px;
-  text-align: center;
-  padding: 3px;
-  display: block;
-}
+    #return-to-listing {
+      display: inline-block;
+      background-color:#A0183C; 
+      font-size: 1.25em;
+      border-radius: 5px;
+      border: 1px solid black;
+      color: black;
+      padding: 5px;
+      &:hover {
+        background-color: #A61D3F;
+      }
+    }
+  }
 
-#listing-attributes label {
-  color: white;
-  display: inline-block;
-  padding: 5px;
-}
+  #address { 
+    width: 690px;
+    display: block;
+    margin-bottom: 15px;
+  }
 
-#address { 
-  width: 690px;
-  display: block;
-  margin-bottom: 15px;
-}
+  #rent {
+    width: 80px;
+    display: inline-block;
+  }
 
-#rent {
-  width: 80px;
-  display: inline-block;
-}
+  #size { 
+    width: 80px;
+    display: inline-block;
+  }
 
-#size { 
-  width: 80px;
-  display: inline-block;
-}
+  #no_of_offices {
+    width: 50px;
+    display: inline-block;
+  }
 
-#no_of_offices {
-  width: 50px;
-  display: inline-block;
-}
+  #no_of_conference_rooms { 
+    width: 50px;
+    display: inline-block;
+  }
 
-#no_of_conference_rooms { 
-  width: 50px;
-  display: inline-block;
-}
+  #details { 
+    width: 300px;
+    background-color: black;
+    color: white;
+    display: block;
+  }
 
-#details { 
-  width: 300px;
-  background-color: black;
-  color: white;
-  display: block;
-}
+  input[name='Create Office listing'] { 
+    color: blue;
+  }
 
-input[name='Create Office listing'] { 
-  color: blue;
-}
+  .image-box {
+    height: 322px;
+    background-size: cover;
+    border: solid black 1px;
+  }
 
-#listing-attributes input#submit-listing {
-  display: block;
-  background-color: #642e4a;
-  font-size: 1.25em;
-  color: black;
-  border-radius: 5px;
-  border: 1px solid black;
-}
+  #image-container {
+    padding: 0;
+    margin: 0;
+  }
 
-#listing-attributes input#submit-listing:hover {
-  background-color: #6f2f4f;
-  cursor: pointer;
-}
+  #lease-type-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 3px;
+    font-size: 1.10em;
+    margin-bottom: 5px;
+  }
 
-#listing-images input#upload-image {
-  display: inline-block;
-  background-color: #642e4a;
-  font-size: 1.25em;
-  color: black;
-  border-radius: 5px;
-  border: 1px solid black;
-}
+  #price-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 3px;
+    font-size: 1.10em;
+    margin-bottom: 5px;
+  }
 
-#listing-images input#submit-image {
-  display: inline-block;
-  background-color: #642e4a;
-  font-size: 1.25em;
-  color: black;
-  border-radius: 5px;
-  border: 1px solid black;
-}
+  #square-feet-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 3px;
+    font-size: 1.10em;
+    margin-bottom: 5px;
+  }
 
-#listing-images input#submit-image:hover {
-  background-color: #6f2f4f;
-}
+  #apply-filters {
+    background-color: #6f2f4f;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    &:hover {
+      background-color: #753555;
+    }
+  }
 
-#listing-images #return-to-listing {
-  display: inline-block;
-  background-color:#A0183C; 
-  font-size: 1.25em;
-  border-radius: 5px;
-  border: 1px solid black;
-  color: black;
-  padding: 5px;
-}
-
-#listing-images #return-to-listing:hover {
-  background-color: #A61D3F;
-}
-
-.image-box {
-  height: 322px;
-  background-size: cover;
-  border: solid black 1px;
-}
-
-#image-container {
-  padding: 0;
-  margin: 0;
-}
-
-#lease-type-title {
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 3px;
-  font-size: 1.10em;
-  margin-bottom: 5px;
-}
-
-#price-title {
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 3px;
-  font-size: 1.10em;
-  margin-bottom: 5px;
-}
-
-#square-feet-title {
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 3px;
-  font-size: 1.10em;
-  margin-bottom: 5px;
-}
-
-#apply-filters {
-  background-color: #6f2f4f;
-  color: black;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid black;
-}
-
-#apply-filters:hover {
-  background-color: #753555;
-}
-
-#apply-filters-container {
-  text-align: center;
+  #apply-filters-container {
+    text-align: center;
+  }
 }
 
 // Eliminate Spinner
@@ -316,178 +295,244 @@ input::-webkit-inner-spin-button {
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-// on the office-show page-break-inside: 
+#office_listings#show{
 
-#office-holder{
-	width: 70%;
-	margin: auto;
-	background-color:  #e2e2e2;
-	border: solid black 2px;
-}
-.fotorama__wrap{
-	width: 100%;
-} 
+  #map-canvas{
+    width: 423px;
+    height: 423px;
+    border: 1px dashed gray;
+    margin-right: 10px;
 
-.listing-stats{
-	width: 100%;
-	//border: 3px solid black;
-}
+    a {
+      display: none;
 
-#address-office-show-page{
-	width: 100%;
-	background-color: #A0183C;
-	height: 100px;
-	text-align: center;
-	margin: auto;
-	font-size: 30px;
-	padding-top: 35px;
-	color: white;
-}
+      .map-label {
+        display: block;
+        font-size: 20px;
+        color:  #3818A0;
+        font-weight: bold;
+      }
+      .map-label2 {
+        display: block;
+        font-size: 16px;
+        color:  #A0183C;
 
-.listing-stats-2{
-	width: 100%;
-	background-color: rgba(30, 125, 188, 0.5);
-}
+        &:hover {
+          display: block;
+          font-size: 16px;
+          color:  #A0183C;
+          text-decoration: underline;
+        }
+      }
+      img {
+        display: none;
+      }
+    }
 
-.amenities-label{
-	width: 100%;
-	height: 70px;
-	text-align: center;
-	background-color: #A0183C;
-	font-size: 20px;
-	padding-top: 25px;
-	color: white;
-}
+    span {
+      display: none;
+    }
 
-#size-office-show-page{
-	width: 25%;
-	background-color: rgba(30, 125, 188, 0.5);
-	height: 70px;
-	text-align: center;
-	font-size: 20px;
-	padding-top: 25px;
-	color: #A0183C;
-	float: right;
-	font-weight: bold;
-}
+    label {
+      width: auto;
+      display: inline;
+    }
 
-#rent-office-show-page{
-	width: 25%;
-	background-color: rgba(30, 125, 188, 0.5);
-	height: 70px;
-	text-align: center;
-	font-size: 20px;
-	padding-top: 25px;
-	color: #A0183C;
-	display: inline-block;
-	font-weight: bold;
-}
+    img {
+      max-width: none;
+    }
+  } 
 
-.amenities{
-	width: 70%;
-	//display: inline-block;
-	margin: auto;
-}
 
-.amenities-1{
-	width: 45%;
-	display: inline-block;
-	text-align: center;
-	margin: auto;
-}
+  #office-images{
+    width: 100%;
+    height: 700px;
+  }
+  
+  #map-holder {
+    width: 100%;
+  }
 
-.amenities-2{
-	width: 45%;
+  #map-canvas {
+    width: 50%;
+    height: 500px;
+    display: inline-block;
+    
+    label {
+      width: auto;
+      display: inline;
+    }
+    
+    img {
+      max-width: none;
+    }
 
-	display: inline-block;
-}
+    a img {
+      display: none;
+    }
+  } 
 
-#true{
-	background-color: green;
-}
+  #pano {
+    width: 49.5%;
+    height: 500px;
+    display: inline-block;
+  } 
 
-.kitchen, .light, .patio, .reception, .shower, .high_ceiling{
-	width: 45%;
-	height: 160px;
-	background-color: #A0183C;
-	margin: auto;
-	margin-top: 10px;
-	border-radius: 10px;
-	border: 2px solid black;
-	text-align: center;
-	font-size: 20px;
-	color: white;	
-	padding-top: 70px;
-	text-align: center;
-	margin-bottom: 20px;	
+  #office-holder { 
+    width: 70%;
+    margin: auto;
+    background-color:  #e2e2e2;
+    border: solid black 2px;
+  }
 
-}
+  .fotorama__wrap{
+    width: 100%;
+  } 
 
-.broker-info{
-	width: 25%;
-	margin-top: 100px;
-	float: right;
-	margin-right: 50px;
-}
+  .listing-stats{
+    width: 100%;
+    //border: 3px solid black;
+  }
 
-#broker-label{
-	width: 90%;
-	height: 100px;
-	text-align: center;
-	background-color: #3818A0;
-	border-radius: 10px;
-	font-size: 30px;
-	padding-top: 35px;
-	color: white;
-	margin: auto;
+  .listing-stats-2{
+    width: 100%;
+    background-color: rgba(30, 125, 188, 0.5);
+  }
 
-}
+  #address {
+    width: 100%;
+    background-color: #A0183C;
+    height: 100px;
+    text-align: center;
+    margin: auto;
+    font-size: 30px;
+    padding-top: 35px;
+    color: white;
+  }
 
-#broker-details{
-	width: 90%;
-	height: 100px;
-	text-align: center;
-	background-color: #A0183C;
-	border-radius: 10px;
-	font-size: 15px;
-	padding-top: 35px;
-	color: white;
-	margin: auto;
-	margin-top: 20px;
-	border: 2px solid black;
+  .amenities-label{
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    background-color: #A0183C;
+    font-size: 20px;
+    padding-top: 25px;
+    color: white;
+  }
 
-}
+  #size {
+    width: 25%;
+    background-color: rgba(30, 125, 188, 0.5);
+    height: 70px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 25px;
+    color: #A0183C;
+    float: right;
+    font-weight: bold;
+  }
 
-.amenity-availability{
-	background-color: red;
-	width: 30%;
-}
+  #rent {
+    width: 25%;
+    background-color: rgba(30, 125, 188, 0.5);
+    height: 70px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 25px;
+    color: #A0183C;
+    display: inline-block;
+    font-weight: bold;
+  }
 
-table{
-	margin: 0px;
-}
+  .amenities{
+    width: 70%;
+    margin: auto;
+  }
 
-.office-show-page-button{
-	display: inline-block;
-	background-color: #A0183C;
-	width: 80%;
-	margin-top: 100px;
-	margin: auto;
-}
+  .amenities-1{
+    width: 45%;
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+  }
 
-.show-page-button{
-	width: 28%;
-	display: inline-block;
-}
+  .amenities-2{
+    width: 45%;
 
-.table-heading{
-	text-align: center;
-}
+    display: inline-block;
+  }
 
-.icon-holder{
-	text-align: center;
-}
+  #true {
+    background-color: green;
+  }
 
-td{
-	text-align: center;
+  .kitchen, .light, .patio, .reception, .shower, .high_ceiling{
+    width: 45%;
+    height: 160px;
+    background-color: #A0183C;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 20px;
+    color: white;	
+    padding-top: 70px;
+    text-align: center;
+    margin-bottom: 20px;	
+  }
+
+  .broker-info{
+    width: 25%;
+    margin-top: 100px;
+    float: right;
+    margin-right: 50px;
+  }
+
+  #broker-label{
+    width: 90%;
+    height: 100px;
+    text-align: center;
+    background-color: #3818A0;
+    border-radius: 10px;
+    font-size: 30px;
+    padding-top: 35px;
+    color: white;
+    margin: auto;
+  }
+
+  #broker-details {
+    width: 90%;
+    height: 100px;
+    text-align: center;
+    background-color: #A0183C;
+    border-radius: 10px;
+    font-size: 15px;
+    padding-top: 35px;
+    color: white;
+    margin: auto;
+    margin-top: 20px;
+    border: 2px solid black;
+  }
+
+  .amenity-availability {
+    background-color: red;
+    width: 30%;
+  }
+
+  table {
+    margin: 0px;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  .table-heading{
+    text-align: center;
+  }
+
+  .icon-holder{
+    text-align: center;
+  }
 }

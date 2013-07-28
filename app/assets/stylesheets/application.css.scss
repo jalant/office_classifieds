@@ -12,29 +12,179 @@
  *= require_tree .
  */
 
- @import 'foundation';
- @import 'foundation-icons';
+@import 'foundation';
+@import 'foundation-icons';
+@import "colors";
 
- #broker_sign_in{
+@font-face {
+  font-family: 'Raleway';
+  src: url('Raleway Thin.ttf'),
+  url('Raleway Thin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway';
+}
+
+body{
+	background-color: rgba(0,0,0, 0.85	) ;
+}
+
+.browse-offices, .final-signup{
+	margin-right: 5px;
+	margin-left:5px;
+	background-color: $purple;
+	font: 20px;
+	border: 1px solid $purple;
+	margin-top: 20px;
+}
+
+.browse-offices:hover, .final-signup:hover{
+	margin-right: 5px;
+	margin-left:5px;
+	background-color: $pink;
+	font: 20px;
+	border: 1px solid $pink;
+	margin-top: 20px;
+}
+
+.login{	
+	margin-right: 5px;
+	margin-left:5px;
+	display: none;
+	background-color: $purple;
+	font: 20px;
+	border: 1px solid $purple;
+}
+
+.signout{
+	margin-right: 5px;
+	margin-left:5px;
+	background-color: $purple;
+	font: 20px;
+	border: 1px solid $purple;
+}
+
+.login:hover{	
+	margin-right: 5px;
+	margin-left:5px;
+	display: none;
+	background-color: $pink;
+	font: 20px;
+	border: 1px solid $pink;
+}
+
+.signout:hover{
+	margin-right: 5px;
+	margin-left:5px;
+	background-color: $pink;
+	font: 20px;
+	border: 1px solid $pink;
+}
+
+.signup-div{
+  background-color:  $purple;
+  font: 20px;
+  border: 1px solid $purple;
+  margin: 1px;
+}
+
+.signup-div:hover{
+  background-color:  $pink;
+  font: 20px;
+  border: 1px solid $pink;
+  margin: 1px;
+}
+
+.login-div{
+  background-color:  $purple;
+  font: 20px;
+  border: 1px solid $purple;
+  margin: 1px;
+}
+
+.login-div:hover{
+  background-color:  $pink;
+  font: 20px;
+  border: 1px solid $pink;
+  margin: 1px;
+}
+
+.signup{
+  display: none;
+  margin-top: 0px;
+  background-color: $purple;
+  font: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border: 1px solid $purple;
+}
+
+.signup:hover{
+  margin-top: 0px;
+  background-color: $pink;
+  font: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border: 1px solid $pink;
+}
+
+.hidden{
+	display: none;
+}
+
+.display_user{
+	color: red;
+	margin-top: 10px;
+	margin-right: 5px;
+	margin-left:5px;
+}
+
+nav.top-bar{
+	z-index: 100;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 100px;
+	padding-top: 30px;
+
+}
+
+.city_names {
+	bottom: 0;
+	color: white;
+	display: block;
+	left: 40%;
+	margin-left: -640px;
+	font-size: 30px;
+	padding: 10px;
+	position: absolute;
+	text-shadow: 0 2px 0 black, 0 0 10px black;
+	width: 1280px;
+}
+
+#broker_sign_in{
   margin-top: 150px;
- }
+}
 
- #renter_sign_in {
+#renter_sign_in {
   margin-top: 150px;
- }
+}
 
- #renter_sign_up {
+#renter_sign_up {
   margin-top: 150px;
- }
+}
 
- #broker_sign_up {
+#broker_sign_up {
   margin-top: 150px;
- }
+}
 
- .reveal-modal a {
+.reveal-modal a {
   font-size: 1em;
- }
+}
 
 .reveal-modal {
   background-color: rgba(255, 255, 255, 0.8);
- }
+}

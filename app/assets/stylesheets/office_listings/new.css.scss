@@ -1,0 +1,229 @@
+@import 'colors';
+
+#office_listings.new {
+
+  #form-container {
+    margin-top: 150px;
+  }
+
+  #listing-attributes {
+    font-size: 1.2em;
+    background-color: rgba(30, 125, 188, 0.5);
+    padding: 10px;
+    color: white;
+
+    #purple-button {
+          display: block;
+          margin-top: 0px;
+          background-color: $purple;
+          font: 20px;
+          margin-right: 5px;
+          margin-left: 5px;
+          border: 1px solid $purple;
+          &:hover {
+              margin-top: 0px;
+              background-color: $pink;
+              font: 20px;
+              margin-right: 5px;
+              margin-left: 5px;
+              border: 1px solid $pink;
+          }
+      }
+
+
+    input {
+      background-color: black;
+      color: white;
+    }
+
+    select {
+    background-color: black;
+    border-width: .75px;
+    border-color: black;
+    border-radius: 5px;
+    color: white;
+    width: 250px;
+    text-align: center;
+    padding: 3px;
+    display: block;
+  }
+
+    label {
+      color: white;
+      display: inline-block;
+      padding: 5px;
+    }
+
+    input#submit-listing {
+      display: block;
+      background-color: $deep-purple;
+      font-size: 1.25em;
+      color: black;
+      border-radius: 5px;
+      border: 1px solid black;
+      &:hover {
+        background-color: #6f2f4f;
+        cursor: pointer;
+      }
+    }
+  }
+
+  #listing-images {
+    font-size: 1.2em;
+    background-color: rgba(30, 125, 188, 0.5);
+    padding: 10px;
+    color: white;
+
+    
+    input#upload-image {
+      display: inline-block;
+      background-color: $deep-purple;
+      font-size: 1.25em;
+      color: black;
+      border-radius: 5px;
+      border: 1px solid black;
+    }
+
+    input#submit-image {
+      display: inline-block;
+      cursor: pointer;
+      margin-top: 0px;
+      background-color: $purple;
+      font-size: 20px;
+      color: white;
+      padding: 5px;
+      margin-right: 5px;
+      margin-left: 5px;
+      border: 1px solid $purple;
+      &:hover {
+          margin-top: 0px;
+          cursor: pointer;
+          background-color: $pink;
+          font: 20px;
+          margin-right: 5px;
+          margin-left: 5px;
+          border: 1px solid $pink;
+      }
+    }
+
+    #return-to-listing {
+      -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+      -webkit-transition: background-color 300ms ease-out;
+      transition: background-color 300ms ease-out;
+      display: inline-block;
+      margin-top: 0px;
+      background-color: $pink;
+      padding: 5px;
+      font-size: 20px;
+      color: white;
+      margin-right: 5px;
+      margin-left: 5px;
+      border: 1px solid $pink;
+      &:hover {
+          margin-top: 0px;
+          background-color: $purple;
+          font: 20px;
+          margin-right: 5px;
+          margin-left: 5px;
+          border: 1px solid $purple;
+      }
+    }
+  }
+
+  #address { 
+    width: 690px;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  #rent {
+    width: 80px;
+    display: inline-block;
+  }
+
+  #size { 
+    width: 80px;
+    display: inline-block;
+  }
+
+  #no_of_offices {
+    width: 50px;
+    display: inline-block;
+  }
+
+  #no_of_conference_rooms { 
+    width: 50px;
+    display: inline-block;
+  }
+
+  #details { 
+    width: 300px;
+    background-color: black;
+    color: white;
+    display: block;
+  }
+
+  input[name='Create Office listing'] { 
+    color: blue;
+  }
+
+  .image-box {
+    height: 322px;
+    background-size: cover;
+    border: solid black 1px;
+  }
+
+  #image-container {
+    padding: 0;
+    margin: 0;
+  }
+
+  #lease-type-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 3px;
+    font-size: 1.10em;
+    margin-bottom: 5px;
+  }
+
+  #price-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 3px;
+    font-size: 1.10em;
+    margin-bottom: 5px;
+  }
+
+  #square-feet-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 3px;
+    font-size: 1.10em;
+    margin-bottom: 5px;
+  }
+
+  #apply-filters {
+    display: block;
+    margin-top: 0px;
+    background-color: $purple;
+    font: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border: 1px solid $purple;
+
+    &:hover {
+        margin-top: 0px;
+        background-color: $pink;
+        font: 20px;
+        margin-right: 5px;
+        margin-left: 5px;
+        border: 1px solid $pink;
+      }
+  }
+
+  #apply-filters-container {
+    text-align: center;
+  }
+}
+
