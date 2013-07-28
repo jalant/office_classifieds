@@ -86,26 +86,47 @@
 
     input#submit-image {
       display: inline-block;
-      background-color: $deep-purple;
-      font-size: 1.25em;
-      color: black;
-      border-radius: 5px;
-      border: 1px solid black;
+      cursor: pointer;
+      margin-top: 0px;
+      background-color: $purple;
+      font-size: 20px;
+      color: white;
+      padding: 5px;
+      margin-right: 5px;
+      margin-left: 5px;
+      border: 1px solid $purple;
       &:hover {
-        background-color: #6f2f4f;
+          margin-top: 0px;
+          cursor: pointer;
+          background-color: $pink;
+          font: 20px;
+          margin-right: 5px;
+          margin-left: 5px;
+          border: 1px solid $pink;
       }
     }
 
     #return-to-listing {
+      -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+      -webkit-transition: background-color 300ms ease-out;
+      transition: background-color 300ms ease-out;
       display: inline-block;
-      background-color:$pink; 
-      font-size: 1.25em;
-      border-radius: 5px;
-      border: 1px solid black;
-      color: black;
+      margin-top: 0px;
+      background-color: $pink;
       padding: 5px;
+      font-size: 20px;
+      color: white;
+      margin-right: 5px;
+      margin-left: 5px;
+      border: 1px solid $pink;
       &:hover {
-        background-color: #A61D3F;
+          margin-top: 0px;
+          background-color: $purple;
+          font: 20px;
+          margin-right: 5px;
+          margin-left: 5px;
+          border: 1px solid $purple;
       }
     }
   }
