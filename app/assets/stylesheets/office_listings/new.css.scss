@@ -12,6 +12,25 @@
     padding: 10px;
     color: white;
 
+    #purple-button {
+          display: block;
+          margin-top: 0px;
+          background-color: $purple;
+          font: 20px;
+          margin-right: 5px;
+          margin-left: 5px;
+          border: 1px solid $purple;
+          &:hover {
+              margin-top: 0px;
+              background-color: $pink;
+              font: 20px;
+              margin-right: 5px;
+              margin-left: 5px;
+              border: 1px solid $pink;
+          }
+      }
+
+
     input {
       background-color: black;
       color: white;
@@ -55,6 +74,7 @@
     padding: 10px;
     color: white;
 
+    
     input#upload-image {
       display: inline-block;
       background-color: $deep-purple;
@@ -163,14 +183,22 @@
   }
 
   #apply-filters {
-    background-color: $deep-purple2;
-    color: black;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid black;
+    display: block;
+    margin-top: 0px;
+    background-color: $purple;
+    font: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border: 1px solid $purple;
+
     &:hover {
-      background-color: lighten(rgba(red($deep-purple2), green($deep-purple2), blue($deep-purple2), 1), 80%);
-    }
+        margin-top: 0px;
+        background-color: $pink;
+        font: 20px;
+        margin-right: 5px;
+        margin-left: 5px;
+        border: 1px solid $pink;
+      }
   }
 
   #apply-filters-container {

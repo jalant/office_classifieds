@@ -2,6 +2,26 @@
 
 #office_listings.index {
 
+  #apply-filters {
+    color: white;
+    display: block;
+    margin-top: 0px;
+    background-color: $pink;
+    font: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border: 1px solid $pink;
+
+    &:hover {
+        margin-top: 0px;
+        background-color: $purple;
+        font: 20px;
+        margin-right: 5px;
+        margin-left: 5px;
+        border: 1px solid $purple;
+      }
+  }
+
   .neighborhood-title {
     text-align: center;
   }
