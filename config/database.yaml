@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: office_classifieds_development
+  host: localhost
+  pool: 5
+  username: davidaaron
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: office_classifieds_development
+  host: localhost
+  pool: 5
+  username: davidaaron
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: office_classifieds_development
+  host: localhost
+  pool: 5
+  username: davidaaron
+  password:
