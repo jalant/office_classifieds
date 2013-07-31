@@ -22,6 +22,24 @@
       }
   }
 
+  #price {
+    margin: 10px 10px 15px 10px;
+  }
+
+  #price.ui-widget-content {
+  }
+
+  #price .ui-slider-range {
+    background: $sky-blue;
+  }
+
+  #price.ui-widget-content .ui-state-default {
+    background: #333;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   .neighborhood-title {
     text-align: center;
   }

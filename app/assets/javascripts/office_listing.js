@@ -75,14 +75,17 @@ var office_map2= {
 
 filters =  {
   // stores current 'state' of filters as defined by user input
-  filterData: { leaseType: '', price: '', squareFeet: ''},
+  filterData: { leaseType: '', priceUpper: '', priceLower: '', squareFeet: ''},
 
   filterLeaseType: function(e) {
     filters.filterData.leaseType = $(event.target).val();
   },
 
-  filterPrice: function(e) {
-    filters.filterData.price = $(event.target).val();
+  filterPrice: function(priceLower, priceUpper) {
+    filters.filterData.priceLower = priceLower;
+    filters.filterData.priceUpper = priceUpper;
+    console.log(filters.filterData.priceLower);
+    console.log(filters.filterData.priceUpper);
   },
 
   filterSquareFeet: function(e) {
@@ -146,4 +149,15 @@ $(function() {
   $('#price').change(filters.filterPrice);
   $('#square-feet').change(filters.filterSquareFeet);
   $('#apply-filters').click(filters.applyFilters);
+
+  $('#price').slider({
+    range: true,
+    min: 0,
+    max: 10000,
+    values: [0, 10000],
+    slide: function(event, ui) {
+      filters.filterPrice(ui.values[0], ui.values[1]);
+      $('#price-title').text("Rent: " + ui.values[0] + " - " + ui.values[1] + " sq feet");
+    }
+  });
 });
