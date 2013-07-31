@@ -74,28 +74,27 @@ var office_map2= {
 };
 
 filters =  {
+  // stores current 'state' of filters as defined by user input
   filterData: { leaseType: '', price: '', squareFeet: ''},
 
   filterLeaseType: function(e) {
     filters.filterData.leaseType = $(event.target).val();
-    console.log(filters.filterData.leaseType);
   },
 
   filterPrice: function(e) {
     filters.filterData.price = $(event.target).val();
-    console.log(filters.filterData.price);
   },
 
   filterSquareFeet: function(e) {
     filters.filterData.squareFeet = $(event.target).val();
-    console.log(filters.filterData.squareFeet);
   },
 
   applyFilters: function() {
-    $('.ind-offices').fadeIn(1000);
     $('.ind-offices').each(function (index, Element) {
+      $(Element).removeClass('show');
+      $(Element).removeClass('fade');
       filters.fadeElement(Element, 'lease-type', filters.filterData.leaseType);
-      
+     
       switch (filters.filterData.price) {
         case "$0-3000":
           filters.fadeElementInRange(Element, 'price', 0, 3000);
@@ -119,22 +118,25 @@ filters =  {
           filters.fadeElementInRange(Element, 'square-feet', 3000, 50000);
           break;
         }
-      });
+      if (!($(Element).hasClass('fade'))) {
+        // Add show class if no fade elements applied in filter chain
+        $(Element).addClass('show');
+      }
+    });
+    // $('.show').fadeIn(0);
+    $('.show').show();
+    $('.fade').hide();
   },
 
   fadeElement: function(Element, dataSelector, filterData) {
     if ($(Element).data(dataSelector) !== filterData && filterData != '') {
-      $(Element).fadeOut(1000);
+      $(Element).addClass('fade');
     }
   },
 
   fadeElementInRange: function(Element, dataSelector, lowerBound, upperBound) {
-    console.log("Candidate: ");
-    console.log($(Element).data(dataSelector));
-    if ($(Element).data(dataSelector) <= lowerBound || $(Element).data(dataSelector) >= upperBound) {
-      console.log("Selected Data: ")
-      console.log($(Element).data(dataSelector))
-      $(Element).fadeOut(1000)
+    if ($(Element).data(dataSelector) < lowerBound || $(Element).data(dataSelector) > upperBound) {
+      $(Element).addClass('fade');
     }
   }
 };
