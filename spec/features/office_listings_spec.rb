@@ -61,6 +61,7 @@ describe 'OfficeListings' do
     end
 
     it 'creates a new office listing from the form' do
+
       visit new_city_neighborhood_office_listing_path(neighborhood_id: neighborhood.id, city_id: city.id)
       login_as(broker, :scope => :broker)
       fill_in('office_listing[address]', with: 'my address')
@@ -78,7 +79,7 @@ describe 'OfficeListings' do
       OfficeListing.count.should eq 2
       OfficeListing.last.reception.should be_true
       OfficeListing.last.light.should be_true
-      OfficeListing.last.shower.should be_nil
+      OfficeListing.last.shower.should be_false
     end
 
     it 'has a hidden form for uploading images' do
@@ -87,20 +88,17 @@ describe 'OfficeListings' do
     end
 
     it 'unhides the images form and displays an image display div when the update attributes form is submitted' do
-      pending
+
       visit new_city_neighborhood_office_listing_path(neighborhood_id: neighborhood.id, city_id: city.id)
       login_as(broker, :scope => :broker)
-      fill_in('Address', with: 'my address')
-      fill_in('Rent', with: '1234')
-      fill_in('Size', with: '3213')
-      fill_in('No of offices', with: '23')
-      fill_in('No of conference rooms', with: '12')
-      fill_in('Details', with: '55')
-      click_button('Create Office listing')
-      page.should_not have_css('form.hidden#listing-images')
-      page.should have_css('form.hidden#listing-attributes')
-      page.should have_css('#image-display')
-      page.should have_css('#listing-id')
+      fill_in('office_listing[address]', with: 'my address')
+      fill_in('office_listing[rent]', with: '1234')
+      fill_in('office_listing[size]', with: '3213')
+      fill_in('office_listing[no_of_offices]', with: '23')
+      fill_in('office_listing[no_of_conference_rooms]', with: '12')
+      fill_in('office_listing[details]', with: '55')
+      find(".submit.button").click
+      page.should_not have_css('form.hidden#image-buttons')    
     end
   end
 end
