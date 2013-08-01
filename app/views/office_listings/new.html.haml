@@ -29,7 +29,7 @@
         -@amenities.each do |amenity|
           =check_box_tag('amenities[]', amenity)
           =amenity
-        =f.submit "Create Office Listing", class: 'small button', id: 'purple-button'
+        =f.submit "Create Office Listing", class: 'submit small button', id: 'purple-button'
 
       =form_for @image, remote: true, html: { id: 'listing-images', class: 'hidden', multipart: true } do |f|
         %h1 Upload Office Images

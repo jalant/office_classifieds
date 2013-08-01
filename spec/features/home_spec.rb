@@ -6,47 +6,50 @@ describe 'Home' do
 
   describe 'GET /' do
     it 'displays the HOME page with the navbar' do
-      pending
       visit root_path
       page.should have_selector('nav')
       find('nav').should have_content('Browse Offices')
-      page.should have_selector('.success.button')
-      find('.main.alert').should have_content('Login')
-      page.should have_selector('.alert.button')
-      find('.main.success').should have_content('Sign Up')
+      page.should have_selector('#nav-signup')
+      page.find('#nav-login').should have_content('Login')
+      page.should have_selector('.final-signup')
+      find('#nav-signup').should have_content('Sign Up')
+      find('.final-signup').should have_content('Sign Up Today')
     end
 
     it 'navigates to individual city' do
       pending
       visit root_path
+      save_and_open_page
       city.reload
-      click_link("Singapore")
-      current_path.should eq "/cities/1"
+      page.find('.dropdown li:nth-child(3) a').click_link('Singapore')
+      current_path.should eq "/cities/#{City.find_by_name('Singapore')}.id"
     end
 
     it 'login button shows two buttons for renter and broker' do
       pending
       visit root_path
-      click_link('Login')
-      page.should have_selector('.login')
+      find('.login-div.button').click
     end
 
-    it 'singup button shows two buttons for renter and broker' do
+    it 'signup button shows two buttons for renter and broker' do
       pending
       visit root_path
       click_link('Login')
       page.should have_selector('.signup')
     end
 
-    it 'renter login button displays the renter login page' do
-      pending
+    it 'renter can enter text into the renter login modal input form' do
+      Capybara.default_wait_time = 5
+      Capybara.reset_sessions!
       visit root_path
-      click_link('Login')
-      click_link('Renter Login')
-      current_path.should eq new_renter_session_path
+      within('form#renter_sign_in') do
+        find_field('renter_email').value.should_not eq 'David'
+        fill_in('renter_email', :with => 'David')
+        find_field('renter_email').value.should eq 'David'
+      end
     end
 
-    it 'renter signup button displays the renter signup page' do
+    it 'renter signup button displays the renter signup modal' do
       pending
       visit root_path
       click_link('Sign Up')
@@ -55,15 +58,18 @@ describe 'Home' do
     end
 
 
-    it 'broker login button displays the broker login page' do
-      pending
+    it 'broker can enter text into the broker login modal input form' do
+      Capybara.default_wait_time = 5
+      Capybara.reset_sessions!
       visit root_path
-      click_link('Login')
-      click_link('Broker Login')
-      current_path.should eq new_broker_session_path
+      within('form#broker_sign_in') do
+        find_field('broker_password').value.should_not eq 'mypassword'
+        fill_in('broker_email', :with => 'mypassword')
+        find_field('broker_email').value.should eq 'mypassword'
+      end
     end
 
-    it 'broker signup button displays the broker signup page' do
+    it 'broker signup button displays the broker signup modal' do
       pending
       visit root_path
       click_link('Sign Up')

@@ -13,9 +13,11 @@ describe OfficeListingsController do
       office_listing_2 = create(:office_listing_2)
       office_listing_3 = create(:office_listing_3)
       office_listing_4 = create(:office_listing_4)
+      office_listing_5 = create(:office_listing_5)
+
       get :index, :neighborhood_id => neighborhood.id, :city_id => city.id
-      assigns(:office_listings).should include(office_listing_1, office_listing_2, office_listing_3)
-      assigns(:office_listings).should_not include(office_listing_4)
+      assigns(:office_listings).should include(office_listing_1, office_listing_2, office_listing_3, office_listing_4)
+      assigns(:office_listings).should_not include(office_listing_5)
     end
 
     it 'renders the index view' do
@@ -51,33 +53,27 @@ describe OfficeListingsController do
   describe 'POST #create' do
     let(:city) { create(:city) }
     let(:neighborhood) { create(:neighborhood) } 
-    let (:office_listing) { mock_model(OfficeListing).as_null_object }
-
+    let(:office_listing) { mock_model(OfficeListing).as_null_object  }
     before do
-      OfficeListing.stub(:create).and_return(office_listing)
+      OfficeListing.any_instance.stub(:geocode).and_return([1, 1])
     end
 
     context 'with valid attributes' do 
-      it 'saves the listing' do
-        pending
+      it 'saves the listing' do 
+        OfficeListing.stub(:new).and_return(office_listing)
+        OfficeListing.any_instance.stub(:save).and_return(true)
         office_listing.should_receive(:save)
         post :create, :city_id => city.id, :neighborhood_id => neighborhood.id
-      end
-
-      it "redirects to broker's listing index" do
-        pending
       end
     end
 
     context 'with invalid attributes' do
       it 'fails and renders new page' do
-        pending
-        office_listing.should_receive(:save).and_return(false)
+        OfficeListing.stub(:save).and_return(false)
         post :create, :city_id => city.id, :neighborhood_id => neighborhood.id
-        response.should redirect_to new_city_neighborhood_office_listing_path
+        response.should redirect_to new_city_neighborhood_office_listing_path(neighborhood_id: neighborhood.id, city_id: city.id)
       end
     end
-
 
       
   end
