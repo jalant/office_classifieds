@@ -48,7 +48,6 @@ describe OfficeListingsController do
     let(:city) { create(:city) }
     let(:neighborhood) { create(:neighborhood) } 
     let (:office_listing) { mock_model(OfficeListing).as_null_object }
-
     before do
       OfficeListing.stub(:create).and_return(office_listing)
     end
@@ -73,7 +72,6 @@ describe OfficeListingsController do
         response.should redirect_to new_city_neighborhood_office_listing_path
       end
     end
-
 
       
   end
