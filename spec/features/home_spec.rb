@@ -10,7 +10,7 @@ describe 'Home' do
       page.should have_selector('nav')
       find('nav').should have_content('Browse Offices')
       page.should have_selector('#nav-signup')
-      find('.login-div.button').should have_content('Login')
+      page.find('#nav-login').should have_content('Login')
       page.should have_selector('.final-signup')
       find('#nav-signup').should have_content('Sign Up')
       find('.final-signup').should have_content('Sign Up Today')
@@ -37,15 +37,15 @@ describe 'Home' do
       page.should have_selector('.signup')
     end
 
-    it 'renter login button displays the renter login modal' do
-      pending
+    it 'renter can enter text into the renter login modal input form' do
+      Capybara.default_wait_time = 5
+      Capybara.reset_sessions!
       visit root_path
-      # find(:css, '#renter_sign_in').should_not be_visible
-      page.should have_css('#renter_sign_in', :visible => true)
-      find('.login-div.button').click
-      find('#renter-login').click
-      page.should have_css('#renter_sign_in', :visible => false)
-      # page.find('#renter_sign_in.reveal-modal').should have_css(:visibility => 'visible')
+      within('form#renter_sign_in') do
+        find_field('renter_email').value.should_not eq 'David'
+        fill_in('renter_email', :with => 'David')
+        find_field('renter_email').value.should eq 'David'
+      end
     end
 
     it 'renter signup button displays the renter signup modal' do
@@ -57,12 +57,15 @@ describe 'Home' do
     end
 
 
-    it 'broker login button displays the broker login modal' do
-      pending
+    it 'broker can enter text into the broker login modal input form' do
+      Capybara.default_wait_time = 5
+      Capybara.reset_sessions!
       visit root_path
-      click_link('Login')
-      click_link('Broker Login')
-      current_path.should eq new_broker_session_path
+      within('form#broker_sign_in') do
+        find_field('broker_password').value.should_not eq 'mypassword'
+        fill_in('broker_email', :with => 'mypassword')
+        find_field('broker_email').value.should eq 'mypassword'
+      end
     end
 
     it 'broker signup button displays the broker signup modal' do
