@@ -43,15 +43,14 @@ describe 'OfficeListings' do
       
     it 'displays a list of amenities and adds a class of true if true in db' do
       visit city_neighborhood_office_listing_path(office_listing, office_listing_id: office_listing.id, neighborhood_id: neighborhood.id, city_id: city.id)
-      page.should have_css('.general.foundicon-checkmark')
-      # page.should have_css('.general foundicon-checkmark')
-      # page.should have_css('.patio.true')
-      # page.should have_css('.reception')
-      # page.should have_css('.shower')
-      # page.should have_css('.high_ceiling')
-      # page.should have_css('.patio')
-      # page.should_not have_css('.reception.true')
-      # page.should_not have_css('.shower.true')
+      page.should have_css('.kitchen_check.general.foundicon-checkmark')
+      page.should have_css('.light_check.general.foundicon-checkmark')
+      page.should have_css('.patio_check.general.foundicon-checkmark')
+      page.should have_css('.reception_check.general.foundicon-remove')
+      page.should have_css('.shower_check.general.foundicon-remove')
+      page.should have_css('.ceiling_check.general.foundicon-checkmark')
+      page.should_not have_css('.reception_check.general.foundicon-checkmark')
+
     end
   end
 
@@ -62,21 +61,20 @@ describe 'OfficeListings' do
     end
 
     it 'creates a new office listing from the form' do
-      pending
       visit new_city_neighborhood_office_listing_path(neighborhood_id: neighborhood.id, city_id: city.id)
       login_as(broker, :scope => :broker)
-      fill_in('Address', with: 'my address')
-      fill_in('Rent', with: '1234')
-      fill_in('Size', with: '3213')
-      fill_in('No of offices', with: '23')
-      fill_in('No of conference rooms', with: '12')
-      fill_in('Details', with: '55')
+      fill_in('office_listing[address]', with: 'my address')
+      fill_in('office_listing[rent]', with: '1234')
+      fill_in('office_listing[size]', with: '3213')
+      fill_in('office_listing[no_of_offices]', with: '23')
+      fill_in('office_listing[no_of_conference_rooms]', with: '12')
+      fill_in('office_listing[details]', with: '55')
       select('Lease', :from => 'Office type')
       select('Less than one year', :from => 'Term length')
       select('Immediate', :from => 'Availability')
       find(:css, '#amenities_[value="Reception"]').set(true)
       find(:css, '#amenities_[value="Light"]').set(true)
-      click_button('Create Office listing')
+      find(".submit.button").click
       OfficeListing.count.should eq 2
       OfficeListing.last.reception.should be_true
       OfficeListing.last.light.should be_true
