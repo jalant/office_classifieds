@@ -13,6 +13,9 @@
       #size
         %span.special2 Space: 
         #{@office_listing.size} sq. feet
+      #lease-type
+        %span.special2 Office Type:
+        #{@office_listing.office_type}
   #office-images
     .fotorama{"data-width" => "100%","data-height" => "600px", "data-transition" => "dissolve", "data-nav" =>"thumbs", "data-fit" => "cover", "data-allow-full-screen" => 'true', "data-thumb-width" => "100", "data-thumb-height" => "100"}
       -@office_listing.images.each do |image|
@@ -34,27 +37,27 @@
           %tr
             %td Kitchen
             %td.icon-holder
-              %i{class: "#{@office_listing.kitchen ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+              %i{class: "kitchen_check #{@office_listing.kitchen ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
           %tr
             %td Light
             %td.icon-holder
-              %i{class: "#{@office_listing.light ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+              %i{class: "light_check #{@office_listing.light ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
           %tr
             %td Patio
             %td.icon-holder
-              %i{class: "#{@office_listing.patio ? 'general foundicon-checkmark' : 'general foundicon-remove'}" } 
+              %i{class: "patio_check #{@office_listing.patio ? 'general foundicon-checkmark' : 'general foundicon-remove'}" } 
           %tr
             %td Reception
             %td.icon-holder
-              %i{class: "#{@office_listing.reception ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+              %i{class: "reception_check #{@office_listing.reception ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
           %tr
             %td Shower
             %td.icon-holder
-              %i{class: "#{@office_listing.shower ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+              %i{class: "shower_check #{@office_listing.shower ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
           %tr
             %td High Ceiling
             %td.icon-holder
-              %i{class: "#{@office_listing.high_ceiling ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+              %i{class: "ceiling_check #{@office_listing.high_ceiling ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
 
 = render partial: '/office_listings/partials/helper2', locals: {office_listing: @office_listing}
 

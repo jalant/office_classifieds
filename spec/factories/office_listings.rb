@@ -84,7 +84,7 @@ FactoryGirl.define do
     availability "Immediate"
     no_of_offices 1
     no_of_conference_rooms 1
-    neighborhood_id 2
+    neighborhood_id 1
     broker_id 1
   end
 
