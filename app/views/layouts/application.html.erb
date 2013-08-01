@@ -31,7 +31,7 @@
 				</li>
 				<li class="divider hide-for-small"></li>
 				<% unless current_renter || current_broker %>
-					<li class="signup-div button" href="#">Sign Up</a>
+					<li id ="nav-signup" class="signup-div button" href="#">Sign Up</a>
 					<li class="login-div button" href="#">Login</a>
 				<% end %>
 
@@ -45,10 +45,10 @@
 					<%= link_to "Sign Out", destroy_broker_session_path, method: :delete, class: "button signout"%>
 				<% end %>
 
-				<li class=" button signup" data-reveal-id="renter_sign_up" href=<%= new_renter_registration_path%>>Renter Signup</li>
-				<li class=" button signup" data-reveal-id = "broker_sign_up" href=<%= new_broker_registration_path%>>Broker Signup</li>
-				<li class="button login" data-reveal-id="renter_sign_in" href=<%= new_renter_session_path%>>Renter Login</li>
-				<li class="button login" data-reveal-id="broker_sign_in" href=<%= new_broker_session_path%>>Broker Login</li>		
+				<li id="renter-signup" class=" button signup" data-reveal-id="renter_sign_up" href=<%= new_renter_registration_path%>>Renter Signup</li>
+				<li id="broker-signup" class=" button signup" data-reveal-id = "broker_sign_up" href=<%= new_broker_registration_path%>>Broker Signup</li>
+				<li id="renter-login" class="button login" data-reveal-id="renter_sign_in" href=<%= new_renter_session_path%>>Renter Login</li>
+				<li id= "broker-login" class="button login" data-reveal-id="broker_sign_in" href=<%= new_broker_session_path%>>Broker Login</li>		
 			</ul>
 		</section>
 	</nav>
@@ -76,7 +76,7 @@
 	</div>
 
 	<div id="renter_login_box">
-	  <%= form_for("renter", :url => new_renter_session_path, :html => {:id => "renter_sign_in", :class => "reveal-modal"}) do |f| %>
+	  <%= form_for("renter", :url => new_renter_session_path, :html => {:id => "renter_sign_in", :class => "renter-login-modal reveal-modal"}) do |f| %>
 	  	<a class="close-reveal-modal">&#215;</a>
 			<h3>Renter Sign In</h3>
 	    <%= f.label :email %>
