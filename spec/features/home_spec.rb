@@ -17,18 +17,16 @@ describe 'Home' do
     end
 
     it 'navigates to individual city' do
-      pending
       visit root_path
       city.reload
-      click_link("Singapore")
-      current_path.should eq "/cities/1"
+      find('ul li:nth-child(3) a').click
+      current_path.should eq "/cities/2"
     end
 
     it 'login button shows two buttons for renter and broker' do
       pending
       visit root_path
-      click_link('Login')
-      page.should have_selector('.login')
+      find('.login-div.button').click
     end
 
     it 'signup button shows two buttons for renter and broker' do
@@ -39,6 +37,7 @@ describe 'Home' do
     end
 
     it 'renter login button displays the renter login modal' do
+      pending
       visit root_path
       # find(:css, '#renter_sign_in').should_not be_visible
       page.should have_css('#renter_sign_in', :visible => true)
