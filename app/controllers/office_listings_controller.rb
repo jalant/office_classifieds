@@ -25,9 +25,9 @@ class OfficeListingsController < ApplicationController
     @office_listing.broker = current_broker
     p current_broker
     @office_listing.neighborhood = Neighborhood.find(params[:neighborhood_id])
-    p @office_listing.neighborhood
-    if @office_listing && @office_listing.save!
-      @path = city_neighborhood_office_listing_path(@office_listing, :city_id => @office_listing.neighborhood.city.id, :neighborhood_id => @office_listing.neighborhood.id)
+    if @office_listing.save
+      p "HELLO TANAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+      # @path = city_neighborhood_office_listing_path(@office_listing, :city_id => @office_listing.neighborhood.city.id, :neighborhood_id => @office_listing.neighborhood.id)
       create_amenities(@office_listing, selected_amenities)
       respond_to do |format|
         format.js 
@@ -35,9 +35,7 @@ class OfficeListingsController < ApplicationController
       end
     else
       @failure = "Unable to create office :-("
-      respond_to do |format|
-        format.js
-      end
+      redirect_to new_city_neighborhood_office_listing_path(neighborhood_id: @office_listing.neighborhood.id, city_id: @office_listing.neighborhood.city_id)
     end
   end
 
