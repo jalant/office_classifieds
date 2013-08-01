@@ -22,6 +22,24 @@
       }
   }
 
+  #price, #square-feet {
+    margin: 10px 10px 15px 10px;
+  }
+
+  .ui-widget-content {
+  }
+
+  .ui-slider-range {
+    background: $sky-blue;
+  }
+
+  .ui-widget-content .ui-state-default {
+    background: #333;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   .neighborhood-title {
     text-align: center;
   }
