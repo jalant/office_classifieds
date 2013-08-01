@@ -7,15 +7,11 @@
         Lease Type
       = select_tag "Lease Type", "<option></option><option>Office</option><option>Coworking Space</option>".html_safe, id: "lease-type"
       #price-title
-        Rent: 0-10000 sq feet
+        Rent: $0 - 10000
       #price
       #square-feet-title
-        Square Feet
-      = select_tag "Square Feet", "<option></option><option>0-1000</option><option>1000-3000</option><option>3000+</option>".html_safe, id: "square-feet"
-      #apply-filters-container
-        .button#apply-filters
-          Apply Filters
-      
+        Square Feet: 0 - 10000 sq ft
+      #square-feet
   .large-8.columns
     .row
       -@office_listings.each do |office_listing|

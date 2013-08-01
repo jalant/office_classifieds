@@ -22,18 +22,18 @@
       }
   }
 
-  #price {
+  #price, #square-feet {
     margin: 10px 10px 15px 10px;
   }
 
-  #price.ui-widget-content {
+  .ui-widget-content {
   }
 
-  #price .ui-slider-range {
+  .ui-slider-range {
     background: $sky-blue;
   }
 
-  #price.ui-widget-content .ui-state-default {
+  .ui-widget-content .ui-state-default {
     background: #333;
     &:hover {
       cursor: pointer;

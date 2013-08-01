@@ -75,7 +75,7 @@ var office_map2= {
 
 filters =  {
   // stores current 'state' of filters as defined by user input
-  filterData: { leaseType: '', priceUpper: '', priceLower: '', squareFeet: ''},
+  filterData: { leaseType: '', priceUpper: 10000, priceLower: 0, squareFeetUpper: 10000, squareFeetLower: 0},
 
   filterLeaseType: function(e) {
     filters.filterData.leaseType = $(event.target).val();
@@ -84,12 +84,11 @@ filters =  {
   filterPrice: function(priceLower, priceUpper) {
     filters.filterData.priceLower = priceLower;
     filters.filterData.priceUpper = priceUpper;
-    console.log(filters.filterData.priceLower);
-    console.log(filters.filterData.priceUpper);
   },
 
-  filterSquareFeet: function(e) {
-    filters.filterData.squareFeet = $(event.target).val();
+  filterSquareFeet: function(squareFeetLower, squareFeetUpper) {
+    filters.filterData.squareFeetLower = squareFeetLower;
+    filters.filterData.squareFeetUpper = squareFeetUpper;
   },
 
   applyFilters: function() {
@@ -97,36 +96,13 @@ filters =  {
       $(Element).removeClass('show');
       $(Element).removeClass('fade');
       filters.fadeElement(Element, 'lease-type', filters.filterData.leaseType);
-     
-      switch (filters.filterData.price) {
-        case "$0-3000":
-          filters.fadeElementInRange(Element, 'price', 0, 3000);
-          break;
-        case "$3000-5000":
-          filters.fadeElementInRange(Element, 'price', 3000, 5000);
-          break;
-        case "$5000+":
-          filters.fadeElementInRange(Element, 'price', 5000, 50000);
-          break;
-        }
-
-      switch (filters.filterData.squareFeet) {
-        case "0-1000":
-          filters.fadeElementInRange(Element, 'square-feet', 0, 1000);
-          break;
-        case "1000-3000":
-          filters.fadeElementInRange(Element, 'square-feet', 1000, 3000);
-          break;
-        case "3000+":
-          filters.fadeElementInRange(Element, 'square-feet', 3000, 50000);
-          break;
-        }
+      filters.fadeElementInRange(Element, 'square-feet', filters.filterData.squareFeetLower, filters.filterData.squareFeetUpper);
+      filters.fadeElementInRange(Element, 'price', filters.filterData.priceLower, filters.filterData.priceUpper);
       if (!($(Element).hasClass('fade'))) {
         // Add show class if no fade elements applied in filter chain
         $(Element).addClass('show');
       }
     });
-    // $('.show').fadeIn(0);
     $('.show').show();
     $('.fade').hide();
   },
@@ -145,9 +121,11 @@ filters =  {
 };
 
 $(function() {
-  $('#lease-type').change(filters.filterLeaseType);
-  $('#price').change(filters.filterPrice);
-  $('#square-feet').change(filters.filterSquareFeet);
+  $('#lease-type').change(function(e) {
+    filters.filterLeaseType(e);
+    filters.applyFilters();
+  });
+
   $('#apply-filters').click(filters.applyFilters);
 
   $('#price').slider({
@@ -157,7 +135,24 @@ $(function() {
     values: [0, 10000],
     slide: function(event, ui) {
       filters.filterPrice(ui.values[0], ui.values[1]);
-      $('#price-title').text("Rent: " + ui.values[0] + " - " + ui.values[1] + " sq feet");
-    }
+      $('#price-title').text("Rent: $" + ui.values[0] + " - " + ui.values[1])
+    },
+    stop: function(event, ui) {
+            filters.applyFilters();
+          }
+  });
+
+  $('#square-feet').slider({
+    range: true,
+    min: 0,
+    max: 10000,
+    values: [0, 10000],
+    slide: function(event, ui) {
+      filters.filterSquareFeet(ui.values[0], ui.values[1]);
+      $('#square-feet-title').text("Square Feet: " + ui.values[0] +  " - " + ui.values[1] + " sq feet");
+    },
+    stop: function(event, ui) {
+            filters.applyFilters();
+          }
   });
 });
