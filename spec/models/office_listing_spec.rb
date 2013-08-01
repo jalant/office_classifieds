@@ -32,6 +32,10 @@ describe OfficeListing do
   let(:office) { create(:office_listing) }
   let(:renter) {create(:renter)} 
   let(:renter2) {create(:renter2)} 
+
+  before (:each) do
+    OfficeListing.any_instance.stub(:geocode).and_return([1, 1])
+  end
   
 
   it 'requires an address' do

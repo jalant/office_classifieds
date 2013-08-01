@@ -9,6 +9,7 @@ describe 'OfficeListings' do
   let(:image) { create(:image) }
 
   before do
+    OfficeListing.any_instance.stub(:geocode).and_return([1, 1])
     broker.reload
     image.reload
     office_listing.reload

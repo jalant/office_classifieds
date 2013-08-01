@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe OfficeListingsController do
+  before do
+    OfficeListing.any_instance.stub(:geocode).and_return([1, 1])
+  end
+
   describe 'GET #index' do
     it 'gets all of the neighborhoods' do
       neighborhood = create(:neighborhood)
