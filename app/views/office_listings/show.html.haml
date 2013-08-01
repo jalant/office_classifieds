@@ -13,6 +13,9 @@
       #size
         %span.special2 Space: 
         #{@office_listing.size} sq. feet
+      #lease-type
+        %span.special2 Office Type:
+        #{@office_listing.office_type}
   #office-images
     .fotorama{"data-width" => "100%","data-height" => "600px", "data-transition" => "dissolve", "data-nav" =>"thumbs", "data-fit" => "cover", "data-allow-full-screen" => 'true', "data-thumb-width" => "100", "data-thumb-height" => "100"}
       -@office_listing.images.each do |image|
@@ -34,7 +37,7 @@
           %tr
             %td Kitchen
             %td.icon-holder
-              %i{class: "#{@office_listing.kitchen ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+              %i{class: "kitchen #{@office_listing.kitchen ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
           %tr
             %td Light
             %td.icon-holder
