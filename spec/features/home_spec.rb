@@ -17,8 +17,9 @@ describe 'Home' do
     end
 
     it 'navigates to individual city' do
-      pending
+      
       visit root_path
+      save_and_open_page
       city.reload
       find('.dropdown li:nth-child(3) a').click
       current_path.should eq "/cities/2"
