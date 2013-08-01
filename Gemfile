@@ -45,6 +45,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'rb-fsevent'
+  gem "shoulda-matchers"
 end
 
 group :development do
