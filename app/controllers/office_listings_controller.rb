@@ -29,6 +29,7 @@ class OfficeListingsController < ApplicationController
       create_amenities(@office_listing, selected_amenities)
       respond_to do |format|
         format.js
+        format.html { redirect_to new_city_neighborhood_office_listing_path }
       end
     else
       @failure = "Unable to create office :-("

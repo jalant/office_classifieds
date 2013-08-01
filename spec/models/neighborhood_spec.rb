@@ -8,6 +8,9 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  img_url    :string(255)
+#  latitude   :float
+#  longitude  :float
+#  address    :text
 #
 
 require 'spec_helper'

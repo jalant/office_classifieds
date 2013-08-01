@@ -8,14 +8,14 @@
 #  size                   :integer
 #  rent                   :integer
 #  details                :text
-#  kitchen                :boolean
-#  reception              :boolean
-#  light                  :boolean
-#  shower                 :boolean
-#  move_in                :boolean
-#  high_ceiling           :boolean
-#  patio                  :boolean
-#  furniture              :boolean
+#  kitchen                :boolean          default(FALSE)
+#  reception              :boolean          default(FALSE)
+#  light                  :boolean          default(FALSE)
+#  shower                 :boolean          default(FALSE)
+#  move_in                :boolean          default(FALSE)
+#  high_ceiling           :boolean          default(FALSE)
+#  patio                  :boolean          default(FALSE)
+#  furniture              :boolean          default(FALSE)
 #  term_length            :string(255)
 #  availability           :string(255)
 #  no_of_offices          :integer
@@ -24,6 +24,8 @@
 #  broker_id              :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  latitude               :float
+#  longitude              :float
 #
 
 class OfficeListing < ActiveRecord::Base
@@ -36,6 +38,7 @@ class OfficeListing < ActiveRecord::Base
   has_many :favorites
   has_many :renters, through: :favorites
   has_many :images
+  has_many :viewings
 
   validates :address, presence: true
   validates :office_type, presence: true
@@ -57,4 +60,7 @@ class OfficeListing < ActiveRecord::Base
     renters.delete(renter)
   end
 
+  def add_viewing(viewing)
+    viewings << viewing
+  end
 end

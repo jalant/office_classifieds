@@ -54,13 +54,13 @@ describe OfficeListingsController do
     let (:office_listing) { mock_model(OfficeListing).as_null_object }
 
     before do
-      OfficeListing.stub(:create).and_return(office_listing)
+      OfficeListing.any_instance.stub(:valid?).and_return(true)
+      OfficeListing.any_instance.stub(:save!).and_return(true)
     end
 
     context 'with valid attributes' do 
       it 'saves the listing' do
-        pending
-        office_listing.should_receive(:save)
+        office_listing.should_receive(:save!)
         post :create, :city_id => city.id, :neighborhood_id => neighborhood.id
       end
 
@@ -71,8 +71,7 @@ describe OfficeListingsController do
 
     context 'with invalid attributes' do
       it 'fails and renders new page' do
-        pending
-        office_listing.should_receive(:save).and_return(false)
+        office_listing.should_receive(:save!).and_return(false)
         post :create, :city_id => city.id, :neighborhood_id => neighborhood.id
         response.should redirect_to new_city_neighborhood_office_listing_path
       end
