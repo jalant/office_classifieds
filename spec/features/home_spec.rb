@@ -17,7 +17,7 @@ describe 'Home' do
     end
 
     it 'navigates to individual city' do
-      
+      pending
       visit root_path
       save_and_open_page
       city.reload
