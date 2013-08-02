@@ -23,7 +23,6 @@ class OfficeListingsController < ApplicationController
     selected_amenities = params[:amenities] || [] # empty list if no amenities checked
     @office_listing = OfficeListing.new(params[:office_listing])
     @office_listing.broker = current_broker
-    p current_broker
     @office_listing.neighborhood = Neighborhood.find(params[:neighborhood_id])
 
     if @office_listing.save
@@ -31,7 +30,7 @@ class OfficeListingsController < ApplicationController
       create_amenities(@office_listing, selected_amenities)
       respond_to do |format|
         format.js 
-        format.html {redirect_to root_path}
+        format.html {redirect_to neighborhood_office_listing_path(neighborhood_id: @office_listing.neighborhood_id, id: @office_listing.id)}
       end
     else
       @failure = "Unable to create office :-("
