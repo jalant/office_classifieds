@@ -71,7 +71,7 @@ describe OfficeListingsController do
       it 'fails and renders new page' do
         OfficeListing.stub(:save).and_return(false)
         post :create, :city_id => city.id, :neighborhood_id => neighborhood.id
-        response.should redirect_to new_city_neighborhood_office_listing_path(neighborhood_id: neighborhood.id, city_id: city.id)
+        response.should redirect_to new_neighborhood_office_listing_path(neighborhood_id: neighborhood.id)
       end
     end
 

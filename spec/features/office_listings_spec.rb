@@ -20,7 +20,7 @@ describe 'OfficeListings' do
       office_listing_2 = create(:office_listing_2)
       office_listing_3 = create(:office_listing_3)
       office_listing_4 = create(:office_listing_4)
-      visit city_neighborhood_office_listings_path(neighborhood, neighborhood_id: neighborhood.id, city_id: city.id)
+      visit neighborhood_office_listings_path(neighborhood_id: neighborhood.id)
       page.should have_content(office_listing.address)
       page.should have_content(office_listing_2.address)
       page.should have_content(office_listing_3.address)
@@ -31,19 +31,19 @@ describe 'OfficeListings' do
   describe 'GET cities/:city_id/neighborhoods/:neighborhood_id/office_listings/:id' do
     it 'displays a tiny google map' do 
       office_listing.reload
-      visit city_neighborhood_office_listing_path(office_listing, office_listing_id: office_listing.id, neighborhood_id: neighborhood.id, city_id: city.id)
+      visit neighborhood_office_listing_path(id: office_listing.id, neighborhood_id: neighborhood.id)
       page.should have_css('div#map-canvas')
     end
 
     it 'displays the price, square footage, and lease type of a listing' do
-      visit city_neighborhood_office_listing_path(office_listing, office_listing_id: office_listing.id, neighborhood_id: neighborhood.id, city_id: city.id)
+      visit neighborhood_office_listing_path(id: office_listing.id, neighborhood_id: neighborhood.id)
       find('#rent').should have_content(office_listing.rent)
       find('#size').should have_content(office_listing.size)
       find('#lease-type').should have_content(office_listing.office_type)
     end
       
     it 'displays a list of amenities and adds a class of true if true in db' do
-      visit city_neighborhood_office_listing_path(office_listing, office_listing_id: office_listing.id, neighborhood_id: neighborhood.id, city_id: city.id)
+      visit neighborhood_office_listing_path(id: office_listing.id, neighborhood_id: neighborhood.id)
       page.should have_css('.kitchen_check.general.foundicon-checkmark')
       page.should have_css('.light_check.general.foundicon-checkmark')
       page.should have_css('.patio_check.general.foundicon-checkmark')
@@ -57,13 +57,15 @@ describe 'OfficeListings' do
 
   describe 'GET cities/:city_id/neighborhoods/:neighborhood_id/office_listings/new' do
     it 'displays a form for creating office listing attributes' do
-      visit new_city_neighborhood_office_listing_path(neighborhood_id: neighborhood.id, city_id: city.id)
+      city.reload
+      visit new_neighborhood_office_listing_path(neighborhood_id: neighborhood.id)
       page.should have_css('#listing-attributes')
     end
 
     it 'creates a new office listing from the form' do
 
-      visit new_city_neighborhood_office_listing_path(neighborhood_id: neighborhood.id, city_id: city.id)
+      city.reload
+      visit new_neighborhood_office_listing_path(neighborhood_id: neighborhood.id)
       login_as(broker, :scope => :broker)
       fill_in('office_listing[address]', with: 'my address')
       fill_in('office_listing[rent]', with: '1234')
@@ -84,13 +86,15 @@ describe 'OfficeListings' do
     end
 
     it 'has a hidden form for uploading images' do
-      visit new_city_neighborhood_office_listing_path(neighborhood_id: neighborhood.id, city_id: city.id)
+      city.reload
+      visit new_neighborhood_office_listing_path(neighborhood_id: neighborhood.id)
       page.should have_css('form.hidden#listing-images')
     end
 
     it 'unhides the images form and displays an image display div when the update attributes form is submitted' do
 
-      visit new_city_neighborhood_office_listing_path(neighborhood_id: neighborhood.id, city_id: city.id)
+      city.reload
+      visit new_neighborhood_office_listing_path(neighborhood_id: neighborhood.id)
       login_as(broker, :scope => :broker)
       fill_in('office_listing[address]', with: 'my address')
       fill_in('office_listing[rent]', with: '1234')
