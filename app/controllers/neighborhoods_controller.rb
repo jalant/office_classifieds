@@ -9,6 +9,6 @@ class NeighborhoodsController < ApplicationController
 
   def add_listing
   	@neighborhoods = Neighborhood.all
-    @city = City.find(params[:city_id])
+    @city = City.find_by_name('New York') # get rid of this diabolical hardcoded bullshit ASAP
   end
 end

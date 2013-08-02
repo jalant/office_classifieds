@@ -1,7 +1,7 @@
 .row
   .large-12.columns
     #form-container
-      =form_for([@city, @neighborhood, @office_listing], remote: true, html: {id: 'listing-attributes'}, data: 'helo' ) do |f|
+      =form_for([@neighborhood, @office_listing], remote: true, html: {id: 'listing-attributes'}, data: 'helo' ) do |f|
         %h1 Submit an Office Listing
         =f.label :address
         =f.text_field :address, id: 'address'

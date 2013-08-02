@@ -19,13 +19,13 @@
 		<section class="top-bar-section">
 			<ul class="right">
 				<% if current_broker %>
-				<li class='submit_listing_tag'> <a href=" <%= neighborhood_add_listing_city_neighborhoods_path(City.find_by_name('New York')) %>"> Submit Listing</a> </li>
+				<li class='submit_listing_tag'> <a href=" <%= neighborhood_add_listing_neighborhoods_path %>"> Submit Listing</a> </li>
 				<% end %>
 				<li class="divider hide-for-small"></li>
 				<li id="browse-offices" class="has-dropdown"><a href="#">Browse Offices</a>
 					<ul class="dropdown">
 			            <% City.all.each do |city| %>
-			              <li><a href='<%= city_neighborhoods_path(city) %>'><%= city.name %></a></li>
+			              <li><a href='<%= city_neighborhoods_path(city_id: city.id) %>'><%= city.name %></a></li>
 			            <% end %>
 					</ul>
 				</li>

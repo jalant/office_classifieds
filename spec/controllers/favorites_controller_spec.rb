@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe FavoritesController do
+
+  before (:each) do
+    OfficeListing.any_instance.stub(:geocode).and_return([1, 1])
+  end
+  
   describe 'GET #index' do
     it 'shows all of a specific user favorites' do 
     	

@@ -6,6 +6,7 @@ describe 'Favorites ' do
     @favorite = create(:favorite)
     @renter = create(:renter)
     login_as(@renter, :scope => :renter)
+    OfficeListing.any_instance.stub(:geocode).and_return([1, 1])
     @office_listing = create(:office_listing)
   end
 
