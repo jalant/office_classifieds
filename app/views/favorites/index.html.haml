@@ -1,10 +1,8 @@
-Test for renter 1 
-
 - if current_renter
-	- @favorites.each do |fav|
-		.ind-office
-			=fav.office_listing.address
-
-	
-
-
+  - @favorites.each do |fav|
+    .favorite-box
+      =link_to fav.office_listing.address, neighborhood_office_listing_path(neighborhood_id: fav.office_listing.neighborhood.id, id: fav.office_listing.id)
+.appointments
+  - @appointments.each do |appointment|
+    .appointment
+      =link_to appointment.viewing.office_listing.address, neighborhood_office_listing_path(neighborhood_id: appointment.viewing.office_listing.neighborhood.id, id: appointment.viewing.office_listing.id)

@@ -31,15 +31,7 @@ class Renter < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :phone_number, :address, :img_url
-  # attr_accessible :title, :body
-
-
-  # validates_presence_of :first_name
-  # validates_presence_of :last_name
-  # validates_presence_of :phone_number
-  # validates_presence_of :address 
   validates_presence_of :email
- # validates_presence_of :img_url
   validates_presence_of :password
   validates_presence_of :password_confirmation
 
@@ -47,6 +39,16 @@ class Renter < ActiveRecord::Base
   validates :address, length: {maximum: 80} 
   has_many :notifications
   has_many :favorites
+  has_many :appointments
   has_many :office_listings, through: :favorites
+  has_many :viewings, through: :appointments
+
+  def add_appointment(viewing)
+    viewings << viewing
+  end
+
+  def remove_appointment(viewing)
+    viewings.delete(viewing)
+  end
 
 end
