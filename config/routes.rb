@@ -12,18 +12,26 @@ OfficeClassifieds::Application.routes.draw do
   end
 
   root :to => "home#index"
-  # resources :neighborhoods, only: [:index, :show]
-  # resources :cities, only: [:show]
-  resources :cities do
-    resources :neighborhoods, only: [:index, :show] do
-      collection do
-        get 'add_listing', to: 'neighborhoods#add_listing', :as => 'neighborhood_add_listing'
-      end 
-      resources :office_listings
+
+  # Neighborhoods Paths
+  resources :cities, only: [:show] do
+    resources :neighborhoods, only: [:index, :show]
+  end
+
+  resources :neighborhoods do
+    collection do
+      get 'add_listing', to: 'neighborhoods#add_listing', :as => 'neighborhood_add_listing'
     end
   end
 
+  # Office Listings Paths
+  resources :neighborhoods, only: [:show] do
+    resources :office_listings, only: [:index, :show, :new, :create, :edit]
+  end
+
+  # Viewings Paths
+  resources :office_listings, only: [:show] do 
+    resources :viewings, only: [:new, :create]
+  end
   resources :images, only: [:create]
-
-
 end

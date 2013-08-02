@@ -23,7 +23,7 @@ $(function(){
 	<span>Let us help you find your <span class = 'special3'>new working home.</span></span>
 	<br>
 	<% if current_renter || current_broker %>
-		<a class="button small radius browse-offices" href="<%= city_neighborhoods_path(City.find_by_name('New York')) %>"> Browse our selection</a>
+		<a class="button small radius browse-offices" href="<%= neighborhoods_path(city_id: City.find_by_name('New York').id) %>"> Browse our selection</a>
 	<% end %>
 	<% unless current_renter || current_broker %>	
 		<a class="signup-div button small final-signup" href="#">Sign Up Today</a>

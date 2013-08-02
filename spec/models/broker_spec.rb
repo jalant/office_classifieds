@@ -42,5 +42,4 @@ describe Broker do
       expect(subject).to respond_to(:office_listings)
     end
   end
-
 end

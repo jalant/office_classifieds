@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130713032402) do
+ActiveRecord::Schema.define(version: 20130801172107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,5 +132,15 @@ ActiveRecord::Schema.define(version: 20130713032402) do
 
   add_index "renters", ["email"], name: "index_renters_on_email", unique: true, using: :btree
   add_index "renters", ["reset_password_token"], name: "index_renters_on_reset_password_token", unique: true, using: :btree
+
+  create_table "viewings", force: true do |t|
+    t.integer  "office_listing_id"
+    t.date     "date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
