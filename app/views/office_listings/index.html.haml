@@ -15,7 +15,7 @@
   .large-8.columns
     .row
       -@office_listings.each do |office_listing|
-        =link_to "office_listings/#{office_listing.id}" do
+        =link_to neighborhood_office_listing_path(neighborhood_id: @neighborhood.id, id: office_listing.id) do
           .large-4.small-6.columns.ind-offices{"data-id" => office_listing.id, "data-lease-type" => office_listing.office_type,
           "data-price" => office_listing.rent, "data-square-feet" => office_listing.size}
             -if office_listing.images[1].nil?

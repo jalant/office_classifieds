@@ -23,7 +23,7 @@ $(function(){
 	<span>Let us help you find your <span class = 'special3'>new working home.</span></span>
 	<br>
 	<% if current_renter || current_broker %>
-		<a class="button small radius browse-offices" href="<%= city_neighborhoods_path(City.find_by_name('New York')) %>"> Browse our selection</a>
+		<a class="button small radius browse-offices" href="<%= neighborhoods_path(city_id: City.find_by_name('New York').id) %>"> Browse our selection</a>
 	<% end %>
 	<% unless current_renter || current_broker %>	
 		<a class="signup-div button small final-signup" href="#">Sign Up Today</a>
@@ -34,3 +34,4 @@ $(function(){
 </div>	
 <div class="photo hk" data-stellar-background-ratio="0"><span class="city_names"></span></div>
 <div class="photo diff-space-final" data-stellar-background-ratio="0"><span>From the <span class = 'special3'> developers </span> of <span class = 'special2'> Stoopendous </span> and <span class = 'special'> Pryify </span></span></div>	
+

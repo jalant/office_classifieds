@@ -12,7 +12,9 @@ describe 'Neighborhoods' do
       neighborhood_2.reload
       neighborhood_3.reload
       city.reload
-      visit city_neighborhoods_path(city)
+      p "NEIGHBORHOODS PATH"
+      p city_neighborhoods_path(city_id: city.id)
+      visit city_neighborhoods_path(city_id: city.id)
       page.should have_selector('div', text: neighborhood.name)
       page.should have_selector('div', text: neighborhood_2.name)
       page.should have_selector('div', text: neighborhood_3.name)
@@ -23,15 +25,15 @@ describe 'Neighborhoods' do
       neighborhood_2.reload
       neighborhood_3.reload
       city.reload
-      visit city_neighborhoods_path(city)
+      visit city_neighborhoods_path(city_id: city.id)
       click_link(neighborhood.name)
-      current_path.should eq(city_neighborhood_office_listings_path(city, neighborhood))
-      visit city_neighborhoods_path(city)
+      current_path.should eq(neighborhood_office_listings_path(neighborhood_id: neighborhood.id))
+      visit city_neighborhoods_path(city_id: city.id)
       click_link(neighborhood_2.name)
-      current_path.should eq(city_neighborhood_office_listings_path(city, neighborhood_2))
-      visit city_neighborhoods_path(city)
+      current_path.should eq(neighborhood_office_listings_path(neighborhood_id: neighborhood_2.id))
+      visit city_neighborhoods_path(city_id: city.id)
       click_link(neighborhood_3.name)
-      current_path.should eq(city_neighborhood_office_listings_path(city, neighborhood_3))
+      current_path.should eq(neighborhood_office_listings_path(neighborhood_id: neighborhood_3.id))
     end
   end
 end
