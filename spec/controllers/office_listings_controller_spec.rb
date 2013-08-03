@@ -38,11 +38,6 @@ describe OfficeListingsController do
       OfficeListing.stub(:new).and_return(office_listing)
     end
 
-    it 'saves a new office listing as an instance variable' do
-      get :new, :city_id => city.id, :neighborhood_id => neighborhood.id
-      assigns(:office_listing).should be_instance_of OfficeListing
-      assigns(:office_listing).should be_new_record
-    end
 
     it 'renders the :new view' do
       get :new, :city_id => city.id, :neighborhood_id => neighborhood.id
@@ -56,12 +51,12 @@ describe OfficeListingsController do
     let(:office_listing) { mock_model(OfficeListing).as_null_object  }
     before do
       OfficeListing.any_instance.stub(:geocode).and_return([1, 1])
+      OfficeListing.stub(:new).and_return(office_listing)
     end
 
     context 'with valid attributes' do 
       it 'saves the listing' do 
-        OfficeListing.stub(:new).and_return(office_listing)
-        OfficeListing.any_instance.stub(:save).and_return(true)
+        office_listing.stub(:save).and_return(true)
         office_listing.should_receive(:save)
         post :create, :city_id => city.id, :neighborhood_id => neighborhood.id
       end
@@ -69,13 +64,10 @@ describe OfficeListingsController do
 
     context 'with invalid attributes' do
       it 'fails and renders new page' do
-        OfficeListing.stub(:save).and_return(false)
+        office_listing.stub(:save).and_return(false)
         post :create, :city_id => city.id, :neighborhood_id => neighborhood.id
-        response.should redirect_to new_neighborhood_office_listing_path(neighborhood_id: neighborhood.id)
+        assigns(:failure).should_not be_nil
       end
     end
-
-      
   end
-
 end

@@ -25,7 +25,9 @@ describe 'Favorites ' do
       viewing.reload
       @renter.add_appointment(viewing)
       visit renter_favorites_path(@renter)
-      find('.appointments').click_link(@office_listing.address)
+      within '.appointments' do 
+        click_link(@office_listing.address)
+      end
       current_path.should eq neighborhood_office_listing_path(neighborhood_id: @office_listing.neighborhood.id, id: @office_listing.id)
     end
   end
