@@ -51,4 +51,12 @@ class Renter < ActiveRecord::Base
     viewings.delete(viewing)
   end
 
+  def add_favorite(favorite)
+    favorites << favorite
+  end
+
+  def remove_favorite(favorite)
+    favorites.delete(favorite)
+  end
+
 end
