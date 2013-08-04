@@ -63,6 +63,7 @@ describe Renter do
     let(:viewing) { create(:viewing) }
     
     it 'can add an appointment and have associated viewings' do
+      expect(subject.viewings).to be_empty
       subject.add_appointment(viewing)
       expect(subject.viewings).to include(viewing)
       expect(subject.appointments.first.viewing_id).to eq(viewing.id)
@@ -75,6 +76,24 @@ describe Renter do
       expect(subject.viewings).to be_empty
       expect(subject.appointments).to be_empty
       expect(viewing).to_not be_nil
+    end
+  end
+
+  describe 'favorites' do
+    let(:favorite) { create(:favorite) }
+    
+    it 'can add a favorite' do
+      expect(subject.favorites).to be_empty
+      subject.add_favorite(favorite)
+      expect(subject.favorites).to include(favorite)
+      expect(subject.favorites.first.id).to eq(favorite.id)
+      expect(subject.favorites.first.renter_id).to eq(renter.id)
+    end
+
+    it 'can delete a favorite' do
+      subject.add_favorite(favorite)
+      subject.remove_favorite(favorite)
+      expect(subject.favorites).to be_empty
     end
   end
 end

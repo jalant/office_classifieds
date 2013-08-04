@@ -8,7 +8,7 @@ OfficeClassifieds::Application.routes.draw do
   devise_for :renters, :controllers => { :registrations => "authentication/registrations" } 
 
   resources :renters do 
-    resources :favorites, only: [:index]
+    resources :favorites, only: [:index, :new, :create, :destroy]
   end
 
   root :to => "home#index"
@@ -31,7 +31,7 @@ OfficeClassifieds::Application.routes.draw do
 
   # Viewings Paths
   resources :office_listings, only: [:show] do 
-    resources :viewings, only: [:new, :create]
+    resources :viewings, only: [:new, :create, :destroy]
   end
   resources :images, only: [:create]
 end

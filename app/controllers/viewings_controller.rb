@@ -10,9 +10,7 @@ class ViewingsController < ApplicationController
   def create
     @viewing = Viewing.new(params[:viewing])
     @viewing.broker = current_broker
-    @viewing.office_listing = params[:office_listing_id]
-
-    p @viewing.save
+    OfficeListing.find(params[:office_listing_id]).add_viewing(@viewing)
 
     if @viewing && @viewing.save == true
       respond_to do |format|
@@ -25,6 +23,17 @@ class ViewingsController < ApplicationController
         format.js
         format.html { redirect_to root_path }
       end
+    end
+  end
+
+  def destroy
+    viewing = Viewing.find(params[:id])
+    current_broker.remove_viewing(viewing)
+    viewing.destroy
+
+    respond_to do |format|
+      format.js
+      format.html { redirect_to root_path }
     end
   end
 end

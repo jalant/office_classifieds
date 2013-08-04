@@ -26,4 +26,53 @@ describe FavoritesController do
 
     end
   end
+  
+  describe 'GET #new' do
+    let (:favorite) { mock_model(Favorite).as_null_object }
+    let(:renter) { mock_model(Renter).as_null_object }
+    
+    it 'saves a new viewing as an instance variable' do
+      get :new, :renter_id => renter.id, id: favorite.id
+      assigns(:favorite).should be_instance_of Favorite
+      assigns(:favorite).should be_new_record
+    end
+  end
+
+  describe 'POST #create' do
+    let(:renter) { mock_model(Renter.as_null_object) }
+    let(:favorite) { mock_model(Favorite).as_null_object }
+    
+    before do 
+      Favorite.stub(:new).and_return(favorite)
+    end
+
+    describe 'with valid attributes' do
+      it 'saves the favorite' do 
+        favorite.stub(:save).and_return(true)
+        favorite.should_receive(:save)
+        post :create, renter_id: renter.id
+      end
+    end
+
+    describe 'with invalid attributes' do
+      it 'fails and renders a failure message' do
+        favorite.stub(:save).and_return(false)
+        favorite.should_receive(:save)
+        post :create, :renter_id => renter.id
+        assigns(:failure_message).should_not be_nil
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+     let(:renter) { mock_model(Renter.as_null_object) }
+     let(:favorite) { mock_model(Favorite).as_null_object }
+
+    it 'deletes a viewing' do
+      Favorite.stub(:find).and_return(favorite)
+      NilClass.any_instance.stub(:remove_favorite).and_return(true) # hack
+      favorite.should_receive(:destroy)
+      delete :destroy, id: favorite, renter_id: renter.id
+    end
+  end
 end
