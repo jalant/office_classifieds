@@ -9,6 +9,7 @@ OfficeClassifieds::Application.routes.draw do
 
   resources :renters do 
     resources :favorites, only: [:index, :new, :create, :destroy]
+    resources :appointments, only: [:create, :destroy]
   end
 
   root :to => "home#index"

@@ -70,7 +70,7 @@ describe Renter do
       expect(subject.appointments.first.renter_id).to eq(renter.id)
     end
 
-    it 'can delete an appointment and its associated viewing' do
+    it 'can delete an appointment' do
       subject.add_appointment(viewing)
       subject.remove_appointment(viewing)
       expect(subject.viewings).to be_empty

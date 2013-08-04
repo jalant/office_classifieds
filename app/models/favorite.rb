@@ -14,7 +14,4 @@ class Favorite < ActiveRecord::Base
 
   belongs_to :office_listing
   belongs_to :renter
-
-
-
 end
