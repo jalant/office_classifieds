@@ -3,6 +3,7 @@ class FavoritesController < ApplicationController
   def index
   	renter = Renter.find(params[:renter_id])
   	@favorites = Favorite.where("renter_id = #{renter.id}")
+    @favorite_office_listings = @favorites.map { |favorite| favorite.office_listing }
     @appointments = Appointment.where("renter_id = #{renter.id}")
   end
 
