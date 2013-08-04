@@ -27,6 +27,8 @@ broker_2 = Broker.create(email: 'tanayjaln@gmail.com', password: 'password123', 
 renter_1 = Renter.create(email: 'tanayjaln@gmail.com', password: 'password123', password_confirmation: 'password123', first_name: 'Tany', last_name: 'Jalan')
 renter_2 = Renter.create(email: 'tanayjaln@gmail.com', password: 'password123', password_confirmation: 'password123', first_name: 'Tany', last_name: 'Jalan')
 
+
+
 new_york_city = City.create(name: 'New York', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
 singapore = City.create(name: 'Singapore', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
 hong_kong = City.create(name: 'Hong Kong', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
@@ -81,4 +83,7 @@ office_listing_images.each_line do |line|
   end
   i += 1
 end
+
+Favorite.create(office_listing_id: OfficeListing.first.id, renter_id: renter_1.id)
+Favorite.create(office_listing_id: OfficeListing.last.id, renter_id: renter_1.id)
 

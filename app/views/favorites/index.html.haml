@@ -1,18 +1,17 @@
 
-/ Test for renter 1 
+#favorites-holder 
+  .row
+    -if current_renter
+      -@favorites.each do |fav|
+        .large-4.small-12.columns
+          .favorite-box
+            -if fav.office_listing.images.first.link_image.include? "http" || fav.office_listing.images.first.image
+              =image_tag "#{fav.office_listing.images.first.link_image || fav.office_listing.images.first.image}"
+            -else 
+              =image_tag "http://placehold.it/219x250&text=No Preview", class: "no-image"
+            =link_to fav.office_listing.address, neighborhood_office_listing_path(neighborhood_id: fav.office_listing.neighborhood.id, id: fav.office_listing.id)
 
-/ - if current_renter
-/ 	- @favorites.each do |fav|
-/ 		.ind-office
-/ 			=fav.office_listing.address
-
-.small-12.columns.test
-  test 
-- if current_renter
-  - @favorites.each do |fav|
-    .favorite-box
-      =link_to fav.office_listing.address, neighborhood_office_listing_path(neighborhood_id: fav.office_listing.neighborhood.id, id: fav.office_listing.id)
-.appointments
-  - @appointments.each do |appointment|
-    .appointment
-      =link_to appointment.viewing.office_listing.address, neighborhood_office_listing_path(neighborhood_id: appointment.viewing.office_listing.neighborhood.id, id: appointment.viewing.office_listing.id)
+  / .appointments
+  /   - @appointments.each do |appointment|
+  /     .appointment
+  /       =link_to appointment.viewing.office_listing.address, neighborhood_office_listing_path(neighborhood_id: appointment.viewing.office_listing.neighborhood.id, id: appointment.viewing.office_listing.id)
