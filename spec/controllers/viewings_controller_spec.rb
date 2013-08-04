@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ViewingsController do
   describe 'GET #new' do
-    let (:office_listing) { create(:office_listing) }
+    let (:office_listing) { mock_model(OfficeListing) }
     
     it 'saves a new viewing as an instance variable' do
       get :new, :office_listing_id => office_listing.id
@@ -43,10 +43,13 @@ describe ViewingsController do
   describe 'DELETE #destroy' do
      let(:office_listing) { mock_model(OfficeListing.as_null_object) }
      let(:viewing) { mock_model(Viewing).as_null_object }
+     let(:broker) { mock_model(Broker).as_null_object }
 
     it 'deletes a viewing' do
       Viewing.stub(:find).and_return(viewing)
-      NilClass.any_instance.stub(:remove_viewing).and_return(true) # hack
+      controller.stub(:current_broker).and_return(broker)
+      broker.stub(:remove_viewing)
+      broker.should_receive(:remove_viewing)
       viewing.should_receive(:destroy)
       delete :destroy, id: viewing, office_listing_id: office_listing.id
     end

@@ -70,7 +70,9 @@ describe FavoritesController do
 
     it 'deletes a viewing' do
       Favorite.stub(:find).and_return(favorite)
-      NilClass.any_instance.stub(:remove_favorite).and_return(true) # hack
+      controller.stub(:current_renter).and_return(renter)
+      renter.stub(:remove_favorite)
+      renter.should_receive(:remove_favorite)
       favorite.should_receive(:destroy)
       delete :destroy, id: favorite, renter_id: renter.id
     end
