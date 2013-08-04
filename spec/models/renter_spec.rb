@@ -58,4 +58,23 @@ describe Renter do
       expect(subject).to respond_to(:office_listings)
     end
   end
+
+  describe 'appointments' do
+    let(:viewing) { create(:viewing) }
+    
+    it 'can add an appointment and have associated viewings' do
+      subject.add_appointment(viewing)
+      expect(subject.viewings).to include(viewing)
+      expect(subject.appointments.first.viewing_id).to eq(viewing.id)
+      expect(subject.appointments.first.renter_id).to eq(renter.id)
+    end
+
+    it 'can delete an appointment and its associated viewing' do
+      subject.add_appointment(viewing)
+      subject.remove_appointment(viewing)
+      expect(subject.viewings).to be_empty
+      expect(subject.appointments).to be_empty
+      expect(viewing).to_not be_nil
+    end
+  end
 end
