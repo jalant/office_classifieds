@@ -19,6 +19,7 @@ class Neighborhood < ActiveRecord::Base
 
   belongs_to :city
   has_many :office_listings
+  has_and_belongs_to_many :preference_lists
 
   geocoded_by :address 
   before_save :geocode

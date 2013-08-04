@@ -45,5 +45,6 @@ class Broker < ActiveRecord::Base
   validates :address, length: {maximum: 80}
   has_many :office_listings
   has_many :notifications 
+  has_and_belongs_to_many :preference_lists
 
 end
