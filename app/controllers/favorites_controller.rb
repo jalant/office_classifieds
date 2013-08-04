@@ -16,7 +16,11 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Favorite.new(params[:favorite])
+    p "----------------------"
+    p params[:renter_id]
+    p params[:office_listing_id]
+
+    @favorite = Favorite.new(renter_id: params[:renter_id], office_listing_id: params[:office_listing_id])
     @favorite.renter = current_renter
 
     if @favorite && @favorite.save == true

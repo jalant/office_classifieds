@@ -58,7 +58,7 @@
                 %td.icon-holder
                   %i{class: "ceiling_check #{@office_listing.high_ceiling ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
 
-        #broker-information
+      =button_to "Add to Favorites", {:controller => "favorites", :action => "create", :renter_id => current_renter.id, :office_listing_id => @office_listing.id}, :method => :post, :remote => true, class: "button"
 
 
       #office-images.large-7.small-12.columns.small-centered
