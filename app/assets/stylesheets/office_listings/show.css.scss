@@ -183,6 +183,7 @@
   }
 
   #broker-label{
+
     width: 90%;
     height: 100px;
     text-align: center;
@@ -287,6 +288,7 @@
   }
   
   #basic-information-label, #amenities-label, #broker-information-label{
+    cursor:pointer;
     background-color: $off-white;
     padding: 15px;
     font-size: 20px;
