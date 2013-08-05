@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130804193440) do
+ActiveRecord::Schema.define(version: 20130805052105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,11 @@ ActiveRecord::Schema.define(version: 20130804193440) do
   add_index "brokers", ["email"], name: "index_brokers_on_email", unique: true, using: :btree
   add_index "brokers", ["reset_password_token"], name: "index_brokers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "brokers_preference_lists", id: false, force: true do |t|
+    t.integer "broker_id"
+    t.integer "preference_list_id"
+  end
+
   create_table "cities", force: true do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -78,6 +83,11 @@ ActiveRecord::Schema.define(version: 20130804193440) do
     t.float    "latitude"
     t.float    "longitude"
     t.text     "address"
+  end
+
+  create_table "neighborhoods_preference_lists", id: false, force: true do |t|
+    t.integer "neighborhood_id"
+    t.integer "preference_list_id"
   end
 
   create_table "notifications", force: true do |t|

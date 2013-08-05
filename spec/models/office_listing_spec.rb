@@ -37,6 +37,7 @@ describe OfficeListing do
 
   before (:each) do
     OfficeListing.any_instance.stub(:geocode).and_return([1, 1])
+    OfficeListing.any_instance.stub(:send_notifications)
   end
   
 
@@ -123,6 +124,109 @@ describe OfficeListing do
       office.add_viewing(viewing)
       office.viewings.should include(viewing)
       office.viewings.first.office_listing_id.should eq (office.id)
+    end
+  end
+
+  describe 'preference list' do
+    let(:preference_list) { create(:preference_list) }
+
+    context 'office listing has a neighborhood matching preference list' do
+      it 'checks whether its neighborhood matches the preferences of any renters with notifications enabled' do
+        neighborhood_1 = create(:neighborhood)
+        neighborhood_2 = create(:neighborhood_2)
+        neighborhood_3 = create(:neighborhood_3)
+        neighborhood_4 = create(:neighborhood_4)
+        renter.add_preference_list(preference_list)
+        preference_list.neighborhoods << neighborhood_1 << neighborhood_2 << neighborhood_3
+        office.check_for_matching_neighborhood(renter.preference_list.neighborhoods).should be_true
+        # test opposite
+        office.neighborhood = neighborhood_4
+        office.check_for_matching_neighborhood(preference_list.neighborhoods).should be_false
+      end
+    end
+
+    context 'office listing does not have a neighborhood matching preference list' do
+      it 'checks whether its neighborhood matches the preferences of any renters with notifications enabled' do
+        neighborhood_1 = create(:neighborhood)
+        neighborhood_2 = create(:neighborhood_2)
+        neighborhood_3 = create(:neighborhood_3)
+        renter.add_preference_list(preference_list)
+        office.neighborhood = neighborhood_3
+        preference_list.neighborhoods << neighborhood_1 << neighborhood_2
+        office.check_for_matching_neighborhood(renter.preference_list.neighborhoods).should be_false
+        # test opposite 
+        office.neighborhood = neighborhood_1
+        office.check_for_matching_neighborhood(renter.preference_list.neighborhoods).should be_true
+      end
+    end
+
+    context 'office listing has a broker matching preference list' do
+      it 'checks whether its broker matches the preferences of any renters with notifications enabled' do
+        broker_1 = create(:broker)
+        broker_2 = create(:broker_2)
+        broker_3 = create(:broker_3)
+        broker_4 = create(:broker_4)
+        renter.add_preference_list(preference_list)
+        preference_list.brokers << broker_1 << broker_2 << broker_3
+        office.check_for_matching_broker(renter.preference_list.brokers).should be_true
+        # test opposite
+        office.broker = broker_4
+        office.check_for_matching_broker(preference_list.brokers).should be_false
+      end
+    end
+
+    context 'office listing does not have a broker matching preference list' do
+      it 'checks whether its broker matches the preferences of any renters with notifications enabled' do
+        broker_1 = create(:broker)
+        broker_2 = create(:broker_2)
+        broker_3 = create(:broker_3)
+        renter.add_preference_list(preference_list)
+        office.broker = broker_3
+        preference_list.brokers << broker_1 << broker_2
+        office.check_for_matching_broker(renter.preference_list.brokers).should be_false
+        # test opposite 
+        office.broker = broker_1
+        office.check_for_matching_broker(renter.preference_list.brokers).should be_true
+      end
+    end
+
+    context 'check amenity when listing has an amenity' do
+      it 'checks if a listing has an amenity  if a preference list has specified it to' do
+        office.kitchen = true
+        office.check_matching_amenity(preference_list.kitchen, :kitchen).should be_true
+        preference_list.kitchen = true
+        office.check_matching_amenity(preference_list.kitchen, :kitchen).should be_true
+        office.reception = true
+        preference_list.reception = true
+        office.check_matching_amenity(preference_list.reception, :reception).should be_true
+        office.patio = true
+        preference_list.patio = true
+        office.check_matching_amenity(preference_list.patio, :patio).should be_true
+        office.furniture = true
+        preference_list.furniture = true
+        office.check_matching_amenity(preference_list.furniture, :furniture).should be_true
+      end
+    end
+
+    context 'check amenity when listing does not have a amenity' do 
+      it 'checks if a listing has an amenity if a preference list has specified it to' do
+        office.check_matching_amenity(preference_list.kitchen, :kitchen).should be_true
+        office.kitchen = false
+        preference_list.kitchen = true
+        office.check_matching_amenity(preference_list.kitchen, :kitchen).should be_false
+        office.check_matching_amenity(preference_list.light, :light).should be_true
+        office.light = false
+        preference_list.light = true
+        office.check_matching_amenity(preference_list.light, :light).should be_false
+        office.check_matching_amenity(preference_list.shower, :shower).should be_true
+        office.shower = false
+        preference_list.shower = true
+        office.check_matching_amenity(preference_list.shower, :shower).should be_false
+        office.check_matching_amenity(preference_list.high_ceiling, :high_ceiling).should be_true
+        office.high_ceiling = false
+        preference_list.high_ceiling = true
+        office.check_matching_amenity(preference_list.high_ceiling, :high_ceiling).should be_false
+      end
     end
   end
 end

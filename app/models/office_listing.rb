@@ -63,4 +63,21 @@ class OfficeListing < ActiveRecord::Base
   def add_viewing(viewing)
     viewings << viewing
   end
+
+  def check_for_matching_neighborhood(neighborhood_list)
+    neighborhood_list.inject(false) { |memo, neighb|  neighborhood.id == neighb.id || memo }
+  end
+
+  def check_for_matching_broker(broker_list)
+    broker_list.inject(false) { |memo, brkr|  broker.id == brkr.id || memo }
+  end
+
+  def check_matching_amenity(is_checking, amenity)
+    if is_checking
+      send(amenity) # execute symbol as method to get instance amenity attribute
+    else # if preference list hasn't specified that a renter is looking for that item, always return true
+      true
+    end
+  end
+
 end
