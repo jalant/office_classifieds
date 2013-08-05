@@ -135,6 +135,14 @@ $(function() {
   $('#amenities').on('mouseleave', function() {
     $('.amenities').slideUp('slow');
   });
+
+  $('#basic-information-label').on('mouseover', function() {
+    $('#basic-information-content').slideDown('fast');
+  });
+  $('#basic-information').on('mouseleave', function() {
+    $('#basic-information-content').slideUp('fast');
+  });
+
   $('#lease-type').change(function(e) {
     filters.filterLeaseType(e);
     filters.applyFilters();
