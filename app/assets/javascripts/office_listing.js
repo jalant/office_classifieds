@@ -141,7 +141,14 @@ $(function() {
   });
   $('#basic-information').on('mouseleave', function() {
     $('#basic-information-content').slideUp('fast');
+  });
 
+  $('#broker-information-label').on('mouseover', function() {
+    $('#broker-information-content').slideDown('slow');
+  });
+
+  $('#broker-info').on('mouseleave', function() {
+    $('#broker-information-content').slideUp('slow');
   });
 
   $('#lease-type').change(function(e) {
