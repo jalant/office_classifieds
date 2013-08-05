@@ -26,19 +26,14 @@
 
       .row#holder
         #basic-information.small-12.large-3.columns
+          #basic-information-content.hidden
+            %span.special2 Rent: 
+            $#{@office_listing.rent}/month
+            %br
+            %span.special2 Space: 
+            #{@office_listing.size} sq. feet
           #basic-information-label 
-            .text
-              Basic Information
-            #basic-information-content
-              %span.special2 Rent: 
-              $#{@office_listing.rent}/month
-              %br
-              %span.special2 Space: 
-              #{@office_listing.size} sq. feet
-              / #lease-type
-              /   %span.special2 Office Type:
-              /   #{@office_listing.office_type}
-
+            Basic Information
         #amenities.small-12.large-3.columns 
           .amenities.hidden
             %table{:border => "3", :bordercolor => "black", :cellpadding => "3", :cellspacing => "3", :style => "background-color:#A0183C", :width => "100%"}

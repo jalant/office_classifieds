@@ -136,11 +136,12 @@ $(function() {
     $('.amenities').slideUp('slow');
   });
 
-  $('#broker-information-label').on('mouseover', function() {
-    $('#broker-information-content').slideDown('slow');
+  $('#basic-information-label').on('mouseover', function() {
+    $('#basic-information-content').slideDown('fast');
   });
-  $('#broker-information-content').on('mouseleave', function() {
-    $('#broker-information-content').slideUp('slow');
+  $('#basic-information').on('mouseleave', function() {
+    $('#basic-information-content').slideUp('fast');
+
   });
 
   $('#lease-type').change(function(e) {

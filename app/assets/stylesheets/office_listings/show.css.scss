@@ -136,10 +136,11 @@
     font-weight: bold;
   }
 
-  .amenities{
+  #amenities-label, .amenities{
     // width: 50%;
-
+    cursor:pointer;
   }
+
 
   .amenities-1{
     width: 45%;
@@ -256,10 +257,13 @@
   }
 
   #basic-information{
+    cursor: pointer;
     text-align: center;
   }
 
   #basic-information-content{
+    line-height: 1.25;
+    padding: 10px;
     width: 100%;
     background-color: $pink;
     text-align: center;
