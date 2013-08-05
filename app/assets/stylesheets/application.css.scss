@@ -148,7 +148,7 @@ nav.top-bar{
 	position: fixed;
 	top: 0px;
 	width: 100%;
-	height: 100px;
+	height: 110px;
 	padding-top: 30px;
 
 }
@@ -188,4 +188,28 @@ nav.top-bar{
 
 .reveal-modal {
   background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+.logo2{
+    height: 90px;
+    position: relative;
+    top: -10px;
+    left: 5px;  
+  }
+
+ .test{
+    background-color: purple;
+    position: relative;
+    top: 500px;
+  }
+
+.full_screen_row{
+  max-width: 100%;
+}
+
+.my-favorites {
+  color: $off-white;
+  margin-right: 5px;
+  margin-left: 5px;
 }

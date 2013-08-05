@@ -41,7 +41,9 @@ var office_map2= {
   map:null,
 
   display_map2: function(lat, lng){
-    var map_center =  new google.maps.LatLng(lat, lng)
+    var map_center =  new google.maps.LatLng(lat, lng);
+    console.log(lat);
+    console.log(lng);
     var mapOptions = {
       center: map_center,
       zoom: 16,

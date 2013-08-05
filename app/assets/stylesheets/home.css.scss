@@ -7,10 +7,12 @@
 #home.index {
   .photo {
     background-attachment: fixed;
-    background-position: 50% 0;
+    // background-position: 50% 0;
     background-repeat: no-repeat;
-    height: 450px;
-    position: relative;
+
+    width: 100%;
+    height: 700px;
+    // position: relative;
   }
 
   .new_york {
@@ -67,7 +69,6 @@
     margin: auto;
     text-align: center;
     padding-top: 30px;
-
   }
 
   #logo-color {
@@ -93,5 +94,10 @@
     color: $deep-purple;
     font-weight: bold;
   }
+
+
+
 }
+
+
 

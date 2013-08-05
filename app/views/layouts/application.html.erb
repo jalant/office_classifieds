@@ -11,8 +11,9 @@
 
 	<nav class="top-bar">
 		<ul class="title-area">
-			<li class="name">
-				<h1><a href="/"> Ace<strong><span id="logo-color">Office</span></strong> </a></h1>
+			<li class="name logo2">
+				<!-- <h1><a href="/"> Ace<strong><span id="logo-color">Office</span></strong> </a></h1> -->
+				<%= image_tag "ace_office_logo_3.png", :class => "logo2"  %>	
 			</li>
 		</ul>
 
@@ -31,12 +32,15 @@
 				</li>
 				<li class="divider hide-for-small"></li>
 				<% unless current_renter || current_broker %>
-					<li id ="nav-signup" class="signup-div button" href="#">Sign Up</a>
-					<li id="nav-login" class="login-div button" href="#">Login</a>
+					<a id ="nav-signup" class="signup-div button" href="#">Sign Up</a>
+					<a id="nav-login" class="login-div button" href="#">Login</a>
 				<% end %>
 
 				<% if current_renter %>
 					<li class="display_user"> <%= current_renter.email %> </li>
+					<li>
+					<%= link_to "My Favorites", renter_favorites_path(renter_id: current_renter.id), class: "my-favorites" %>
+					</li>
 					<%= link_to "Sign Out", destroy_renter_session_path, method: :delete, class: "button signout"%>
 				<% end %>
 
