@@ -1,5 +1,6 @@
 @import 'colors';
 
+
 #favorites.index {
 
   #favorites-holder {
@@ -26,7 +27,7 @@
       margin-bottom: 10px;
     }
     background-color: $off-white-faded;
-    padding: 15px;
+    padding: 10px 10px 5px 10px;
     margin-left: 0px;
     margin-right: 3px;
     
@@ -42,4 +43,94 @@
   }
 
 
+}
+
+
+.grid li {
+  display: inline-block;
+  width: 440px;
+  margin: 0;
+  padding: 20px;
+  text-align: left;
+  position: relative;
+}
+
+.grid figure {
+  margin: 0;
+  position: relative;
+}
+
+.grid figure img {
+  max-width: 100%;
+  display: block;
+  position: relative;
+}
+
+.grid figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  background: gray;
+  color: #222222;
+}
+
+.grid figcaption h3 {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+.grid figcaption a {
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 2px;
+  display: inline-block;
+  background: #FF7400;
+  color: #fff;
+}
+
+/* Caption Style 2 */
+.cs-style-2 figure img {
+  z-index: 10;
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  transition: transform 0.4s;
+}
+
+.no-touch .cs-style-2 figure:hover img,
+.cs-style-2 figure.cs-hover img {
+  -webkit-transform: translateY(-90px);
+  -moz-transform: translateY(-90px);
+  -ms-transform: translateY(-90px);
+  transform: translateY(-90px);
+}
+
+.cs-style-2 figcaption {
+  height: 90px;
+  width: 100%;
+  top: auto;
+  bottom: 0;
+  background: #FFF;
+  background-size: cover;
+}
+
+.cs-style-2 figcaption h3 {
+  top: 10px;
+  position: absolute;
+  color:black;
+  line-height: 1.1;
+}
+
+.cs-style-2 figcaption span {
+  top: 50px;
+  left: 10px;
+  position: absolute;
+  line-height: 1.25;
+}
+
+.cs-style-2 figcaption a {
+  position: absolute;
+  right: 10px;
+  top: 45px;
 }
