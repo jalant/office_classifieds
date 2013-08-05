@@ -21,7 +21,7 @@
 
   .favorite-box{
     a {
-      color: black;
+      color: $off-white-faded;
     }
     img {
       margin-bottom: 10px;
@@ -80,12 +80,13 @@
 }
 
 .grid figcaption a {
+  font-size: 0.9em;
+  color: white;
   text-align: center;
-  padding: 5px 10px;
+  padding: 5px 5px;
   border-radius: 2px;
   display: inline-block;
-  background: #FF7400;
-  color: #fff;
+  background: $pink;
 }
 
 /* Caption Style 2 */
@@ -105,7 +106,7 @@
 }
 
 .cs-style-2 figcaption {
-  height: 90px;
+  height: 105px;
   width: 100%;
   top: auto;
   bottom: 0;
@@ -114,23 +115,27 @@
 }
 
 .cs-style-2 figcaption h3 {
-  top: 10px;
+  font-size: .9em;
+  top: 20px;
   position: absolute;
   color:black;
-  line-height: 1.1;
+
 }
 
 .cs-style-2 figcaption span {
-  top: 50px;
-  left: 10px;
+  width: 70%;
+  font-size: .75em;
+  font-weight: bold;
+  top: 55px;
+  left: 5px;
   position: absolute;
   line-height: 1.25;
 }
 
 .cs-style-2 figcaption a {
   position: absolute;
-  right: 10px;
-  top: 45px;
+  right: 5px;
+  top: 55px;
 }
 
 
