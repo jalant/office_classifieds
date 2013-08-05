@@ -26,53 +26,52 @@
 
       .row#holder
         #basic-information.small-12.large-3.columns
-          %ul.grid_show_page.cs-style-2
-            #basic-information-label 
-              .text
-                Basic Information
-              #basic-information-content
-                %span.special2 Rent: 
-                $#{@office_listing.rent}/month
-                %br
-                %span.special2 Space: 
-                #{@office_listing.size} sq. feet
-                / #lease-type
-                /   %span.special2 Office Type:
-                /   #{@office_listing.office_type}
+          #basic-information-label 
+            .text
+              Basic Information
+            #basic-information-content
+              %span.special2 Rent: 
+              $#{@office_listing.rent}/month
+              %br
+              %span.special2 Space: 
+              #{@office_listing.size} sq. feet
+              / #lease-type
+              /   %span.special2 Office Type:
+              /   #{@office_listing.office_type}
 
         #amenities.small-12.large-3.columns
           #amenities-label Amenities  
-          / .amenities
-          /   %table{:border => "3", :bordercolor => "black", :cellpadding => "3", :cellspacing => "3", :style => "background-color:rgba(226, 226, 226, 0.85)", :width => "100%"}
-          /     %thead
-          /       %tr
-          /         %th.table-heading Amenity
-          /         %th.table-heading Available
-          /     %tbody
-          /       %tr
-          /         %td Kitchen
-          /         %td.icon-holder
-          /           %i{class: "kitchen_check #{@office_listing.kitchen ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
-          /       %tr
-          /         %td Light
-          /         %td.icon-holder
-          /           %i{class: "light_check #{@office_listing.light ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
-          /       %tr
-          /         %td Patio
-          /         %td.icon-holder
-          /           %i{class: "patio_check #{@office_listing.patio ? 'general foundicon-checkmark' : 'general foundicon-remove'}" } 
-          /       %tr
-          /         %td Reception
-          /         %td.icon-holder
-          /           %i{class: "reception_check #{@office_listing.reception ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
-          /       %tr
-          /         %td Shower
-          /         %td.icon-holder
-          /           %i{class: "shower_check #{@office_listing.shower ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
-          /       %tr
-          /         %td High Ceiling
-          /         %td.icon-holder
-          /           %i{class: "ceiling_check #{@office_listing.high_ceiling ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+          .amenities
+            %table{:border => "3", :bordercolor => "black", :cellpadding => "3", :cellspacing => "3", :style => "background-color:rgba(226, 226, 226, 0.85)", :width => "100%"}
+              %thead
+                %tr
+                  %th.table-heading Amenity
+                  %th.table-heading Available
+              %tbody
+                %tr
+                  %td Kitchen
+                  %td.icon-holder
+                    %i{class: "kitchen_check #{@office_listing.kitchen ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+                %tr
+                  %td Light
+                  %td.icon-holder
+                    %i{class: "light_check #{@office_listing.light ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+                %tr
+                  %td Patio
+                  %td.icon-holder
+                    %i{class: "patio_check #{@office_listing.patio ? 'general foundicon-checkmark' : 'general foundicon-remove'}" } 
+                %tr
+                  %td Reception
+                  %td.icon-holder
+                    %i{class: "reception_check #{@office_listing.reception ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+                %tr
+                  %td Shower
+                  %td.icon-holder
+                    %i{class: "shower_check #{@office_listing.shower ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
+                %tr
+                  %td High Ceiling
+                  %td.icon-holder
+                    %i{class: "ceiling_check #{@office_listing.high_ceiling ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
 
 
         #broker-info.small-12.large-3.columns
@@ -83,11 +82,4 @@
           -if current_renter
             =button_to "Add to Favorites", {:controller => "favorites", :action => "create", :renter_id => current_renter.id, :favorite => {renter_id: current_renter.id, office_listing_id: @office_listing.id}, :office_listing_id => @office_listing.id}, :method => :post, :remote => true, class: "favorite-button button"
           
-
-        
-      
-
-      
-
-
-= render partial: '/office_listings/partials/helper2', locals: {office_listing: @office_listing}
+=render partial: '/office_listings/partials/helper2', locals: {office_listing: @office_listing}
