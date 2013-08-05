@@ -15,15 +15,17 @@
         #size
           %span.special2 Space: 
           #{@office_listing.size} sq. feet
-        #lease-type
-          %span.special2 Office Type:
-          #{@office_listing.office_type}
+        / #lease-type
+        /   %span.special2 Office Type:
+        /   #{@office_listing.office_type}
 
     .row    
       #map-stats-amenities.large-5.small-12.columns
-        #map-holder.full_screen_row
-          #map-canvas.large-6.columns
-          #pano.large-6.columns
+        #map-holder.row
+          .large-6.columns
+            #map-canvas2
+          .large-6.columns
+            #pano
 
         .amenities.small-6.columns.small-centered
           .amenities-label Amenities  
@@ -57,8 +59,8 @@
                 %td High Ceiling
                 %td.icon-holder
                   %i{class: "ceiling_check #{@office_listing.high_ceiling ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
-
-      =button_to "Add to Favorites", {:controller => "favorites", :action => "create", :renter_id => current_renter.id, :office_listing_id => @office_listing.id}, :method => :post, :remote => true, class: "button"
+      -if current_renter
+        =button_to "Add to Favorites", {:controller => "favorites", :action => "create", :renter_id => current_renter.id, :favorite => {renter_id: current_renter.id, office_listing_id: @office_listing.id}, :office_listing_id => @office_listing.id}, :method => :post, :remote => true, class: "favorite-button button"
 
 
       #office-images.large-7.small-12.columns.small-centered

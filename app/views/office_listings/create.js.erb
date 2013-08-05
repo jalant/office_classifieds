@@ -1,6 +1,3 @@
-console.log('listing created!!!')
-<% p "OFFICE LISTING: " %>
-<% p @office_listing %>
 var officeId = $("<input type='hidden' name='office_listing_id' value='<%= @office_listing.id %>'></input>")
 var linkBack = $("<a class='button-large' id='return-to-listing' class='small' href='<%= @path %>'> View Office Listing </a>")
 $('#listing-images').append(officeId)

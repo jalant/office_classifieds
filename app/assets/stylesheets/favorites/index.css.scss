@@ -4,13 +4,18 @@
 
   #favorites-holder {
     width: 100%;
-    height: 100%;
-    background: url("/assets/new_york_2.jpg");
-    background-size: cover;
-    background-color: none;
     padding-top: 150px;
     margin-top: 100px;
     padding-bottom: 600px;
+    background: url("/assets/new_york_2.jpg") no-repeat 50% ;
+    background-attachment: fixed;
+    // background-size: no-repeat contain;
+    background-position: bottom;
+    background-size: 100% 90%;
+    // background-size: auto auto;
+    // background-position-top: 150px;
+    // background-position: top 500px;  
+    
   }
 
   .favorite-box{
@@ -22,7 +27,10 @@
     }
     background-color: $off-white-faded;
     padding: 15px;
-    margin: 10px;
+    margin-left: 0px;
+    margin-right: 3px;
+    
+    margin-bottom: 50px;
     text-align: center;
     // margin-top: 100px;
 

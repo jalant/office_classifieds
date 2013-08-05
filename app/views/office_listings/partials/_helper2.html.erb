@@ -1,7 +1,8 @@
 <script>
 
 $(function(){
-
+console.log(<%= office_listing.latitude %>)
+console.log(<%= office_listing.longitude %>)
 	office_map2.display_map2(<%= office_listing.latitude %>, <%= office_listing.longitude %>);
 	office_map2.add_marker2(<%=  office_listing.latitude || 0 %>, <%= office_listing.longitude || 0 %>, "<%= office_listing.address %>")
 
