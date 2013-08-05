@@ -26,18 +26,19 @@
 
       .row#holder
         #basic-information.small-12.large-3.columns
-          #basic-information-label 
-            Basic Information 
-              .listing-stats-2
-                #rent
-                  %span.special2 Rent: 
-                  $#{@office_listing.rent}/month
-                #size
-                  %span.special2 Space: 
-                  #{@office_listing.size} sq. feet
-                #lease-type
-                  %span.special2 Office Type:
-                  #{@office_listing.office_type}
+          %ul.grid_show_page.cs-style-2
+            #basic-information-label 
+              .text
+                Basic Information
+              #basic-information-content
+                %span.special2 Rent: 
+                $#{@office_listing.rent}/month
+                %br
+                %span.special2 Space: 
+                #{@office_listing.size} sq. feet
+                / #lease-type
+                /   %span.special2 Office Type:
+                /   #{@office_listing.office_type}
 
         #amenities.small-12.large-3.columns
           #amenities-label Amenities  
