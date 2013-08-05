@@ -51,6 +51,7 @@ class OfficeListing < ActiveRecord::Base
 
   geocoded_by :address
   before_save :geocode
+  after_create :send_notifications
 
   def add_favorite(renter)
     renters << renter
@@ -65,10 +66,12 @@ class OfficeListing < ActiveRecord::Base
   end
 
   def check_for_matching_neighborhood(neighborhood_list)
+    return true if neighborhood_list.empty?
     neighborhood_list.inject(false) { |memo, neighb|  neighborhood.id == neighb.id || memo }
   end
 
   def check_for_matching_broker(broker_list)
+    return true if broker_list.empty?
     broker_list.inject(false) { |memo, brkr|  broker.id == brkr.id || memo }
   end
 
@@ -79,5 +82,26 @@ class OfficeListing < ActiveRecord::Base
       true
     end
   end
+
+  private
+  def send_notifications
+    Renter.all.each do |notification_renter|
+      p "RENTER: #{notification_renter.preference_list}"
+      next if notification_renter.preference_list.nil?
+      preference_list = notification_renter.preference_list
+      if check_for_matching_neighborhood(preference_list.neighborhoods) &&
+        check_for_matching_broker(preference_list.brokers) &&
+        check_matching_amenity(preference_list.kitchen, :kitchen) && check_matching_amenity(preference_list.reception, :reception) &&
+        check_matching_amenity(preference_list.light, :light) && check_matching_amenity(preference_list.shower, :shower) &&
+        check_matching_amenity(preference_list.move_in, :move_in) && check_matching_amenity(preference_list.high_ceiling, :high_ceiling) &&
+        check_matching_amenity(preference_list.patio, :patio) && check_matching_amenity(preference_list.furniture, :furniture)
+
+          notification = Notification.new(office_listing_id: id, renter_id: notification_renter.id,
+                                         subject: "New office listing matching your preferences in #{neighborhood.name}")
+          notification.save
+      end
+    end
+  end
+
 
 end

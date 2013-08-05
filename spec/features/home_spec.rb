@@ -19,7 +19,6 @@ describe 'Home' do
     it 'navigates to individual city' do
       pending
       visit root_path
-      save_and_open_page
       city.reload
       page.find('.dropdown li:nth-child(3) a').click_link('Singapore')
       current_path.should eq "/cities/#{City.find_by_name('Singapore')}.id"

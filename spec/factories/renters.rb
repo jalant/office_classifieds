@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :renter do
+    id 1
   	email 'tj@tj.com'
   	password 'password'
   	password_confirmation 'password'
@@ -13,6 +14,7 @@ FactoryGirl.define do
   end
 
   factory :renter2, class: Renter do
+    id 2
     email 'sj@tsj.com'
     password 'password'
     password_confirmation 'password'

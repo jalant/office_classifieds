@@ -158,6 +158,11 @@ describe OfficeListing do
         office.neighborhood = neighborhood_1
         office.check_for_matching_neighborhood(renter.preference_list.neighborhoods).should be_true
       end
+
+      it 'returns true for an empty neigborhood list' do
+        renter.add_preference_list(preference_list)
+        office.check_for_matching_neighborhood(renter.preference_list.neighborhoods).should be_true
+      end
     end
 
     context 'office listing has a broker matching preference list' do
@@ -186,6 +191,11 @@ describe OfficeListing do
         office.check_for_matching_broker(renter.preference_list.brokers).should be_false
         # test opposite 
         office.broker = broker_1
+        office.check_for_matching_broker(renter.preference_list.brokers).should be_true
+      end
+
+      it 'returns true for an empty broker list' do
+        renter.add_preference_list(preference_list)
         office.check_for_matching_broker(renter.preference_list.brokers).should be_true
       end
     end
@@ -226,6 +236,134 @@ describe OfficeListing do
         office.high_ceiling = false
         preference_list.high_ceiling = true
         office.check_matching_amenity(preference_list.high_ceiling, :high_ceiling).should be_false
+      end
+    end
+
+    context 'save with listing matching a renter preference neighborhood' do
+      let(:office_listing_2) { build(:office_listing_2) }
+      let(:neighborhood) { create(:neighborhood) }
+      let(:neighborhood_2) { create(:neighborhood_2) }
+      let(:broker) { create(:broker) }
+      let(:broker_2) { create(:broker_2) }
+      
+      before do
+        OfficeListing.any_instance.unstub(:send_notifications)
+      end
+
+      it 'creates a single notification for the renter with matching neighborhoods' do
+        office_listing_2.neighborhood = neighborhood_2
+        preference_list.neighborhoods << neighborhood << neighborhood_2
+        renter.add_preference_list(preference_list)
+        expect{ office_listing_2.save }.to change{Notification.count}.by(1)
+        Notification.all.first.renter_id.should eq(renter.id)
+      end
+
+      it 'creates two notifications for two renters with matching neighborhoods' do
+        preference_list_2 = create(:preference_list_2)
+        office_listing_2.neighborhood = neighborhood_2
+        preference_list.neighborhoods << neighborhood << neighborhood_2
+        preference_list_2.neighborhoods << neighborhood << neighborhood_2
+        renter.add_preference_list(preference_list)
+        renter2.add_preference_list(preference_list_2)
+        expect{ office_listing_2.save }.to change{Notification.count}.by(2)
+        Notification.all.first.renter_id.should eq(renter.id)
+        Notification.all[1].renter_id.should eq (renter2.id)
+      end
+
+      it 'creates zero notifications for two renters with no matching neighborhoods' do
+        neighborhood_3 = create(:neighborhood_3)
+        preference_list_2 = create(:preference_list_2)
+        office_listing_2.neighborhood = neighborhood_3
+        preference_list.neighborhoods << neighborhood << neighborhood_2
+        preference_list_2.neighborhoods << neighborhood << neighborhood_2
+        renter.add_preference_list(preference_list)
+        renter2.add_preference_list(preference_list_2)
+        expect{ office_listing_2.save }.to change{Notification.count}.by(0)
+      end
+    end
+
+    context 'save with listing matching a renter preference broker' do
+      let(:office_listing_2) { build(:office_listing_2) }
+      let(:broker) { create(:broker) }
+      let(:broker_2) { create(:broker_2) }
+      let(:broker) { create(:broker) }
+      let(:broker_2) { create(:broker_2) }
+      let(:neighborhood) { create(:neighborhood) }
+      
+      before do
+        OfficeListing.any_instance.unstub(:send_notifications)
+        office_listing_2.neighborhood = neighborhood
+      end
+
+      it 'creates a single notification for the renter with matching brokers' do
+        office_listing_2.broker = broker_2
+        preference_list.brokers << broker << broker_2
+        renter.add_preference_list(preference_list)
+        expect{ office_listing_2.save }.to change{Notification.count}.by(1)
+        Notification.all.first.renter_id.should eq(renter.id)
+      end
+
+      it 'creates two notifications for two renters with matching brokers' do
+        preference_list_2 = create(:preference_list_2)
+        office_listing_2.broker = broker_2
+        preference_list.brokers << broker << broker_2
+        preference_list_2.brokers << broker << broker_2
+        renter.add_preference_list(preference_list)
+        renter2.add_preference_list(preference_list_2)
+        expect{ office_listing_2.save }.to change{Notification.count}.by(2)
+        Notification.all.first.renter_id.should eq(renter.id)
+        Notification.all[1].renter_id.should eq (renter2.id)
+      end
+
+      it 'creates zero notifications for two renters with no matching brokers' do
+        broker_3 = create(:broker_3)
+        preference_list_2 = create(:preference_list_2)
+        office_listing_2.broker = broker_3
+        preference_list.brokers << broker << broker_2
+        preference_list_2.brokers << broker << broker_2
+        renter.add_preference_list(preference_list)
+        renter2.add_preference_list(preference_list_2)
+        expect{ office_listing_2.save }.to change{Notification.count}.by(0)
+      end
+    end
+
+    context 'save with listing matching a combination of user preferences' do
+      let(:office_listing_2) { build(:office_listing_2) }
+      let(:broker) { create(:broker) }
+      let(:broker_2) { create(:broker_2) }
+      let(:neighborhood) { create(:neighborhood) }
+      let(:neighborhood_2) { create(:neighborhood_2) }
+      let(:neighborhood_3) { create(:neighborhood_3) }
+
+      before do
+        OfficeListing.any_instance.unstub(:send_notifications)
+        office_listing_2.neighborhood = neighborhood
+      end
+
+
+      it 'creates a single notification for the renter with matching preferences' do
+        office_listing_2.broker = broker_2
+        office_listing_2.light = true
+        office_listing_2.reception = true
+        preference_list.light = true
+        preference_list.reception = true
+        preference_list.brokers << broker_2 << broker
+        preference_list.neighborhoods << neighborhood_2 << neighborhood
+        renter2.add_preference_list(preference_list)
+        expect { office_listing_2.save }.to change{Notification.count}.by(1)
+        Notification.all.first.office_listing_id.should eq(office_listing_2.id)
+        Notification.all.first.renter_id.should eq(renter2.id)
+      end
+      it 'does not create any new notifications when the renter does not have matching preferences' do
+        office_listing_2.broker = broker_2
+        office_listing_2.light = true
+        office_listing_2.reception = false
+        preference_list.light = true
+        preference_list.reception = true
+        preference_list.brokers << broker_2 << broker
+        preference_list.neighborhoods << neighborhood_2 << neighborhood
+        renter2.add_preference_list(preference_list)
+        expect { office_listing_2.save }.to change{Notification.count}.by(0)
       end
     end
   end

@@ -31,7 +31,7 @@ class Renter < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :preference_list_id, :last_name, :phone_number, :address, :img_url
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :phone_number, :address, :img_url
   validates_presence_of :email
   validates_presence_of :password
   validates_presence_of :password_confirmation
@@ -62,12 +62,13 @@ class Renter < ActiveRecord::Base
   end
   
   def add_preference_list(preference_list)
-    preference_list = preference_list
+    self.preference_list = preference_list
   end
 
   def remove_preference_list(preference_list)
     unless preference_list.nil?
       PreferenceList.find(preference_list.id).delete
+      self.preference_list = nil
     end
   end
 
