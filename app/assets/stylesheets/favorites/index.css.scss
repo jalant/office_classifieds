@@ -31,7 +31,7 @@
     margin-left: 0px;
     margin-right: 3px;
     
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     text-align: center;
     // margin-top: 100px;
 
@@ -42,7 +42,7 @@
     height: 168px;
   }
 
-}
+
 
 .grid li {
   display: inline-block;
@@ -97,8 +97,16 @@
   transition: transform 0.4s;
 }
 
-.no-touch .cs-style-2 figure:hover img,
-.cs-style-2 figure.cs-hover img {
+// .no-touch .cs-style-2 figure:hover img,
+// .cs-style-2 figure.cs-hover img {
+//   -webkit-transform: translateY(-90px);
+//   -moz-transform: translateY(-90px);
+//   -ms-transform: translateY(-90px);
+//   transform: translateY(-90px);
+// }
+
+.cs-style-2 figure:hover img
+{
   -webkit-transform: translateY(-90px);
   -moz-transform: translateY(-90px);
   -ms-transform: translateY(-90px);
@@ -138,5 +146,5 @@
   top: 55px;
 }
 
-
+}
 
