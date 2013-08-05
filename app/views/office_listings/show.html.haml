@@ -39,10 +39,9 @@
               /   %span.special2 Office Type:
               /   #{@office_listing.office_type}
 
-        #amenities.small-12.large-3.columns
-          #amenities-label Amenities  
-          .amenities
-            %table{:border => "3", :bordercolor => "black", :cellpadding => "3", :cellspacing => "3", :style => "background-color:rgba(226, 226, 226, 0.85)", :width => "100%"}
+        #amenities.small-12.large-3.columns 
+          .amenities.hidden
+            %table{:border => "3", :bordercolor => "black", :cellpadding => "3", :cellspacing => "3", :style => "background-color:#A0183C", :width => "100%"}
               %thead
                 %tr
                   %th.table-heading Amenity
@@ -72,9 +71,15 @@
                   %td High Ceiling
                   %td.icon-holder
                     %i{class: "ceiling_check #{@office_listing.high_ceiling ? 'general foundicon-checkmark' : 'general foundicon-remove'}" }
-
+          #amenities-label Amenities 
 
         #broker-info.small-12.large-3.columns
+          #broker-information-content.hidden
+            Name: #{@office_listing.broker.first_name} #{@office_listing.broker.last_name}
+            %br
+            Email: #{@office_listing.broker.email}
+            %br
+            Phone-Number: #{@office_listing.broker.phone_number}
           #broker-information-label
             Broker Information
 
@@ -82,4 +87,5 @@
           -if current_renter
             =button_to "Add to Favorites", {:controller => "favorites", :action => "create", :renter_id => current_renter.id, :favorite => {renter_id: current_renter.id, office_listing_id: @office_listing.id}, :office_listing_id => @office_listing.id}, :method => :post, :remote => true, class: "favorite-button button"
           
-=render partial: '/office_listings/partials/helper2', locals: {office_listing: @office_listing}
+= render partial: '/office_listings/partials/helper2', locals: {office_listing: @office_listing}
+
