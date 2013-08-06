@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
   def create
+
     @viewing = Viewing.find(params[:viewing_id])
     current_renter.add_appointment(@viewing)
     current_renter.save

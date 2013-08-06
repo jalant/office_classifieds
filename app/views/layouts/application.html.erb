@@ -57,9 +57,12 @@
 
 				<% if current_renter %>
 					<li class="display_user"> <%= current_renter.email %> </li>
-					<li>
-					<%= link_to "My Favorites", renter_favorites_path(renter_id: current_renter.id), class: "my-favorites" %>
-					</li>
+					<li id="browse-offices" class="has-dropdown"><a href="#">My Favorites</a>
+					<ul class="dropdown">
+			      <li><%= link_to "View Favorites", renter_favorites_path(renter_id: current_renter.id), class: "my-favorites" %></li>
+			      <li><%= link_to "View Itinerary", href="#", class: "my-favorites" %></li>
+					</ul>
+				</li>
 					<%= link_to "Sign Out", destroy_renter_session_path, method: :delete, class: "button signout"%>
 				<% end %>
 

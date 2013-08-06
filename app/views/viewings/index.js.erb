@@ -1,5 +1,7 @@
+$('.viewings-dates').empty();
 <% @viewings.each do |viewing| %>
-
-view = $("<li><button>Starts <%= viewing.start_time.strftime("at %I:%M%p") %>, Ends <%= viewing.end_time.strftime("at %I:%M%p") %>, Date: <%= viewing.date.strftime("%B %d, %Y") %></button></li>")
-$('.viewings-dates').append(view);
+<% unless current_renter.viewings.include? viewing %> 
+  view = $("<li><button class= 'individual-viewing' data-id= '<%= viewing.id %>'>Starts <%= viewing.start_time.strftime("at %I:%M%p") %>, Ends <%= viewing.end_time.strftime("at %I:%M%p") %>, Date: <%= viewing.date.strftime("%B %d, %Y") %></button></li>")
+  $('.viewings-dates').append(view);
+<% end %>
 <% end %> 

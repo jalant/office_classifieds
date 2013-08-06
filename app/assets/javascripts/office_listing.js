@@ -137,13 +137,36 @@ function display_viewings(e){
   $.ajax({
     type: 'GET',
     url: '/office_listings/' + listing_id + '/viewings',
+    data: params,
     dataType: 'script'
   });
 }
 
+function add_viewing_to_favorite(e){
+  console.log('hello tanay');
+  e.preventDefault();
+  var viewing_id = $(this).data('id');
+  console.log(viewing_id);
+  var params = {
+    viewing_id: viewing_id
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/renters/' + viewing_id + '/appointments',
+    data: params,
+    dataType: 'script'
+  });
+  $(this).removeClass("button").removeClass("showing").addClass("added").fadeIn(500);
+  $(this).text("Appointment scheduled with broker (Please view your itenary for details)")
+}
+
+// $('.individual-viewing').on('click', add_viewing_to_favorite);
+
 $(function() {
 
   $('.showing').on('click', display_viewings);
+
+  $('.viewings-dates').on('click', '.individual-viewing', add_viewing_to_favorite);
 
   $('#amenities-label').on('mouseover', function() {
     $('.amenities').slideDown('slow');
