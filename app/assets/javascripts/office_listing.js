@@ -28,7 +28,7 @@ var office_map = {
     google.maps.event.addListener(marker, 'click', function() {
       if (infowindow) {
         infowindow.close();
-      };
+      }
       infowindow = new google.maps.InfoWindow();
       infowindow.setContent("<div class='special2'> <a class='map-label' href ='office_listings/" + $('.ind-offices:contains(' + location.split(',')[0] + ')').first().data('id') + "'> Address: </a> <br> </div>" +
         "<a class='map-label2' href ='office_listings/" + $('.ind-offices:contains(' + location.split(',')[0] + ')').first().data('id') + "'>" + location + "</a>");
@@ -127,8 +127,24 @@ filters = {
     }
   }
 };
+  
+function display_viewings(e){
+  e.preventDefault();
+  var listing_id = $(this).data('id');
+  var params = {
+    office_listing_id: listing_id
+  };
+  $.ajax({
+    type: 'GET',
+    url: '/office_listings/' + listing_id + '/viewings',
+    dataType: 'script'
+  });
+}
 
 $(function() {
+
+  $('.showing').on('click', display_viewings);
+
   $('#amenities-label').on('mouseover', function() {
     $('.amenities').slideDown('slow');
   });

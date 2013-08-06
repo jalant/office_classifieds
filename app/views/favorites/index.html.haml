@@ -1,4 +1,4 @@
-#favorites-holder
+#favorites-holder 
   .row
     -if current_renter
       -@favorites.each do |fav|
@@ -15,8 +15,9 @@
                   %h3 Want to see this space in person?
                   %span Contact tanay@aceoffice.com for details or check out upcoming showings: 
                   / %a{:href => "#", :"data-reveal-id" => "viewings-dates-box", :remote => true, :controller => "viewings", :action => ""}
-                  =button_to "Showings", {:controller => "viewings", :action => "individual_index", :office_listing_id => fav.office_listing.id}, :method => :get, :remote => true, :"data-reveal-id" => "viewings-dates-box"
+                  %a{class: "showing button", "data-reveal-id" => "viewings-dates-box", :"data-id" => fav.office_listing.id}
+                    Showings 
 
   #viewings-dates-box.reveal-modal
     %h3 Upcoming Viewings:
-    .viewings-dates
+    %ul.viewings-dates

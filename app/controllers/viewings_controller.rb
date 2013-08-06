@@ -1,5 +1,5 @@
 class ViewingsController < ApplicationController 
-  
+
   def index
     @viewings = OfficeListing.find(params[:office_listing_id]).viewings
     respond_to do |format|
