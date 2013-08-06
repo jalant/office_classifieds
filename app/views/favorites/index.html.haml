@@ -14,8 +14,12 @@
                 %figcaption
                   %h3 Want to see this space in person?
                   %span Contact tanay@aceoffice.com for details or check out upcoming showings: 
-                  %a Showings
+                  %a{:href => "#", :"data-reveal-id" => "viewings-dates-box", :remote => true, :controller => "viewings", :action => ""}
+                    Hello Tanay
 
+#viewings-dates-box.reveal-modal
+  %h3 Upcoming Viewings:
+  .viewings-dates
 
 
   / .appointments
