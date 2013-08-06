@@ -1,4 +1,13 @@
-class ViewingsController < ApplicationController
+class ViewingsController < ApplicationController 
+  
+  def index
+    @viewings = OfficeListing.find(params[:office_listing_id]).viewings
+    respond_to do |format|
+      format.js
+      format.html { redirect_to root_path  }
+    end
+  end
+
   def new
     @viewing = Viewing.new
     respond_to do |format|

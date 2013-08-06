@@ -32,7 +32,7 @@ OfficeClassifieds::Application.routes.draw do
 
   # Viewings Paths
   resources :office_listings, only: [:show] do 
-    resources :viewings, only: [:new, :create, :destroy]
+    resources :viewings, only: [:new, :create, :destroy, :index]
   end
   resources :images, only: [:create]
 end
