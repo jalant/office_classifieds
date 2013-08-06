@@ -1,4 +1,5 @@
 <% @viewings.each do |viewing| %>
-view = $("<li><button>Start time: <%= viewing.start_time %>, End time: <%= viewing.end_time %>, Date: <%= viewing.date %></button></li>")
+
+view = $("<li><button>Starts <%= viewing.start_time.strftime("at %I:%M%p") %>, Ends <%= viewing.end_time.strftime("at %I:%M%p") %>, Date: <%= viewing.date.strftime("%B %d, %Y") %></button></li>")
 $('.viewings-dates').append(view);
 <% end %> 
