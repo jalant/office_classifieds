@@ -40,6 +40,24 @@ describe ViewingsController do
     end
   end
 
+  describe 'GET #index' do
+    let(:office_listing) { mock_model(OfficeListing.as_null_object) }
+    let(:viewing) { mock_model(Viewing).as_null_object }
+    let(:viewing_2) { mock_model(Viewing).as_null_object }
+    let(:viewing_3) { mock_model(Viewing).as_null_object }
+
+    before do
+      OfficeListing.stub(:find).and_return(office_listing)
+      office_listing.stub(:viewings).and_return([viewing, viewing_2, viewing_3])
+    end
+
+    it 'creates an instance variable with all viewings associated with an office listing' do
+      office_listing.should_receive(:viewings)
+      get :index, office_listing_id: office_listing.id
+      assigns(:viewings).should eq([viewing, viewing_2, viewing_3])
+    end
+  end
+
   describe 'DELETE #destroy' do
      let(:office_listing) { mock_model(OfficeListing.as_null_object) }
      let(:viewing) { mock_model(Viewing).as_null_object }
