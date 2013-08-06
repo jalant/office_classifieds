@@ -1,5 +1,4 @@
 class ViewingsController < ApplicationController
-  
   def new
     @viewing = Viewing.new
     respond_to do |format|

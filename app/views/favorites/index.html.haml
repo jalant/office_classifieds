@@ -14,32 +14,9 @@
                 %figcaption
                   %h3 Want to see this space in person?
                   %span Contact tanay@aceoffice.com for details or check out upcoming showings: 
-                  %a{:href => "#", :"data-reveal-id" => "viewings-dates-box", :remote => true, :controller => "viewings", :action => ""}
-                    Hello Tanay
+                  / %a{:href => "#", :"data-reveal-id" => "viewings-dates-box", :remote => true, :controller => "viewings", :action => ""}
+                  =button_to "Showings", {:controller => "viewings", :action => "individual_index", :office_listing_id => fav.office_listing.id}, :method => :get, :remote => true, :"data-reveal-id" => "viewings-dates-box"
 
-#viewings-dates-box.reveal-modal
-  %h3 Upcoming Viewings:
-  .viewings-dates
-/ #office_viewings_dates_box
-/   = button_to "View at this time", {:controller => "apopointments", :action => "create", :renter_id => current_renter.id, :viewing_id => 
-
-/   :appointment => {renter_id: current_renter.id, office_listing_id: @office_listing.id}, :office_listing_id => @office_listing.id}, :method => :post, :remote => true, class: "button favorite-button "
-
-
-=form_for("broker", :url => new_broker_session_path, :html => {:id => "broker_sign_in", :class => "reveal-modal"}) do |f|
-  %a.close-reveal-modal ×
-  %h3 Broker Sign In
-  = f.label :email
-  = f.text_field :email
-  = f.label :password
-  = f.password_field :password
-  = f.check_box :remember_me
-  = f.label :remember_me
-  = f.submit 'Sign in'
-  = link_to "Forgot your password?", new_broker_password_path('broker')
-
-
-  / .appointments
-  /   - @appointments.each do |appointment|
-  /     .appointment
-  /       =link_to appointment.viewing.office_listing.address, neighborhood_office_listing_path(neighborhood_id: appointment.viewing.office_listing.neighborhood.id, id: appointment.viewing.office_listing.id)
+  #viewings-dates-box.reveal-modal
+    %h3 Upcoming Viewings:
+    .viewings-dates
