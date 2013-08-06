@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 gem 'rails', '4.0.0'
-gem 'rails_12factor', group: :production
+# gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'haml'
 gem 'pusher'
@@ -27,6 +27,10 @@ gem 'protected_attributes'
 gem 'rails-observers'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'pry-rails'

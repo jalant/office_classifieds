@@ -20,8 +20,9 @@
 /   = button_to "View at this time", {:controller => "apopointments", :action => "create", :renter_id => current_renter.id, :viewing_id => 
 
 /   :appointment => {renter_id: current_renter.id, office_listing_id: @office_listing.id}, :office_listing_id => @office_listing.id}, :method => :post, :remote => true, class: "button favorite-button "
-  
-= form_for("broker", :url => new_broker_session_path, :html => {:id => "broker_sign_in", :class => "reveal-modal"}) do |f|
+
+
+=form_for("broker", :url => new_broker_session_path, :html => {:id => "broker_sign_in", :class => "reveal-modal"}) do |f|
   %a.close-reveal-modal ×
   %h3 Broker Sign In
   = f.label :email
