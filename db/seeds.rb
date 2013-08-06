@@ -15,6 +15,7 @@ OfficeListing.delete_all
 Broker.delete_all
 Renter.delete_all
 Favorite.delete_all
+Viewing.delete_all
 
 office_listing_data = File.open('public/office_data.txt', 'r')
 office_listing_images = File.open('public/office_image_data.txt', 'r')
@@ -27,8 +28,6 @@ broker_2 = Broker.create(email: 'tanayjaln@gmail.com', password: 'password123', 
 renter_1 = Renter.create(email: 'tanayjaln@gmail.com', password: 'password123', password_confirmation: 'password123', first_name: 'Tany', last_name: 'Jalan')
 renter_2 = Renter.create(email: 'tanayjaln@gmail.com', password: 'password123', password_confirmation: 'password123', first_name: 'Tany', last_name: 'Jalan')
 
-
-
 new_york_city = City.create(name: 'New York', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
 singapore = City.create(name: 'Singapore', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
 hong_kong = City.create(name: 'Hong Kong', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
@@ -36,6 +35,7 @@ jakarta = City.create(name: 'Jakarta', img:"http://thejointblog.com/wp-content/u
 reno = City.create(name: 'Reno', img:"http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg")
 
 p new_york_city
+
 
 harlem = Neighborhood.create(name: "Harlem", address: "Harlem, NY", img_url: 'http://www.officeoftourism.org/img/usa/NY-NYC-Harlem2.jpg', city_id: new_york_city.id)
 flatiron = Neighborhood.create(name: "Flatiron", address: "Flatiron, NY", img_url: 'http://www.hotelchatter.com/files/6193/Flatiron_NYC.jpg', city_id: new_york_city.id)
@@ -73,7 +73,20 @@ lines.each do |line|
                         kitchen: random_t_f, reception: random_t_f, light: random_t_f, shower: random_t_f, move_in: random_t_f,
                         high_ceiling: random_t_f, patio: random_t_f, furniture: random_t_f)
   new_listing.save!
+  
 end
+
+
+v3 = Viewing.create(start_time: "17:00", end_time: "19:00", date: "12/10/2013")
+v4 = Viewing.create(start_time: "09:00", end_time: "10:00", date: "13/10/2013")
+v5 = Viewing.create(start_time: "11:00", end_time: "12:00", date: "14/10/2013")
+
+OfficeListing.all.each do |listing|
+  viewing = Viewing.create(start_time: "10:00", end_time: "12:00", date: "10/10/2013")
+  v2 = Viewing.create(start_time: "13:00", end_time: "15:00", date: "11/10/2013")
+  listing.viewings << viewing << v2
+  listing.save!
+end 
 
 i = OfficeListing.first.id
 office_listing_images.each_line do |line|
@@ -86,4 +99,6 @@ end
 
 Favorite.create(office_listing_id: OfficeListing.first.id, renter_id: renter_1.id)
 Favorite.create(office_listing_id: OfficeListing.last.id, renter_id: renter_1.id)
+
+
 
