@@ -28,7 +28,7 @@ var office_map = {
     google.maps.event.addListener(marker, 'click', function() {
       if (infowindow) {
         infowindow.close();
-      };
+      }
       infowindow = new google.maps.InfoWindow();
       infowindow.setContent("<div class='special2'> <a class='map-label' href ='office_listings/" + $('.ind-offices:contains(' + location.split(',')[0] + ')').first().data('id') + "'> Address: </a> <br> </div>" +
         "<a class='map-label2' href ='office_listings/" + $('.ind-offices:contains(' + location.split(',')[0] + ')').first().data('id') + "'>" + location + "</a>");
@@ -127,8 +127,47 @@ filters = {
     }
   }
 };
+  
+function display_viewings(e){
+  e.preventDefault();
+  var listing_id = $(this).data('id');
+  var params = {
+    office_listing_id: listing_id
+  };
+  $.ajax({
+    type: 'GET',
+    url: '/office_listings/' + listing_id + '/viewings',
+    data: params,
+    dataType: 'script'
+  });
+}
+
+function add_viewing_to_favorite(e){
+  console.log('hello tanay');
+  e.preventDefault();
+  var viewing_id = $(this).data('id');
+  console.log(viewing_id);
+  var params = {
+    viewing_id: viewing_id
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/renters/' + viewing_id + '/appointments',
+    data: params,
+    dataType: 'script'
+  });
+  $(this).removeClass("button").removeClass("showing").addClass("added").fadeIn(500);
+  $(this).text("Appointment scheduled with broker (Please view your itenary for details)")
+}
+
+// $('.individual-viewing').on('click', add_viewing_to_favorite);
 
 $(function() {
+
+  $('.showing').on('click', display_viewings);
+
+  $('.viewings-dates').on('click', '.individual-viewing', add_viewing_to_favorite);
+
   $('#amenities-label').on('mouseover', function() {
     $('.amenities').slideDown('slow');
   });

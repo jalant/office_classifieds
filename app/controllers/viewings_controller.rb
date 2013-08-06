@@ -1,5 +1,4 @@
-class ViewingsController < ApplicationController
- 
+class ViewingsController < ApplicationController 
 
   def index
     @viewings = OfficeListing.find(params[:office_listing_id]).viewings

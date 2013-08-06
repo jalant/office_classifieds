@@ -54,10 +54,13 @@
 					<a id="nav-login" class="login-div button" href="#">Login</a>
 				<% end %>
 
+					<li id="browse-offices" class="has-dropdown"><a href="#">My Favorites</a>
+					<ul class="dropdown">
+			      <li><%= link_to "View Favorites", renter_favorites_path(renter_id: current_renter.id), class: "my-favorites" %></li>
+			      <li><%= link_to "View Itinerary", href="#", class: "my-favorites" %></li>
+					</ul>
+				</li>
 				<% if current_renter %>
-					<li>
-					<%= link_to "My Favorites", renter_favorites_path(renter_id: current_renter.id), class: "my-favorites" %>
-          </li>
           <li id="renter-notifications" class="has-dropdown"><a href="#"><i class="general foundicon-inbox"></i></a>
             <ul class="dropdown">
               <% current_renter.notifications.reverse.each_with_index do |notification, index| %>
