@@ -102,7 +102,6 @@ describe 'OfficeListings' do
       fill_in('office_listing[no_of_offices]', with: '23')
       fill_in('office_listing[no_of_conference_rooms]', with: '12')
       fill_in('office_listing[details]', with: '55')
-      save_and_open_page
       find(".submit.button").click
       page.should_not have_css('form.hidden#image-buttons')    
     end

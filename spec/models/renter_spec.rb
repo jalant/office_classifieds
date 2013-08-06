@@ -20,6 +20,7 @@
 #  address                :text
 #  phone_number           :string(255)
 #  img_url                :string(255)
+#  preference_list_id     :integer
 #
 
 require 'spec_helper'
@@ -94,6 +95,20 @@ describe Renter do
       subject.add_favorite(favorite)
       subject.remove_favorite(favorite)
       expect(subject.favorites).to be_empty
+    end
+  end
+
+  describe 'preference list' do
+    let(:preference_list) { create(:preference_list) }
+    
+    it 'can add a preference list' do 
+      subject.add_preference_list(preference_list)
+      expect(subject.preference_list).to eq(preference_list)
+    end
+    it 'can remove a preference list' do
+      subject.add_preference_list(preference_list)
+      subject.remove_preference_list(preference_list)
+      expect(subject.preference_list).to be_nil
     end
   end
 end

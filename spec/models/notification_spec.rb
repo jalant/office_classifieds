@@ -24,9 +24,9 @@ describe Notification do
     expect(subject).to be_invalid
   end
 
-  it 'requires a subject of less than 60 characters' do
+  it 'requires a subject of less than 100 characters' do
     expect(subject).to be_valid
-    subject.subject = "a" * 61
+    subject.subject = "a" * 101
     expect(subject).to be_invalid
   end
 

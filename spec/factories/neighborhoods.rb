@@ -15,4 +15,9 @@ FactoryGirl.define do
     name "Carroll Gardens"
     city_id 1
   end
+
+  factory :neighborhood_4, class: Neighborhood do
+    name "Crown Heights"
+    city_id 1
+  end
 end

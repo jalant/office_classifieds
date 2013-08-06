@@ -20,6 +20,7 @@
 #  address                :text
 #  phone_number           :string(255)
 #  img_url                :string(255)
+#  preference_list_id     :integer
 #
 
 class Renter < ActiveRecord::Base
@@ -42,6 +43,7 @@ class Renter < ActiveRecord::Base
   has_many :appointments
   has_many :office_listings, through: :favorites
   has_many :viewings, through: :appointments
+  has_one :preference_list
 
   def add_appointment(viewing)
     viewings << viewing
@@ -57,6 +59,17 @@ class Renter < ActiveRecord::Base
 
   def remove_favorite(favorite)
     favorites.delete(favorite)
+  end
+  
+  def add_preference_list(preference_list)
+    self.preference_list = preference_list
+  end
+
+  def remove_preference_list(preference_list)
+    unless preference_list.nil?
+      PreferenceList.find(preference_list.id).delete
+      self.preference_list = nil
+    end
   end
 
 end

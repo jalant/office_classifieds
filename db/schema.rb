@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130802195529) do
+ActiveRecord::Schema.define(version: 20130805052105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,11 @@ ActiveRecord::Schema.define(version: 20130802195529) do
   add_index "brokers", ["email"], name: "index_brokers_on_email", unique: true, using: :btree
   add_index "brokers", ["reset_password_token"], name: "index_brokers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "brokers_preference_lists", id: false, force: true do |t|
+    t.integer "broker_id"
+    t.integer "preference_list_id"
+  end
+
   create_table "cities", force: true do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -78,6 +83,11 @@ ActiveRecord::Schema.define(version: 20130802195529) do
     t.float    "latitude"
     t.float    "longitude"
     t.text     "address"
+  end
+
+  create_table "neighborhoods_preference_lists", id: false, force: true do |t|
+    t.integer "neighborhood_id"
+    t.integer "preference_list_id"
   end
 
   create_table "notifications", force: true do |t|
@@ -117,6 +127,25 @@ ActiveRecord::Schema.define(version: 20130802195529) do
     t.float    "longitude"
   end
 
+  create_table "preference_lists", force: true do |t|
+    t.integer  "renter_id"
+    t.integer  "min_price"
+    t.integer  "max_price"
+    t.integer  "min_sq_feet"
+    t.integer  "max_sq_feet"
+    t.boolean  "kitchen"
+    t.boolean  "reception"
+    t.boolean  "light"
+    t.boolean  "shower"
+    t.boolean  "high_ceiling"
+    t.boolean  "move_in"
+    t.boolean  "patio"
+    t.boolean  "furniture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "email"
+  end
+
   create_table "renters", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -135,6 +164,7 @@ ActiveRecord::Schema.define(version: 20130802195529) do
     t.text     "address"
     t.string   "phone_number"
     t.string   "img_url"
+    t.integer  "preference_list_id"
   end
 
   add_index "renters", ["email"], name: "index_renters_on_email", unique: true, using: :btree

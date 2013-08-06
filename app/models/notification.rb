@@ -14,9 +14,9 @@
 #
 
 class Notification < ActiveRecord::Base
-  attr_accessible :body, :office_listing_id, :read, :subject
+  attr_accessible :body, :office_listing_id, :read, :renter_id, :subject
 
-  validates :subject, presence: true, length: { maximum: 60 }
+  validates :subject, presence: true, length: { maximum: 100 }
   validates :body, length: { maximum: 300 }
   belongs_to :office_listing
   belongs_to :renter

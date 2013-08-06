@@ -51,6 +51,7 @@ class OfficeListing < ActiveRecord::Base
 
   geocoded_by :address
   before_save :geocode
+  after_create :send_notifications
 
   def add_favorite(renter)
     renters << renter
@@ -63,4 +64,51 @@ class OfficeListing < ActiveRecord::Base
   def add_viewing(viewing)
     viewings << viewing
   end
+
+  def check_for_matching_neighborhood(neighborhood_list)
+    return true if neighborhood_list.empty?
+    neighborhood_list.inject(false) { |memo, neighb|  neighborhood.id == neighb.id || memo }
+  end
+
+  def check_for_matching_broker(broker_list)
+    return true if broker_list.empty?
+    broker_list.inject(false) { |memo, brkr|  broker.id == brkr.id || memo }
+  end
+
+  def check_matching_amenity(is_checking, amenity)
+    if is_checking
+      send(amenity) # execute symbol as method to get instance amenity attribute
+    else # if preference list hasn't specified that a renter is looking for that item, always return true
+      true
+    end
+  end
+
+  private
+  def send_notifications
+    p 'Entering send notifications'
+    Renter.all.each do |notification_renter|
+      p 'iterating through renters'
+      next if notification_renter.preference_list.nil?
+      p 'not skipping renter because of lack of plist'
+      preference_list = notification_renter.preference_list
+      if check_for_matching_neighborhood(preference_list.neighborhoods) &&
+        check_for_matching_broker(preference_list.brokers) &&
+        check_matching_amenity(preference_list.kitchen, :kitchen) && check_matching_amenity(preference_list.reception, :reception) &&
+        check_matching_amenity(preference_list.light, :light) && check_matching_amenity(preference_list.shower, :shower) &&
+        check_matching_amenity(preference_list.move_in, :move_in) && check_matching_amenity(preference_list.high_ceiling, :high_ceiling) &&
+        check_matching_amenity(preference_list.patio, :patio) && check_matching_amenity(preference_list.furniture, :furniture)
+
+        p 'office listing matched plist'
+        notification = Notification.new(office_listing_id: id, renter_id: notification_renter.id,
+                                       subject: "New office listing matching your preferences in #{neighborhood.name}")
+        notification.save
+        p 'sending pusher call'
+        Pusher["renter-#{notification_renter.id}"].trigger('notify', {
+          message: notification.subject
+        })
+      end
+    end
+  end
+
+
 end
