@@ -20,6 +20,24 @@
 #viewings-dates-box.reveal-modal
   %h3 Upcoming Viewings:
   .viewings-dates
+/ #office_viewings_dates_box
+/   = button_to "View at this time", {:controller => "apopointments", :action => "create", :renter_id => current_renter.id, :viewing_id => 
+
+/   :appointment => {renter_id: current_renter.id, office_listing_id: @office_listing.id}, :office_listing_id => @office_listing.id}, :method => :post, :remote => true, class: "button favorite-button "
+
+
+=form_for("broker", :url => new_broker_session_path, :html => {:id => "broker_sign_in", :class => "reveal-modal"}) do |f|
+  %a.close-reveal-modal ×
+  %h3 Broker Sign In
+  = f.label :email
+  = f.text_field :email
+  = f.label :password
+  = f.password_field :password
+  = f.check_box :remember_me
+  = f.label :remember_me
+  = f.submit 'Sign in'
+  = link_to "Forgot your password?", new_broker_password_path('broker')
+>>>>>>> b14098cd4ef3e5c7200fbc6a6efbd2eeaa20685d
 
 
   / .appointments

@@ -85,9 +85,11 @@ class OfficeListing < ActiveRecord::Base
 
   private
   def send_notifications
+    p 'Entering send notifications'
     Renter.all.each do |notification_renter|
-      p "RENTER: #{notification_renter.preference_list}"
+      p 'iterating through renters'
       next if notification_renter.preference_list.nil?
+      p 'not skipping renter because of lack of plist'
       preference_list = notification_renter.preference_list
       if check_for_matching_neighborhood(preference_list.neighborhoods) &&
         check_for_matching_broker(preference_list.brokers) &&
@@ -96,9 +98,14 @@ class OfficeListing < ActiveRecord::Base
         check_matching_amenity(preference_list.move_in, :move_in) && check_matching_amenity(preference_list.high_ceiling, :high_ceiling) &&
         check_matching_amenity(preference_list.patio, :patio) && check_matching_amenity(preference_list.furniture, :furniture)
 
-          notification = Notification.new(office_listing_id: id, renter_id: notification_renter.id,
-                                         subject: "New office listing matching your preferences in #{neighborhood.name}")
-          notification.save
+        p 'office listing matched plist'
+        notification = Notification.new(office_listing_id: id, renter_id: notification_renter.id,
+                                       subject: "New office listing matching your preferences in #{neighborhood.name}")
+        notification.save
+        p 'sending pusher call'
+        Pusher["renter-#{notification_renter.id}"].trigger('notify', {
+          message: notification.subject
+        })
       end
     end
   end
