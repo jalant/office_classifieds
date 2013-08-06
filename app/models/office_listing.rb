@@ -29,6 +29,7 @@
 #
 
 class OfficeListing < ActiveRecord::Base
+
   attr_accessible :address, :availability, :broker_id, :details, :furniture, :high_ceiling, :kitchen, :light, :move_in, :neighborhood_id, :no_of_conference_rooms, :no_of_offices, :office_type, :patio, :reception, :rent, :shower, :size, :term_length, :latitude, :longitude 
 
   belongs_to :broker
@@ -85,12 +86,15 @@ class OfficeListing < ActiveRecord::Base
 
   private
   def send_notifications
-    p 'Entering send notifications'
     Renter.all.each do |notification_renter|
-      p 'iterating through renters'
+
+      p "RENTER ID: #{notification_renter.id}"
+      p "PREFERENCE LIST "
+      p notification_renter.preference_list
+
       next if notification_renter.preference_list.nil?
-      p 'not skipping renter because of lack of plist'
       preference_list = notification_renter.preference_list
+
       if check_for_matching_neighborhood(preference_list.neighborhoods) &&
         check_for_matching_broker(preference_list.brokers) &&
         check_matching_amenity(preference_list.kitchen, :kitchen) && check_matching_amenity(preference_list.reception, :reception) &&
@@ -98,14 +102,15 @@ class OfficeListing < ActiveRecord::Base
         check_matching_amenity(preference_list.move_in, :move_in) && check_matching_amenity(preference_list.high_ceiling, :high_ceiling) &&
         check_matching_amenity(preference_list.patio, :patio) && check_matching_amenity(preference_list.furniture, :furniture)
 
-        p 'office listing matched plist'
-        notification = Notification.new(office_listing_id: id, renter_id: notification_renter.id,
-                                       subject: "New office listing matching your preferences in #{neighborhood.name}")
-        notification.save
-        p 'sending pusher call'
-        Pusher["renter-#{notification_renter.id}"].trigger('notify', {
-          message: notification.subject
-        })
+          notification = Notification.new(office_listing_id: id, renter_id: notification_renter.id,
+                                         subject: "New office listing matching your preferences in #{neighborhood.name}")
+          notification.save
+
+          office_listing_route = Rails.application.routes.url_helpers.neighborhood_office_listing_path(neighborhood_id: self.neighborhood.id, id: self.neighborhood.id)
+          Pusher["renter-#{notification_renter.id}"].trigger('notify', {
+            message: notification.subject,
+            route: office_listing_route
+          })
       end
     end
   end

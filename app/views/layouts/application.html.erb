@@ -20,7 +20,8 @@
       var pusher = new Pusher('<%= Pusher.key %>');
       var channel = pusher.subscribe('renter-' + renterId)
       channel.bind('notify', function(data) {
-        alert(data.message)
+        var notification = $('<li><a href=" ' + data.route + '"> ' + data.message + '</a></li>');
+        $('#renter-notifications .dropdown').prepend(notification);
       });
     }
   });
@@ -41,7 +42,6 @@
 				<% if current_broker %>
 				<li class='submit_listing_tag'> <a href=" <%= neighborhood_add_listing_neighborhoods_path %>"> Submit Listing</a> </li>
 				<% end %>
-				<li class="divider hide-for-small"></li>
 				<li id="browse-offices" class="has-dropdown"><a href="#">Browse Offices</a>
 					<ul class="dropdown">
 			            <% City.all.each do |city| %>
@@ -49,18 +49,31 @@
 			            <% end %>
 					</ul>
 				</li>
-				<li class="divider hide-for-small"></li>
 				<% unless current_renter || current_broker %>
 					<a id ="nav-signup" class="signup-div button" href="#">Sign Up</a>
 					<a id="nav-login" class="login-div button" href="#">Login</a>
 				<% end %>
 
 				<% if current_renter %>
-					<li class="display_user"> <%= current_renter.email %> </li>
 					<li>
 					<%= link_to "My Favorites", renter_favorites_path(renter_id: current_renter.id), class: "my-favorites" %>
-					</li>
-					<%= link_to "Sign Out", destroy_renter_session_path, method: :delete, class: "button signout"%>
+          </li>
+          <li id="renter-notifications" class="has-dropdown"><a href="#"><i class="general foundicon-inbox"></i></a>
+            <ul class="dropdown">
+              <% current_renter.notifications.reverse.each_with_index do |notification, index| %>
+                <% break if index > 3 %>
+                <li><a href='<%= neighborhood_office_listing_path(neighborhood_id: notification.office_listing.neighborhood.id, id: notification.office_listing.id) %>' class='<%= notification.read ? "read" : "unread" %>'>
+                  <%= notification.subject %></a></li>
+              <% end %>
+            </ul>
+          </li>
+          <li id="renter-settings" class="has-dropdown"> <a href="#"><i class="general foundicon-settings"></i></a>
+            <ul class="dropdown">
+              <li><a href="#" id="renter-email"><%= current_renter.email %></a></li>
+              <li><a href="#">Edit Notification Preferences</a></li>
+              <li><%= link_to "Sign Out", destroy_renter_session_path, method: :delete %></li>
+            </ul>
+          </li>
 				<% end %>
 
 				<% if current_broker %>

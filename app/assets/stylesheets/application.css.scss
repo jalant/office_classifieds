@@ -30,7 +30,7 @@ body, h1, h2, h3, h4, h5, h6, span, a {
 }
 
 body{
-	background-color: rgba(0,0,0, 0.85	) ;
+	background-color: rgba(0,0,0, 0.85) ;
 }
 
 .browse-offices, .final-signup{
@@ -150,7 +150,6 @@ nav.top-bar{
 	width: 100%;
 	height: 80px;
 	padding-top: 30px;
-
 }
 
 .city_names {
@@ -212,4 +211,12 @@ nav.top-bar{
   color: $off-white;
   margin-right: 5px;
   margin-left: 5px;
+}
+
+#renter-email { 
+  color: $sky-blue;
+}
+
+#renter-notifications .dropdown li a {
+  background-color: rgba(0, 0, 0, 0.6);
 }
