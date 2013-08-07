@@ -1,4 +1,4 @@
-var totalUnread = $('.unread').length; // Unread notifications
+var totalUnread = $('.unread').size(); // Unread notifications
 
 function renter_broker_signup(e) {
   e.preventDefault();
@@ -41,6 +41,7 @@ function toggleRead(e) {
 }
 
 $(function() {
+  totalUnread = $('.unread').size();
   $('.right').on('click', '.signup-div', renter_broker_signup);
   $('.right').on('click', '.login-div', renter_broker_login);
   $('.right').on('click', '.signup', signup_action);

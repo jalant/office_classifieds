@@ -25,6 +25,8 @@
   font-style: normal;
 }
 
+.top-bar ul > li.has-dropdown#renter-notifications a:after { content: ""; display: block; width: 0; height: 0; border: solid 0px; border-color: black transparent transparent transparent; margin-right: 15px; margin-top: -2.5px; position: absolute; right: 0; top: 50%; }
+
 body, h1, h2, h3, h4, h5, h6, span, a {
   font-family: 'Raleway';
 }
@@ -167,6 +169,26 @@ nav.top-bar{
 
 .unread {
   background-color: $transparent-pink;
+}
+
+.general {
+  font-size: 1.25em;
+}
+
+.notifications-box {
+  position: absolute;
+  height: 35%;
+  width: 25%;
+  top: 5%;
+  left: 55%;
+  background-color: (0, 0, 0, .85);
+  color: $sky-blue;
+  padding: 0;
+  text-align: center;
+}
+
+.new-notifications {
+  color: $pink;
 }
 
 #renter-email {

@@ -19,11 +19,23 @@
 
     $(function() { 
     if (renterId != null) {
+      console.log(totalUnread);
+      if (totalUnread > 0) {
+        $('.foundicon-inbox').addClass('new-notifications');
+        $('.notifications-box').text("(" + totalUnread + ")")
+      }
       var pusher = new Pusher('<%= Pusher.key %>');
       var channel = pusher.subscribe('renter-' + renterId)
       channel.bind('notify', function(data) {
         var notification = $('<li class="unread" data-notification-id="' + data.notificationId +'"><a href=" ' + data.route + '"> ' + data.message + '</a></li>');
         $('#renter-notifications .dropdown').prepend(notification);
+        totalUnread += 1;
+        if (totalUnread > 0) {
+          $('.notifications-box').text("(" + totalUnread + ")");
+          if (!$('.foundicon-inbox').hasClass('new-notifications')) {
+            $('.foundicon-inbox').addClass('new-notifications');
+          }
+        }
       });
     }
   });
@@ -63,10 +75,10 @@
 					</ul>
 				</li>
 				<% if current_renter %>
-          <li id="renter-notifications" class="has-dropdown"><a href="#"><i class="general foundicon-inbox"></i></a>
+          <li id="renter-notifications" class="has-dropdown"><a href="#"><div id="notifications-foundicon"><div class="notifications-box"></div><i class="general foundicon-inbox"></div></i></a>
             <ul class="dropdown">
               <% current_renter.notifications.reverse.each_with_index do |notification, index| %>
-                <% break if index > 3 %>
+                <% break if index > 8 %>
                 <li data-notification-id='<%= notification.id %>' class='<%= notification.read ? "read" : "unread"%>'><a href='<%= neighborhood_office_listing_path(neighborhood_id: notification.office_listing.neighborhood.id, id: notification.office_listing.id) %>'>
                   <%= notification.subject %></a></li>
               <% end %>
