@@ -84,8 +84,8 @@
 
 				<% if current_broker %>
 					<li class="display_user"> <%= current_broker.email %> </li>
-					
-					<%= link_to "My Listings", destroy_broker_session_path, method: :delete, class: "button signout"%>
+
+          <li><%= link_to "My Listings", broker_brokers_listings_path(broker_id: current_broker.id)%></li>
 
 					<%= link_to "Sign Out", destroy_broker_session_path, method: :delete, class: "button signout"%>
 
