@@ -6,13 +6,14 @@
           .favorite-box
             %ul.grid.cs-style-2
               %figure
-                -if fav.office_listing.images.first.link_image
+                -if fav.office_listing.images.first.link_image.include? "http"
                   =image_tag "#{fav.office_listing.images.first.link_image}"
-                -elsif fav.office_listing.images.first.image
+                -elsif fav.office_listing.images.first.image.model[:image]
                   =image_tag "#{fav.office_listing.images.first.image}"
+                  -p "================================================="
+                  -p fav.office_listing.images.first.image.model[:image]
                 -else 
                   =image_tag "http://www.cleaningforlondon.com/Portals/0/FlexibleOfficeSpace.jpg", class: "no-image"
-
                 %figcaption
                   %h3 Want to see this space in person?
                   %span Contact tanay@aceoffice.com for details or check out upcoming showings: 
