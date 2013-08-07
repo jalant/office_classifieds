@@ -3,6 +3,7 @@ OfficeClassifieds::Application.routes.draw do
 
   resources :brokers do 
     resources :favorites, only: [:index]
+    resources :office_listings, only: [:brokers_listings]
   end
 
   devise_for :renters, :controllers => { :registrations => "authentication/registrations" } 

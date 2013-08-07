@@ -38,6 +38,11 @@ class OfficeListingsController < ApplicationController
     end
   end
 
+  def brokers_listings
+    @broker = Broker.find(params[:broker_id])
+    @broker_listings = OfficeListing.where("broker_id = #{@broker.id}")
+  end
+
   private
 
   def create_amenities(office_listing, selected_amenities)
