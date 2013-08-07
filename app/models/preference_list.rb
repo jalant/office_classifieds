@@ -22,6 +22,7 @@
 #
 
 class PreferenceList < ActiveRecord::Base
+  attr_accessible :neighborhoods, :renter_id, :id, :min_price, :max_price, :min_square_feet, :max_square_feet, :kitchen, :reception, :patio, :furniture, :lighting, :high_ceiling, :shower, :move_in, :email
   has_and_belongs_to_many :neighborhoods
   has_and_belongs_to_many :brokers
   belongs_to :renter
