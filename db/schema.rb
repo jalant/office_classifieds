@@ -170,11 +170,6 @@ ActiveRecord::Schema.define(version: 20130806220320) do
   add_index "renters", ["email"], name: "index_renters_on_email", unique: true, using: :btree
   add_index "renters", ["reset_password_token"], name: "index_renters_on_reset_password_token", unique: true, using: :btree
 
-  create_table "renters_preference_lists", id: false, force: true do |t|
-    t.integer "renter_id"
-    t.integer "preference_list_id"
-  end
-
   create_table "viewings", force: true do |t|
     t.integer  "office_listing_id"
     t.date     "date"
