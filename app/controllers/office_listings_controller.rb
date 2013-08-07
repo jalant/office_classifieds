@@ -41,6 +41,7 @@ class OfficeListingsController < ApplicationController
   def brokers_listings
     @broker = Broker.find(params[:broker_id])
     @listings = OfficeListing.where("broker_id = #{@broker.id}")
+    @viewing = Viewing.new
   end
 
   private
