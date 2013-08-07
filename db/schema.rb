@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20130806220320) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "first_name"
     t.string   "last_name"
     t.text     "address"
@@ -54,31 +54,31 @@ ActiveRecord::Schema.define(version: 20130806220320) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "img"
   end
 
   create_table "favorites", force: true do |t|
     t.integer  "renter_id"
     t.integer  "office_listing_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "images", force: true do |t|
     t.text     "image"
     t.integer  "office_listing_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.text     "link_image"
   end
 
   create_table "neighborhoods", force: true do |t|
     t.string   "name"
     t.integer  "city_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "img_url"
     t.float    "latitude"
     t.float    "longitude"
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(version: 20130806220320) do
     t.text     "body"
     t.integer  "office_listing_id"
     t.boolean  "read"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "broker_id"
     t.integer  "renter_id"
   end
@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(version: 20130806220320) do
     t.integer  "no_of_conference_rooms"
     t.integer  "neighborhood_id"
     t.integer  "broker_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.float    "latitude"
     t.float    "longitude"
   end
@@ -157,8 +157,8 @@ ActiveRecord::Schema.define(version: 20130806220320) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "first_name"
     t.string   "last_name"
     t.text     "address"
