@@ -35,4 +35,7 @@ OfficeClassifieds::Application.routes.draw do
     resources :viewings, only: [:new, :create, :destroy, :index]
   end
   resources :images, only: [:create]
+
+  # Notifications Paths
+  resources :notifications, only: [:update]
 end

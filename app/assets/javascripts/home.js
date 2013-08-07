@@ -1,3 +1,5 @@
+var totalUnread = $('.unread').length; // Unread notifications
+
 function renter_broker_signup(e) {
   e.preventDefault();
   $('.signup-div').addClass('hidden');
@@ -20,16 +22,25 @@ function signup_action(e) {
 }
 
 function toggleRead(e) {
-  if ($(event.target).attr('class') == 'unread') {
-    officeId = $(event.target).data('office-id');
+  if ($(event.target).parent().attr('class') == 'unread') {
+    console.log('class unread');
+    var notificationId = $(event.target).parent().data('notification-id');
+    console.log("notification id " + notificationId)
     $(event.target).parent().removeClass('unread').addClass('read');
-    $.post()
+    totalUnread -= 1;
+    var params = {
+      notificationId: notificationId
+    };
+    $.ajax({
+      type: 'PATCH',
+      url: '/notifications/' + notificationId,
+      data: params,
+      dataType: 'script'
+    });
   }
 }
 
 $(function() {
-  console.log('wtf');
-  console.log($('#renter-notifications a'));
   $('.right').on('click', '.signup-div', renter_broker_signup);
   $('.right').on('click', '.login-div', renter_broker_login);
   $('.right').on('click', '.signup', signup_action);

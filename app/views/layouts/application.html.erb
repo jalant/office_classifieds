@@ -22,7 +22,7 @@
       var pusher = new Pusher('<%= Pusher.key %>');
       var channel = pusher.subscribe('renter-' + renterId)
       channel.bind('notify', function(data) {
-        var notification = $('<li><a href=" ' + data.route + '"> ' + data.message + '</a></li>');
+        var notification = $('<li class="unread" data-notification-id="' + data.notificationId +'"><a href=" ' + data.route + '"> ' + data.message + '</a></li>');
         $('#renter-notifications .dropdown').prepend(notification);
       });
     }
@@ -56,19 +56,18 @@
 					<a id="nav-login" class="login-div button" href="#">Login</a>
 				<% end %>
 
-				<% if current_renter %>
 					<li id="browse-offices" class="has-dropdown"><a href="#">My Favorites</a>
 					<ul class="dropdown">
 			      <li><%= link_to "View Favorites", renter_favorites_path(renter_id: current_renter.id), class: "my-favorites" %></li>
 			      <li><%= link_to "View Itinerary", href="#", class: "my-favorites" %></li>
 					</ul>
 				</li>
-
+				<% if current_renter %>
           <li id="renter-notifications" class="has-dropdown"><a href="#"><i class="general foundicon-inbox"></i></a>
             <ul class="dropdown">
               <% current_renter.notifications.reverse.each_with_index do |notification, index| %>
                 <% break if index > 3 %>
-                <li data-office-id='<%= notification.office_listing.id %>' class='<%= notification.read ? "read" : "unread"%>'><a href='<%= neighborhood_office_listing_path(neighborhood_id: notification.office_listing.neighborhood.id, id: notification.office_listing.id) %>'>
+                <li data-notification-id='<%= notification.id %>' class='<%= notification.read ? "read" : "unread"%>'><a href='<%= neighborhood_office_listing_path(neighborhood_id: notification.office_listing.neighborhood.id, id: notification.office_listing.id) %>'>
                   <%= notification.subject %></a></li>
               <% end %>
             </ul>
