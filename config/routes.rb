@@ -10,6 +10,12 @@ OfficeClassifieds::Application.routes.draw do
   resources :renters do 
     resources :favorites, only: [:index, :new, :create, :destroy]
     resources :appointments, only: [:create, :destroy]
+    resources :preference_lists, only: [:edit]
+
+    collection do
+      patch 'add_neighborhood', to: 'preference_lists#add_neighborhood', :as => 'add_neighborhood'
+      patch 'add_broker', to: 'preference_lists#add_broker', :as => 'neighborhood_add_broker'
+      patch 'add_amenity', to: 'preference_lists#add_amenity', :as => 'neighborhood_add_amenity'
   end
 
   root :to => "home#index"
