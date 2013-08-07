@@ -40,7 +40,7 @@ class OfficeListingsController < ApplicationController
 
   def brokers_listings
     @broker = Broker.find(params[:broker_id])
-    @broker_listings = OfficeListing.where("broker_id = #{@broker.id}")
+    @listings = OfficeListing.where("broker_id = #{@broker.id}")
   end
 
   private
