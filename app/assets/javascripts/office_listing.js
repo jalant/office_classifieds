@@ -163,6 +163,7 @@ function display_broker_showing_form(e){
   e.preventDefault();
   var office_listing_id = $(this).data('id');
   var hello_tanay = $('<div>');
+  $('.test-box').remove();
   hello_tanay.addClass('test-box');
   hello_tanay.append(office_listing_id);
   $('#showings-box').append(hello_tanay);
@@ -180,11 +181,23 @@ function display_broker_showing_form(e){
 
 function make_new_viewing(e){
   e.preventDefault();
-  
+  var office_listing_id = $('.test-box').html();
+  var date = $('#datepicker').val();
+  var params = {
+    office_listing_id: office_listing_id,
+    date: date
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/office_listings/' + office_listing_id + '/viewings',
+    data: params,
+    dataType: 'script'
+  });
 }
 
 
 $(function() {
+  $("#datepicker").datepicker();
 
   $('#make-new-viewing').on('click', make_new_viewing);
 

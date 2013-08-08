@@ -176,5 +176,17 @@
     color: white;
     background-color: red;
   }
+
+  #ui-datepicker-div {
+    position: absolute;
+    top: 100px;
+    left: 175px;
+    z-index: 100;
+    display: block;
+  }
+
+  input {
+    width:20%;
+  }
 }
 

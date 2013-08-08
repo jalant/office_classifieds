@@ -15,20 +15,15 @@
                 %figcaption
                   %h3
                   %span  
-                  %a{class: "broker-showing-form button", "data-reveal-id" => "showings-box", :"data-id" => listing.id} Add a Showing 
+                  = link_to 'Add a Showing', '#', class: 'broker-showing-form button', :'data-reveal-id' => 'showings-box', :'data-id' => listing.id
 
 #showings-box.reveal-modal
   %a.close-reveal-modal ×
   %h3 Create a showing:
-  Date 
-  = date_select("viewing", "date", prompt: { day: 'Select day', month: 'Select month', year: 'Select year' })
-  %br
-  Appointment Start Time
-  = select_time(Time.now, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'})
-  %br
-  Appointment End Time
-  = time_select 'viewing', 'end_time', {minute_step: 15}
-  #make-new-viewing
+  %p Date: 
+  %input#datepicker{type:"text"}
+  #make-new-viewing{class: "button"}
+    Make viewing
 
 
 
