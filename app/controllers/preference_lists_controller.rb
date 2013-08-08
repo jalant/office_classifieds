@@ -75,6 +75,7 @@ class PreferenceListsController < ApplicationController
     if !current_renter.preference_list
       preference_list = PreferenceList.new()
       preference_list.renter = current_renter
+      current_renter.preference_list = preference_list
       preference_list.save
       current_renter.save
     end
