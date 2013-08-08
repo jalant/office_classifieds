@@ -143,7 +143,6 @@ function display_viewings(e){
 }
 
 function add_viewing_to_favorite(e){
-  console.log('hello tanay');
   e.preventDefault();
   var viewing_id = $(this).data('id');
   console.log(viewing_id);
@@ -161,16 +160,14 @@ function add_viewing_to_favorite(e){
 }
 
 function display_broker_showing_form(e){
-  console.log('yo Tanay!');
   e.preventDefault();
-  var broker_showing_id = $(this).data('id');
-  console.log(broker_showing_id);
+  var office_listing_id = $(this).data('id');
   var params = {
-    office_listing_id: broker_showing_id
+    office_listing_id: office_listing_id
   };
   $.ajax({
     type: 'GET',
-    url: '/office_listings/' + broker_showing_id + '/viewings/new',
+    url: '/office_listings/' + office_listing_id + '/viewings/new',
     data: params,
     dataType: 'script'
   });

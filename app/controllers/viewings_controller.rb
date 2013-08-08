@@ -10,6 +10,7 @@ class ViewingsController < ApplicationController
 
   def new
     @viewing = Viewing.new
+    @viewing.office_listing_id = params[:office_listing_id]
     respond_to do |format|
       format.js
       format.html { redirect_to root_path } # temporary for non-JS tests to pass
