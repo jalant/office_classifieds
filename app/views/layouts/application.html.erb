@@ -19,11 +19,23 @@
 
     $(function() { 
     if (renterId != null) {
+      console.log(totalUnread);
+      if (totalUnread > 0) {
+        $('.foundicon-inbox').addClass('new-notifications');
+        $('.notifications-box').text("(" + totalUnread + ")")
+      }
       var pusher = new Pusher('<%= Pusher.key %>');
       var channel = pusher.subscribe('renter-' + renterId)
       channel.bind('notify', function(data) {
-        var notification = $('<li><a href=" ' + data.route + '"> ' + data.message + '</a></li>');
+        var notification = $('<li class="unread" data-notification-id="' + data.notificationId +'"><a href=" ' + data.route + '"> ' + data.message + '</a></li>');
         $('#renter-notifications .dropdown').prepend(notification);
+        totalUnread += 1;
+        if (totalUnread > 0) {
+          $('.notifications-box').text("(" + totalUnread + ")");
+          if (!$('#notifications-foundicon').hasClass('new-notifications')) {
+            $('#notifications-foundicon').addClass('new-notifications');
+          }
+        }
       });
     }
   });
@@ -63,12 +75,11 @@
 			      <li><%= link_to "View Itinerary", href="#", class: "my-favorites" %></li>
 					</ul>
 				</li>
-
-          <li id="renter-notifications" class="has-dropdown"><a href="#"><i class="general foundicon-inbox"></i></a>
+          <li id="renter-notifications" class="has-dropdown"><a href="#"><div id="notifications-foundicon"><div class="notifications-box"></div><i class="general foundicon-inbox"></div></i></a>
             <ul class="dropdown">
               <% current_renter.notifications.reverse.each_with_index do |notification, index| %>
-                <% break if index > 3 %>
-                <li data-office-id='<%= notification.office_listing.id %>' class='<%= notification.read ? "read" : "unread"%>'><a href='<%= neighborhood_office_listing_path(neighborhood_id: notification.office_listing.neighborhood.id, id: notification.office_listing.id) %>'>
+                <% break if index > 8 %>
+                <li data-notification-id='<%= notification.id %>' class='<%= notification.read ? "read" : "unread"%>'><a href='<%= neighborhood_office_listing_path(neighborhood_id: notification.office_listing.neighborhood.id, id: notification.office_listing.id) %>'>
                   <%= notification.subject %></a></li>
               <% end %>
             </ul>
@@ -76,20 +87,20 @@
           <li id="renter-settings" class="has-dropdown"> <a href="#"><i class="general foundicon-settings"></i></a>
             <ul class="dropdown">
               <li><a href="#" id="renter-email"><%= current_renter.email %></a></li>
-              <li><a href="#">Edit Notification Preferences</a></li>
+              <li><a href="<%= preference_list_configure_path(renter_id: current_renter.id) %>">Edit Notification Preferences</a></li>
               <li><%= link_to "Sign Out", destroy_renter_session_path, method: :delete %></li>
             </ul>
           </li>
 				<% end %>
 
 				<% if current_broker %>
-					<li class="display_user"> <%= current_broker.email %> </li>
-
           <li><%= link_to "My Listings", broker_brokers_listings_path(broker_id: current_broker.id)%></li>
-
-					<%= link_to "Sign Out", destroy_broker_session_path, method: :delete, class: "button signout"%>
-
-
+          <li id="broker-settings" class="has-dropdown"> <a href="#"><i class="general foundicon-settings"></i></a>
+            <ul class="dropdown">
+              <li><a href="#" id="broker-email"><%= current_broker.email %></a></li>
+              <li><%= link_to "Sign Out", destroy_broker_session_path, method: :delete %></li>
+            </ul>
+          </li>
 				<% end %>
 
 				<li id="renter-signup" class=" button signup" data-reveal-id="renter_sign_up" href=<%= new_renter_registration_path%>>Renter Signup</li>

@@ -1,0 +1,72 @@
+@import 'colors';
+
+#preference_lists.configure_preference_list {
+  .title-container {
+    background-color: $pink;
+    color: white;
+    padding: 25px;
+    text-align: center;
+    font-size: 1.75em;
+    margin-top: 100px;
+    margin-bottom: 25px;
+  }
+
+  .neighborhoods-container, .brokers-container, .amenities-container {
+    text-align: center;
+    background-color: $off-white;
+    padding: 15px;
+    margin-bottom: 15px;
+    font-size: 1.25em;
+  }
+
+  .neighborhoods-title {
+    margin: 5px;
+  }
+
+  #purple-button {
+        display: block;
+        margin-top: 0;
+        background-color: $purple;
+        font-size: 1em;
+        margin-right: 5px;
+        border: 1px solid $purple;
+        &:hover {
+            margin-top: 0px;
+            background-color: $pink;
+            font: 20px;
+            margin-right: 5px;
+            margin-left: 5px;
+            border: 1px solid $pink;
+        }
+    }
+
+  #pink-button {
+        display: block;
+        background-color: $pink;
+        margin-top: 0;
+        align: center;
+        font-size: 1.5em;
+        margin-right: 5px;
+        margin-left: 5px;
+        border: 1px solid $pink;
+        &:hover {
+            margin-top: 0px;
+            background-color: $purple;
+            font: 20px;
+            margin-right: 5px;
+            margin-left: 5px;
+            border: 1px solid $purple;
+        }
+    }
+
+  .hidden {
+    display: hidden;
+  }
+
+  .broker-name, .neighborhood-name, .amenity-name {
+    color: $pink;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+}

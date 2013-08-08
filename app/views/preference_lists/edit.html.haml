@@ -1,0 +1,48 @@
+.row
+  .title-container.small-10.columns.small-centered
+    Edit Notification Preferences
+
+.row
+  .small-4.columns.small-centered
+.row
+  .small-4.columns
+    .neighborhoods-container
+      .neighborhoods-title
+        Notify Me of New Postings in these Neighborhoods:
+      .neighborhoods-names
+        -@renter_neighborhoods.each do |neighborhood|
+          .neighborhood-name 
+            =neighborhood.name
+  .small-4.columns
+    .brokers-container
+      .brokers-title
+        Notify Me of New Postings by these Brokers:
+      .brokers-names
+        -@renter_brokers.each do |broker|
+          .broker-name 
+            =broker.email
+  .small-4.columns
+    .amenities-container
+      .amenities-title
+        Notify Me of Offices Only if They Have these Amenities:
+      .amenities-names
+        -@renter_amenities.each do |amenity|
+          .amenity-name 
+            =amenity
+
+.row
+  .small-4.columns
+    .neighborhoods-select-container
+      = form_tag preference_list_add_neighborhood_path(renter_id: current_renter.id), method: "patch", remote: true  do
+        = select_tag nil, options_for_select(@all_neighborhoods.collect { |neighborhood| [neighborhood.name, neighborhood.id]}), id: 'neighborhoods-select', name: "neighborhood_id"
+        = submit_tag "Add Neighborhood", class: "small button", id: "purple-button"
+  .small-4.columns
+    .brokers-select-container
+      = form_tag preference_list_add_broker_path(renter_id: current_renter.id), method: "patch", remote: true  do
+        = select_tag nil, options_for_select(@all_brokers.collect { |broker| [broker.email, broker.id]}), id: 'brokers-select', name: "broker_id"
+        = submit_tag "Add Broker", class: "small button", id: "purple-button"
+  .small-4.columns
+    .amenities-select-container
+      = form_tag preference_list_add_amenity_path(renter_id: current_renter.id), method: "patch", remote: true  do
+        = select_tag nil, options_for_select(@all_amenities.collect { |amenity| [amenity, amenity]}), id: 'amenities-select', name: "amenity"
+        = submit_tag "Add Amenity", class: "small button", id: "purple-button"
