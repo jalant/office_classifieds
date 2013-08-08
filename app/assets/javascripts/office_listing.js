@@ -164,7 +164,7 @@ function display_broker_showing_form(e){
   var office_listing_id = $(this).data('id');
   var hello_tanay = $('<div>');
   $('.test-box').remove();
-  hello_tanay.addClass('test-box');
+  hello_tanay.addClass('test-box hidden');
   hello_tanay.append(office_listing_id);
   $('#showings-box').append(hello_tanay);
   var params = {
@@ -250,7 +250,7 @@ $(function() {
     values: [0, 10000],
     slide: function(event, ui) {
       filters.filterPrice(ui.values[0], ui.values[1]);
-      $('#price-title').text("Rent: $" + ui.values[0] + " - " + ui.values[1])
+      $('#price-title').text("Rent: $" + ui.values[0] + " - " + ui.values[1]);
     },
     stop: function(event, ui) {
       filters.applyFilters();
