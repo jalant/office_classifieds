@@ -183,9 +183,14 @@ function make_new_viewing(e){
   e.preventDefault();
   var office_listing_id = $('.test-box').html();
   var date = $('#datepicker').val();
+  var start_time = $('#startTime').val();
+  var end_time = $('#endTime').val();
+  
   var params = {
     office_listing_id: office_listing_id,
-    date: date
+    date: date,
+    start_time: start_time,
+    end_time: end_time
   };
   $.ajax({
     type: 'POST',
@@ -198,6 +203,9 @@ function make_new_viewing(e){
 
 $(function() {
   $("#datepicker").datepicker();
+  // $('.some-time-inputs').timepicker(options);
+  $('#startTime').timepicker();
+  $('#endTime').timepicker();
 
   $('#make-new-viewing').on('click', make_new_viewing);
 
