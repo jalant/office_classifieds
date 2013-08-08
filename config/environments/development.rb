@@ -1,5 +1,5 @@
 require 'pusher'
-Pusher.app_id = '51119'
+Pusher.app_id = '51288'
 Pusher.key = '8fb376b55499b1c7c5c8'
 Pusher.secret = 'afeade81c17e9c7f5f5b'
 OfficeClassifieds::Application.configure do

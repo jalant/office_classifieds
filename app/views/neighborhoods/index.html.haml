@@ -1,6 +1,19 @@
-%h1 Neighborhoods
-.row.neighborhoods-page
-	-@neighborhoods.each do |neighborhood|
-		=link_to neighborhood_office_listings_path(neighborhood_id: neighborhood.id), id: neighborhood.name do
-			.large-4.small-6.columns.neighborhood-box{:style => "background-image: url(#{image_path "#{neighborhood.img_url}"})"}
-				=neighborhood.name	
+-if !@neighborhoods.empty?
+  %h1 Neighborhoods
+  .row.neighborhoods-page
+    -@neighborhoods.each do |neighborhood|
+      =link_to neighborhood_office_listings_path(neighborhood_id: neighborhood.id), id: neighborhood.name do
+        .large-4.small-6.columns.neighborhood-box{:style => "background-image: url(#{image_path "#{neighborhood.img_url}"})"}
+          =neighborhood.name	
+-elsif @city_name == "Singapore"
+  .row.coming-soon
+    = image_tag "singapore_3.gif", class: 'singapore-coming-soon'
+-elsif @city_name == "Jakarta"
+  .row.coming-soon
+    = image_tag "singapore_3.gif", class: 'singapore-coming-soon'
+-elsif @city_name == "Hong Kong"
+  .row.coming-soon
+    = image_tag "singapore_3.gif", class: 'singapore-coming-soon'
+-elsif @city_name == "Reno"
+  .row.coming-soon
+    = image_tag "singapore_3.gif", class: 'singapore-coming-soon'

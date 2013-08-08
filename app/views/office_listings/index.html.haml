@@ -14,41 +14,46 @@
       #square-feet
   .large-8.columns
     .row
-      -@office_listings.each do |office_listing|
-        =link_to neighborhood_office_listing_path(neighborhood_id: @neighborhood.id, id: office_listing.id) do
-          .large-4.small-6.columns.ind-offices{"data-id" => office_listing.id, "data-lease-type" => office_listing.office_type,
-          "data-price" => office_listing.rent, "data-square-feet" => office_listing.size}
-            -if office_listing.images[0].nil?
-              .office-img{:style => "background-image: url(#{image_path "http://placehold.it/219x250&text=Office"})"}
-            -else 
-              -if !(office_listing.images[0].link_image.nil?) && (office_listing.images[0].link_image.size > 20)
-                .office-img{:style => "background-image: url(#{"#{office_listing.images[0].link_image}"})"}
-              -else
-                .office-img{:style => "background-image: url(#{"#{office_listing.images[0].image || "http://placehold.it/219x250&text=No Image Available"}"})"}
-            .panel.office-box
-              %h6.subheader.address
-                %span.special2
-                  Address: 
-              %h6.subheader.address=office_listing.address
-              %h6.subheader 
-                %span.special
-                  Rent: 
-                $#{number_with_delimiter(office_listing.rent)} / month
-              %h6.subheader 
-                %span.special
-                  Office Type: 
-                #{office_listing.office_type}
-              %h6.subheader 
-                %span.special
-                  Term Length: 
-                #{office_listing.term_length}
-              %h6.subheader 
-                %span.special
-                  Size: 
-                #{number_with_delimiter(office_listing.size)} sq. feet
-              %h6.subheader 
-                %span.special
-                  Availability: 
-                #{office_listing.availability}
+      -unless @office_listings.empty?
+        -@office_listings.each do |office_listing|
+          =link_to neighborhood_office_listing_path(neighborhood_id: @neighborhood.id, id: office_listing.id) do
+            .large-4.small-6.columns.ind-offices{"data-id" => office_listing.id, "data-lease-type" => office_listing.office_type,
+            "data-price" => office_listing.rent, "data-square-feet" => office_listing.size}
+              -if office_listing.images[0].nil?
+                .office-img{:style => "background-image: url(#{image_path "http://placehold.it/219x250&text=Office"})"}
+              -else 
+                -if !(office_listing.images[0].link_image.nil?) && (office_listing.images[0].link_image.size > 20)
+                  .office-img{:style => "background-image: url(#{"#{office_listing.images[0].link_image}"})"}
+                -else
+                  .office-img{:style => "background-image: url(#{"#{office_listing.images[0].image || "http://placehold.it/219x250&text=No Image Available"}"})"}
+              .panel.office-box
+                %h6.subheader.address
+                  %span.special2
+                    Address: 
+                %h6.subheader.address=office_listing.address
+                %h6.subheader 
+                  %span.special
+                    Rent: 
+                  $#{number_with_delimiter(office_listing.rent)} / month
+                %h6.subheader 
+                  %span.special
+                    Office Type: 
+                  #{office_listing.office_type}
+                %h6.subheader 
+
+                  %span.special
+                    Term Length: 
+                  #{office_listing.term_length}
+                %h6.subheader 
+                  %span.special
+                    Size: 
+                  #{number_with_delimiter(office_listing.size)} sq. feet
+                %h6.subheader 
+                  %span.special
+                    Availability: 
+                  #{office_listing.availability}
+      -else
+        %h1{class: "no-listings"}
+          There are currently no listings in this neighborhood...
 
 = render partial: '/office_listings/partials/helper', locals: {neighborhood: @neighborhood, office_listings: @office_listings}

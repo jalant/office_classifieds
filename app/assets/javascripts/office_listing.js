@@ -157,13 +157,29 @@ function add_viewing_to_favorite(e){
     dataType: 'script'
   });
   $(this).removeClass("button").removeClass("showing").addClass("added").fadeIn(500);
-  $(this).text("Appointment scheduled with broker (Please view your itenary for details)")
+  $(this).text("Appointment scheduled with broker (Please view your itenary for details)");
 }
 
+function display_broker_showing_form(e){
+  console.log('yo Tanay!');
+  e.preventDefault();
+  var broker_showing_id = $(this).data('id');
+  console.log(broker_showing_id);
+  var params = {
+    office_listing_id: broker_showing_id
+  };
+  $.ajax({
+    type: 'GET',
+    url: '/office_listings/' + broker_showing_id + '/viewings/new',
+    data: params,
+    dataType: 'script'
+  });
+}
 // $('.individual-viewing').on('click', add_viewing_to_favorite);
 
 $(function() {
 
+  $('.broker-showing-form').on('click', display_broker_showing_form);
   $('.showing').on('click', display_viewings);
 
   $('.viewings-dates').on('click', '.individual-viewing', add_viewing_to_favorite);
