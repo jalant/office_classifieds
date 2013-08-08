@@ -18,12 +18,18 @@ class ViewingsController < ApplicationController
   end
 
   def create
-    start_time = params[:start_time].to_time #convert to rails time
-    end_time = params[:end_time].to_time #convert to rails time
+    start_time = params[:start_time].to_time
+    end_time = params[:end_time].to_time 
     date = params[:date].to_date
+
+    p "============================="
+    p date 
+    p "============================="
     @viewing = Viewing.new(office_listing_id: params[:office_listing_id], start_time: start_time, end_time: end_time, date: date)
-    @viewing.broker = current_broker
+    current_broker.office_listings.find(params[:office_listing_id]).viewings << @viewing
+
     OfficeListing.find(params[:office_listing_id]).add_viewing(@viewing)
+    
     if @viewing && @viewing.save == true
       respond_to do |format|
         format.js

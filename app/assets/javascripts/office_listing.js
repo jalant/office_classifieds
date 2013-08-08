@@ -161,6 +161,7 @@ function add_viewing_to_favorite(e){
 
 function display_broker_showing_form(e){
   e.preventDefault();
+  $(".success_div").remove();
   var office_listing_id = $(this).data('id');
   var hello_tanay = $('<div>');
   $('.test-box').remove();
@@ -181,6 +182,7 @@ function display_broker_showing_form(e){
 
 function make_new_viewing(e){
   e.preventDefault();
+
   var office_listing_id = $('.test-box').html();
   var date = $('#datepicker').val();
   var start_time = $('#startTime').val();
@@ -196,13 +198,22 @@ function make_new_viewing(e){
     type: 'POST',
     url: '/office_listings/' + office_listing_id + '/viewings',
     data: params,
-    dataType: 'script'
+    dataType: 'script',
+    success: function(){
+      var successDiv = $("<div> Showing event created! <div>");
+      successDiv.addClass('success_div');
+      $("#showings-box").prepend(successDiv);
+      $('input').val("");
+    }
   });
 }
 
 
 $(function() {
-  $("#datepicker").datepicker();
+  // $("#datepicker").datepicker({ dateFormat: "dd-mm-yy" });
+  $('#datepicker').datepicker({
+    format: 'dd-mm-yyyy'
+});
   // $('.some-time-inputs').timepicker(options);
   $('#startTime').timepicker();
   $('#endTime').timepicker();

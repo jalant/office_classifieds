@@ -19,15 +19,17 @@
 
 #showings-box.reveal-modal
   %a.close-reveal-modal ×
-  %h3 Create a showing:
-  Start Time: 
-  %input#startTime{type:"text"}
-  End Time: 
-  %input#endTime{type:"text"}
-  %p Date: 
-  %input#datepicker{type:"text"}
-  #make-new-viewing{class: "button"}
-    Make viewing
+  .row
+    .6-small.columns.small-centered      
+      %h3 Create a showing:
+      Start Time: 
+      %input#startTime{type:"text"}
+      End Time: 
+      %input#endTime{type:"text"}
+      Date: 
+      %input#datepicker{type:"text"}
+      #make-new-viewing{class: "button"}
+        Make viewing
 
 
 

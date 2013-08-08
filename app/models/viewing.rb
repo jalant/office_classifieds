@@ -14,7 +14,7 @@
 
 class Viewing < ActiveRecord::Base
 
-  attr_accessible :start_time, :end_time, :date
+  attr_accessible :start_time, :end_time, :date, :office_listing_id
   belongs_to :office_listing
   has_many :renters, through: :appointments
 
