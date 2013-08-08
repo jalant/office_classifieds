@@ -1,0 +1,4 @@
+<% unless @broker == "" %>
+  var broker_name = $('<div class="broker-name"><%= @broker.email %></div>')
+  $('.brokers-names').append(broker_name);
+<% end %>

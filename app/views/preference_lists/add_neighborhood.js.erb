@@ -1,0 +1,4 @@
+<% unless @neighborhood == "" %>
+  var neighborhood_name = $('<div class="neighborhood-name"><%= @neighborhood.name %></div>')
+  $('.neighborhoods-names').append(neighborhood_name);
+<% end %>

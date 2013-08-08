@@ -68,13 +68,13 @@
 					<a id="nav-login" class="login-div button" href="#">Login</a>
 				<% end %>
 
+				<% if current_renter %>
 					<li id="browse-offices" class="has-dropdown"><a href="#">My Favorites</a>
 					<ul class="dropdown">
 			      <li><%= link_to "View Favorites", renter_favorites_path(renter_id: current_renter.id), class: "my-favorites" %></li>
 			      <li><%= link_to "View Itinerary", href="#", class: "my-favorites" %></li>
 					</ul>
 				</li>
-				<% if current_renter %>
           <li id="renter-notifications" class="has-dropdown"><a href="#"><div id="notifications-foundicon"><div class="notifications-box"></div><i class="general foundicon-inbox"></div></i></a>
             <ul class="dropdown">
               <% current_renter.notifications.reverse.each_with_index do |notification, index| %>
@@ -87,7 +87,7 @@
           <li id="renter-settings" class="has-dropdown"> <a href="#"><i class="general foundicon-settings"></i></a>
             <ul class="dropdown">
               <li><a href="#" id="renter-email"><%= current_renter.email %></a></li>
-              <li><a href="#">Edit Notification Preferences</a></li>
+              <li><a href="<%= preference_list_configure_path(renter_id: current_renter.id) %>">Edit Notification Preferences</a></li>
               <li><%= link_to "Sign Out", destroy_renter_session_path, method: :delete %></li>
             </ul>
           </li>

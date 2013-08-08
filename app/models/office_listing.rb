@@ -102,6 +102,8 @@ class OfficeListing < ActiveRecord::Base
         check_matching_amenity(preference_list.move_in, :move_in) && check_matching_amenity(preference_list.high_ceiling, :high_ceiling) &&
         check_matching_amenity(preference_list.patio, :patio) && check_matching_amenity(preference_list.furniture, :furniture)
 
+        p 'creating notification'
+
           notification = Notification.new(office_listing_id: id, renter_id: notification_renter.id,
                                          subject: "New office listing matching your preferences in #{neighborhood.name}")
           notification.save
