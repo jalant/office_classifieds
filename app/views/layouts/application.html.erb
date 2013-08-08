@@ -32,8 +32,8 @@
         totalUnread += 1;
         if (totalUnread > 0) {
           $('.notifications-box').text("(" + totalUnread + ")");
-          if (!$('.foundicon-inbox').hasClass('new-notifications')) {
-            $('.foundicon-inbox').addClass('new-notifications');
+          if (!$('#notifications-foundicon').hasClass('new-notifications')) {
+            $('#notifications-foundicon').addClass('new-notifications');
           }
         }
       });

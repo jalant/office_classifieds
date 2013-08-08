@@ -24,10 +24,10 @@ class OfficeListingsController < ApplicationController
     @office_listing = OfficeListing.new(params[:office_listing])
     @office_listing.broker = current_broker
     @office_listing.neighborhood = Neighborhood.find(params[:neighborhood_id])
+    create_amenities(@office_listing, selected_amenities)
 
     if @office_listing.save
       @path = neighborhood_office_listing_path(@office_listing, :neighborhood_id => @office_listing.neighborhood.id)
-      create_amenities(@office_listing, selected_amenities)
       respond_to do |format|
         format.js 
         format.html {redirect_to neighborhood_office_listing_path(neighborhood_id: @office_listing.neighborhood_id, id: @office_listing.id)}
@@ -48,7 +48,6 @@ class OfficeListingsController < ApplicationController
     office_listing.high_ceiling = true if selected_amenities.include? 'High_ceiling'
     office_listing.patio = true if selected_amenities.include? 'Patio'
     office_listing.furniture = true if selected_amenities.include? 'Furniture'
-    office_listing.save
   end
 
 end

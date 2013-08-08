@@ -23,9 +23,7 @@ function signup_action(e) {
 
 function toggleRead(e) {
   if ($(event.target).parent().attr('class') == 'unread') {
-    console.log('class unread');
     var notificationId = $(event.target).parent().data('notification-id');
-    console.log("notification id " + notificationId)
     $(event.target).parent().removeClass('unread').addClass('read');
     totalUnread -= 1;
     var params = {

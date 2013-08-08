@@ -88,10 +88,6 @@ class OfficeListing < ActiveRecord::Base
   def send_notifications
     Renter.all.each do |notification_renter|
 
-      p "RENTER ID: #{notification_renter.id}"
-      p "PREFERENCE LIST "
-      p notification_renter.preference_list
-
       next if notification_renter.preference_list.nil?
       preference_list = notification_renter.preference_list
 
@@ -101,8 +97,6 @@ class OfficeListing < ActiveRecord::Base
         check_matching_amenity(preference_list.light, :light) && check_matching_amenity(preference_list.shower, :shower) &&
         check_matching_amenity(preference_list.move_in, :move_in) && check_matching_amenity(preference_list.high_ceiling, :high_ceiling) &&
         check_matching_amenity(preference_list.patio, :patio) && check_matching_amenity(preference_list.furniture, :furniture)
-
-        p 'creating notification'
 
           notification = Notification.new(office_listing_id: id, renter_id: notification_renter.id,
                                          subject: "New office listing matching your preferences in #{neighborhood.name}")
@@ -117,6 +111,4 @@ class OfficeListing < ActiveRecord::Base
       end
     end
   end
-
-
 end

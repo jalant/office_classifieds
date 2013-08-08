@@ -3,7 +3,7 @@ class NotificationsController < ApplicationController
     notification = Notification.find_by_id(params[:id])
     notification.read = true
     notification.save
-    respond_to do |
+    respond_to do |format|
       format.js
     end
   end
