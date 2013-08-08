@@ -162,6 +162,10 @@ function add_viewing_to_favorite(e){
 function display_broker_showing_form(e){
   e.preventDefault();
   var office_listing_id = $(this).data('id');
+  var hello_tanay = $('<div>');
+  hello_tanay.addClass('test-box');
+  hello_tanay.append(office_listing_id);
+  $('#showings-box').append(hello_tanay);
   var params = {
     office_listing_id: office_listing_id
   };
@@ -174,7 +178,15 @@ function display_broker_showing_form(e){
 }
 // $('.individual-viewing').on('click', add_viewing_to_favorite);
 
+function make_new_viewing(e){
+  e.preventDefault();
+  
+}
+
+
 $(function() {
+
+  $('#make-new-viewing').on('click', make_new_viewing);
 
   $('.broker-showing-form').on('click', display_broker_showing_form);
   $('.showing').on('click', display_viewings);

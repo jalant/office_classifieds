@@ -3,29 +3,32 @@
     -if current_broker
       -@listings.each do |listing|
         .large-4.small-12.columns
-          .favorite-box
-            %ul.grid.cs-style-2
-              %figure
-                -if listing.images.first.link_image
-                  -if listing.images.first.link_image.include? "http"
-                    =image_tag "#{listing.images.first.link_image}"
-                  -elsif listing.images.first.image.model[:image]
-                    =image_tag "#{listing.images.first.image.model[:image]}"
-                  -else 
-                    =image_tag "http://www.cleaningforlondon.com/Portals/0/FlexibleOfficeSpace.jpg", class: "no-image"
-                  %figcaption
-                    %h3
-                    %span  
-                    / %a{:href => "#", :"data-reveal-id" => "viewings-dates-box", :remote => true, :controller => "viewings", :action => ""}
-                    %a{class: "broker-showing-form button", "data-reveal-id" => "showings-box", :"data-id" => listing.id}
-                      Add a Showing 
+          %ul.grid.cs-style-2
+            %figure
+              -if listing.images.first.link_image
+                -if listing.images.first.link_image.include? "http"
+                  =image_tag "#{listing.images.first.link_image}"
+                -elsif listing.images.first.image.model[:image]
+                  =image_tag "#{listing.images.first.image.model[:image]}"
+                -else 
+                  =image_tag "http://www.cleaningforlondon.com/Portals/0/FlexibleOfficeSpace.jpg", class: "no-image"
+                %figcaption
+                  %h3
+                  %span  
+                  %a{class: "broker-showing-form button", "data-reveal-id" => "showings-box", :"data-id" => listing.id} Add a Showing 
 
-  #showings-box.reveal-modal
-    %a.close-reveal-modal ×
-    %h3 Create a showing:
-    - form_tag @viewing, :url => '/office_listings/ /viewing' do 
-      =time_select :start_time
-
+#showings-box.reveal-modal
+  %a.close-reveal-modal ×
+  %h3 Create a showing:
+  Date 
+  = date_select("viewing", "date", prompt: { day: 'Select day', month: 'Select month', year: 'Select year' })
+  %br
+  Appointment Start Time
+  = select_time(Time.now, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'})
+  %br
+  Appointment End Time
+  = time_select 'viewing', 'end_time', {minute_step: 15}
+  #make-new-viewing
 
 
 

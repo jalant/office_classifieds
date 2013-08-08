@@ -163,5 +163,18 @@
     color: white;
     margin: 150px 0px 0px 150px;
   }
+
+  select{
+    width: 20%;
+    display: inline-block;
+  }
+
+  .test-box{
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    color: white;
+    background-color: red;
+  }
 }
 
