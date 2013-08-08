@@ -10,6 +10,7 @@ class ViewingsController < ApplicationController
 
   def new
     @viewing = Viewing.new
+    @viewing.office_listing_id = params[:office_listing_id]
     respond_to do |format|
       format.js
       format.html { redirect_to root_path } # temporary for non-JS tests to pass
@@ -17,10 +18,12 @@ class ViewingsController < ApplicationController
   end
 
   def create
-    @viewing = Viewing.new(params[:viewing])
+    start_time = params[:start_time].to_time #convert to rails time
+    end_time = params[:end_time].to_time #convert to rails time
+    date = params[:date].to_date
+    @viewing = Viewing.new(office_listing_id: params[:office_listing_id], start_time: start_time, end_time: end_time, date: date)
     @viewing.broker = current_broker
     OfficeListing.find(params[:office_listing_id]).add_viewing(@viewing)
-
     if @viewing && @viewing.save == true
       respond_to do |format|
         format.js

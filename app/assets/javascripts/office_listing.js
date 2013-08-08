@@ -143,7 +143,6 @@ function display_viewings(e){
 }
 
 function add_viewing_to_favorite(e){
-  console.log('hello tanay');
   e.preventDefault();
   var viewing_id = $(this).data('id');
   console.log(viewing_id);
@@ -161,23 +160,54 @@ function add_viewing_to_favorite(e){
 }
 
 function display_broker_showing_form(e){
-  console.log('yo Tanay!');
   e.preventDefault();
-  var broker_showing_id = $(this).data('id');
-  console.log(broker_showing_id);
+  var office_listing_id = $(this).data('id');
+  var hello_tanay = $('<div>');
+  $('.test-box').remove();
+  hello_tanay.addClass('test-box hidden');
+  hello_tanay.append(office_listing_id);
+  $('#showings-box').append(hello_tanay);
   var params = {
-    office_listing_id: broker_showing_id
+    office_listing_id: office_listing_id
   };
   $.ajax({
     type: 'GET',
-    url: '/office_listings/' + broker_showing_id + '/viewings/new',
+    url: '/office_listings/' + office_listing_id + '/viewings/new',
     data: params,
     dataType: 'script'
   });
 }
 // $('.individual-viewing').on('click', add_viewing_to_favorite);
 
+function make_new_viewing(e){
+  e.preventDefault();
+  var office_listing_id = $('.test-box').html();
+  var date = $('#datepicker').val();
+  var start_time = $('#startTime').val();
+  var end_time = $('#endTime').val();
+  
+  var params = {
+    office_listing_id: office_listing_id,
+    date: date,
+    start_time: start_time,
+    end_time: end_time
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/office_listings/' + office_listing_id + '/viewings',
+    data: params,
+    dataType: 'script'
+  });
+}
+
+
 $(function() {
+  $("#datepicker").datepicker();
+  // $('.some-time-inputs').timepicker(options);
+  $('#startTime').timepicker();
+  $('#endTime').timepicker();
+
+  $('#make-new-viewing').on('click', make_new_viewing);
 
   $('.broker-showing-form').on('click', display_broker_showing_form);
   $('.showing').on('click', display_viewings);
@@ -220,7 +250,7 @@ $(function() {
     values: [0, 10000],
     slide: function(event, ui) {
       filters.filterPrice(ui.values[0], ui.values[1]);
-      $('#price-title').text("Rent: $" + ui.values[0] + " - " + ui.values[1])
+      $('#price-title').text("Rent: $" + ui.values[0] + " - " + ui.values[1]);
     },
     stop: function(event, ui) {
       filters.applyFilters();
