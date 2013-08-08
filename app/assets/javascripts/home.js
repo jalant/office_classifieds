@@ -38,14 +38,39 @@ function toggleRead(e) {
   }
 }
 
+function displayUserAppointments(e){
+  e.preventDefault();
+  var current_retard = $(this).data('renter-id');
+  var params ={
+    renter_id: current_retard
+  };
+
+  $.ajax({
+    type: 'GET',
+    url: '/renters/' + current_retard + '/appointments',
+    data: params,
+    dataType: 'script'
+  })
+}
+
 $(function() {
   totalUnread = $('.unread').size();
   $('.right').on('click', '.signup-div', renter_broker_signup);
   $('.right').on('click', '.login-div', renter_broker_login);
   $('.right').on('click', '.signup', signup_action);
   $('.signup-div').on('click', renter_broker_signup);
-  $('#renter-notifications').on('click', 'a', toggleRead)
+  $('#renter-notifications').on('click', 'a', toggleRead);
+  $('#open-calendar').on('click', displayUserAppointments);
+
+  $('#calendar').fullCalendar({
+    height: 700,
+    defaultView: 'month'
+    });
+
 });
+
+
+
 
 
 

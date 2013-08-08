@@ -101,6 +101,7 @@ GEM
     foundation-icons-sass-rails (2.0.0)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
+    fullcalendar-rails (1.6.1.0)
     geocoder (1.1.8)
     guard (1.8.1)
       formatador (>= 0.2.4)
@@ -271,6 +272,7 @@ DEPENDENCIES
   faker
   fog (= 1.12)
   foundation-icons-sass-rails
+  fullcalendar-rails
   geocoder
   guard-rspec
   haml

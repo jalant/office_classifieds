@@ -11,6 +11,8 @@
  *= require_self
  *= require_tree .
  *= require jquery.ui.all
+ *= require fullcalendar
+ *= require fullcalendar.print
  */
 
 @import 'foundation';
@@ -196,24 +198,8 @@ nav.top-bar{
   text-align: center;
 }
 
-#broker_sign_in{
+#broker_sign_in, #renter_sign_in, #renter_sign_up, #broker_sign_up, #calendar{
   margin-top: 150px;
-}
-
-#renter_sign_in {
-  margin-top: 150px;
-}
-
-#renter_sign_up {
-  margin-top: 150px;
-}
-
-#broker_sign_up {
-  margin-top: 150px;
-}
-
-.reveal-modal a {
-  font-size: 1em;
 }
 
 .reveal-modal {
@@ -251,3 +237,9 @@ nav.top-bar{
 #renter-notifications .dropdown li a {
   background-color: rgba(0, 0, 0, 0.6);
 }
+
+#calendar{
+  display: block;
+}
+
+

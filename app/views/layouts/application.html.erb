@@ -72,7 +72,7 @@
 					<li id="browse-offices" class="has-dropdown"><a href="#">My Favorites</a>
 					<ul class="dropdown">
 			      <li><%= link_to "View Favorites", renter_favorites_path(renter_id: current_renter.id), class: "my-favorites" %></li>
-			      <li><%= link_to "View Itinerary", href="#", class: "my-favorites" %></li>
+			      <li><%= link_to "View Itinerary", href="#", id: 'open-calendar', class: "my-favorites", :"data-renter-id" => current_renter.id, :"data-reveal-id" => "calendar" %></li>
 					</ul>
 				</li>
           <li id="renter-notifications" class="has-dropdown"><a href="#"><div id="notifications-foundicon"><div class="notifications-box"></div><i class="general foundicon-inbox"></div></i></a>
@@ -182,6 +182,12 @@
 		  <div><%= f.submit "Sign up" %></div>
 		 <% end %>
 	</div>
+
+  <div id="calendar" class="reveal-modal">
+    <a class="close-reveal-modal">&#215;</a>
+
+  </div>
+
 </body>
 </html>
 

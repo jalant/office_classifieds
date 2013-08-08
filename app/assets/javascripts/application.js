@@ -17,4 +17,6 @@
 //= require foundation
 //= require vendor/custom.modernizr
 //= require jquery.remotipart
+//= require fullcalendar
+//= require gcal
 

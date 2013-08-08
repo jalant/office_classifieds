@@ -10,7 +10,7 @@ OfficeClassifieds::Application.routes.draw do
 
   resources :renters do 
     resources :favorites, only: [:index, :new, :create, :destroy]
-    resources :appointments, only: [:create, :destroy]
+    resources :appointments, only: [:index, :create, :destroy]
   end
 
   match 'renters/:renter_id/preference_lists/configure_preference_list', to: 'preference_lists#configure_preference_list', via: :get, as: 'preference_list_configure'

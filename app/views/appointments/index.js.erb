@@ -1,0 +1,21 @@
+console.log('hello tanay')
+
+<% @viewings.each do |viewing| %> 
+    
+  <% p viewing.date.to_s %>
+  <% p viewing.start_time.to_s.split[1] %>
+  <% p viewing.end_time.to_s.split[1] %>
+  
+  console.log("<%= viewing.date.to_s %>")
+  console.log("<%= viewing.start_time.to_s.split[1] %>")
+  console.log("<%= viewing.end_time.to_s.split[1] %>")
+  
+  var event = {
+                title: "<%= viewing.office_listing.address %>", 
+                start: "<%= viewing.date.to_s %>" + " " + "<%= viewing.start_time.to_s.split[1] %>",
+                end: "<%= viewing.date.to_s %>" + " " + "<%= viewing.end_time.to_s.split[1] %>"
+              }
+
+$('#calendar').fullCalendar("renderEvent", event, true);
+
+<% end %>
