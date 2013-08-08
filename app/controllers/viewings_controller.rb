@@ -23,7 +23,7 @@ class ViewingsController < ApplicationController
     p params[:office_listing_id]
     p params[:date]
     p "=============================================================="
-    @viewing = Viewing.new(params[:viewing])
+    @viewing = Viewing.new(start_time: params[:start_time], end_time: params[:end_time], date: params[:date])
     @viewing.broker = current_broker
     OfficeListing.find(params[:office_listing_id]).add_viewing(@viewing)
     if @viewing && @viewing.save == true
