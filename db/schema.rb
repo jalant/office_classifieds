@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130806220320) do
+ActiveRecord::Schema.define(version: 20130808190840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 20130806220320) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "email"
+    t.boolean  "activated"
   end
 
   create_table "renters", force: true do |t|
@@ -169,6 +170,11 @@ ActiveRecord::Schema.define(version: 20130806220320) do
 
   add_index "renters", ["email"], name: "index_renters_on_email", unique: true, using: :btree
   add_index "renters", ["reset_password_token"], name: "index_renters_on_reset_password_token", unique: true, using: :btree
+
+  create_table "renters_preference_lists", id: false, force: true do |t|
+    t.integer "renter_id"
+    t.integer "preference_list_id"
+  end
 
   create_table "viewings", force: true do |t|
     t.integer  "office_listing_id"

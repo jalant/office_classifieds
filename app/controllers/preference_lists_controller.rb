@@ -21,7 +21,11 @@ class PreferenceListsController < ApplicationController
       @neighborhood = ""
     else
       preference_list.neighborhoods << @neighborhood
+      p 'PREFERENCE LIST ACTIVATED: '
+      p !preference_list.activated
+      preference_list.activated = true if !preference_list.activated
       preference_list.save
+      current_renter.save
     end
     respond_to do |format|
       format.js
@@ -37,6 +41,8 @@ class PreferenceListsController < ApplicationController
       @broker = ""
     else
       preference_list.brokers << @broker
+      preference_list.activated = true if !preference_list.activated
+      preference_list.save
     end
     respond_to do |format|
       format.js
@@ -55,6 +61,7 @@ class PreferenceListsController < ApplicationController
     preference_list.high_ceiling = true if @amenity == 'High_ceiling'
     preference_list.patio = true if @amenity == 'Patio'
     preference_list.furniture = true if @amenity == 'Furniture'
+    preference_list.activated = true if !preference_list.activated
     preference_list.save
 
     respond_to do |format|
@@ -81,7 +88,7 @@ class PreferenceListsController < ApplicationController
     end
   end
 
-  def get_selected_amenities(preference_list)    
+  def get_selected_amenities(preference_list)
     amenities_list = []
     amenities_list << 'Reception' if preference_list.reception == true
     amenities_list << 'Light' if preference_list.light == true

@@ -91,7 +91,7 @@ class OfficeListing < ActiveRecord::Base
       next if notification_renter.preference_list.nil?
       preference_list = notification_renter.preference_list
 
-      if check_for_matching_neighborhood(preference_list.neighborhoods) &&
+      if preference_list.activated == true && check_for_matching_neighborhood(preference_list.neighborhoods) &&
         check_for_matching_broker(preference_list.brokers) &&
         check_matching_amenity(preference_list.kitchen, :kitchen) && check_matching_amenity(preference_list.reception, :reception) &&
         check_matching_amenity(preference_list.light, :light) && check_matching_amenity(preference_list.shower, :shower) &&
@@ -102,7 +102,7 @@ class OfficeListing < ActiveRecord::Base
                                          subject: "New office listing matching your preferences in #{neighborhood.name}")
           notification.save
 
-          office_listing_route = Rails.application.routes.url_helpers.neighborhood_office_listing_path(neighborhood_id: self.neighborhood.id, id: self.neighborhood.id)
+          office_listing_route = Rails.application.routes.url_helpers.neighborhood_office_listing_path(neighborhood_id: self.neighborhood.id, id: self.id)
           Pusher["renter-#{notification_renter.id}"].trigger('notify', {
             message: notification.subject,
             route: office_listing_route,
