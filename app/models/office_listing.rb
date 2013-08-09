@@ -103,6 +103,7 @@ class OfficeListing < ActiveRecord::Base
           notification.save
 
           office_listing_route = Rails.application.routes.url_helpers.neighborhood_office_listing_path(neighborhood_id: self.neighborhood.id, id: self.id)
+          p 'creating notification'
           Pusher["renter-#{notification_renter.id}"].trigger('notify', {
             message: notification.subject,
             route: office_listing_route,
