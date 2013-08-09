@@ -8,7 +8,6 @@
     top: 150px;
 
     a {
-      display: none;
 
       .map-label {
         display: block;
@@ -48,13 +47,12 @@
   } 
 
   #office-images{
-    // width: 50%;
     height: 500px;
     display: inline-block;
   }
   
   #map-holder {
-    // width: 100%;
+
   }
 
   #map-canvas2 {
@@ -73,7 +71,6 @@
     }
 
     a img {
-      display: none;
     }
   } 
 
