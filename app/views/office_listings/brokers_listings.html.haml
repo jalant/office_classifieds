@@ -7,6 +7,8 @@
         .large-4.small-12.columns
           .individual_listing
             %ul.grid.cs-style-2
+              .fav-header
+                %h6 #{listing.address}
               %figure
                 -if listing.images.first.link_image
                   -if listing.images.first.link_image.include? "http"
@@ -19,8 +21,7 @@
                     %h3
                     %span  
                     .listing_address
-                      Address: 
-                      = listing.address
+                      Click the link below to select the date and time of your showing
                     = link_to 'Add a Showing', '#', class: 'broker-showing-form button', :'data-reveal-id' => 'showings-box', :'data-id' => listing.id
 
 #showings-box.reveal-modal
