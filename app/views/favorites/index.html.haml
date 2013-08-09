@@ -5,6 +5,8 @@
         .large-4.small-12.columns
           .favorite-box
             %ul.grid.cs-style-2
+              .fav-header
+                %h6 #{fav.office_listing.address}
               %figure
                 -if fav.office_listing.images.first.link_image 
                   -if fav.office_listing.images.first.link_image.include? "http"
@@ -15,10 +17,10 @@
                     =image_tag "http://www.cleaningforlondon.com/Portals/0/FlexibleOfficeSpace.jpg", class: "no-image"
                 %figcaption
                   %h3 Want to see this space in person?
-                  %span Contact tanay@aceoffice.com for details or Checkck out upcoming showings: 
+                  %span Contact Broker: #{fav.office_listing.broker.email}
                   / %a{:href => "#", :"data-reveal-id" => "viewings-dates-box", :remote => true, :controller => "viewings", :action => ""}
                   %a{class: "showing button", "data-reveal-id" => "viewings-dates-box", :"data-id" => fav.office_listing.id}
-                    Showings 
+                    See available showings 
   #viewings-dates-box.reveal-modal
     %a.close-reveal-modal ×
     %h3 Upcoming Viewings (Check your itinerary for more details.)
