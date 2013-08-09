@@ -1,23 +1,14 @@
-// console.log('hello tanay')
+$('#calendar').fullCalendar('removeEvents');
 
 <% @viewings.each do |viewing| %> 
-    
-  <% p viewing.date.to_s %>
-  <% p viewing.start_time.to_s.split[1] %>
-  <% p viewing.end_time.to_s.split[1] %>
-  
-  // console.log("<%= viewing.date.to_s %>")
-  // console.log("<%= viewing.start_time.to_s.split[1] %>")
-  // console.log("<%= viewing.end_time.to_s.split[1] %>")
-  
-  var event = {
+  var event = 
+              {
                 title: "<%= viewing.office_listing.address %>", 
                 start: "<%= viewing.date.to_s %>" + " " + "<%= viewing.start_time.to_s.split[1] %>",
                 end: "<%= viewing.date.to_s %>" + " " + "<%= viewing.end_time.to_s.split[1] %>",
-                allDay: false
+                allDay: false,
+                url: "/neighborhoods/" + <%= viewing.office_listing.neighborhood.id %> + "/office_listings/" + <%= viewing.office_listing.id %>
               }
-
-console.log(event)
-$('#calendar').fullCalendar("renderEvent", event, true);
-
+  $('#calendar').fullCalendar("renderEvent", event, true);
 <% end %>
+  
