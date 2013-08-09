@@ -50,7 +50,7 @@ function displayUserAppointments(e) {
     url: '/renters/' + current_retard + '/appointments',
     data: params,
     dataType: 'script'
-  })
+  });
 }
 
 $(function() {
