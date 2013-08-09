@@ -242,4 +242,22 @@ nav.top-bar{
   display: block;
 }
 
+.fc-event,
+.fc-agenda .fc-event-time,
+.fc-event a, .fc-event-inner {
+    background-color: $pink !important; /* background color */
+    border-color: black !important;     /* border color */
+    color: white !important;             /* text color */
+
+  }
+
+.fc-event-inner{
+  padding: 10px;
+
+  &:hover{
+    opacity: 0.8;
+  }
+}
+
+
 

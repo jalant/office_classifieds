@@ -65,8 +65,12 @@ $(function() {
   $('#calendar').fullCalendar({
     height: 700,
     defaultView: 'month',
-    dayClick: function(){
+    events:[],
+    eventColor: 'red',
+    eventBackgroundColor: 'white',
+    dayClick: function(date){
       $('#calendar').fullCalendar('changeView', 'agendaDay');
+      $('#calendar').fullCalendar('gotoDate', date);
     },
     header: {
       left: 'prev, next, today',
