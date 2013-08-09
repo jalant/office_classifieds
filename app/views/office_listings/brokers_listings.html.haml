@@ -1,21 +1,27 @@
+
 #listings-holder 
+  %h1.add-listing-label.full_screen_row Set up showings for your office listings
   .row
     -if current_broker
       -@listings.each do |listing|
         .large-4.small-12.columns
-          %ul.grid.cs-style-2
-            %figure
-              -if listing.images.first.link_image
-                -if listing.images.first.link_image.include? "http"
-                  =image_tag "#{listing.images.first.link_image}"
-                -elsif listing.images.first.image.model[:image]
-                  =image_tag "#{listing.images.first.image.model[:image]}"
-                -else 
-                  =image_tag "http://www.cleaningforlondon.com/Portals/0/FlexibleOfficeSpace.jpg", class: "no-image"
-                %figcaption
-                  %h3
-                  %span  
-                  = link_to 'Add a Showing', '#', class: 'broker-showing-form button', :'data-reveal-id' => 'showings-box', :'data-id' => listing.id
+          .individual_listing
+            %ul.grid.cs-style-2
+              %figure
+                -if listing.images.first.link_image
+                  -if listing.images.first.link_image.include? "http"
+                    =image_tag "#{listing.images.first.link_image}"
+                  -elsif listing.images.first.image.model[:image]
+                    =image_tag "#{listing.images.first.image.model[:image]}"
+                  -else 
+                    =image_tag "http://www.cleaningforlondon.com/Portals/0/FlexibleOfficeSpace.jpg", class: "no-image"
+                  %figcaption
+                    %h3
+                    %span  
+                    .listing_address
+                      Address: 
+                      = listing.address
+                    = link_to 'Add a Showing', '#', class: 'broker-showing-form button', :'data-reveal-id' => 'showings-box', :'data-id' => listing.id
 
 #showings-box.reveal-modal
   %a.close-reveal-modal ×
