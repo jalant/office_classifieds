@@ -38,10 +38,10 @@ function toggleRead(e) {
   }
 }
 
-function displayUserAppointments(e){
+function displayUserAppointments(e) {
   e.preventDefault();
   var current_retard = $(this).data('renter-id');
-  var params ={
+  var params = {
     renter_id: current_retard
   };
 
@@ -64,14 +64,14 @@ $(function() {
 
   $('#calendar').fullCalendar({
     height: 700,
-    defaultView: 'month'
-    });
-
+    defaultView: 'month',
+    dayClick: function(){
+      $('#calendar').fullCalendar('changeView', 'agendaDay');
+    },
+    header: {
+      left: 'prev, next, today',
+      center: 'title',
+      right: 'month, agendaWeek, agendaDay'
+    }
+  });
 });
-
-
-
-
-
-
-
