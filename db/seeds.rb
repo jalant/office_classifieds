@@ -3,9 +3,18 @@
 #
 # Examples:
 #
+#
+
+require 'Faker'
 
 def random_t_f
   ['true', 'false'].sample
+end
+
+def rand_date
+  array = []
+  ((Date.today)..(Date.today + 120)).each { |date| array.push(date) }
+  array.sample
 end
 
 City.delete_all
@@ -37,15 +46,15 @@ reno = City.create(name: 'Reno', img:"http://thejointblog.com/wp-content/uploads
 p new_york_city
 
 
-harlem = Neighborhood.create(name: "Harlem", address: "Harlem, NY", img_url: 'http://www.officeoftourism.org/img/usa/NY-NYC-Harlem2.jpg', city_id: new_york_city.id)
-flatiron = Neighborhood.create(name: "Flatiron", address: "Flatiron, NY", img_url: 'http://www.hotelchatter.com/files/6193/Flatiron_NYC.jpg', city_id: new_york_city.id)
-midtown_east = Neighborhood.create(name: "Midtown East", address: "Midtown East, NY", img_url: 'http://www.sothebyshomes.com/neighborhood/2.jpg', city_id: new_york_city.id)
-financial_district = Neighborhood.create(name: "Financial District", address: "financial District, NY", img_url: 'http://2.bp.blogspot.com/-C5HfR6RfCQY/UINZSmC8ZYI/AAAAAAAAAPA/hPBNHwc961o/s640/7696301e98573825aca69c261fa7b3ee.jpg', city_id: new_york_city.id)
-gramercy = Neighborhood.create(name: "Gramercy", address: "Gramercy, NY", img_url: 'http://www.sothebyshomes.com/neighborhood/15.jpg', city_id: new_york_city.id)
-upper_west_side = Neighborhood.create(name: "Upper West Side", address: "Upper West Side, NY", img_url: 'http://www.manhattanministorage.com/landing/images/uws-storage-mini.jpg', city_id: new_york_city.id)
-west_village = Neighborhood.create(name: 'West Village', address: "West Village, NY", img_url: 'http://images.nymag.com/images/2/realestate/neighborhoods/2010/westvillage100412_lede.jpg', city_id: new_york_city.id)
-east_village = Neighborhood.create(name: "East Village NYC", address: "East Village, NY", img_url: "http://nyugradhalls.files.wordpress.com/2012/09/east-village-manhattan-nyc-54.jpg", city_id: new_york_city.id)
-hells_kitchen = Neighborhood.create(name: "Hell's Kitchen", address: "Hell's Kitchen, NY", img_url: "http://wvs.topleftpixel.com/photos/hells_kitchen_black_white_garbage.jpg", city_id: new_york_city.id)
+harlem = Neighborhood.create(name: "Harlem", address: "Harlem, NY", img_url: '/assets/neighborhoods/NY-NYC-Harlem2.jpg', city_id: new_york_city.id)
+flatiron = Neighborhood.create(name: "Flatiron", address: "Flatiron, NY", img_url: '/assets/neighborhoods/Flatiron_NYC.jpg', city_id: new_york_city.id)
+midtown_east = Neighborhood.create(name: "Midtown East", address: "Midtown East, NY", img_url: '/assets/neighborhoods/midtown_east.jpg', city_id: new_york_city.id)
+financial_district = Neighborhood.create(name: "Financial District", address: "financial District, NY", img_url: '/assets/neighborhoods/financial_district.jpg', city_id: new_york_city.id)
+gramercy = Neighborhood.create(name: "Gramercy", address: "Gramercy, NY", img_url: '/assets/neighborhoods/gramercy.jpg', city_id: new_york_city.id)
+upper_west_side = Neighborhood.create(name: "Upper West Side", address: "Upper West Side, NY", img_url: '/assets/neighborhoods/upper_west_side.jpg', city_id: new_york_city.id)
+west_village = Neighborhood.create(name: 'West Village', address: "West Village, NY", img_url: '/assets/neighborhoods/west_village.jpg', city_id: new_york_city.id)
+east_village = Neighborhood.create(name: "East Village NYC", address: "East Village, NY", img_url: "/assets/neighborhoods/east_village.jpg", city_id: new_york_city.id)
+hells_kitchen = Neighborhood.create(name: "Hell's Kitchen", address: "Hell's Kitchen, NY", img_url: "/assets/neighborhoods/hells_kitchen.jpg", city_id: new_york_city.id)
 
 hood_hash = { "Harlem" => harlem, "Flatiron" => flatiron, "Midtown East" => midtown_east, 
   "Financial District" => financial_district, "Gramercy" => gramercy, "Upper West Side" => upper_west_side,
@@ -77,14 +86,14 @@ lines.each do |line|
 end
 
 
-v3 = Viewing.create(start_time: "17:00", end_time: "19:00", date: "12/10/2013")
-v4 = Viewing.create(start_time: "09:00", end_time: "10:00", date: "13/10/2013")
-v5 = Viewing.create(start_time: "11:00", end_time: "12:00", date: "14/10/2013")
+v3 = Viewing.create(start_time: "17:00", end_time: "19:00", date: rand_date)
+v4 = Viewing.create(start_time: "09:00", end_time: "10:00", date: rand_date)
+v5 = Viewing.create(start_time: "11:00", end_time: "12:00", date: rand_date)
 
 OfficeListing.all.each do |listing|
-  viewing = Viewing.create(start_time: "10:00", end_time: "12:00", date: "10/10/2013")
-  v2 = Viewing.create(start_time: "13:00", end_time: "15:00", date: "11/10/2013")
-  listing.viewings << viewing << v2
+  viewing = Viewing.create(start_time: "10:00", end_time: "12:00", date: rand_date)
+  v2 = Viewing.create(start_time: "13:00", end_time: "15:00", date: rand_date)
+  listing.viewings << viewing << v2 << v3 << v4 << v5
   listing.save!
 end 
 
@@ -99,6 +108,3 @@ end
 
 Favorite.create(office_listing_id: OfficeListing.first.id, renter_id: renter_1.id)
 Favorite.create(office_listing_id: OfficeListing.last.id, renter_id: renter_1.id)
-
-
-

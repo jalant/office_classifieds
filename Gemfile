@@ -28,6 +28,7 @@ gem 'rails-observers'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
 gem 'fullcalendar-rails'
+gem 'faker'
 
 
 group :production do
@@ -46,7 +47,6 @@ group :development, :test do
   gem 'annotate'
 
   gem 'rspec-rails'
-  gem 'faker'
   gem 'factory_girl_rails'
 
   gem 'capybara'
