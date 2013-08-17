@@ -15,7 +15,9 @@ OfficeClassifieds::Application.routes.draw do
 
   match 'renters/:renter_id/preference_lists/configure_preference_list', to: 'preference_lists#configure_preference_list', via: :get, as: 'preference_list_configure'
   match 'renters/:renter_id/preference_lists/add_neighborhood', to: 'preference_lists#add_neighborhood', via: :patch, as: 'preference_list_add_neighborhood'
+  match 'renters/:renter_id/preference_lists/remove_neighborhood/:neighborhood_id', to: 'preference_lists#remove_neighborhood', via: :patch, as: 'preference_list_remove_neighborhood'
   match 'renters/:renter_id/preference_lists/add_broker', to: 'preference_lists#add_broker', via: :patch, as: 'preference_list_add_broker'
+  match 'renters/:renter_id/preference_lists/remove_broker/:broker_id', to: 'preference_lists#remove_broker', via: :patch, as: 'preference_list_remove_broker'
   match 'renters/:renter_id/preference_lists/add_amenity', to: 'preference_lists#add_amenity', via: :patch, as: 'preference_list_add_amenity'
   match 'renters/:renter_id/preference_lists/:id/delete', to: 'preference_lists#destroy', via: :delete, as: 'preference_list_delete'
   match 'renters/:renter_id/preference_lists/create', to: 'preference_lists#create', via: :post, as: 'preference_list_create'

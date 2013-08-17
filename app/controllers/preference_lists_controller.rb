@@ -13,16 +13,12 @@ class PreferenceListsController < ApplicationController
 
 
   def add_neighborhood
-    p 'ADD NEIGHBORHOOD'
-    p params
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
     preference_list = current_renter.preference_list
     if preference_list.neighborhoods.include? @neighborhood
       @neighborhood = ""
     else
       preference_list.neighborhoods << @neighborhood
-      p 'PREFERENCE LIST ACTIVATED: '
-      p !preference_list.activated
       preference_list.activated = true if !preference_list.activated
       preference_list.save
       current_renter.save
@@ -32,9 +28,17 @@ class PreferenceListsController < ApplicationController
     end
   end
 
+  def remove_neighborhood
+    @neighborhood = Neighborhood.find(params[:neighborhood_id])
+    preference_list = current_renter.preference_list
+    preference_list.neighborhoods.delete(@neighborhood)
+    preference_list.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def add_broker
-    p 'ADD BROKER'
-    p params
     @broker = Broker.find(params[:broker_id])
     preference_list = current_renter.preference_list 
     if preference_list.brokers.include? @broker
@@ -49,9 +53,17 @@ class PreferenceListsController < ApplicationController
     end
   end
 
+  def remove_broker
+    @broker = Broker.find(params[:broker_id])
+    preference_list = current_renter.preference_list
+    preference_list.brokers.delete(@broker)
+    preference_list.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def add_amenity
-    p 'ADD AMENITY'
-    p params
     @amenity = params[:amenity]
     preference_list = current_renter.preference_list
     preference_list.reception = true if @amenity == 'Reception'
@@ -70,7 +82,6 @@ class PreferenceListsController < ApplicationController
   end
 
   def destroy
-    p 'DELETE PREFERENCE LIST'
     PreferenceList.find(params[:id]).delete
     respond_to do |format|
       format.js

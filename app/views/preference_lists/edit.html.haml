@@ -13,6 +13,7 @@
         -@renter_neighborhoods.each do |neighborhood|
           .neighborhood-name 
             =neighborhood.name
+            =link_to "&#215".html_safe, preference_list_remove_neighborhood_path(renter_id: current_renter.id, neighborhood_id: neighborhood.id), remote: true, method: "patch", class: "remove-preference"
   .small-4.columns
     .brokers-container
       .brokers-title
@@ -21,6 +22,7 @@
         -@renter_brokers.each do |broker|
           .broker-name 
             =broker.email
+            =link_to "&#215".html_safe, preference_list_remove_broker_path(renter_id: current_renter.id, broker_id: broker.id), remote: true, method: "patch", class: "remove-preference"
   .small-4.columns
     .amenities-container
       .amenities-title

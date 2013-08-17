@@ -1,4 +1,4 @@
 <% unless @broker == "" %>
-  var broker_name = $('<div class="broker-name"><%= @broker.email %></div>')
-  $('.brokers-names').append(broker_name);
+  var broker_email = $('<div class="broker-name"><%= @broker.email %><%= link_to "&#215".html_safe, preference_list_remove_broker_path(renter_id: current_renter.id, broker_id: @broker.id), remote: true, method: "patch", class: "remove-preference" %></div>')
+  $('.brokers-names').append(broker_email);
 <% end %>
