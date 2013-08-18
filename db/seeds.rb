@@ -5,8 +5,6 @@
 #
 #
 
-require 'Faker'
-
 def random_t_f
   ['true', 'false'].sample
 end
