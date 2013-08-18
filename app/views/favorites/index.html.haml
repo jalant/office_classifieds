@@ -18,7 +18,6 @@
                 %figcaption
                   %h3 Want to see this space in person?
                   %span Contact Broker: #{fav.office_listing.broker.email}
-                  / %a{:href => "#", :"data-reveal-id" => "viewings-dates-box", :remote => true, :controller => "viewings", :action => ""}
                   %a{class: "showing button", "data-reveal-id" => "viewings-dates-box", :"data-id" => fav.office_listing.id}
                     See available showings 
   #viewings-dates-box.reveal-modal

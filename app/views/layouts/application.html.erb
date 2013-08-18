@@ -18,26 +18,26 @@
     // Pusher setup
 
     $(function() { 
-    if (renterId != null) {
-      console.log(totalUnread);
-      if (totalUnread > 0) {
-        $('.foundicon-inbox').addClass('new-notifications');
-        $('.notifications-box').text("(" + totalUnread + ")")
-      }
-      var pusher = new Pusher('<%= Pusher.key %>');
-      var channel = pusher.subscribe('renter-' + renterId)
-      channel.bind('notify', function(data) {
-        var notification = $('<li class="unread" data-notification-id="' + data.notificationId +'"><a href=" ' + data.route + '"> ' + data.message + '</a></li>');
-        $('#renter-notifications .dropdown').prepend(notification);
-        totalUnread += 1;
+      if (renterId != null) {
+        console.log(totalUnread);
         if (totalUnread > 0) {
-          $('.notifications-box').text("(" + totalUnread + ")");
-          if (!$('#notifications-foundicon').hasClass('new-notifications')) {
-            $('#notifications-foundicon').addClass('new-notifications');
-          }
+          $('.foundicon-inbox').addClass('new-notifications');
+          $('.notifications-box').text("(" + totalUnread + ")")
         }
-      });
-    }
+        var pusher = new Pusher('<%= Pusher.key %>');
+        var channel = pusher.subscribe('renter-' + renterId)
+        channel.bind('notify', function(data) {
+          var notification = $('<li class="unread" data-notification-id="' + data.notificationId +'"><a href=" ' + data.route + '"> ' + data.message + '</a></li>');
+          $('#renter-notifications .dropdown').prepend(notification);
+          totalUnread += 1;
+          if (totalUnread > 0) {
+            $('.notifications-box').text("(" + totalUnread + ")");
+            if (!$('#notifications-foundicon').hasClass('new-notifications')) {
+              $('#notifications-foundicon').addClass('new-notifications');
+            }
+          }
+        });
+      }
   });
   </script>
 </head>
