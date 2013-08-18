@@ -1,4 +1,4 @@
 <% unless @neighborhood == "" %>
-  var neighborhood_name = $('<div class="neighborhood-name"><%= @neighborhood.name %><%= link_to "&#215".html_safe, preference_list_remove_neighborhood_path(renter_id: current_renter.id, neighborhood_id: @neighborhood.id), remote: true, method: "patch", class: "remove-preference" %></div>')
+  var neighborhood_name = $('<div class="neighborhood-name"><%= @neighborhood.name %> <%= link_to "&#215".html_safe, preference_list_remove_neighborhood_path(renter_id: current_renter.id, neighborhood_id: @neighborhood.id), remote: true, method: "patch", class: "remove-preference" %></div>')
   $('.neighborhoods-names').append(neighborhood_name);
 <% end %>

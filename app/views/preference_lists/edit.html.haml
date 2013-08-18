@@ -31,6 +31,7 @@
         -@renter_amenities.each do |amenity|
           .amenity-name 
             =amenity
+            =link_to "&#215".html_safe, preference_list_remove_amenity_path(renter_id: current_renter.id, amenity: amenity), remote: true, method: "patch", class: "remove-preference"
 
 .row
   .small-4.columns

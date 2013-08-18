@@ -66,16 +66,22 @@ class PreferenceListsController < ApplicationController
   def add_amenity
     @amenity = params[:amenity]
     preference_list = current_renter.preference_list
-    preference_list.reception = true if @amenity == 'Reception'
-    preference_list.light = true if @amenity == 'Light'
-    preference_list.shower = true if @amenity == 'Shower'
-    preference_list.move_in = true if @amenity == 'Move_in'
-    preference_list.high_ceiling = true if @amenity == 'High_ceiling'
-    preference_list.patio = true if @amenity == 'Patio'
-    preference_list.furniture = true if @amenity == 'Furniture'
-    preference_list.activated = true if !preference_list.activated
+    if !preference_list[@amenity.downcase]
+      preference_list[@amenity.downcase] =  true
+    else
+      @amenity = ""
+    end
     preference_list.save
+    respond_to do |format|
+      format.js
+    end
+  end
 
+  def remove_amenity
+    @amenity = params[:amenity]
+    preference_list = current_renter.preference_list
+    preference_list[@amenity.downcase] = false
+    preference_list.save
     respond_to do |format|
       format.js
     end

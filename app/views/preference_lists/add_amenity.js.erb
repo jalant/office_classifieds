@@ -1,2 +1,4 @@
-var amenity_name = $('<div class="amenity-name"><%= @amenity %></div>')
-$('.amenities-names').append(amenity_name);
+<% unless @amenity == "" %>
+  var amenity_name = $('<div class="amenity-name"><%= @amenity %> <%= link_to "&#215".html_safe, preference_list_remove_amenity_path(renter_id: current_renter.id, amenity: @amenity), remote: true, method: "patch", class: "remove-preference" %></div>');
+  $('.amenities-names').append(amenity_name);
+<% end %>
