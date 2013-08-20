@@ -15,5 +15,8 @@
 /tmp
 /public/assets
 
+# Ignore test coverage logs
+coverage
+
 config/database.yml
 .DS_STORE

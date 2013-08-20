@@ -30,6 +30,8 @@ gem 'actionpack-action_caching'
 gem 'fullcalendar-rails'
 gem 'faker'
 
+gem 'simplecov', :require => false, :group => :test
+
 
 group :production do
   gem 'rails_12factor'

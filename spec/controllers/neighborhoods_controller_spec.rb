@@ -16,5 +16,19 @@ describe NeighborhoodsController do
         get :index, :city_id => city.id
         response.should render_template :index
       end
+    describe 'GET #add_listing' do
+      it 'assigns all neighborhoods to instance variable' do
+        neighborhood = create(:neighborhood)
+        neighborhood_2 = create(:neighborhood_2)
+        get :add_listing
+        assigns(:neighborhoods).should eq([neighborhood, neighborhood_2])
+      end
+
+      it 'assigns the current city to an instance variable' do
+        city = create(:city2)
+        get :add_listing
+        assigns(:city).should eq(city)
+      end
+    end
   end
 end

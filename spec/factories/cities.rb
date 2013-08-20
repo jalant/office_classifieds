@@ -7,7 +7,7 @@ FactoryGirl.define do
     img "http://www.sunscreen.com.sg/backgrounds/Aerial_View_of_Singapore.jpg"
   end
 
-	factory :city2 do
+	factory :city2, class: City do
     name "New York"
     img "http://thejointblog.com/wp-content/uploads/2013/03/nyc-condos-near-times-square-clinton.jpg"
   end
