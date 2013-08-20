@@ -14,10 +14,13 @@ describe ViewingsController do
   describe 'POST #create' do
     let(:office_listing) { mock_model(OfficeListing.as_null_object) }
     let(:viewing) { mock_model(Viewing).as_null_object }
+    let(:renter) { mock_model(Renter).as_null_object }
+    let(:broker) { mock_model(Broker).as_null_object }
     
     before do 
       Viewing.stub(:new).and_return(viewing)
       OfficeListing.stub(:find).and_return(office_listing)
+      controller.stub(:current_broker).and_return(renter)
     end
 
     describe 'with valid attributes' do
@@ -25,7 +28,7 @@ describe ViewingsController do
         viewing.stub(:save).and_return(true)
         viewing.should_receive(:save)
         office_listing.should_receive(:add_viewing)
-        post :create, office_listing_id: office_listing.id
+        post :create, office_listing_id: office_listing.id, start_time: "3:45pm", end_time: "4:00pm", date: "12/12/2012"
       end
     end
 
@@ -34,7 +37,7 @@ describe ViewingsController do
         viewing.stub(:save).and_return(false)
         viewing.should_receive(:save)
         office_listing.should_receive(:add_viewing)
-        post :create, :office_listing_id => office_listing.id
+        post :create, office_listing_id: office_listing.id, start_time: "3:45pm", end_time: "4:00pm", date: "12/12/2012"
         assigns(:failure_message).should_not be_nil
       end
     end

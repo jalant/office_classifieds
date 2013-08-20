@@ -18,13 +18,10 @@ class ViewingsController < ApplicationController
   end
 
   def create
+    p params
     start_time = params[:start_time].to_time
     end_time = params[:end_time].to_time 
     date = params[:date].to_date
-
-    p "============================="
-    p date 
-    p "============================="
     @viewing = Viewing.new(office_listing_id: params[:office_listing_id], start_time: start_time, end_time: end_time, date: date)
     current_broker.office_listings.find(params[:office_listing_id]).viewings << @viewing
 

@@ -26,22 +26,7 @@ describe 'OfficeListings' do
       page.should have_content(office_listing_3.address)
       page.should have_content(office_listing_4.address)
     end
-  end
 
-  describe 'GET cities/:city_id/neighborhoods/:neighborhood_id/office_listings/:id' do
-    it 'displays a tiny google map' do 
-      office_listing.reload
-      visit neighborhood_office_listing_path(id: office_listing.id, neighborhood_id: neighborhood.id)
-      page.should have_css('div#map-canvas')
-    end
-
-    it 'displays the price, square footage, and lease type of a listing' do
-      visit neighborhood_office_listing_path(id: office_listing.id, neighborhood_id: neighborhood.id)
-      find('#rent').should have_content(office_listing.rent)
-      find('#size').should have_content(office_listing.size)
-      find('#lease-type').should have_content(office_listing.office_type)
-    end
-      
     it 'displays a list of amenities and adds a class of true if true in db' do
       visit neighborhood_office_listing_path(id: office_listing.id, neighborhood_id: neighborhood.id)
       page.should have_css('.kitchen_check.general.foundicon-checkmark')
@@ -51,7 +36,6 @@ describe 'OfficeListings' do
       page.should have_css('.shower_check.general.foundicon-remove')
       page.should have_css('.ceiling_check.general.foundicon-checkmark')
       page.should_not have_css('.reception_check.general.foundicon-checkmark')
-
     end
   end
 

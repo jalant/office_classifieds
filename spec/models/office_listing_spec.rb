@@ -159,7 +159,7 @@ describe OfficeListing do
         office.check_for_matching_neighborhood(renter.preference_list.neighborhoods).should be_true
       end
 
-      it 'returns true for an empty neigborhood list' do
+      it 'returns true for an empty neigborhood list when checking for matching neighbhorhood' do
         renter.add_preference_list(preference_list)
         office.check_for_matching_neighborhood(renter.preference_list.neighborhoods).should be_true
       end
@@ -247,6 +247,9 @@ describe OfficeListing do
       let(:broker_2) { create(:broker_2) }
       
       before do
+        pusher = mock_model(OfficeListing).as_null_object # this isn't good, should be an instance of Pusher, not OfficeListing
+        Pusher.stub(:[]).and_return(pusher)
+        OfficeListing.any_instance.stub(:trigger)
         OfficeListing.any_instance.unstub(:send_notifications)
       end
 
@@ -254,6 +257,8 @@ describe OfficeListing do
         office_listing_2.neighborhood = neighborhood_2
         preference_list.neighborhoods << neighborhood << neighborhood_2
         renter.add_preference_list(preference_list)
+        renter.preference_list.activated = true
+        renter.preference_list.save
         expect{ office_listing_2.save }.to change{Notification.count}.by(1)
         Notification.all.first.renter_id.should eq(renter.id)
       end
@@ -265,6 +270,10 @@ describe OfficeListing do
         preference_list_2.neighborhoods << neighborhood << neighborhood_2
         renter.add_preference_list(preference_list)
         renter2.add_preference_list(preference_list_2)
+        renter.preference_list.activated = true
+        renter2.preference_list.activated = true
+        renter.preference_list.save
+        renter2.preference_list.save
         expect{ office_listing_2.save }.to change{Notification.count}.by(2)
         Notification.all.first.renter_id.should eq(renter.id)
         Notification.all[1].renter_id.should eq (renter2.id)
@@ -278,6 +287,8 @@ describe OfficeListing do
         preference_list_2.neighborhoods << neighborhood << neighborhood_2
         renter.add_preference_list(preference_list)
         renter2.add_preference_list(preference_list_2)
+        renter.preference_list.activated = true
+        renter2.preference_list.activated = true
         expect{ office_listing_2.save }.to change{Notification.count}.by(0)
       end
     end
@@ -292,6 +303,9 @@ describe OfficeListing do
       
       before do
         OfficeListing.any_instance.unstub(:send_notifications)
+        pusher = mock_model(OfficeListing).as_null_object # this isn't good, should be an instance of Pusher, not OfficeListing
+        Pusher.stub(:[]).and_return(pusher)
+        OfficeListing.any_instance.stub(:trigger)
         office_listing_2.neighborhood = neighborhood
       end
 
@@ -299,6 +313,8 @@ describe OfficeListing do
         office_listing_2.broker = broker_2
         preference_list.brokers << broker << broker_2
         renter.add_preference_list(preference_list)
+        renter.preference_list.activated = true
+        renter.preference_list.save
         expect{ office_listing_2.save }.to change{Notification.count}.by(1)
         Notification.all.first.renter_id.should eq(renter.id)
       end
@@ -310,6 +326,10 @@ describe OfficeListing do
         preference_list_2.brokers << broker << broker_2
         renter.add_preference_list(preference_list)
         renter2.add_preference_list(preference_list_2)
+        renter.preference_list.activated = true
+        renter2.preference_list.activated = true
+        renter.preference_list.save
+        renter2.preference_list.save
         expect{ office_listing_2.save }.to change{Notification.count}.by(2)
         Notification.all.first.renter_id.should eq(renter.id)
         Notification.all[1].renter_id.should eq (renter2.id)
@@ -323,6 +343,10 @@ describe OfficeListing do
         preference_list_2.brokers << broker << broker_2
         renter.add_preference_list(preference_list)
         renter2.add_preference_list(preference_list_2)
+        renter.preference_list.activated = true
+        renter2.preference_list.activated = true
+        renter.preference_list.save
+        renter2.preference_list.save
         expect{ office_listing_2.save }.to change{Notification.count}.by(0)
       end
     end
@@ -337,6 +361,9 @@ describe OfficeListing do
 
       before do
         OfficeListing.any_instance.unstub(:send_notifications)
+        pusher = mock_model(OfficeListing).as_null_object # This isn't good -- should be an instance of Pusher
+        Pusher.stub(:[]).and_return(pusher)
+        OfficeListing.any_instance.stub(:trigger)
         office_listing_2.neighborhood = neighborhood
       end
 
@@ -350,6 +377,8 @@ describe OfficeListing do
         preference_list.brokers << broker_2 << broker
         preference_list.neighborhoods << neighborhood_2 << neighborhood
         renter2.add_preference_list(preference_list)
+        renter2.preference_list.activated = true
+        renter2.preference_list.save
         expect { office_listing_2.save }.to change{Notification.count}.by(1)
         Notification.all.first.office_listing_id.should eq(office_listing_2.id)
         Notification.all.first.renter_id.should eq(renter2.id)
@@ -363,6 +392,8 @@ describe OfficeListing do
         preference_list.brokers << broker_2 << broker
         preference_list.neighborhoods << neighborhood_2 << neighborhood
         renter2.add_preference_list(preference_list)
+        renter2.preference_list.activated = true
+        renter2.preference_list.save
         expect { office_listing_2.save }.to change{Notification.count}.by(0)
       end
     end
