@@ -9,7 +9,6 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       format.js
-      format.html { redirect_to root_path }
     end  
   end 
 
@@ -19,7 +18,6 @@ class AppointmentsController < ApplicationController
     current_renter.save
     respond_to do |format|
       format.js
-      format.html { redirect_to root_path }
     end
   end
 
@@ -29,7 +27,6 @@ class AppointmentsController < ApplicationController
     current_renter.save
     respond_to do |format|
       format.js
-      format.html { redirect_to root_path }
     end
   end
 end

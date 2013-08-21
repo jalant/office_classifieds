@@ -45,6 +45,29 @@ describe OfficeListingsController do
     end
   end
 
+  describe 'GET #brokers_listings' do
+    let(:broker) { mock_model(Broker).as_null_object }
+    let(:listing_1) { mock_model(OfficeListing).as_null_object } 
+    let(:listing_2) { mock_model(OfficeListing).as_null_object } 
+    let(:viewing) { mock_model(Viewing).as_null_object }
+    
+    before do
+      Broker.stub(:find).and_return(broker)
+      OfficeListing.stub(:where).and_return([listing_1, listing_2])
+      Viewing.stub(:new).and_return(viewing)
+      get :brokers_listings, broker_id: 1
+    end
+    it 'should have a broker' do
+      assigns(:broker).should eq(broker)
+    end
+    it 'should have a list of office listings' do
+      assigns(:listings).should eq([listing_1, listing_2])
+    end
+    it 'should have a viewing' do
+      assigns(:viewing).should eq(viewing)
+    end
+  end
+
   describe 'POST #create' do
     let(:city) { create(:city) }
     let(:neighborhood) { create(:neighborhood) } 
