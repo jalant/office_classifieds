@@ -40,14 +40,14 @@ function toggleRead(e) {
 
 function displayUserAppointments(e) {
   e.preventDefault();
-  var current_retard = $(this).data('renter-id');
+  var current_user = $(this).data('renter-id');
   var params = {
-    renter_id: current_retard
+    renter_id: current_user
   };
 
   $.ajax({
     type: 'GET',
-    url: '/renters/' + current_retard + '/appointments',
+    url: '/renters/' + current_user + '/appointments',
     data: params,
     dataType: 'script'
   });
