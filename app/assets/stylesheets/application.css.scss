@@ -259,5 +259,9 @@ nav.top-bar{
   }
 }
 
-
+#error_explanation {
+  h2, li{
+    color: $off-white-faded;
+  }
+}
 
