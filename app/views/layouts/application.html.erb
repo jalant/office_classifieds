@@ -125,7 +125,7 @@
 	    <%= f.password_field :password %>
 	    <%= f.check_box :remember_me -%>
 	    <%= f.label :remember_me -%>
-	    <%= f.submit 'Sign in' %>
+	    <%= f.submit 'Sign in', :class => "button login small" %>
 	    <%= link_to "Forgot your password?", new_broker_password_path('broker') %>
 	  <% end %>
 	</div>
@@ -140,7 +140,7 @@
 	    <%= f.password_field :password %>
 	    <%= f.check_box :remember_me -%>
 	    <%= f.label :remember_me -%>
-	    <%= f.submit 'Sign in' %>
+	    <%= f.submit 'Sign in', :class => "button login small" %>
 	    <%= link_to "Forgot your password?", new_renter_password_path('renter') %>
 	  <% end %>
 	</div>

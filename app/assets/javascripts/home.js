@@ -13,6 +13,7 @@ function renter_broker_login(e) {
   $('.signup-div').addClass('hidden');
   $('.login-div').addClass('hidden');
   $('.login').fadeIn(1000);
+  $('.login').addClass('bottom_signup');
 }
 
 function signup_action(e) {
