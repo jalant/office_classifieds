@@ -14,7 +14,6 @@ gem 'carrierwave'
 gem 'fog', '1.12'
 gem 'rmagick'
 gem 'remotipart'
-gem 'rmagick'
 
 gem 'geocoder'
 
@@ -25,11 +24,11 @@ gem 'foundation-icons-sass-rails'
 gem 'zurb-foundation'
 gem 'protected_attributes'
 gem 'rails-observers'
-gem 'actionpack', '~> 4.1.6'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
 gem 'fullcalendar-rails'
 gem 'faker'
+gem 'stellar-js-rails'
 
 gem 'simplecov', :require => false, :group => :test
 

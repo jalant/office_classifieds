@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.stellar
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require_tree .
