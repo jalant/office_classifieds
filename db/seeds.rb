@@ -32,6 +32,8 @@ broker_1 = Broker.new(email: 'leejhampton@gmail.com', password: 'password123', p
 broker_1.save!
 broker_2 = Broker.create(email: 'tanayjaln@gmail.com', password: 'password123', password_confirmation: 'password123', first_name: 'Tany', last_name: 'Jalan',
                         phone_number: '902-933-1132', address: 'Somewhere in midtown', img_url: 'placeholder.jpg', firm: 'TanayCo')
+broker_3 = Broker.create(email: 'dma@gmail.com', password: 'password123', password_confirmation: 'password123', first_name: 'David', last_name: 'Aaron',
+                        phone_number: '902-933-1132', address: 'Somewhere in midtown', img_url: 'placeholder.jpg', firm: 'DavidCo')
 renter_1 = Renter.create(email: 'tanayjaln@gmail.com', password: 'password123', password_confirmation: 'password123', first_name: 'Tany', last_name: 'Jalan')
 renter_2 = Renter.create(email: 'tanayjaln@gmail.com', password: 'password123', password_confirmation: 'password123', first_name: 'Tany', last_name: 'Jalan')
 
