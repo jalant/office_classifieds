@@ -134,7 +134,8 @@
   .amenities{
     position: absolute;
     z-index: 1000;
-    width: 90%;
+    left: 0.9375em;
+    right: 0.9375em;
   }
 
 
@@ -147,7 +148,6 @@
 
   .amenities-2{
     width: 45%;
-
     display: inline-block;
   }
 
@@ -255,11 +255,12 @@
   #basic-information-content{
     line-height: 1.25;
     padding: 10px;
-    width: 90%;
     background-color: $pink;
     text-align: center;
     color: $off-white;
     position: absolute;
+    left: 0.9375em;
+    right: 0.9375em;
     z-index: 1;
   }
 
@@ -279,7 +280,8 @@
     color: white;
     position: absolute;
     z-index: 1;
-    width: 90%; 
+    left: 0.9375em;
+    right: 0.9375em;
   }
   
   #basic-information-label, #amenities-label, #broker-information-label{
