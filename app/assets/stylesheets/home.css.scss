@@ -40,15 +40,15 @@
     background-attachment: fixed;
     // background-position: 50% 0;
     background-repeat: no-repeat;
-
-    width: 100%;
-    height: 700px;
+    background-size: 700px;
+    // width: 100%;
+    // height: 700px;
     // position: relative;
   }
 
   .new_york {
     background-image: url("new_york.jpg");
-    background-size: 100%;
+    background-size: cover;
     height: 680px;
     margin-top:-50px;
 
@@ -56,12 +56,12 @@
   }
   .singapore {
     background-image: url("singapore.jpg");
-    background-size: 100%;
+    background-size: cover;
     height: 680px;
   }
   .sf {
     background-image: url("sf.jpg");
-    background-size: 100%;
+    background-size: cover;
     height: 680px;
   }
   .hk {
