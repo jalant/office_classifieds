@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
 gem 'rails', '4.0.0'
 # gem 'rails_12factor', group: :production
 gem 'pg'
@@ -9,7 +8,7 @@ gem 'pusher'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'devise'
-gem 'nokogiri', '1.5.0'
+gem 'nokogiri'
 gem 'carrierwave'
 gem 'fog', '1.12'
 gem 'rmagick'
@@ -39,7 +38,6 @@ end
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'pry-debugger'
   gem 'pry-stack_explorer'
 
   gem 'quiet_assets'
@@ -55,7 +53,7 @@ group :development, :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'guard-rspec'
-  gem 'rb-fsevent'
+  gem 'rb-readline'
   gem "shoulda-matchers"
 end
 

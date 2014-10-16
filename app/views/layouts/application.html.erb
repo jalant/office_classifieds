@@ -120,11 +120,11 @@
 		  <a class="close-reveal-modal">&#215;</a>
 			<h3>Broker Sign In</h3>
 	    <%= f.label :email %>
-	    <%= f.text_field :email %>
+	    <%= f.email_field :email, placeholder: 'John@example.com' %><br />
 	    <%= f.label :password %>
-	    <%= f.password_field :password %>
-	    <%= f.check_box :remember_me -%>
-	    <%= f.label :remember_me -%>
+	    <%= f.password_field :password %><br />
+	    <%= f.check_box :remember_me %>
+	    <%= f.label :remember_me %><br />
 	    <%= f.submit 'Sign in', :class => "button login small" %>
 	    <%= link_to "Forgot your password?", new_broker_password_path('broker') %>
 	  <% end %>
@@ -135,11 +135,11 @@
 	  	<a class="close-reveal-modal">&#215;</a>
 			<h3>Renter Sign In</h3>
 	    <%= f.label :email %>
-	    <%= f.text_field :email %>
+	    <%= f.email_field :email, placeholder: 'John@example.com' %><br />
 	    <%= f.label :password %>
-	    <%= f.password_field :password %>
+	    <%= f.password_field :password %><br />
 	    <%= f.check_box :remember_me -%>
-	    <%= f.label :remember_me -%>
+	    <%= f.label :remember_me -%><br />
 	    <%= f.submit 'Sign in', :class => "button login small" %>
 	    <%= link_to "Forgot your password?", new_renter_password_path('renter') %>
 	  <% end %>
@@ -151,14 +151,14 @@
 		  <a class="close-reveal-modal">&#215;</a>
 		<h3>Renter Sign Up</h3>
 
-		  <div><%= f.label :email %><br />
-		  <%= f.email_field :email, :autofocus => true %></div>
+		  <div><%= f.label :email %>
+		  <%= f.email_field :email, :autofocus => true, placeholder: 'John@example.com' %></div><br />
 
-		  <div><%= f.label :password %><br />
-		  <%= f.password_field :password %></div>
+		  <div><%= f.label :password %>
+		  <%= f.password_field :password %></div><br />
 
-		  <div><%= f.label :password_confirmation %><br />
-		  <%= f.password_field :password_confirmation %></div>
+		  <div><%= f.label :password_confirmation %>
+		  <%= f.password_field :password_confirmation %></div><br />
 
 		  <div><%= f.submit "Sign up", :class => "button signup small" %></div>
 		 <% end %>
@@ -170,14 +170,14 @@
 		  <a class="close-reveal-modal">&#215;</a>
 		<h3>Broker Sign Up</h3>
 
-		  <div><%= f.label :email %><br />
-		  <%= f.email_field :email, :autofocus => true %></div>
+		  <div><%= f.label :email %>
+		  <%= f.email_field :email, :autofocus => true, placeholder: 'John@example.com' %></div><br />
 
-		  <div><%= f.label :password %><br />
-		  <%= f.password_field :password %></div>
+		  <div><%= f.label :password %>
+		  <%= f.password_field :password %></div><br />
 
-		  <div><%= f.label :password_confirmation %><br />
-		  <%= f.password_field :password_confirmation %></div>
+		  <div><%= f.label :password_confirmation %>
+		  <%= f.password_field :password_confirmation %></div><br />
 
 		  <div><%= f.submit "Sign up", :class => "button signup small" %></div>
 		 <% end %>
