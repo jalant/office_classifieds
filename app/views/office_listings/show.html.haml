@@ -68,7 +68,7 @@
           -if current_renter && !current_renter.office_listings.include?(@office_listing)
             =button_to "Add to Favorites", {:controller => "favorites", :action => "create", :renter_id => current_renter.id, :favorite => {renter_id: current_renter.id, office_listing_id: @office_listing.id}, :office_listing_id => @office_listing.id}, :method => :post, :remote => true, class: "button favorite-button "
           -else
-            =mail_to "#{@office_listing.broker.email}", "Contact Broker", class: "button favorite-button", subject: "Hi #{@office_listing.broker.first_name}, I'm interested in your listing at #{@office_listing.address}!", target:"_blank"
+            =mail_to "#{@office_listing.broker.email}", "Contact Broker", class: "button favorite-button", subject: "Hi #{@office_listing.broker.first_name}, I'm interested in your listing at #{@office_listing.address}", target:"_blank"
             //=button_tag "Contact Broker Now", class: "button favorite-button"
 
       .row    
